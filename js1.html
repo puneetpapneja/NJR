@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    // for(let i =1; i< 5; i++){
+    //     document.write("<b>hello</b> <br />");
+    // }
+    
+    // const handleClick = () => {
+
+    // }   
+
+    const handleClick =  () => {        
+        const txtElement = document.getElementById("txt_number");
+        //document.write("clicked event triggered value is " + txtElement.value );
+        txtElement.value = 100;
+       // console.log("value is "+ txtElement.value);
+    }
+
+    const clickHandler = (callback) => {
+        callback();
+    }
+</script>
+
+
+<body>
+    <input type="text" id="txt_number" /> 
+    <input type="button" value ="click"
+     onclick="clickHandler(handleClick)" />
+</body>
