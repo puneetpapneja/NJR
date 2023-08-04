@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const validateemail = ()=>{
+        const email = document.getElementById("email");
+        const error = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // if(error.test(email.value)){
+        //     alert("valid email");
+        // }
+        if(error === email.value){
+            alert("valid email");
+        }
+        else{
+            alert("invalid email")
+        }
+        }
+    </script>
+</head>
+<body>
+    <form action="" onsubmit="return validateemail()">
+        <input type="text" name="" id="email">
+        <button>validate</button>
+    </form>
+</body>
+</html>

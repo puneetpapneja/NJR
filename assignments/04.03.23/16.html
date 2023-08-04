@@ -1,0 +1,26 @@
+<script>
+    let obj = new Map();
+    obj.set(1,"ram");
+    obj.set(true,"vaibhav");
+    obj.set(3,"jyam");
+
+    // obj.delete(true);
+    console.log('length',obj.size,"value",obj.get(true));
+
+    const arr = new Set([1,2,3,4,5,2,3,5]);
+    arr.add(5);
+    console.log(arr,arr.size)
+
+    // let c = a || b pipe does not treat Nan as a no.
+    // let c = a ??  b or a ? a:b;  pipe does not treat Nan as a no.
+    const obj1={
+        name:"ram",
+        email:"vaibhh@gmail.com",
+        add:{
+            prim:"prim",
+            second:"second",
+        }
+    }
+    console.log(obj1?.add?.prim);
+    console.log(obj1.add&&obj1.add.second);
+</script>

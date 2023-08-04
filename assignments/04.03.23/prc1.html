@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav{
+            display: flex;
+            list-style-type: none;
+            gap: 40px;
+        }
+        li a{
+            text-decoration: none;
+            color: black;
+        }
+        li a:hover{
+            color: red;
+        }
+
+        .slider, .Home, .contact{
+            background-color: rgb(179, 255, 0);
+            height: 25%;
+        }
+        .slider h1, .Home h1, .contact h1{
+            display: flex;
+            justify-content: center;
+            height: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LOGO</h1>
+        <ul class="nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+    </div>
+
+    <div class="slider">
+        <h1>Slider</h1>
+    </div>
+
+    <div class="Home">
+        <h1>Home</h1>
+    </div>
+    
+    <div class="contact">
+        <h1>contact</h1>
+    </div>
+</body>
+</html>

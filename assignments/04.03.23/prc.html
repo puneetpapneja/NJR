@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin-left: 300px;
+            width: 550px;
+            height: 230px;
+            border: solid;
+            align-content: center;
+            
+        }
+        .container div input{
+            width: 150px;
+            height: 30px;
+        }
+        .container div button{
+            display: inline;
+            width: 100px;
+            height: 30px;
+            margin-top: 5px;
+            margin-left: 110px;
+            
+        }
+        .st2{
+            width: 200px;
+            margin-left: 170px;
+        }
+        .st1{
+            display:flex;
+            justify-content: space-around;
+            margin: 10px;
+            margin-left: -20px;
+            width: 600px;
+            height: 50px;
+        }
+    </style>
+    <script type="text/JavaScript">
+        
+        const add=() =>{
+            const fv = document.getElementById("text1");
+            const sv = document.getElementById("text2");
+            const result = document.getElementById("ans");
+            if(fv.value === "" && sv.value === ""){
+                result.value = "please write";
+                return;
+            }
+            result.value = parseInt(fv.value)+parseInt(sv.value);
+        }
+        const sub=() =>{
+            const fv = document.getElementById("text1");
+            const sv = document.getElementById("text2");
+            const result = document.getElementById("ans");
+            if(fv.value === "" && sv.value === ""){
+                result.value = "please write";
+                return;
+            }
+            result.value = parseInt(fv.value)-parseInt(sv.value);
+        }
+        const mul=() =>{
+            const fv = document.getElementById("text1");
+            const sv = document.getElementById("text2");
+            const result = document.getElementById("ans");
+            if(fv.value === "" && sv.value === ""){
+                result.value = "please write";
+                return;
+            }
+            result.value = parseInt(fv.value)*parseInt(sv.value);
+        }
+        const div=() =>{
+            const fv = document.getElementById("text1");
+            const sv = document.getElementById("text2");
+            const result = document.getElementById("ans");
+            if(fv.value === "" && sv.value === ""){
+                result.value = "please write";
+                return;
+            }
+            result.value = parseInt(fv.value)/parseInt(sv.value);
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="st1">
+            <div>
+                <label for="">Value 1</label><br>
+                <input type="number" id="text1" placeholder="enter 1 value">
+            </div>
+            <div>
+                <label for="">Value 2</label><br>
+                <input type="number" id="text2" placeholder="enter 2 value">
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div>
+                <button id="a1" onclick="add()">add </button>
+                <button id="s1" onclick="sub()">sub </button>
+                <br>
+                <button id="m1" onclick="mul()">mul </button>
+                <button id="d1" onclick="div()">div </button>
+            </div>
+            <hr>
+            <div class="st2">
+                <label for="">Result</label><br>
+                <input type="text" name="" id="ans">
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

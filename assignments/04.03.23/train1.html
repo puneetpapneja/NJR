@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let x = "walcome to to to to vaibhav world";
+        // let z = " better than disney world"
+        // console.log(x.concat(z));//concat
+        // console.log(x.length);//length
+        // let y = x.trimStart();//trim
+        // console.log(x.toUpperCase());//Upper
+        // console.log(x.toLowerCase());//Lower
+        // console.log(x.slice(0,3));//slice
+        // console.log(x.slice(3));
+        // console.log(x.slice(-13,-1));
+        // console.log(x.substring(0,7));//substring
+        // console.log(x.substr(0,20));// for length extracting 
+        // console.log(x.replace(/to/g,"is to"));
+        // console.log(str.padstart(20,"0"));
+        // console.log(y.length)
+        // json
+        const student = {
+            firstName:"vaibhav",
+            LastName:"Garg",
+            Email:"vaibhavgarg977@gmail.com",
+            course: "CSE",
+            contact:7694902568,
+            address: {
+                primary: "primary add",
+                secondary: "secondary add"
+            }
+        }
+        console.log(student.firstName.replace("vaibhav","vijay"));
+        // std();
+        // function std(){
+        //     for(let i=0;i<10;i++){
+        //         console.log(student)
+        //     }
+        // }
+
+        // const newobj= JSON.parse(JSON.stringify(student));
+        // newobj.Email = "raj34@gmail.com";
+        // newobj.address = "udaipur";
+        // // console.log("new OBJ = "+newobj.Email+" student = "+student.Email+" new address = ",newobj.address)
+        // console.log
+
+        const st1 = {};
+        
+
+    // const value = Object.values(student);
+    const keys = Object.keys(student);
+    for(let i=0;i<keys.length;i++){
+    console.log(keys[i]+"="+student[keys[i]]);
+    }
+    var date = new Date();
+    console.log(new Date());
+    console.log(1+date.getMonth());
+    console.log(date.getDate());
+    </script>
+</head>
+<body>
+    hello
+</body>
+</html>

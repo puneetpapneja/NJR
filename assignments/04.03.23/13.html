@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        a = [1,4,6,3,6,7,3,10];
+        // for(let i =0;i<=a.length;i++)
+        // {
+        //     console.log(a[i]);
+        // }
+        // a.forEach((index,item)=>
+        // {
+        //     console.log(index, item);    
+        // })
+        // const newarr = a.map((item)=> item*3);
+        // console.log(newarr);
+        // const newa1 = [];
+        // a.forEach((item)=>{
+        //     newa1.push(item*2);
+        // })
+        // console.log(newa1)
+        // console.log(a.includes(4));
+        // console.log(newa1.indexOf(8));
+        a.sort((curr, next)=> curr - next);
+        console.log(a);
+        console.log("a = ",)
+        console.log(a,a.shift());
+        console.log("after",a)
+        a.unshift(12,23,43);
+        console.log("after",a)
+    </script>
+</body>
+</html>

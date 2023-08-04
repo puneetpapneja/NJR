@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin-left: 300px;
+            width: 550px;
+            height: 230px;
+            border: solid;
+            align-content: center;
+            
+        }
+        .container div input{
+            width: 150px;
+            height: 30px;
+        }
+        .container div button{
+            display: inline;
+            width: 100px;
+            height: 30px;
+            margin-top: 5px;
+            margin-left: 110px;
+            
+        }
+        .st2{
+            width: 200px;
+            margin-left: 170px;
+        }
+        .st1{
+            display:flex;
+            justify-content: space-around;
+            margin: 10px;
+            margin-left: -20px;
+            width: 600px;
+            height: 50px;
+        }
+    </style>
+    <script type="text/JavaScript">
+        const clickhandler = (callback) => {
+            const fv = document.getElementById("text1");
+            const sv = document.getElementById("text2");
+            const result = document.getElementById("ans");
+            if(fv.value === "" && sv.value === ""){
+                result.value = "please write";
+                return;
+            }
+            result.value = callback(fv.value,sv.value);
+        }
+        const add = (a,b) => parseInt(a)+parseInt(b);
+        const sub = (a,b) => parseInt(a)-parseInt(b);
+        const mul = (a,b) => parseInt(a)*parseInt(b);
+        const div = (a,b) => parseInt(a)/parseInt(b);
+        const handlechange = ()=>
+        {
+            document.write("event is triggered")
+        }
+        const handlekeypress = ()=>
+        {
+            document.write("event is triggered")
+        }
+        const handlechange = ()=>
+        {
+            document.write("event is triggered")
+        }
+        // onload, onsubmit, ondblclick, onmouseover, onchange, onkeypress, 
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="st1">
+            <div>
+                <label for="">Value 1</label><br>
+                <input type="number" id="text1" placeholder="enter 1 value">
+            </div>
+            <div>
+                <label for="">Value 2</label><br>
+                <input type="number" id="text2" placeholder="enter 2 value">
+            </div>
+        </div>
+        <hr>
+        <div>
+            <div>
+                <button id="a1" onclick="clickHandler(add)">add </button>
+                <button id="s1" onclick="clickHandler(sub)">sub </button>
+                <br>
+                <button id="m1" onclick="clickHandler(mul)">mul </button>
+                <button id="d1" onclick="clickHandler(div)">div </button>
+            </div>
+            <hr>
+            <div class="st2">
+                <label for="">Result</label><br>
+                <input type="text" name="" id="ans">
+            </div>
+        </div>
+        <input type="text" name="" id="" onchange="handlechange()">
+    </div>
+    
+    
+</body>
+</html>

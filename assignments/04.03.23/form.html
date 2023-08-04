@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container form{
+            border: solid;
+            height: 340px;
+            width: 800px;
+            display: block;
+            justify-content: center;
+        }
+        .container form label, input, button, select{
+            margin: 10px;
+
+            margin-left: 50px;
+        }
+        .container form span{
+            color: red;
+        }
+    </style>
+     <script>
+        function handlesubmit()
+        {
+            const fname = document.getElementById("txt_name");
+            const femail = document.getElementById("txt_email");
+            const fpass = document.getElementById("txt_pass");
+            const fcpass = document.getElementById("txt_cpass");
+            const fgender = document.getElementById("txt_gen");
+            const fdob = document.getElementById("txt_dob");
+
+            const errormsg1 = document.getElementById("error1");
+            const errormsg2 = document.getElementById("error2");
+            const errormsg3 = document.getElementById("error3");
+            const errormsg4 = document.getElementById("error4");
+            const errormsg5 = document.getElementById("error5");
+            let flag = true;
+            if(txt_name.value === ""){
+                errormsg1.innerHTML="Enter Name";
+                flag = false;   
+            }
+            if(txt_email.value === ""){
+                errormsg2.innerHTML="Enter Email";
+                flag = false;
+            }
+            if (txt_pass.value === ""){
+                errormsg3.innerHTML="Enter Password";
+                flag = false;
+            }
+            if (txt_cpass.value === ""){
+                errormsg4.innerHTML="Enter Confirm Password";
+                flag = false;
+                return flag ;
+            }
+            if (txt_gen.value === ""){
+                errormsg5.innerHTML="Enter Gender";
+                flag = false;
+            }
+
+            return flag; 
+        }
+        const handlechange = (event) =>{
+            console.log(event.keyCode);
+            return true;
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="return handlesubmit()">
+            <label for="">Name</label>
+            <input type="text" id="txt_name" onkeypress="handlechange(event)">
+            <span id="error1"></span>
+            <br>
+            <label for="">Email</label>
+            <input type="email" id="txt_email">
+            <span id="error2"></span>
+            <br>
+            <label for="">Password</label>
+            <input type="password" id="txt_pass">
+            <span id="error3"></span>
+            <br>
+            <label for="">Confirm Password</label>
+            <input type="password" id="txt_cpass">
+            <span id="error4"></span>
+            <br>
+            <label for="">Gender</label>
+            <span><input type="radio" id="html" name="fav_language" value="HTML"></span>
+            <label for="html">Male</label>
+            <span><input type="radio" id="css" name="fav_language" value="CSS"></span>
+            <label for="css">Female</label>
+            <span id="error5"></span>
+            </div>
+            <br> 
+            
+            <select id="date">
+                <option value="" id="">Day</option>
+                <script>
+                function handledob(){
+                    const dob_month = document.getElementById("txt_month").value;
+                    const day = document.getElementById("date");
+                    if (dob_month==="febraury"){
+                        for(let i=1;i<=28;i++){
+                            day.value = "<option value="+i+">"+i+"</option>";
+                            return;
+                        }
+                    }
+                    else if (dob_month==="january" || dob_month=="march" || dob_month=="may" || dob_month=="july" || dob_month=="september" || dob_month=="october" || dob_month=="december" ){
+                    for(let i=1;i<=31;i++){
+                        document.write("<option value="+i+">"+i+"</option>");
+
+                    }
+                    }
+                    else{
+                        for(let i=1;i<=30;i++){
+                        document.write("<option value="+i+">"+i+"</option>");
+                    }
+                    }
+                  }
+                </script>
+            </select>
+            <select name="" id="">
+                <option value="">vg</option>
+                <script>
+                    for(let i=1;i<=28;i++){
+                        document.write("<option value="+i+">"+i+"</option>");
+                    }
+                </script>
+            </select>
+            <select id="txt_month" onchange="return handledob()">
+                <option value="">Month</option>
+                <option value="january">january</option>
+                <option value="febraury">febraury</option>
+                <option value="march" >march</option>
+                <option value="april" >april</option>
+                <option value="may" >may</option>
+                <option value="june" >june</option>
+                <option value="july" >july</option>
+                <option value="August" >August</option>
+                <option value="september" >september</option>
+                <option value="october" >october</option>
+                <option value="November" >November</option>
+                <option value="december" >december</option>
+            </select>
+            <select id="">
+                <option value="">Year</option>
+                <script>
+                     for(let i=1950;i<=2023;i++){
+                    document.write("<option value="+i+">"+i+"</option>")
+                    }
+                </script>
+            </select> 
+             <br>
+            <input type="checkbox" id="">Accept terms and condition
+            <br> 
+            <button>Signup</button>
+        </form>
+    </div>
+</body>
+</html>

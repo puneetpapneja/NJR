@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function starprint(){
+           let n= document.getElementById("inputdata").value;
+            for(let i=1;i<=n;i++)
+            {
+                for(let j=0 ;j<i;j++){
+                    document.write("*");
+                
+                }
+                document.write("<br/>");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="inputdata">
+    <br>
+    <button onclick="starprint()">Click me</button>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<script>
+    // setTimeout(() => console.log("message from timeout"),3000);
+    var timer = null;
+    function startrun(){
+        timer = setInterval(() => console.log("message from timeout",new Date()),3000);
+    }
+    function endrun(){
+        clearTimeout(timer);
+    }
+    function handletitle(){
+        const title = document.getElementById("txt_title").value;
+        document.title = title;
+    }
+    
+</script>
+<body>
+    <form action="">
+        <input type="text" name="" id="txt_title">
+        <button onclick="handletitle()">Title</button>
+        <input type="button" name="" id="">reload
+        <input type="button" name="" id="">
+    <div>
+        <button id="start" onclick="startrun()">start</button>
+    </div>
+    <div>
+        <button id="end" onclick="endrun()">end</button>
+    </div>
+</form>
+</body>
