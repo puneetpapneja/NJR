@@ -1,0 +1,17 @@
+<script>
+    const obj = {
+        name: "Sudeep",
+        email: "sudeeproy@gmail.com",
+        contact:9602712214,
+        address:{
+            primary: "primary address",
+            secondary: "secomdary address",
+        }
+    }
+    const{name, email: emailid, contact, address= {
+        primary: "",
+        secondary: ""
+    }} = obj;
+    console.log(name, emailid, address?.primary);
+
+</script>
