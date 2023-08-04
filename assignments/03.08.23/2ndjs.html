@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <script>
+            var a=30 ;
+            var b = 20;
+           /* if(a>b){
+                alert("Value of a  is : "+a); //alert box//
+            }*/
+
+           /* var x=confirm("Do you like our website");
+            if(x){alert("Thanks");}
+            else                        //confirm box//
+            {
+                alert("Sorry");
+            } */
+ 
+           var per=prompt("Enter ur percentage"); //prompt box//
+            if(per>=80 && per<=100){
+                document.write("You are in merit");
+            }else if(per>=60 && per<=80)
+            {
+                document.write("You are in  1st div");
+            }else if(per>=45 && per<=60)
+            {
+                document.write("You are in 2nd div");
+            }else if(per>=33 && per<=45)
+            {
+                document.write("You are in 3rd div");
+            }
+
+
+
+            (a>20)? b="True": b="False"; //ternary operator//
+            document.write(b);
+            document.write("<br>");
+
+            switch(true){   //switch case//
+                case(a>=18) :
+                document.write("You are adult");
+                break;
+                case(a<=18):
+                document.write("You are not adult");
+                break;
+            }
+
+            //functions//
+           var temp= ABC("Arvind","Suthar");
+           document.write(temp);
+
+            function ABC(fname,lname){
+                document.write("<br>");
+               return fname+lname;
+            }
+
+        </script>
+    </body>
+</html>

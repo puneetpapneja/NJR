@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Template</title>
+    </head>
+    <body>
+        <script>
+            /* template String */
+            let user ="Arvind Suthar";
+            let marks =350;
+            document.write(`Hello ${user} your marks is ${marks} `);
+            document.write("<br>");
+            
+
+            let firstname = "Arvind";
+            let lname = "Suthar";
+            function Fullname(firstname,lname){
+                return `${firstname} ${lname}`;
+            }
+            let total = `Hello ${Fullname(firstname,lname)} welcome`;
+            document.write(total);
+
+            /*Arrow Function */
+            let wel = function(name){
+                return `Welcome ${name}`;
+            }
+            console.log("Arvind Bhai");
+
+            let t =(name,no) =>{
+                return `Welcome ${name} ${no}`;
+            }
+            console.log("Jalore se,10");
+
+            /* Rest operator*/
+            function sum(name,...args){
+                console.log(arguments);
+                document.write(`<br> hello ${name}  Your marks: `);
+
+                let sum =0;
+                for( let i in args){
+                    sum += args[i];
+                }
+                document.write(sum);
+            }
+                
+                sum("Arvind sa",10,20,30);
+            
+        </script>
+    </body>
+</html>

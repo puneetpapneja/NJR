@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async and await</title>
+</head>
+<body>
+    <script>
+
+        /*async function */
+        const getdata = async() =>{
+            let data ="Hello world";
+            return data;
+        }
+        getdata().then(data =>document.write(data));
+        getdata().catch(document.write("Error h <br>"));
+
+        
+
+        /* await function*/
+        async function test(){
+            console.log("a");
+            await console.log("b");
+            console.log("c");
+        }
+        test();
+        console.log("d");
+        console.log("e");
+    </script>
+    
+</body>
+</html>
