@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image resizing</title>
+    <style>
+        .division{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <h1>resize the following image</h1>
+    <div class="division">
+    <img src="\html\cafe img\coffeecup.png" alt="coffee cup" id="cup">
+    <div id="block" style="margin: 10vw;">
+        <span>height</span> <br>
+        <input type="text" id="height" value="0"> <br>
+        <span>width</span> 
+        <br>
+        <input type="text" id="width" value="0"> <br> <br>
+        <input type="button" value="set" onclick="resize()">
+    </div>
+</div>
+    <script>
+        const resize = () =>{
+            const im = document.getElementById("cup");
+            const h = document.getElementById("height");
+            const w = document.getElementById("width");
+           
+            if(Number(h.value) != 0){
+                console.log("value of height ", h.value);
+                im.style.height = h.value +"%";
+            }
+            if(Number(w.value) != 0){
+                im.style.width = w.value+"%";
+            }
+        }
+    </script>
+</body>
+</html>

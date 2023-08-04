@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modal popup</title>
+    <style>
+      .canvas {
+        max-width: 98vw;
+        height: 90vh;
+        background: linear-gradient(-45deg, blue, magenta);
+        padding-top: 2em;
+        box-shadow: 1em 1em 2em black;
+      }
+      #popup-bttn {
+        background-color: rgb(104, 0, 149);
+        color: black;
+        text-decoration: none;
+        padding-left:0.4em ;
+        padding-right:0.4em ;
+        padding-top:0.4em ;
+        padding-bottom:0.4em ;
+        border: 0.01em solid black;
+      }
+      #popup {
+        display: none;
+        position: absolute;
+        top: 8em;
+        left: 25vw;
+        width: 50%;
+        height: 50%;
+        border: 0.5em solid white;
+        background: linear-gradient(-45deg, red, yellow);
+        padding-top: 2em;
+        box-shadow: 1em 1em 2em black;
+      }
+      #popup:target {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <div class="canvas">
+        <center>
+          <h1>THIS IS THE BODY OF THE PAGE!!</h1>
+        </center>
+        <div>
+          <center>
+            <h2>
+              AND CLICKING <a id="popup-bttn" href="#popup">HERE</a> WOULD OPEN
+              THE POPUP.
+            </h2>
+          </center>
+        </div>
+      </div>
+    </center>
+    <center>
+      <div id="popup">
+        <span style="font-size: 2em">THIS IS THE POPUP!</span
+        ><span style="float: right; margin-right: 1em; font-size: 2em;"
+          ><a href="#" style="color: white;text-decoration: none;border: 0.1em solid white;padding-left: 0.2em;padding-right: 0.2em;"><b>&times;</b></a></span
+        >
+        <hr />
+        <center><b><p style="font-size: 1.2em;">And this is the content of the popup.</p></b></center>
+        <center>
+          <p style="font-size: 1.2em;text-align: justify;padding-left: 2em;padding-right: 2em;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, quae?
+            Laboriosam hic possimus officiis corporis ut minus sunt veniam
+            reprehenderit veritatis voluptate nisi rerum delectus iure nihil,
+            quas neque consectetur fuga dolorem dolor laudantium repellat libero
+            harum! Unde, vel similique, sit quas consectetur nisi dolores quasi
+            possimus officia obcaecati cumque!
+          </p>
+        </center>
+
+      </div>
+    </center>
+  </body>
+</html>

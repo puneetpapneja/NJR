@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>operations</title>
+</head>
+<body>
+    <h1>even odd</h1>
+    <input type="text" id="no"> &emsp;
+    <input type="button" value="click" onclick="even_odd()">
+    <script>
+        const even_odd = () =>{
+            let no =document.getElementById("no");
+            if(no.value % 2 == 0){
+                document.write("number is even");
+            }
+            else if(no.value % 2 != 0){
+                document.write("number is odd");
+            }
+            else{
+                document.write("invalid input")
+            }
+        }
+    </script>
+    <!-- -------------------------------------------------------------------------------------------- -->
+    <br>
+    <br>
+    <hr>
+    <h1>calculate</h1>
+    <br>
+    <input type="text" id="no1">&emsp;
+    <input type="text" id="no2"><br> <br>
+    <input type="button" value="add" onclick="caller(add)"> &emsp;
+    <input type="button" value="sub" onclick="caller(sub)"> &emsp;
+    <input type="button" value="multiply" onclick="caller(mul)"> &emsp;
+    <input type="button" value="divide" onclick="caller(div)">
+
+    <script>
+        const add = (a,b) =>a+b;
+        const div = (a,b) =>a/b;
+        const mul = (a,b) =>a*b;
+        const sub = (a,b) =>a-b;
+        const caller = (fun) =>{
+            let no1=document.getElementById("no1");
+            let no2=document.getElementById("no2");
+            let c = fun(Number(no1.value),Number(no2.value));
+            document.write(c)
+        }
+    </script>
+    <!-- ------------------------------------------------------------------------------------ -->
+    <br>
+    <br>
+    <hr>
+    <h1>armstrong</h1>
+    <br>
+    <input type="text" id="num"> &emsp;
+    <input type="button" value="check" onclick="armstrong()">
+    <script>
+        const armstrong = () =>{
+            const no = document.getElementById("num");
+            let sum= 0;
+            let num= Number(no.value);
+            while(num){
+                sum+=(num%10)**3;
+                num=Math.floor(num/10);
+            }
+            // document.write(sum)
+            if(sum==Number(no.value))
+            {
+                document.write("is armstrong")
+            }
+            else
+            {
+                document.write("is not armstrong")
+            }
+        }
+    </script>
+    <br>
+    <br><hr>
+</body>
+</html>

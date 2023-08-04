@@ -1,0 +1,20 @@
+body{
+    background-image: url("https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") ;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.canvas{
+    background-color:rgba(256, 256, 256, 0.4);
+    width: 75vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2em;
+}

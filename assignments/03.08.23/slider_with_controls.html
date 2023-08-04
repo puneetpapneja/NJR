@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <img src="" alt="deal with it" id="image">
+    <br>
+    <br>
+    <input type="button" value="prev" onclick="set_index(-1)"> &emsp;
+    <input type="button" value="next" onclick="set_index(1)">
+    <script>
+        images = [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDhogdKLDmc0r84QtTPiWl1GaTEuUWErOy1w&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSObxYYxopjhToAz1FcnV77gpL_JAyD0DlXpw&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpGBP_WqpVfxomdZSf0fc8BFQlYQYBMD72uA&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl5yCb8bRtQma8wS8CrPFFpSbU3KCfuo-5qAwJHtiGsgME7B7ghLYCxwtFUBGXao0lO8g&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzGyWyWKY1EIZyjd4zlb7ky48CUJyeNBPewA&usqp=CAU"
+        ]
+        const image = document.getElementById("image")
+        image.src=images[0];
+        let index=0;
+        function img_src(){
+            if(index!=4)
+            {
+                index+=1;
+            }
+            else
+            {
+                index = 0;
+            }
+            image.src =images[index];
+            console.log(index,new Date)
+        }
+        let timmer = setInterval(img_src,6000);
+        const set_index = (no) =>{
+            clearInterval(timmer);
+            if(no==-1)
+            {
+                if(index!=0)
+                {
+                    index-=1;
+                }
+                else
+                {
+                    index=4;
+                }
+            }
+            else
+            {
+                if(index!=4)
+                {
+                    index+=1;
+                }
+                else
+                {
+                    index=0;
+                }
+            }
+            console.log(index,new Date)
+            image.src = images[index];
+            timmer = setInterval(img_src,6000);
+        }
+    </script>
+</body>
+</html>
