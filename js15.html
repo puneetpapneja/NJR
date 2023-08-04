@@ -8,27 +8,27 @@
     <script>
         let addmission = { 
             course: "Btech.",
-            fees: 24000,
+            fees: 30000,
             years: 4
         }
     
     
         let student = {
-            name: "Jitesh",
-            contact: 986678896,
-            email: "jitesh.goyal@gmail.com",
+            name: "shubham",
+            contact: 9079187616,
+            email: "shubham@gmail.com",
             address: {
-                primary: "primary address",
+                primary: "udaipur",
                 secondary: "secondary address"
             },
             __proto__:addmission
         }
     
-        const {email, ...restFields} = student;
+        const {name, ...restFields} = student;
         console.log(restFields);
         
         const newObj = {...restFields};
-        restFields.address.primary = "test";
+        restFields.address.primary = "shubham";
         console.log("new Obj", newObj);
     
         // const {name, contact, email,
