@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <title>
+            arary and multidimensional arary;
+        </title>
+        <script>
+            document.write("<ul>");
+                var sum=0;
+                var arr=[10,20,30,40,50,60];
+                for(var i=0;i<6;i++){
+                    document.write(arr[i]+"<br>");
+                   sum=sum+arr[i]; 
+                }
+                document.write("Total is: "+ sum);
+                document.write("</ul>");
+
+                //multidimensional arary//
+
+                var temp=[
+                            ["asrter",10,"male","Btech"],
+                            ["bswerw",10,"femal","BCA"],
+                            ["Caefwe",15,"Male","Bcom"],
+                         ];
+                         document.write(temp.length);
+                         document.write("<table border='2px' cellspacing='0px'>");
+
+                 for(var a=0;a<temp.length;a++){
+                    document.write("<tr>");
+                    for(var b=0;b<temp.length;b++){
+                        document.write("<td>"+temp[a][b]+"</td>");
+                    }
+                    document.write("</tr>");
+                 }
+                 document.write("</table>");
+
+                 //array map function
+                 document.write("<br>");
+                 var abc=[1,2,3,4,5];
+                 var b=abc.map(test);
+                 document.write(b);
+
+                 function test(abc){
+                    return abc*10;
+                 }
+        </script>
+    </body>
+</html>

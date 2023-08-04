@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            //object
+            var a={fname:"Arvind",
+                    lname:" Suthar",
+                    age:20,
+                    country:"India",
+                    favmovies:["Sholay","Tere Naam","Hum"],
+                    salary:function(){
+                        return 25000;
+                    },
+                    fullname:function(){
+                        return this.fname+this.lname;
+                    },
+                    living:{
+                        city:'Jaipur',
+                        country:"Bharat",
+                    }
+                    };
+
+                    /*it will change age for current object only wont change at age:20 */
+                    const newobj =JSON.parse(JSON.stringify(a)); 
+                    newobj.age =21;
+                    console.log(newobj.age);
+
+
+                    const keys = Object.keys(a);
+                    for (let i=0;i<keys.length;i++){
+                        const curkey = keys[i];
+                        console.log(curkey+"="+a[curkey]);
+                    }
+
+           console.log(a);        
+            document.write(a.country+"<br>");
+            document.write(a.favmovies[1]+"<br>");
+            document.write(a.salary()+"<br>");
+            document.write(a.fullname()+"<br>");
+            document.write(a.living.city+"<br>");
+            document.write("<br>");
+
+
+            //forin loop-To print all above data.
+            for(var key in a){
+                document.write(key+":"+a[key]+"<br>");
+            }
+            //Array of objects
+            var arr=[
+                    { Name:"Ram",age:21},
+                    { Name:"Sita",age:18}
+                    ];
+            for(var i=0;i<arr.length;i++){
+                document.write(arr[i].age);
+                document.write("<br>");
+            }
+            //constant in array
+            const as=[10,15,20,25,30];
+            as[0]=5;
+            console.log(as);
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        </script>
+    </body>
+</html>
