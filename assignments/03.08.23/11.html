@@ -1,0 +1,30 @@
+<script>
+    let a = [1,4,5,6,3,2,1];
+
+
+
+
+    //a.forEach(item, idx)=>{
+    //console.log(item, idx);
+    //}
+
+    
+   // const printArray =(item, idx)=>{
+    //console.log(item, idx);
+    //}
+
+    const newArr = [];
+    a.forEach((item) => {
+        newArr.push(item *2);
+    })
+    //const newArr = a.map((item) => item *2);
+    //console.log(newArr.includes(4));
+    //console.log(newArr.indexOf(1));
+    console.log(a.lastIndexOf(4));
+    a.sort((curEle, nextEle) => curEle - nextEle);
+    console.log("after sort",a);
+    console.log("a =", a , a.shift());
+    console.log("after shift", a);
+    a.unshift(12,45,67);
+    console.log("after unshift", a);
+    </script>
