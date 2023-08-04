@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        .contener{
+            height: 400px;
+            width: 80%;
+            background-color: bisque;
+            display: flex;
+            text-align: left;
+            justify-content: center;    
+        }
+        .name{
+            margin: 10px;
+        }
+        .name input{
+            margin-left: 90px;
+        }
+        .email{
+            margin: 10px;
+        }
+        .email input{
+            margin-left: 85px;
+        }
+        .password{
+            margin-left: 10px;
+        }
+        .password input{
+            margin-left: 71px;
+        }
+        .conf_password{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .conf_password input{
+            margin-left: 12px;
+        }
+        .Gender{
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        .male{
+            margin-left: 75px;
+        }
+        .female{
+            margin-left: 10px;
+        }
+        .DOB{
+            margin-top: 10px;
+            margin-left: 10px;
+
+        }
+        .DOB input{
+            margin-left: 95px;
+        }
+        .terms{
+            margin-top: 10px;
+            margin-left: 15px;
+
+        }
+        .submit{
+            text-align: center;
+            align-items: center;
+            margin-top: 12px;
+        }
+        #sec{
+            display: inline;
+            margin-left: 90px;
+        }
+        span{
+            color: red;
+        }
+
+    </style>
+
+<script>
+    function handleform(){
+        const txt_name = document.getElementById("txt_name");
+        let txt_email = document.getElementById("txt_email");
+        let txt_psd = document.getElementById("txt_psd");
+        let txtconf_psd = document.getElementById("txt_confpsd");
+        let errormsg=document.getElementById("errormsg")
+        if(txt_name.value === ""){
+            errormsg.innerHTML="Enter Name";
+            return false;
+        }
+        return true; 
+    }
+</script>
+</head>
+<body>
+    <div class="contener">
+    
+      <form onsubmit=" return handleform()">
+           <div class="name"> 
+            Name:<input type="text" id="txt_name">
+            <span id="errormsg"></span>
+           </div>
+           
+           <div class="email">
+              E-mail:<input type="email" id="txt_email">
+           </div>
+           
+           <div class="password">
+                Password<input type="password" id="txt_psd">
+           </div>
+           
+           <div class="conf_password">
+              Confirm Password<input type="password" id="txt_confpsd">
+           </div> 
+           
+           <div class="Gender">
+              Gender: <input type="radio" name="gender" value="male" class="male" id="txt_male"> Male
+                <input type="radio" name="gender" value="female" class="female" id="txt_female"> Female
+           </div>  
+           
+           <div class="DOB">
+             <label for="">DOB:</label>
+            <div id="sec">
+            <select name="" id="">   
+                <option value="">Day</option>
+                <script>
+                    for(let i=1;i<=31;i++){
+                    document.write("<option value="+i+">"+i+"</option>")
+                    }
+                </script>
+            </select>
+            <select name="" id="">
+                <option value="">Month</option>
+                <option value="" id="january">January</option>
+                <option value="" id="febraury">Febraury</option>
+                <option value="" id="march">March</option>
+                <option value="" id="april">April</option>
+                <option value="" id="may">May</option>
+                <option value="" id="june">June</option>
+                <option value="" id="july">July</option>
+                <option value="" id="August">August</option>
+                <option value="" id="september">September</option>
+                <option value="" id="october">October</option>
+                <option value="" id="November">November</option>
+                <option value="" id="december">December</option>
+            </select>
+            <select name="" id="">   
+                <option value="">Year</option>
+                <script>
+                    for(let i=2023;i>=1930;i--){
+                    document.write("<option value="+i+">"+i+"</option>")
+                    }
+                </script>
+            </select>
+            </div>
+           </div>
+           <div class="terms">
+            <input type="checkbox" id="txt_terms"> Accept terms & condition
+           </div>
+           <div class="submit">
+              <button id="submit">submit</button>
+           </div>
+       </form>
+    </div>
+</body>
+</html>

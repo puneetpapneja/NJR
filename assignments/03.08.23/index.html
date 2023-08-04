@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .first{
+            border: none;
+            background-color: antiquewhite;
+            height: 100px;
+            width: 250px;
+            text-align: center;
+            justify-content: center;
+            padding: 30px;
+
+        }
+        input{
+            margin-top: 10px;
+        }
+        #res{
+            color: red;
+        }
+    </style>
+
+    <script>
+
+        function val(ele){
+            
+            document.getElementById("res").innerText= ele.value;
+             if(isNaN(ele.value)){
+              document.getElementById("res").innerText="arre ghand mare number dal naa...";
+           }
+          else{
+               document.getElementById("res").innerText ="" ;
+               if(ele.value.length > 10){
+                 Document.getElementById("res").innerText = "Only 10 digit number" ;
+               }
+               else{
+                document.getElementById("res").innerText ="";
+               }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="first">
+       please enter the your number
+       <br>
+       <input type="text" name="" onkeyup="val(this)">  
+       <div id="res"></div> 
+   </div>
+</body>
+</html>

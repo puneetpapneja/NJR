@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+
+    <style>
+        .contener{
+            background-color: aqua;
+            height: 150px;
+            padding: 10px;
+            width: 40%;
+
+        }
+
+        button{
+            margin: 5px;
+            font-weight: bold;
+            font-style: italic;
+            font-size: larger;
+
+        }
+        input{
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<script>
+    function add(){
+       let a =document.getElementById("num1").value;
+       let b =document.getElementById("num2").value;
+       let c =document.getElementById("result");
+        if(a.value === "" && b.value === "")
+        {
+            
+            c.value="please enter number";
+            return;
+        }
+        c.value= parseInt(a)+parseInt(b);
+    }
+    function sub(){
+       let a =document.getElementById("num1").value;
+       let b =document.getElementById("num2").value;
+       let c =document.getElementById("result");
+        if(a.value === "" && b.value === "")
+        {
+            
+            c.value="please enter number";
+            return;
+        } 
+        c.value= a-b;
+    }
+    function div(){
+       let a =document.getElementById("num1").value;
+       let b =document.getElementById("num2").value;
+       let c =document.getElementById("result");
+        if(a.value === "" && b.value === "")
+        {
+            
+            c.value="please enter number";
+            return;
+        }
+        c.value= a/b;
+    }
+    function mul(){
+
+       let a =document.getElementById("num1").value;
+       let b =document.getElementById("num2").value;
+       let c =document.getElementById("result");
+        if(a.value === "" && b.value === "")
+        {
+            
+            c.value="please enter number";
+            return;
+        } 
+        c.value= a*b;
+    }
+</script>
+<body>
+    <div class="contener">
+       <input type="text" id="num1" placeholder="Enter first number">
+       <br>
+       <input type="text" id="num2" placeholder="Enter second number">
+       <br>
+       <button onclick="add()">+</button>
+       <button onclick="sub()">-</button>
+       <br>
+       <button onclick="div()">÷</button>
+       <button onclick="mul()">x</button>
+       <br>
+       <label for="">Result</label>
+       <input type="text" id="result">
+
+    </div>
+    
+</body>
+</html>

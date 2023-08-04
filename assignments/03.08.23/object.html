@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        const student_datails = {
+            first_name : "kamlesh",
+            last_name : "patel",
+            email : "kprajbhati9772@gmail.com" ,
+            contact : 9783071021 ,
+            courese : "b.tech" ,
+        }
+        
+        // console.log(student_datails.last_name);
+
+        // student_datails.last_name ="ghanchi";  //replce keyvalue
+        // console.log(student_datails.last_name);
+
+        // const newobj = JSON.parse(JSON.stringify(student_datails));
+        // newobj.email = "test@gamail.com";
+        // console.log("newobj = "+newobj.email + "student_details.email"
+        // );
+        const x = Object.keys(student_datails);
+        console.log(x);  // x is a keys
+
+        const y = Object.values(student_datails);
+        console.log(y); //y is all valus
+
+        let z = x.concat(y) ;
+        console.log(z);
+       
+     
+    </script>
+</body>
+</html>

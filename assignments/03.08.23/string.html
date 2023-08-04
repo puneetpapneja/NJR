@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+
+    <script>
+        let str= " kamlesh is a good boy ";
+        console.log(str.length);
+
+        console.log(str.trim());
+        console.log(str.trim().length);
+
+        console.log(str.trimStart());
+        console.log(str.trimStart().length);
+        // space remove start or end ki 
+        console.log(str.trimEnd());
+        console.log(str.trimEnd().length); //check  verify space remove   
+        let str2 = "ram is a cricket player ram"
+        const result = str.concat(str2);
+        console.log(result.toUpperCase());
+        console.log(result.toLowerCase());
+        console.log(result.slice(0,5));//slice means number of length print
+        console.log(result.slice(-5,-2));
+        console.log(result.substr(9,5)); //lenth print of index 0 to lenth //lenth stasr 1 to lenth
+
+        console.log(result.replace(/kamlesh/g,"kp")); //replace txt value
+
+        console.log(str.padStart(5,));
+
+        
+        
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

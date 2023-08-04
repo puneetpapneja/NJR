@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <script>
+      const add = () => {
+
+       const fv =document.getElementById("txt1").value;
+       const sv =document.getElementById("txt2").value;
+       const result =document.getElementById("result");
+        if(fv.value === "" && sv.value === "")
+        {
+            
+            result.value="please enter number";
+            return;
+        } 
+        result.value=callback(fv.value,sv.value);
+    }
+    const add =(a,b) => parseInt(a) + parseInt(b);
+    const add =(a,b) => parseInt(a) - parseInt(b);
+    const add =(a,b) => parseInt(a) / parseInt(b);
+    const add =(a,b) => parseInt(a) * parseInt(b);
+
+
+    </script>
+</head>
+<body>
+    <div class="contener">
+        first number<input type="text" id="text1" >
+        second number<input type="text" id="text2">
+        <input type="button" value="add" onclick="add()">
+        <input type="text" value="sub" onclick="sub()">
+        <input type="button" value="add" onclick="div()">  
+        <input type="text" value="mul" onclick="mul()">
+
+
+    
+ 
+     </div>
+
+    
+</body>
+</html>

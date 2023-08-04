@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>starprint</title>
+    <style>
+       input{
+            border: 2px solid black;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        button{
+            background-color: rgb(160, 110, 204);;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 0.5; 
+        }
+    </style>
+    <script>
+        function print(){
+            let n =document.getElementById("inputdata").value;
+            for(let i=1;i<=n;i++){
+                for(let j = 0; j < i; j++){
+                   document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="inputdata">
+    <br>
+    <button onclick="print()">Click me</button>
+</body>
+</html>

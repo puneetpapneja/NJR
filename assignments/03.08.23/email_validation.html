@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email</title>
+</head>
+<body>
+    <script>
+        const validateEmail = () => {
+            const email = document.getElementById("email")
+            const regex_email =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+            if(regex_email.test(email.value)){
+                alert("valid email");
+
+            }
+            else{
+                alert("invalid email");
+            }
+        }
+
+    </script>
+
+    <input type="text" id="email">
+    <input type="button" value="validate" onclick="validateEmail()" >   
+</body>
+</html>
