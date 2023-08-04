@@ -1,0 +1,56 @@
+<html>
+    <script type="text/javascript">
+        const add = () => {
+            const fv =document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+            if(fv.value ===" " && sv.value === " "){
+                result.value= "please enter atleast 1 value";
+                return;
+            }
+            result.value =parseInt(fv.value) + parseInt(sv.value);
+        }
+        const sub = () => {
+            const fv =document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+            if(fv.value ===" " && sv.value === " "){
+                result.value= "please enter atleast 1 value";
+                return;
+            }
+            result.value =parseInt(fv.value) - parseInt(sv.value);
+        }
+        const mul = () => {
+            const fv =document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+            if(fv.value ===" " && sv.value === " "){
+                result.value= "please enter atleast 1 value";
+                return;
+            }
+            result.value =parseInt(fv.value) * parseInt(sv.value);
+        }   
+        
+        const div = () => {
+            const fv =document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+            if(fv.value ===" " && sv.value === " "){
+                result.value= "please enter atleast 1 value";
+                return;
+            }
+            result.value =parseInt(fv.value) / parseInt(sv.value);
+        }    
+    </script>
+    <body>
+        first number <input type="text" id="txt1"/>
+        second number <input type=" text" id="txt2"/>
+        <input type="button" value="add" onmousemove="add()"/>
+        <input type="button" value="sub" onmousemove="sub()" />
+        <input type="button" value="mul" onmousemove="mul()" />
+        <input type="button" value="div" onmousemove="div()"/>
+       <br > 
+        Result: <input type="text" id="result" />
+
+    </body>
+</html>
