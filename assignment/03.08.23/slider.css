@@ -1,0 +1,24 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-image: linear-gradient(45deg,#000000ae 40%,rgba(8, 7, 7, 0.625));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main{
+    height: 85vh;
+    width: 90vw;
+    box-shadow: 1px 2px 9px;
+    border-color: aqua;
+    background-image: linear-gradient(45deg,grey,lightgrey);
+    overflow: hidden;
+}
+
