@@ -1,6 +1,0 @@
-git clone link
-git add file_name / . (for all files)
-git commit -m "massage"
-git pull ( for getting mor files)
-git pull origin
-git pull master

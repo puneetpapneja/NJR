@@ -1,0 +1,14 @@
+file(node_modules) = it stores all packages which help to run react app
+filr(packages.json) = it help to store detail about all the file about are app{
+    name shows file name
+    version (0.1.0) (mijor.minor.patch)
+    dependencies = it shows how many packages we are use but packages are inner connected to for many packages{
+        @testing-library = it used for for UI/UX testing purpose 
+    }
+}
+meta is used for search engine optimization
+noscript = is identified our project has a javascript or not it need to enable the javascript to run the app
+ 
+
+ # import and export is use for using any function of outside
+ 
