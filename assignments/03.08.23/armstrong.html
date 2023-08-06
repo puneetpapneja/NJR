@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong_Calculator</title>
+    <style>
+        .container{
+            border:5px solid;
+            justify-content: center;
+            margin:auto;
+            padding:10px;
+            width:15%;
+            height:90px;
+            display: block;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Armstrong Calculator</h1>
+    <div class="container">
+        <label for="num">Enter a number:</label>
+        <input type="text" id="num" /><br/><br/>
+        <input type="button" value="check" onclick="clickHandler(handleClick)"/>
+    </div>
+
+<script>
+     const handleClick=() => {
+     const number =document.getElementById("num").value;
+     const numberOfDigits = number.length;
+     let sum = 0;
+     let temp = number;
+     while (temp > 0) {
+        let remainder = temp % 10;
+        sum += remainder ** numberOfDigits;
+        temp = parseInt(temp / 10); 
+    }
+
+    if (sum == number) {
+       document.write("Is an Armstrong number");
+    }
+    else {
+       document.write("Not an Armstrong number");
+    }
+     }
+    const clickHandler = (callback) => {
+            callback();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even_Odd_Calculator</title>
+    <style>
+         .container{
+            border:5px solid;
+            justify-content: center;
+            margin:auto;
+            padding:10px;
+            width:15%;
+            height:90px;
+            display: block;
+            background-color: antiquewhite;
+        }
+    </style>
+ 
+</head>
+<body>
+    <h1 align="center" >Even Odd Calculator</h1>
+    <div class="container">
+        <label for="num">Enter number:</label>
+        <input type="number" id="num" /><br/><br/>
+        <!-- <input type="button" value="check" onmouseout="clickHandler(handleClick)"/> -->
+        <!-- <input type="button" value="check" onmouseover="clickHandler(handleClick)"/> -->
+        <!-- <input type="button" value="check" ondblclick="clickHandler(handleClick)"/> -->
+        <input type="button" value="check" onclick="clickHandler(handleClick)"/>
+        
+    
+    </div>
+    <script>
+        const handleClick=() => {
+            const no = document.getElementById("num");
+            if(no.value % 2 == 0)
+            {
+                document.write("Number is even");
+            }
+            else
+            {
+                document.write("Number is odd");
+            }
+        }
+        const clickHandler = (callback) => {
+            callback();
+        }
+    </script>
+</body>
+</html>

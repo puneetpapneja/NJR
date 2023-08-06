@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type ="Button" value="Start" onclick="handleStart()"/>
+    <input type ="Button" value="End" onclick="handleEnd()"/>
+    <script>
+        var time=null;
+        const handleStart=()=>{
+            timer = setInterval(() => {
+                console.log("hello from interval", new Date());
+                
+            },5000);
+        }
+        const handleEnd =()=> {
+            clearInterval(timer);
+
+        }
+        setTimeout(()=>console.log("hello from timeout"),5000);
+    </script>
+</body>
+</html>

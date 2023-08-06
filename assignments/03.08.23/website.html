@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First website</title>
+    <style>
+        .container{
+            display:flex;
+            justify-content:space-between;
+        }
+        .nav{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            list-style-type: none;
+            gap:40px;
+        }
+        li a{
+            text-decoration: none;
+            color:black;
+            font-size: 0.99cm;
+            transition: color 1s;
+        }
+        li a:hover{
+            color:red;
+        }
+        .slider,.home,.about,.contact{
+            background-color: grey;
+            height:100px;
+        }
+        .slider h1,.home h1,.about h1,.contact h1{
+            display:flex;
+            justify-content: center;
+        }
+        .footer{
+            height:30px;
+            background-color: black;
+            color:white;
+            padding: 10px;
+            margin: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Logo</h2>
+        <ol class="nav">
+            <li><a href="#">Home</a> </li>
+            <li><a href="#">About</a> </li>
+            <li><a href="#">Contact</a> </li>
+        </ol>
+    </div>
+    <div class="slider">
+        <h1>Slider</h1>
+    </div>
+    <div class="home">
+        <h1>Home</h1>
+    </div>
+    <div class="about">
+        <h1>About</h1>
+    </div>
+    <div class="contact">
+        <h1>Contact</h1>
+    </div>
+    <div class="footer">
+        <p>Copyright &copy</p>
+    </div>
+
+
+</body>
+</html>

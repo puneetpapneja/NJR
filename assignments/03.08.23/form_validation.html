@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+</head>
+<body>
+    <h2 align="center"> Form Validation</h2>
+    <form align="center" id="myForm" onsubmit="return validateForm()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+      <span id="nameError" style="color: red; margin-left: 5px"></span><br/><br/>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+      <span id="emailError" style="color: red; margin-left: 5px"></span><br/><br/>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" />
+      <span id="passwordError" style="color: red; margin-left: 5px"></span><br/><br/>
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" />
+      <span
+        id="confirmPasswordError"
+        style="color: red; margin-left: 5px"
+      ></span
+      ><br/><br/>
+
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="male" />Male
+      <input type="radio" id="female" name="gender" value="female" />Female
+      <input type="radio" id="other" name="gender" value="other" />Other
+      <span id="genderError" style="color: red; margin-left: 5px"></span><br/><br/>
+
+      <label for="acceptTerms">Accept Terms & Conditions:</label>
+      <input type="checkbox" id="acceptTerms" name="acceptTerms" />
+      <span id="acceptTermsError" style="color: red; margin-left: 5px"></span
+      ><br/><br/>
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+      function validateForm() {
+        let isValid = true;
+        const nameInput = document.getElementById("name");
+        const nameValue = nameInput.value.trim();
+        if (nameValue === "") {
+          document.getElementById("nameError").textContent = "*";
+          isValid = false;
+        } else if (!/^[A-Za-z]+$/.test(nameValue)) {
+          document.getElementById("nameError").textContent =
+            "Only alphabets are allowed.";
+          isValid = false;
+        } else if (!/^[A-Z]/.test(nameValue)) {
+          document.getElementById("nameError").textContent =
+            "First letter should be capitalized.";
+          isValid = false;
+        } else {
+          document.getElementById("nameError").textContent = "";
+        }
+        const emailInput = document.getElementById("email");
+        const emailValue = emailInput.value.trim();
+        if (emailValue === "") {
+          document.getElementById("emailError").textContent = "*";
+          isValid = false;
+        } else if (!/^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]+$/.test(emailValue)) {
+          document.getElementById("emailError").textContent =
+            "Enter a valid email format (e.g. abc@gmail.com).";
+          isValid = false;
+        } else {
+          document.getElementById("emailError").textContent = "";
+        }
+        const passwordInput = document.getElementById("password");
+        if (passwordInput.value.trim() === "") {
+          document.getElementById("passwordError").textContent = "*";
+          isValid = false;
+        } else {
+          document.getElementById("passwordError").textContent = "";
+        }
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+        if (confirmPasswordInput.value.trim() === "") {
+          document.getElementById("confirmPasswordError").textContent = "*";
+          isValid = false;
+        } else {
+          document.getElementById("confirmPasswordError").textContent = "";
+        }
+        const genderInputs = document.querySelectorAll("[name=gender]");
+        let isGenderSelected = false;
+        genderInputs.forEach((input) => {
+          if (input.checked) {
+            isGenderSelected = true;
+          }
+        });
+        if (!isGenderSelected) {
+          document.getElementById("genderError").textContent = "*";
+          isValid = false;
+        } else {
+          document.getElementById("genderError").textContent = "";
+        }
+        const acceptTermsInput = document.getElementById("acceptTerms");
+        if (!acceptTermsInput.checked) {
+          document.getElementById("acceptTermsError").textContent = "*";
+          isValid = false;
+        } else {
+          document.getElementById("acceptTermsError").textContent = "";
+        }
+
+        if (isValid) {
+          const formData = {
+            name: nameValue,
+            email: emailValue,
+            password: passwordInput.value,
+            gender: document.querySelector("[name=gender]:checked").value,
+            acceptTerms: acceptTermsInput.checked,
+          };
+          console.log(formData);
+          return false;
+        }
+
+        return isValid;
+      }
+    </script>
+  </body>
+</html>
