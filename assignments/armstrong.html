@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      const handleclick = () => {
+        //document.write("you clicked");
+        let textelement = document.getElementById("item").value;
+
+        //document.write("you click and the value are " + textelement.value);
+        let sum = 0;
+        let x;
+        let t = textelement;
+        while (textelement > 0) {
+          x = textelement % 10;
+          sum = sum + x * x * x;
+          textelement = textelement / 10;
+        }
+        if (t == sum) {
+          document.write("the number are not armstrong " + t);
+        } else {
+          document.write("the number are armstrong " + t);
+        }
+      };
+      const clickhandler = (callback) => {
+        callback();
+      };
+    </script>
+    <input type="text" id="item" />
+    <button onclick="clickhandler(handleclick)">click</button>
+  </body>
+</html>
