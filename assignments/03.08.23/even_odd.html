@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even or odd</title>
+</head>
+<body>
+    <input type="text" id="txt">
+    <input type="button" value="check" onclick="ev_odd()">
+    <script>
+        const ev_odd=()=>{
+            const num = document.getElementById("txt");
+            if(num.value == ""){
+                document.write("please enter a number");
+            }
+            else if(num.value % 2 == 0){
+                document.write("given number is even");
+            }
+            else{
+                document.write("given number is odd");
+            }
+        }
+    </script>
+</body>
+</html>

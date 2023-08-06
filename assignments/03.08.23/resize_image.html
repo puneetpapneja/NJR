@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>resize image</title>
+</head>
+<body >
+    <img src="campus.jpeg" id="image" alt="campus"><br>
+    <input type="text" id="height">height <br>
+    <input type="text" id="width">width <br>
+    <input type="button" value="set" onclick="resize()">
+    <script>
+        const resize=()=>{
+            const h=document.getElementById("height");
+            const w=document.getElementById("width");
+            document.getElementById("image").style.height=h.value+"%";
+            document.getElementById("image").style.width=w.value+"%";
+        }
+    </script>
+</body>
+</html>
