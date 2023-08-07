@@ -1,24 +1,15 @@
+import { useState } from 'react';
 import './Item.css';
-const Item = ()=>{
-    const items = [
-        {
-            item: "bottle",
-            brand: "Cello",
-            price: 115
-        },
-        {
-            item: "Mobile",
-            brand: "Moto",
-            price: 11500
-        },
-        {
-            item: "Iphone 5s",
-            brand: "Iphone",
-            price: 26000
-        }
-    ]
+const Item = ({list: items, heading })=>{   
+    const [hasShow, setHasShow] = useState(true);
+    const handleClick = () => {
+        setHasShow(!hasShow);
+    }
+
+    console.log("hasShow -", hasShow);
     return (<div>
-            <table>
+        <h1>{heading} <button onClick={handleClick}> click </button></h1>
+            <table className={hasShow ? 'show' : 'hide'}>
                 <thead>
                 <tr>
                     <th>Item</th>
