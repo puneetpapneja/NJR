@@ -1,2 +1,6 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 practise/project/node_modules/ 
+=======
+practice/node_modules/
+>>>>>>> f0406b01 (	modified:   .gitignore)
