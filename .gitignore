@@ -1,3 +1,8 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 classroom/service/node_modules/
 
+=======
+project/jobportal/node_modules/ 
+practice/node_modules/
+>>>>>>> 61f5fa105 (	modified:   .gitignore)
