@@ -1,0 +1,29 @@
+<script  type="text/javascript">
+    function calculate() {
+    var number1 = document.getElementById("number1").value;
+    var number2 = document.getElementById("number2").value;
+    var operator = document.getElementById("operator").value;
+    var result;
+    switch (operator) {
+    case "+":
+    result = number1 + number2;
+    break;
+    case "-":
+    result = number1 - number2;
+    break;
+    case "*":
+    result = number1 * number2;
+    break;
+    case "/":
+    result = number1 / number2;
+    break;
+    }
+    document.write("result");
+    }
+</script>   
+<body>
+    <input type="text" id="number1"/>
+    <input type="text" id="number2"/>
+    <input type="button" value="click" 
+    onclick="result()"/>
+</body>

@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title> College Entrance Form</title>
+        <style>
+        
+            form{
+                text-align: center;
+            }
+            form{
+                font-size: larger;
+                color: black;
+            }
+            img{
+                height:fit-content;
+                width:fit-content;
+            }           
+        </style>
+        <script>
+          const validEmail=()=>{
+            const email=document.getElementById("email");
+            const REGEX_EMAIL=/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+            if (REGEX_EMAIL.test(email.value)){
+              alert("valid email");
+            }
+            else{
+              alert{"invalid email"};
+            }
+          }
+        </script>
+    </head>
+    <body style="background-color:#ed9a71;">
+       <center><img src="https://images.unsplash.com/flagged/photo-1554473675-d0904f3cbf38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNvbGxlZ2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80"></center>
+         <form method="get">
+            <div class="control">
+                <label for="first_name">First name</label><input id="first_name" required="" type="text" />
+                <label for="middle_name">Middle name</label><input aria-required="" id="middle_name" type="text" />
+                <label for="last_name">Last name</label><input aria-required="" id="last_name" required="" type="text" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="passwd">Password</label><input aria-required="" id="passwd" required="" type="text" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="gender">Gender</label><input type="radio" name="rd_1"/>male
+                <input type="radio" name="rd_2"/>female 
+              </div>
+              <br>
+              <div class="control">
+                <label for="email">Email</label><input aria-required="" id="email" required="" type="text" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="tel">Phone number</label><input aria-required="" id="tel" required="" type="tel" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="address">Address</label><input aria-required="" id="address" required="" type="text" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="city">City</label><input aria-required="" id="city" required="" type="text" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="state">State</label><input aria-required="" id="state" required="" type="text" />
+              </div>
+              <br>
+              <div class="control">
+                <label for="date">Date of Birth</label><input aria-required="" id="date" required="" type="date" />
+              </div>
+              <br>
+              <div class="control">
+                <input type="submit" value="Register" />
+              </div>
+        </form>
+    </body>
+</html>

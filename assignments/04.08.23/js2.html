@@ -1,0 +1,59 @@
+<html> 
+    <head>
+        <title>Event</title>
+        <style>
+            #error{
+                color: red;
+            }
+        </style>
+        <script>
+            const handlechange=() =>{
+                document.write("change event triggered")
+            }
+            const handlekeypress=(event)=>{
+                console.log("event")
+            }
+            const handlekeyDown=()=>{
+                console.log("key down event triggered")
+            }
+            const handlekeyUp=()=>{
+                console.log("key Up event triggered")
+            }
+            const handleSubmit=()=>{
+                const nameElement =document.getElementById('txt_name');
+                const errorElement=document.getElementById('error');
+                if(txt_name.value ===""){   
+                    errorElement.innerHTML="enter your name";       
+                    return false; 
+                }
+                else{
+                    errorElement.innerHTML="";
+                }
+                    return true;                       
+            }
+
+            const getHTML=()=>{
+                const bodyEle=document.getElementById("body");
+                alert(bodyEle.innerText);
+            }
+        </script>
+
+    </head>
+<body id="body">
+
+    <select>
+        <script>
+            for( let i=1950; i<2023; i++)
+            {
+                document.write("<option>"+i+"<option>");
+            }
+        </script>
+    </select>
+    <form onsubmit=" return handleSubmit()">
+    <input type="text" id="txt_name" name="txt_name" onkeypress="handlekeypress(event)"/>
+    <span id="error"></span>
+    <input type="submit" onsubmit="return handleSubmit()"/>
+    <input type="button" value="getHTML" onclick="getHTML()"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<script>
+  
+    let admission={
+        course:"Btech",
+        fees:24000,
+        years:4
+    }
+
+    let student={
+        name:"mahak",
+        contact:1234567890,
+        email:"abc@gmail.com",
+        address: {
+            primary:"primary address",
+            secondary:"secondary address"
+        },
+        __proto__:admission
+    }
+
+    const {email,...restFields}=student;
+    console.log(restFields);  //will print all the fields except email
+
+
+    const newObj={...restFields};
+    restFields.address.primary="jaipur";
+    console.log(newObj);
+
+</script>

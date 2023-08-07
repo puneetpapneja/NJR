@@ -1,0 +1,18 @@
+<script>
+    const obj={
+        firstname:"abc",
+        lastname:"agrawal", 
+        address:{
+            primary:"kota",
+            secondary:"udaipur"
+        }
+    }
+    //const obj2=obj;
+    const obj2={};
+    Object.assign(obj2, obj);
+    obj2.firstname="ram";
+    obj2.address.primary="jaipur";
+    obj2.address.primary="jaipur";
+    console.log("obj2.address.primary=" + obj2.address.primary + "obj2.address.primary=" + obj.address.primary);
+    console.log("obj2.firstname=" + obj2.firstname + "obj2.firstname=" + obj.firstname);
+</script>

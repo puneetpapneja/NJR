@@ -1,0 +1,43 @@
+<script>
+    const studentDtls=[{
+        rollno:1,
+        firstname:"mahak",
+        lastname:"agrawal",
+        emailId:"mahakagrawal28@gmail.com",
+        contact:"1234567890",
+        isActive:true
+        getFullName:function(){
+            return this.firstname +" "+ this.lastname;
+        }
+    },
+    {
+        rollno:2,
+        firstname:"abc",
+        lastname:"agrawal",
+        emailId:"abc28@gmail.com",
+        contact:"987654321",
+        isActive:true
+        getFullName:function(){
+            return this.firstname +" "+ this.lastname;
+        }
+    },
+    {
+        rollno:3,
+        firstname:"xyz",
+        lastname:"pyqq",
+        emailId:"xyz@gmail.com",
+        contact:"8520741963",
+        isActive:true
+        getFullName:function(){
+            return this.firstname +" "+ this.lastname;
+        }
+    }
+]
+    console.log(studentDtls.getFullName());
+    console.log(studentDtls.getFullName());
+    console.log(studentDtls.getFullName());
+    //console.log(studentDtls);  //gives value of object studentDtls
+    //console.log(Object.keys, Object.values(studentDtls))
+    //console.log(Object.keys(studentDtls[2])); 
+    //console.log(Object.values(studentDtls[2]));  
+</script>
