@@ -1,0 +1,20 @@
+<script>
+
+     
+    const handleclick =  () => {
+        const txtElement = document.getElementById("txt_number");
+       // document.write("clicked event triggered value is" + txtElement);
+        txtElement.value = 100;
+        }
+        
+    
+const clickhandler = (callback) => {
+    callback();
+}
+
+</script>
+
+<body>
+    <input type="text" id = "txt_number" />
+    <input type="button"  value = "click" onclick="clickhandler(handleclick)" />
+</body>

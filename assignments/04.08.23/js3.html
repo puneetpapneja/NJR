@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Document</title>
+    <script>
+        const studentID = [
+            {
+                rollno: 10,
+                firstname: "Jitesh",
+                lastname: "Goyal",
+                emailID: "jitesh.goyal@gmail.com",
+                contact: 7699997699,
+                isActive: true,
+                //getfullname: () => firstname + " " + lastname
+                getfullname: () => function () {
+                    return this.firstname + " " + this.lastname;
+                }
+                //this object - av in function and not arrow function
+            },
+            {
+                rollno: 1,
+                firstname: "Anuj",
+                lastname: "Goyal",
+                emailID: "anuj.goyal@gmail.com",
+                contact: 7699997049,
+                isActive: true,
+                getfullname: () => function () {
+                    return this.firstname + " " + this.lastname;
+                }
+            },
+            {
+                rollno: 3,
+                firstname: "Anchal",
+                lastname: "Goyal",
+                emailID: "anchalgoyal@gmail.com",
+                contact: 7690451699,
+                isActive: true,
+                getfullname: () => function () {
+                    return this.firstname + " " + this.lastname;
+                }
+            },
+
+        ]
+        //object type change ni hoga par object ki value can be updated
+        //console.log(Object.values(studentID[2])); 
+        // console.log(Object.keys(studentID[2])) 
+
+        console.log(Object.keys(studentID[2]))
+
+    </script>
+
+</head>
+
+<body>
+
+
+
+
+</body>
+
+</html>

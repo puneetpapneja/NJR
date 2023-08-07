@@ -1,0 +1,27 @@
+<script>
+
+
+    const handleclick = () => {
+        const txtElement = document.getElementById("txt_number").value;
+        // document.write("clicked event triggered value is" + txtElement);
+
+        if (txtElement % 2 == 0) {
+            document.write("Number is even");
+
+        }
+        else {
+            document.write("Number is odd");
+        }
+    }
+
+
+    const clickhandler = (callback) => {
+        callback();
+    }
+
+</script>
+
+<body>
+    <input type="text" id="txt_number" />
+    <input type="button" value="click" ondblclick="clickhandler(handleclick)" />
+</body>

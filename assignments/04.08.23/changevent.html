@@ -1,0 +1,98 @@
+<!-- <html>
+
+<head>
+
+    <title>change event</title>
+    <script>
+
+        const handlechange = () => {
+            document.write("change event triggered")
+        }
+        
+    </script>
+
+
+</head>
+
+<body>
+    <input type="text" onchange="handlechange()">
+
+
+</body>
+
+</html>
+-->
+
+
+<html>
+
+<head>
+
+    <title>change event</title>
+<style>
+    #error{
+        color: blueviolet;
+        
+    }
+</style>
+
+
+    <script>
+
+        const handlechange = () => {
+            console.log("change event triggered")
+        }
+        const handlekeypress = () => {
+            console.log("keypress event triggered")
+        }
+        const handlekeydown = () => {
+            console.log("keydown event triggered")
+        }
+        const handlekeyup = () => {
+            console.log("keyup event triggered")
+        }
+        const handlesubmit = () => {
+            const namelement = document.getElementById("text");
+            const errorelement = document.getElementById("ERROR")
+           if(text.value === "") 
+            <!--value entered being empty-->
+            {
+                errorelement.innerHTML = "enter your name";
+                return false;
+                
+                }
+             errorelement.innerHTML = "";
+                          
+            return true;
+        }
+
+        const getHTML = () => {
+            const bodyEle = document.getElementById("body");
+            alert(bodyEle.innerHTML);
+
+        }
+    </script>
+
+
+</head>
+
+<body>
+    <!-- <input type="text" onkeypress="handlekeypress()"  onkeydown="handlekeydown()" onkeyup="handlekeyup()"/> -->
+
+<select> 
+    <script>
+        for(let i = 1950; i<2023 ; i++){
+            document.write("<option >"  +i+ "</option> ");
+        }
+    </script>
+</select>
+
+<form onsubmit=" return handlesubmit()"> 
+<input type="text" id="text" name="text" />
+<span id="error"></span>
+<input type="submit" onclick="return handlesubmit()"/>
+<input type="button" value="getHTML" onclick=" getHTML()" />
+</form>
+ </body>
+
+</html>

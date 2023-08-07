@@ -1,0 +1,39 @@
+<script>
+
+    
+    const add =(a,b) => a+b ; 
+    const subt =(a,b) => a-b;
+     const mul =(a,b) => a*b;    
+     const div =(a,b) => a/b;
+
+    const clickhandler = (callback) => {
+        let a = parseInt(document.getElementById("txt_number1").value);
+        let b = parseInt (document.getElementById("txt_number2").value);
+        
+        let c =  callback(a,b);
+        let d = 
+            d.value = c;
+    }
+
+
+</script>
+
+<body>
+    <!-- <input type="text" id = "txt_number" />
+    <input type="button"  value = "click" onclick="clickhandler(handleclick)" />
+      -->
+    <form>
+        <input type="text" id = "txt_number1"  />
+        <input type="text" id = "txt_number2"  />        
+        <div id="sbc" style=" background-color: blanchedalmond; 
+        width: 20%;
+        height: 50px;     "   ></div>
+<br>
+        <button type="submit" value="Submit" onclick="clickhandler(add)" >Add</button>
+        <button type="submit" value="Submit"  onclick="clickhandler(subt)"   >Subtract</button>
+        <button type="submit" value="Submit" onclick="clickhandler(mul)" >Multiply</button>
+        <button type="submit" value="Submit" onclick="clickhandler(div) ">Divide</button>     
+
+      </form>
+
+</body>

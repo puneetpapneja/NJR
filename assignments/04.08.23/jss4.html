@@ -1,0 +1,19 @@
+<script>
+
+    const obj = {
+        firstname: "Jinesh",
+        lastname: "Upadhyay",
+        address: {
+            Primary: "Kota",
+            secondary: "Udaipur"
+        }
+    }
+    //const obj2 = obj1;
+    // const obj2 = JSON.parse(JSON.stringfy(obj));
+    const obj2 = {};
+    Object.assign(obj2, obj);
+    obj2.firstname = "ram";
+    obj2.address.primary = "Jaipur";
+    console.log("obj2.address.primary =" + obj2.address.primary + "obj.address.primary =" + obj2.address.primary)
+    console.log("obj2.firstname =" + obj2.firstname + "obj2.firstname" + obj2.firstname)
+</script>

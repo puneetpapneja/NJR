@@ -1,0 +1,32 @@
+<script>
+
+     
+    const handleclick =  () => {
+        const txtElement = document.getElementById("txt_number").value;
+       // document.write("clicked event triggered value is" + txtElement);
+    let temp = txtElement;
+    let sum =0
+       while(temp > 0){
+        r = temp % 10;
+        sum += r*r*r ;
+        temp = (temp/10);
+       }
+       if(temp == txtElement){
+        document.write("Armstrong number");
+       }
+       else{
+        document.write("Not an Armstrong number");
+       }
+       
+    
+    }
+const clickhandler = (callback) => {
+    callback();
+}
+
+</script>
+
+<body>
+    <input type="text" id = "txt_number" />
+    <input type="button"  value = "click" onclick="clickhandler(handleclick)" />
+</body>
