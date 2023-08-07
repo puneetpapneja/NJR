@@ -1,3 +1,7 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 classroom/service/node_modules/
 
+=======
+practice/node_modules/
+>>>>>>> f761b275 (	modified:   .gitignore)
