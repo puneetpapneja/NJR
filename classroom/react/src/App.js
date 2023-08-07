@@ -3,6 +3,8 @@ import './App.css';
 import Item from './components/Item';
 import Header from './components/Header';
 import { useState } from 'react';
+import Card from './components/Card';
+import Hooks from './components/Hooks';
 
 // export const test = ()=>{
 
@@ -54,11 +56,17 @@ function App() {
   }
   ]
   return (
-    showHeader ? (<div className="App">      
-    <Header /> 
-      <Item list={items} heading="Ceramic Products" />
-      <Item list={items2} heading="Cars" testContent="testContent" />
-    </div>): null 
+
+    <Card>
+        {/* <Item list={items} heading="Ceramic Products" /> */}
+        <button onClick={() => setShowHeader(!showHeader)}>click </button>
+       {showHeader ? <Hooks /> : null} 
+    </Card>
+    // showHeader ? (<div className="App">      
+    // <Header /> 
+    //   <Item list={items} heading="Ceramic Products" />
+    //   <Item list={items2} heading="Cars" testContent="testContent" />
+    // </div>): null 
   );
 }
 
