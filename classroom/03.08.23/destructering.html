@@ -1,0 +1,27 @@
+<script>
+    const obj = {
+        name: "Jitesh",
+        email: "jitesh.goyal@gmail.com",
+        contact: 9876783894,
+       address:{
+           primary: "primary address",
+           secondary:"secondary address"
+       }
+    }  
+
+    // const {name, email: emailId, contact, address = {
+    //     primary: "",
+    //     secondary: ""
+    // }} = obj;
+
+//    const {contact, ...restFields} = obj;
+//     restFields.name ="testing";
+//     restFields.address.primary = "address change";
+//     console.log(restFields, " OBJ ", obj);
+
+const arr = [1,2,3,4,5];
+const [a,...restEle] = arr;
+const newArr = [...restEle];
+console.log(newArr)
+
+</script>
