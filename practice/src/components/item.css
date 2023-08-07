@@ -1,0 +1,9 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+.column{
+    border: 1px solid black;
+    width: 500px;
+}
+
