@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import Item from './components/Item';
+import Header from './components/Header';
+import { useState } from 'react';
 
 // export const test = ()=>{
 
@@ -14,6 +16,8 @@ import Item from './components/Item';
 // body.append(p);
 
 function App() {
+
+  const [showHeader, setShowHeader] = useState(true);
   const items = [
     {
         item: "bottle",
@@ -50,10 +54,11 @@ function App() {
   }
   ]
   return (
-    <div className="App">
-      <Item list={items} />
-      <Item list={items2} />
-    </div>
+    showHeader ? (<div className="App">      
+    <Header /> 
+      <Item list={items} heading="Ceramic Products" />
+      <Item list={items2} heading="Cars" testContent="testContent" />
+    </div>): null 
   );
 }
 
