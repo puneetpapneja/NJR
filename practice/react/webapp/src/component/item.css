@@ -1,0 +1,14 @@
+.div_b{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div section{
+    border: 5px black solid;
+    width: 200px;
+}
+
+#price{
+    color: red;
+}
