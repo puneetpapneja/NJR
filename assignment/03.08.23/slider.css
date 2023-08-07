@@ -14,11 +14,14 @@ body{
     align-items: center;
 }
 #main{
-    height: 85vh;
-    width: 90vw;
+    height: 85%;
+    width: 90%;
     box-shadow: 1px 2px 9px;
     border-color: aqua;
     background-image: linear-gradient(45deg,grey,lightgrey);
-    overflow: hidden;
 }
-
+.imagecontainer {
+    position: absolute;
+    width: 1050px;
+    height: 100px;
+}
