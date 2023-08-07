@@ -1,22 +1,6 @@
 import './Item.css';
-const Item = ()=>{
-    const items = [
-        {
-            item: "bottle",
-            brand: "Cello",
-            price: 115
-        },
-        {
-            item: "Mobile",
-            brand: "Moto",
-            price: 11500
-        },
-        {
-            item: "Iphone 5s",
-            brand: "Iphone",
-            price: 26000
-        }
-    ]
+const Item = (props)=>{
+    const {list: items } = props;
     return (<div>
             <table>
                 <thead>
