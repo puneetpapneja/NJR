@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Item from './components/Item';
 
 function App() {
+  const items=[
+    {
+        item:"Bottle",
+        brand:"cello",
+        price:"115"
+    },
+    {
+        item:"Bottle",
+        brand:"Montex",
+        price:"50"
+    },
+    {
+        item:"Bottle",
+        brand:"Milton",
+        price:"300"
+    },
+    {
+        item:"Bottle",
+        brand:"Tupperware",
+        price:"100"
+    },
+    {
+        item:"Bottle",
+        brand:"Bellon",
+        price:"200"
+    }
+]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<Item items={items}></Item>
+<Item></Item>
+<Item></Item>
+<Item></Item>
+<Item></Item>
     </div>
   );
 }
