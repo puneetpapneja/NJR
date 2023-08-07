@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Div</title>
+        <style>
+           .container {
+               display: flex;
+               justify-content: space-between;
+           }
+
+           .nav {
+               display: flex;
+               list-style-type: none;
+               gap: 40px;
+           }
+
+          li a {
+               text-decoration:none;
+               color: black;
+               transition:  color 1s;
+           }
+
+           li a:hover {
+               color: red;
+           }
+
+           .slider, .about, .contact {
+                background-color: #7f7f7f;
+                height: 25%;
+            }
+
+            .slider h1, .about h1, .contact h1{
+                display: flex;
+                justify-content: center;
+            }
+
+            .footer{
+                height: 30px;
+                background-color: black;
+                color: white;
+                padding: 10px;
+            }
+           
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>LOGO</h1>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="slider">
+            <h1> Slider</h1>
+        </div>
+
+        <div class="about">
+            <h1> About</h1>
+        </div>
+
+        <div class="contact">
+            <h1> Contact</h1>
+        </div>
+
+   
+    </body>
+</html>

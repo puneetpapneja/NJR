@@ -1,0 +1,53 @@
+<script>
+   const obj =  {
+        name: "Ram",
+        email: "ram@gmail.com",
+        // address: {
+        //     primary: "primary",
+        //     secondary: "secondary"
+        // }
+    }
+    console.log(obj?.address?.primary);
+    // var timer = null;
+    // const handleStart = () => {
+    //    timer = setInterval(()=>
+    //     console.log("hello from interval", new Date()),
+    //      5000)
+    // }
+
+    // const handleEnd = () =>{
+    //     clearInterval(timer);
+    // }
+
+    // const handleTitle = () =>{
+    //     const title = document.getElementById("txt_title").value;
+    //     document.title = title;
+    // }
+
+    // const handleNavigate = ()=> {
+    //     const href = document.getElementById("txt_title").value;
+    //     location.href = href;
+    // }
+
+    // const handleReload = ()=> {        
+    //     location.reload();
+    // }
+
+    // const getCurPos = (event)=>{
+    //     console.log(event);
+    //     const printX = document.getElementById("x");
+    //     const printY = document.getElementById("y");
+    //     printX.innerHTML = event.clientX;
+    //     printY.innerHTML = event.clientY;
+    // }
+    // setTimeout(()=> console.log("hello from timeout"), 5000);
+</script>
+<body  >
+    <h5>X : <span id="x"></span> Y: <span id="y"></span></h5>
+    <input type="text" id="txt_title" />
+<input type="button" value="Set Title" onclick="handleTitle()" />
+<input type="button" value="Navigate" onclick="handleNavigate()" />
+<input type="button" value="Reload" onclick="handleReload()" />
+<input type="button" value ="Start" onclick="handleStart()" />
+<input type="button" value ="End" onclick="handleEnd()" />
+</body>
