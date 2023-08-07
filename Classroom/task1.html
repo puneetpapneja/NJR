@@ -1,0 +1,67 @@
+<html>
+    <script type="text/javascript">
+
+        const clickHandler = (callback) => {
+            const fv = document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+            if(fv.value === "" && sv.value === ""){
+                result.value ="Please enter atlease 1 value";
+                return ;
+            }
+
+            result.value = callback(fv.value, sv.value);
+        }
+        const add = (a, b) => parseInt(a) + parseInt(b) ;
+        const div = (a, b) => parseInt(a) / parseInt(b) ;
+        const sub = (a, b) => parseInt(a) - parseInt(b) ;
+        const multi = (a, b) => parseInt(a) * parseInt(b) ;
+
+        // const sub = () => {
+        //     const fv = document.getElementById("txt1");
+        //     const sv = document.getElementById("txt2");
+        //     const result = document.getElementById("result");
+        //     if(fv.value === "" && sv.value === ""){
+        //         result.value ="Please enter atlease 1 value";
+        //         return ;
+        //     }
+        //     result.value = parseInt(fv.value) - parseInt(sv.value);
+
+        // }
+
+        // const div = () => {
+        //     const fv = document.getElementById("txt1");
+        //     const sv = document.getElementById("txt2");
+        //     const result = document.getElementById("result");
+        //     if(fv.value === "" && sv.value === ""){
+        //         result.value ="Please enter atlease 1 value";
+        //         return ;
+        //     }
+        //     result.value = parseInt(fv.value) / parseInt(sv.value);
+
+        // }
+
+        // const multi = () => {
+        //     const fv = document.getElementById("txt1");
+        //     const sv = document.getElementById("txt2");
+        //     const result = document.getElementById("result");
+        //     if(fv.value === "" && sv.value === ""){
+        //         result.value ="Please enter atlease 1 value";
+        //         return ;
+        //     }
+        //     result.value = parseInt(fv.value) * parseInt(sv.value);
+
+        // }
+    </script>
+    <body>
+            first Number <input type="text" id="txt1" />
+            second Number <input type="text" id="txt2" />
+            <input type="button" value="Add" onclick="clickHandler(add)" /> 
+            <input type="button" value="sub" onclick="clickHandler(sub)"/>
+            <input type="button" value="div" onclick="clickHandler(div)" />
+            <input type="button" value="multi" onclick="clickHandler(multi)" /> 
+            <br >
+
+            Result : <input type="text" id="result" />
+    </body>
+    </html>

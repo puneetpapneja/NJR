@@ -1,0 +1,32 @@
+img {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    transition: all 2s;
+    opacity: 0.1;
+}
+
+p:active{
+    background-color:red;
+}
+
+img:hover {
+    transform: rotate(360deg);
+    opacity: 0.9;
+}
+
+p::first-letter {
+    font-size:larger;
+    color:red;
+}
+
+p::before{
+    content: "*";
+    background-color:brown;
+    
+
+}
+
+input[type = "button"]{
+    border: 2px solid black;
+}
