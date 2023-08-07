@@ -2,6 +2,7 @@ import "./item.css"
 export default function Item() {
     return (
         <div className="div_b">
+        
             <section>Bottle</section>
             <section>Cello</section>
             <section id="price">115</section>
