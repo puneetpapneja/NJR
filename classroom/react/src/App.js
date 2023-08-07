@@ -5,6 +5,7 @@ import Header from './components/Header';
 import { useState } from 'react';
 import Card from './components/Card';
 import Hooks from './components/Hooks';
+import ToDoList from './components/todolist';
 
 // export const test = ()=>{
 
@@ -59,8 +60,9 @@ function App() {
 
     <Card>
         {/* <Item list={items} heading="Ceramic Products" /> */}
-        <button onClick={() => setShowHeader(!showHeader)}>click </button>
-       {showHeader ? <Hooks /> : null} 
+        {/* <button onClick={() => setShowHeader(!showHeader)}>click </button>
+       {showHeader ? <Hooks /> : null}  */}
+       <ToDoList />
     </Card>
     // showHeader ? (<div className="App">      
     // <Header /> 
