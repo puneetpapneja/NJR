@@ -1,0 +1,8 @@
+.col{
+    display: flex;
+    justify-content: space-between;
+}
+ .col1{
+    width:50px;
+    height:100px;
+ }
