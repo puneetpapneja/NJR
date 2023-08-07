@@ -1,0 +1,19 @@
+.head{
+    display: flex;
+}
+#a1{
+    background-color: aquamarine;
+    width: 400px;
+    height: 40px;
+}
+#a2{
+    background-color: bisque;
+    width: 400px;
+    height: 40px;
+}
+#a3{
+    background-color: blueviolet;
+    width: 400px;
+    height: 40px;
+    color: red;
+}
