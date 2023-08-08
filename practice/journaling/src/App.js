@@ -1,24 +1,70 @@
 import logo from './logo.svg';
 import './App.css';
+import Item, { Shubham } from "./components/Item"
+
+// const body = document.getElementById("body");
+// const p = document.createElement("p");
+// p.innerHTML ="testing"
+// body.append(p);
 
 function App() {
+  const ItemHead = [
+    {
+      product:"PRODUCT",
+      company:"COMPANY",
+      price:"PRICE"
+     }
+  ]
+
+  const Items = [
+    {
+        product:"Bottle",
+        company:"Cello",
+        price:"25"
+    },
+    {
+        product:"mobile",
+        company:"IQ",
+        price:"25K"
+    },
+    {
+        product:"earth",
+        company:"soler-system",
+        price:"infinite"
+    }
+]
+
+
+const Items2 = [
+   
+  {
+      product:"Bottlaaaaaaaaaaa",
+      company:"Cello",
+      price:"25"
+  },
+  {
+      product:"mobile",
+      company:"IQ",
+      price:"25K"
+  },
+  {
+      product:"earth",
+      company:"soler-system",
+      price:"infinite"
+  }
+]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Item items={ItemHead}/>
+    <Item items={Items}/>
+    <Item items={Items2}/>
+    
+    {/* <Item/>
+    <Item/> */}
+    {/* <Item></Item> */}
+    <Shubham/>
+    </>
+     
   );
 }
 
