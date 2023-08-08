@@ -5,8 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
+<<<<<<< HEAD
 // Bootstrap bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
+=======
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
+// test()
+// test1();
+>>>>>>> 88dafd94d41427003f34e18ffcea4c6a5c955e30
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
