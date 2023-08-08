@@ -1,11 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
-import Item from './components/Item';
-import Header from './components/Header';
 import React, { useState } from 'react';
-import Card from './components/Card';
-import Hooks from './components/Hooks';
 import ToDoList from './components/todolist';
+import Header from './components/Header';
 
 // export const test = ()=>{
 
@@ -58,8 +54,10 @@ function App() {
   ]
   return (
     <React.Fragment>
-      <button onClick={()=> setShowHeader(!showHeader)}>unmount hooks</button>
-      {showHeader ? null :<Hooks /> }
+      <Header />
+      {/* <ToDoList /> */}
+      {/* <button onClick={()=> setShowHeader(!showHeader)}>unmount hooks</button>
+      {showHeader ? null :<Hooks /> } */}
     {/* <Card>
       <Item list={items} heading="Cermamic Products" />    
     </Card>
@@ -84,7 +82,8 @@ function App() {
     // <Header /> 
     //   <Item list={items} heading="Ceramic Products" />
     //   <Item list={items2} heading="Cars" testContent="testContent" />
-    // </div>): null 
+    // </div>): null
+    // </React.Fragment> 
   );
 }
 
