@@ -1,29 +1,14 @@
 import "./item.css"
-export default function Item() {
+export default function Item({list}) {
     return (
-        <div className="div_b">
         
-            <section>Bottle</section>
-            <section>Cello</section>
-            <section id="price">115</section>
-        </div>
-
+        list?.map((item)=>{
+            return(
+            <div className="div_b">
+            <section>{item.item}</section>
+            <section>{item.brand}</section>
+            <section id="price">{item.price}</section>
+            </div>)})
+        
     );
 }
-const Items=[{
-    item: "Bottle",
-    brand: "cello",
-    price: 115
-},
-{
-    item: "Bottle",
-    brand: "cello",
-    price: 115
-},
-{
-    item: "Bottle",
-    brand: "cello",
-    price: 115
-}
-];
-   
