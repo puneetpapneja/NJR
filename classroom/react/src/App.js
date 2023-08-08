@@ -2,7 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import Item from './components/Item';
 import Header from './components/Header';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Card from './components/Card';
+import Hooks from './components/Hooks';
+import ToDoList from './components/todolist';
 
 // export const test = ()=>{
 
@@ -17,7 +20,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [showHeader, setShowHeader] = useState(true);
+  const [showHeader, setShowHeader] = useState(false);
   const items = [
     {
         item: "bottle",
@@ -54,11 +57,34 @@ function App() {
   }
   ]
   return (
-    showHeader ? (<div className="App">      
-    <Header /> 
-      <Item list={items} heading="Ceramic Products" />
-      <Item list={items2} heading="Cars" testContent="testContent" />
-    </div>): null 
+    <React.Fragment>
+      <button onClick={()=> setShowHeader(!showHeader)}>unmount hooks</button>
+      {showHeader ? null :<Hooks /> }
+    {/* <Card>
+      <Item list={items} heading="Cermamic Products" />    
+    </Card>
+
+
+ <Card>
+  <Item list={items2} heading="Cars" testContent="testContent" />
+ </Card> */}
+ </React.Fragment>
+
+
+
+
+
+
+
+    // {/* <Item list={items} heading="Ceramic Products" /> */}
+    //     {/* <button onClick={() => setShowHeader(!showHeader)}>click </button>
+    //    {showHeader ? <Hooks /> : null}  */}
+    //    {/* <ToDoList /> */}
+    // // showHeader ? (<div className="App">      
+    // <Header /> 
+    //   <Item list={items} heading="Ceramic Products" />
+    //   <Item list={items2} heading="Cars" testContent="testContent" />
+    // </div>): null 
   );
 }
 
