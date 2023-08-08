@@ -1,5 +1,6 @@
 import './Card.css';
-const Card = ({children}) => {
+const Card = (props) => {
+    const {children} = props;
     return (
         <div className="card">
            {children}
