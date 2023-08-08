@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            function greeting() {
+                var today = new Date();
+                var curHr = today.getHours();
+                if ( curHr < 12) {
+                  return 'Good Morning';
+                } else if ( curHr < 18) {
+                  return 'Good Afternoon';
+                } else if ( curHr < 20) {
+                  return 'Good Evening';
+                } else {
+                  return 'Good Night';
+                }
+              }
+              
+              var h1 = document.getElementById('my-header');
+              // Check if such header actually exists
+              if (h1) {
+                h1.innerHTML = greeting();
+              }
+        </title>
+    </head>
+        </script>
+    </head>
+</html>
