@@ -1,30 +1,35 @@
 import React  from "react";
 import "./Item.css";
 
-const Item=()=>{
+const Item=(props)=>{
     const items=[
         {
             item:"bottle",
             brand:"cello",
             price:"123 rupees"
-        }
+        },
         {
             item:"boat",
             brand:"cel",
             price:"234 rupees"
-        }
+        },
         {
             item:"goat",
             brand:"cel",
             price:"345 rupees"
         }
     ]
-    return(items?.map()
-  <div>bottle</div>
+    return(
+        <div>
+       {/* { props.items?.map(items=>(
+  <div>{items.item}</div>
   <div>cello</div>
   <div>150 ruppes</div>
+        ))
+    } */}
+    </div>
 
-    </div> );
+);
 }
 
 export default Item;

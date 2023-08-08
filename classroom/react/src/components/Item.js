@@ -1,6 +1,7 @@
 import './Item.css';
 const Item = (props)=>{
     const {list: items } = props;
+    console.log(items);
     return (<div>
             <table>
                 <thead>
