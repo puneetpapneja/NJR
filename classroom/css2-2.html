@@ -1,48 +1,52 @@
-<html>
-    <head>
-        <style>
-            #title{
-            height: 200px; 
-            width:200px; 
-            background-color: red;
-            color: white;
-            /* text-align: center; */
-            text-shadow: 2px 2px #2f2f2f;
-            box-shadow: 2px 2px blue;
-            border-radius: 10px;
-            padding-left: 10px;
-            margin-left: 20px;
-            }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS22</title>
+    <style>
+        #heading{
+        height: 200px; 
+        width:300px; 
+        background-color:blueviolet;
+        color: white;
+        text-align: center;
+        text-shadow: 10px 10px #3b2727;
+        box-shadow: 6px 6px rgb(126, 89, 156);
+        border-radius: 10px;
+        /* padding-left: 10px; */
+        margin-left: 10px;
+        }
 
-            .color-red {
-                color:red;
-            } 
+        .color-red {
+            color:rgb(4, 0, 255);
+           
+        } 
 
-            .fs-bolder{
-                font-size:larger;
-            }
+        .fs-bolder{
+            font-size:larger;
+        }
 
-           p u:last-child {
+       p u:last-child {
 
-                text-decoration: none;
-                color:red;
-            }
+            text-decoration: none;
+            color:red;
+        }
 
-        </style>
-    </head>
-
-    <body>
-        <h1 id="title">this is heading tag h1</h1>
-        <h3>this is heading tag h3</h3>
-        <h2 class="color-red">this is heading tag h2</h2>
-        <p>this is <u id="test">paragraph</u> 
-            <u>tag</u></p>
-        <u>this is underline tag</u>
-        <p>this is paragraph tag</p>
-        <p>this is paragraph tag</p>
-        <p class="color-red fs-bolder">this is paragraph tag</p>
-        <p>this is paragraph tag</p>
-        <p>this is paragraph tag</p>
-        <p>this is paragraph tag</p>
-    </body>
+    </style>
+</head>
+<body>
+    <h1 id="heading">This is H1 Heading</h1>
+    <h3>This is H3 Heading</h3>
+    <br>
+    <h2 class="color-red">This is H2 Heading</h2>
+    <br>
+    <p>This is <u id="test" style="font-weight: bolder;">PARAGRAPH</u> <u>TAG</u></p>
+    <u>This is Underline</u>
+    <p>This is Paragraph</p>
+    <br>
+    <p class="color-red fs-bolder">This is Paragraph </p>
+    <p>This is Paragraph</p>
+   
+</body>
 </html>

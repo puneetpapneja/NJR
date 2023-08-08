@@ -66,6 +66,6 @@ const Items2 = [
     </>
      
   );
-}
+} 
 
 export default App;

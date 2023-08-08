@@ -15,6 +15,7 @@ function Item({items}) {
                     <section className="price">{item.price}</section>
                     </div>
                     
+                    
                 })}
 
                 </>
