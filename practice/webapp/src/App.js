@@ -1,18 +1,18 @@
 // import logo from './logo.svg';
-import './App.css';
-import './components/Item.css';
-import Item from './components/Item';
+// import './App.css';
 
 
-
-
+// import './components/Item.css';
+// import Item from './components/Item';
+import TodoList from './components/TodoList';
+import './components/TodoList.css'
 
 
 function App() {
-  return ( 
+  return (
     <div className="App">
-     <Item/>
-
+      {/* <Item/> */}
+      <TodoList/>
     </div>
   );
 }
