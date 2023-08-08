@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script>
+            const imgsize=()=>{
+                var h = document.getElementById("a1").value;
+                var w = document.getElementById("a2").value;
+                var s = document.getElementById("img1");
+                
+                s.style.height = h+"%";
+                s.style.width = w+"%";
+            }
+            const handleclick=(callback)=>{
+                callback();
+            }
+        </script>
+    </head>
+    <body>
+        <input type="number" id="a1">
+        <input type="number" id="a2">
+        <input type="button" value="set" onclick="handleclick(imgsize)">
+        <div>
+            <img src="hotel6.png" id="img1">
+        </div>
+    </body>
+</html>

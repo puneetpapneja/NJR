@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script>
+            const add=(a,b)=>a+b;
+            const sub=(a,b)=>a-b;
+            const mul=(a,b)=>a*b;
+            const div=(a,b)=>a/b;
+
+            const handleclick =(callback)=>{
+                var a = parseInt(document.getElementById("txt1").value);
+                var b = parseInt(document.getElementById("txt2").value);
+                txt3.value = callback(a,b);
+                
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="text" id="txt1"  placeholder="enter number 1">
+        <input type="text" id="txt2" placeholder="enter number2">
+        <br>
+        <input type="button" value="Add" onclick="handleclick(add)">
+        <input type="button" value="Sub" onclick="handleclick(sub)">
+        <input type="button" value="Mul" onclick="handleclick(mul)">
+        <input type="button" value="Div" onclick="handleclick(div)">
+        <br>
+        <input type="text" placeholder="answer" id="txt3">
+    </body>
+</html>

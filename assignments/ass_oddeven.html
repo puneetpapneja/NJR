@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script>
+            const answer =()=>{
+                const n = document.getElementById("txt_1");
+                if((n.value)%2==0)
+                {
+                    txt_2.value = "even";
+                }
+                else{
+                    txt_2.value = "odd";
+                }
+            }
+
+        </script>
+
+    </head>
+    <body>
+        <input type="text" id="txt_1">
+        <br>
+        <input type="button" value="click" onmouseout="answer()">
+        <br>
+        <input type="text" id="txt_2" placeholder="answer">
+
+    </body>
+</html>

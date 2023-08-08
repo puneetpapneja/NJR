@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Website</title>
+        <style>
+            .container{
+                display: flex;
+                justify-content: space-between;
+            }
+            .nav{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                list-style-type: none;
+                gap: 50px;
+            }
+            li a{
+                text-decoration: none;
+                color: black;
+                font-size: 1.25rem;
+            }
+            li a:hover{
+                color: blueviolet;
+            }
+            .slider, .about, .contact{
+                background-color: bisque;
+                height: 25%;
+            }
+            .slider h1, .about h1, .contact h1{
+                display: flex;
+                justify-content: center;
+            }
+            .footer{
+                height: 20px;
+                background-color: black;
+                color: white;
+                padding: 12px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>LOGO</h2>
+            <ul class="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="slider">
+            <h1>Slider</h1>
+        </div>
+
+        <div class="about">
+            <h1>About</h1>
+        </div>
+
+        <div class="contact">
+            <h1>Contact</h1>
+        </div>
+
+        <div class="footer">
+            <p>copyright &copy; 2023</p>
+        </div>
+    </body>
+</html>

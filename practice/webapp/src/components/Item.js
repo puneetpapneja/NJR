@@ -1,6 +1,7 @@
 import './Item.css';
 
 const Item =(props)=>{
+    const {list: items} = props;
     return (
         <div class="head">
     <div id="a1">
