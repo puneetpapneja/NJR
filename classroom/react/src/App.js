@@ -1,6 +1,7 @@
 // import "./App.css";
 import React, { useState } from "react";
-import Slider from "./components/Slider";
+// import Slider from "./components/Slider";
+import ToDoList from "./components/todolist";
 
 function App() {
   const [showHeader, setShowHeader] = useState(false);
@@ -45,11 +46,7 @@ function App() {
       img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjuDMpR_FMxIBANxGWnFVsnheoZv40IKjAvQ&usqp=CAU",
     },
   ];
-  return (
-    <div className="App">
-      <Slider items={items} />
-    </div>
-  );
+  return <div className="App">{/* <ToDoList /> */}</div>;
 }
 
 export default App;
