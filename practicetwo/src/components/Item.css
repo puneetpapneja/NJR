@@ -1,0 +1,17 @@
+.row1{
+    display: flex;   
+}
+.col1{
+    text-align: left;
+    width: 400px;
+    height: 100px;
+}
+.col2{
+    width: 400px;
+    height: 100px;
+}
+.col3{
+    text-align: right;
+    width: 400px;
+    height: 100px;
+}
