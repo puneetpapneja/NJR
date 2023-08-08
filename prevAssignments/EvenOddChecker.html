@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EvenOddChecker</title>
+  </head>
+  <script>
+    const handleclick = () => {
+      //document.write("you clicked");
+      const textelement = document.getElementById("item").value;
+      //document.write("you clicked and the values are " + textelement.value);
+      if (textelement.length == 0) {
+        document.write("Please enter a Number");
+      } else if (textelement % 2 == 0) {
+        document.write("The number is Even ");
+      } else {
+        document.write("The number is Odd ");
+      }
+    };
+    const clickhandler = (callback) => {
+      callback();
+    };
+  </script>
+  <body>
+    <input type="text" id="item" />
+    <button onclick="clickhandler(handleclick)">click</button>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dimension Changer</title>
+  </head>
+  <style>
+    .image {
+      margin-top: 300px;
+    }
+  </style>
+  <body>
+    <script>
+      const clickhandler = () => {
+        const a = document.getElementById("item").value;
+        const b = document.getElementById("item1").value;
+        const s = document.getElementById("img");
+
+        s.style.width = a + "%";
+        s.style.height = b + "%";
+      };
+      const handler = (callback) => {
+        callback();
+      };
+    </script>
+    <input type="text" id="item" />
+    <input type="text" id="item1" />
+
+    <button onchange="handler(clickhandler)">click</button>
+
+    <img id="img" src="./Untitled.jpg" alt="" />
+  </body>
+</html>
