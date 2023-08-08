@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Button } from 'react-bootstrap';
 
 const Hooks = ()=>{
     const [value, changeValue] = useState();
@@ -6,9 +7,10 @@ const Hooks = ()=>{
     console.log("Load 1 time only when component load")
   },[])
 
+ 
   useEffect(()=> { 
     console.log("value state change")
-  },[value]);
+  },[value]); 
 
   useEffect(()=> { 
     console.log("useEffect trigger everytime")
@@ -25,7 +27,7 @@ const Hooks = ()=>{
         <div>
             <h1>Hooks examples</h1>
             Value : {value}
-            <button onClick={() => changeValue(Math.random())}>click here</button>
+            <Button variant="primary">Primary</Button>
         </div>
     )
 }
