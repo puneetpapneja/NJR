@@ -6,3 +6,13 @@
     width:50px;
     height:100px;
  }
+ .container{
+    border:"5px";
+     height:"400px" ;
+     width:"800px";
+    box-align:"center";
+ }
+.table{
+    height:"300px";
+     width:"100%"
+}
