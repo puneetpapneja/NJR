@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+//bootstrap css
+import "bootstrap/dist/css/bootstrap.min.css";
+//bootstrap bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
+//test()
+//test();
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
