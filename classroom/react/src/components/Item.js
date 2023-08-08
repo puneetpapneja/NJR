@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import './Item.css';
-const Item = (props)=>{
-    const {list: items } = props;
+const Item = ({list: items, heading })=>{ 
+    const [hasShow, setHasShow] = useState(true);  
+    
+    const handleClick = () => {
+       setHasShow(!hasShow);
+        console.log("hasshow - ", hasShow);
+    }
     return (<div>
-            <table>
+        <h1>{heading} <button onClick={handleClick}> click </button></h1>
+            <table className={hasShow ? 'show' : 'hide'}>
                 <thead>
                 <tr>
                     <th>Item</th>
