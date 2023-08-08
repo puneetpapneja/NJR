@@ -6,9 +6,10 @@ const Hooks = ()=>{
     console.log("Load 1 time only when component load")
   },[])
 
+ 
   useEffect(()=> { 
     console.log("value state change")
-  },[value]);
+  },[value]); 
 
   useEffect(()=> { 
     console.log("useEffect trigger everytime")
