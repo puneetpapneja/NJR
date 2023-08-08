@@ -1,0 +1,12 @@
+<script>
+    const add = (a) => {
+        const task = (b)=>{
+            return a + b;
+        }
+        return task;
+    }
+
+   const performAdd = add(5)(10);
+   console.log(performAdd)
+//    console.log(performAdd(10))
+</script>
