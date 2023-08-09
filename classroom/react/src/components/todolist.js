@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState } from "react";
+import {Button} from 'react-bootstrap';
 
 const ToDoList = () =>{
     const [todoItem, setTodoItem] = useState();
@@ -11,10 +12,8 @@ const ToDoList = () =>{
     }
     return (
         <div>
-        <h1>To Do List : {todoItem}</h1>
-
-        <input type="text" onChange={handleChange} />
-        <button onClick={handleClick}>Add</button>
+        <Button variant="primary">primary</Button>
+        <Button variant="secondary">secondary</Button>
         </div>
     )
 }
