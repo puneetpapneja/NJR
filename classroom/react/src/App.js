@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import Item from './components/Item';
-import Header from './components/Header';
-import { useState } from 'react';
-import Card from './components/Card';
-import Hooks from './components/Hooks';
+import React, { useState } from 'react';
 import ToDoList from './components/todolist';
+import Header from './components/Header';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import Home from './components/Home';
+import { routes } from './routing';
 
 // export const test = ()=>{
 
@@ -20,7 +19,7 @@ import ToDoList from './components/todolist';
 
 function App() {
 
-  const [showHeader, setShowHeader] = useState(true);
+  const [showHeader, setShowHeader] = useState(false);
   const items = [
     {
         item: "bottle",
@@ -57,18 +56,40 @@ function App() {
   }
   ]
   return (
-
-    <Card>
-        {/* <Item list={items} heading="Ceramic Products" /> */}
-        {/* <button onClick={() => setShowHeader(!showHeader)}>click </button>
-       {showHeader ? <Hooks /> : null}  */}
-       <ToDoList />
+    <React.Fragment>
+      
+      <RouterProvider router={createBrowserRouter(routes)}>
+     
+      </RouterProvider>
+      {/* <ToDoList /> */}
+      {/* <button onClick={()=> setShowHeader(!showHeader)}>unmount hooks</button>
+      {showHeader ? null :<Hooks /> } */}
+    {/* <Card>
+      <Item list={items} heading="Cermamic Products" />    
     </Card>
-    // showHeader ? (<div className="App">      
+
+
+ <Card>
+  <Item list={items2} heading="Cars" testContent="testContent" />
+ </Card> */}
+ </React.Fragment>
+
+
+
+
+
+
+
+    // {/* <Item list={items} heading="Ceramic Products" /> */}
+    //     {/* <button onClick={() => setShowHeader(!showHeader)}>click </button>
+    //    {showHeader ? <Hooks /> : null}  */}
+    //    {/* <ToDoList /> */}
+    // // showHeader ? (<div className="App">      
     // <Header /> 
     //   <Item list={items} heading="Ceramic Products" />
     //   <Item list={items2} heading="Cars" testContent="testContent" />
-    // </div>): null 
+    // </div>): null
+    // </React.Fragment> 
   );
 }
 
