@@ -2,7 +2,9 @@ import React from 'react';
 import Home from './components/Home';
 import Aboutus from './components/About';
 import Contactus from './components/Contact';
-export const routes = [
+import Header from './components/Header';
+import PageLayout from './components/page-layout';
+export const routing = [
     {
         path: "/",
         element:  <Home />
@@ -14,6 +16,14 @@ export const routes = [
     {
         path: "/contact",
         element:  <Contactus />
+    }
+]
+
+export const routes = [
+    {
+        path: "/",
+        element: <PageLayout />,
+        children: routing
     }
 ]
 
