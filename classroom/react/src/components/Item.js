@@ -1,8 +1,26 @@
+import React, { useState } from 'react';
 import './Item.css';
-const Item = (props)=>{
-    const {list: items } = props;
+
+const ListItems = React.memo(({items}) => {
+    return items?.map(item => (
+        <tr>
+            <td>{item.item}</td>
+            <td>{item.brand}</td>
+            <td>{item.price}</td>
+        </tr>
+        ))
+});
+
+const Item = ({list: items, heading })=>{ 
+    const [hasShow, setHasShow] = useState(true);  
+    
+    const handleClick = () => {
+       setHasShow(!hasShow);
+        console.log("hasshow - ", hasShow);
+    }
     return (<div>
-            <table>
+        <h1>{heading} <button onClick={handleClick}> click </button></h1>
+            <table >
                 <thead>
                 <tr>
                     <th>Item</th>
@@ -12,13 +30,7 @@ const Item = (props)=>{
                 </thead>
 
                 <tbody>
-                    {items?.map(item => (
-                    <tr>
-                        <td>{item.item}</td>
-                        <td>{item.brand}</td>
-                        <td>{item.price}</td>
-                    </tr>
-                    ))}
+                    <ListItems items={items} />
                     
                 </tbody>
 
