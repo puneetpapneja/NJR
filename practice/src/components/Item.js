@@ -6,7 +6,7 @@ import './item.css';
         <div className="colum1">Bottle</div>
         <div className="colum1">Cello</div>
         <div className="colum1">
-      115
+      
         </div>
 
     </div>
