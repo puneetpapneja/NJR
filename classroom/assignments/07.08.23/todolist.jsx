@@ -12,8 +12,12 @@ const ToDoList = () => {
     if (!inputValue) {
       return;
     } else {
-      setTodoItems([...todoItems, inputValue]);
-      setInputValue("");
+      if (todoItems.find((ele) => ele === inputValue)) {
+        alert("already added");
+      } else {
+        setTodoItems([...todoItems, inputValue]);
+        setInputValue("");
+      }
     }
   }
 
