@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
-import BasicExample from './components/Navbar';
+import Bas from "./components/Bas"
 
 function App() {
   return (
-    <BasicExample/>
+    <Bas />
   );
 }
 
