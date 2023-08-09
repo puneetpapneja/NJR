@@ -3,11 +3,13 @@ import './App.css';
 import Item from './component/Item';
 import ImageTask from './component/image_task';
 import Table from './component/table';
-import ToDoList from './component/Todolist';
+// import ToDoList from './component/Todolist';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import { routes } from './routing';
 
 
-// function App() {
-//   <ToDoList/>
+function App() {
+  
   // const car = {
   //   image:["car2.jpeg","car3.jpeg","car4.jpeg"],
   //   feature:["high speed","f2","f3"],
@@ -22,19 +24,16 @@ import ToDoList from './component/Todolist';
   //   </div>
   // );
 
-  // return (
-  //   <div className="App">
-  //     <ImageTask/>
-  //     <Item></Item>
-   
-  //   </div>
-    
-  // );
   return (
-    <React.Fragment>
-      <button onClick={()=> setShowHeader(!showHeader)}>unmount hooks</button>
-      {showHeader ? null :<Hooks /> }
-    {}
- </React.Fragment>
+    <div className="App">
+      {/* <ToDoList/> */}
+      <RouterProvider router={createBrowserRouter(routes)}>
+     
+      </RouterProvider>
+   
+   </div>
+    
+ );
+}
 
 export default App;
