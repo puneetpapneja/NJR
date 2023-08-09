@@ -17,6 +17,11 @@ export const routing = [
         path: "/contact",
         element:  <Contactus />
     }
+    {
+        path: "/usememo",
+        element:  <Memo/>
+    }
+]
 ]
 
 export const routes = [

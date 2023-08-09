@@ -1,55 +1,41 @@
+import React, { useState } from 'react';
+import './Item.css';
 
-// const Item = ()=>{
-//         return (<div>item component</div>)
+const ListItems = React.memo(({items}) => {
+    return items?.map(item => (
+        <tr>
+            <td>{item.item}</td>
+            <td>{item.brand}</td>
+            <td>{item.price}</td>
+        </tr>
+        ))
+});
 
-// }
-// export default Item;
-// const Item =()=>{
-//     return{<div>
-//                 <table>
-//                     <thead>
-//                     <tr>
-//                         <th>Item</th>
-//                         <th>Brand</th>
-//                         <th>Price</th>
-//                     </tr>
-//                     </thead>
+const Item = ({list: items, heading })=>{ 
+    const [hasShow, setHasShow] = useState(true);  
+    
+    const handleClick = () => {
+       setHasShow(!hasShow);
+        console.log("hasshow - ", hasShow);
+    }
+    return (<div>
+        <h1>{heading} <button onClick={handleClick}> click </button></h1>
+            <table >
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
 
-//                    <tbody>
-//                    <tr>
-//                         <td>Bottle</td>
-//                         <td>Cello</td>
-//                         <td>115</td>
-//                    </tr></tbody> 
-//                 </table>}
-//                 </div>
-// }
-// import './item.css';
-// const Item =()=>{
-//     const items = [
-//         {
-//             item:"Bottle",
-//             brand: "cello" ,
-//             price :  200
-//         },
-//         {
-//             item:"Mobile",
-//             brand: "Moto" ,
-//             price :  15000
-//         },
-//         {
-//             item:"Iphone 5s",
-//             brand: "Iphone" ,
-//             price :  2600
-//         },
-        
-//     ]
-//     return <div>
-//         <table>
-//             <thead>
-                
-//             </thead>
-//         </table>
-//     </div>
-// }
+                <tbody>
+                    <ListItems items={items} />
+                    
+                </tbody>
 
+            </table>
+        </div>);
+}
+
+export default Item;
