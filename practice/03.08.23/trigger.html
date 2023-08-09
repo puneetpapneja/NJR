@@ -1,0 +1,19 @@
+<script>
+  var timer = null;
+  const handleStart = () => {
+    timer = setInterval(
+      () => console.log("hello from interval", new Date()),
+      5000
+    );
+  };
+  const handleEnd = () => {
+    clearInterval(timer);
+  };
+  setTimeout(() => console.log("hello from timeout."), 5000);
+
+  let a = 10;
+  let b = 20;
+</script>
+
+<input type="button" value="Start" onclick="handleStart()" />
+<input type="button" value="End" onclick="handleEnd()" />

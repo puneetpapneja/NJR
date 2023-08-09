@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="input1" />
+    <input type="button" value="Enter" onclick="checker()" />
+  </body>
+  <script>
+    function checker() {
+      const a = document.getElementById("input1");
+      let b = parseInt(a.value);
+      let sum = 0;
+      let x = 0;
+
+      while (b != 0) {
+        x = b % 10;
+        sum = sum + x * x * x;
+        b = parseInt(b / 10);
+      }
+
+      if (sum == parseInt(a.value)) {
+        document.write("Yes, Its an Armstrong number.");
+      } else {
+        document.write("No, Its not an Armstrong number.");
+      }
+    }
+  </script>
+</html>

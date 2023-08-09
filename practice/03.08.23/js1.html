@@ -1,0 +1,14 @@
+<html>
+  <head> </head>
+  <script>
+    function handleClick() {
+      const txtElement = document.getElementById("txt_number");
+      //   txtElement.value = 100;
+      document.write("clicked event triggered value is " + txtElement.value);
+    }
+  </script>
+  <body>
+    <input type="text" id="txt_number" />
+    <input type="button" value="click" onclick="handleClick()" />
+  </body>
+</html>

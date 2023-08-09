@@ -1,0 +1,45 @@
+<html>
+  <head></head>
+
+  <body>
+    <input type="number" id="input1" />
+    <input type="number" id="input2" />
+
+    <input type="button" value="addition" onclick="addition()" />
+    <input type="button" value="product" onclick="multiply()" />
+    <input type="button" value="division" onclick="division()" />
+    <input type="button" value="subtraction" onclick="subtraction()" />
+    <input type="number" id="output" />
+  </body>
+
+  <script>
+    function addition() {
+      const a = document.getElementById("input1");
+      const b = document.getElementById("input2");
+      const c = parseInt(a.value) + parseInt(b.value);
+      const d = document.getElementById("output");
+      d.value = c;
+    }
+    function multiply() {
+      const a = document.getElementById("input1");
+      const b = document.getElementById("input2");
+      const c = parseInt(a.value) * parseInt(b.value);
+      const d = document.getElementById("output");
+      d.value = c;
+    }
+    function division() {
+      const a = document.getElementById("input1");
+      const b = document.getElementById("input2");
+      const c = parseInt(a.value) / parseInt(b.value);
+      const d = document.getElementById("output");
+      d.value = c;
+    }
+    function subtraction() {
+      const a = document.getElementById("input1");
+      const b = document.getElementById("input2");
+      const c = parseInt(a.value) - parseInt(b.value);
+      const d = document.getElementById("output");
+      d.value = c;
+    }
+  </script>
+</html>

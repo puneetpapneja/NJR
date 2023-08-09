@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      const handleSubmit = () => {
+        const t = document.getElementById("element").value;
+        const r = document.getElementById("error");
+        if (t === "") {
+          r.innerHTML = "*";
+          return false;
+        }
+        return true;
+      };
+    </script>
+
+    <form onsubmit="return handleSubmit()">
+      <div>
+        Name:<input type="text" placeholder="Enter your name" id="element" />
+        <span id="error"></span>
+      </div>
+      <br />
+      <div>Email: <input type="text" placeholder="Enter your Email" /></div>
+      <br />
+      <div>
+        Password: <input type="text" placeholder="Enter your password" />
+      </div>
+      <br />
+      <div>
+        Confirm Password: <input type="text" placeholder="Confirm password" />
+      </div>
+      <br />
+      <div>
+        Gender: <input type="radio" name="choose" /> Male
+        <input type="radio" name="choose" /> Female
+      </div>
+      <br />
+      <div>
+        DOB:
+        <select>
+          <script>
+            for (let i = 1; i < 32; i++) {
+              document.write("<option>" + i + "<option>");
+            }
+          </script>
+        </select>
+        <select>
+          <script>
+            for (let i = 1; i < 13; i++) {
+              document.write("<option>" + i + "<option>");
+            }
+          </script>
+        </select>
+        <select>
+          <script>
+            for (let i = 1950; i < 2024; i++) {
+              document.write("<option>" + i + "<option>");
+            }
+          </script>
+        </select>
+      </div>
+      <br />
+      <div><input type="checkbox" /> Accept term & Condition</div>
+      <br />
+      <input value="Sign Up" type="button" onclick="handleSubmit()" />
+    </form>
+  </body>
+</html>

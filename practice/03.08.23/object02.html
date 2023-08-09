@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    const studentDtls = [
+      {
+        rollno: 1,
+        firstName: "Jitesh",
+        lastName: "Goyal",
+        emailId: "jitesh.goyal@gamil.com",
+        contact: 7699997699,
+        isActive: true,
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      },
+      {
+        rollno: 2,
+        firstName: "Rohit",
+        lastName: "Sharma",
+        emailId: "rohit.sharma@gamil.com",
+        contact: 9598826531,
+        isActive: true,
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      },
+      {
+        rollno: 3,
+        firstName: "Ajay",
+        lastName: "Nagpal",
+        emailId: "ajay.nagpal@gamil.com",
+        contact: 8859621992,
+        isActive: true,
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      },
+      {
+        rollno: 4,
+        firstName: "Mohit",
+        lastName: "Pandey",
+        emailId: "mohit.pandey@gamil.com",
+        contact: 9985614273,
+        isActive: true,
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      },
+    ];
+    console.log(studentDtls[2].getFullName());
+  </script>
+  <body></body>
+</html>

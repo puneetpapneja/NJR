@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    let a = [1, 5, 7, 10, "Ram", true];
+    let arr = new Array();
+    console.log(a[5]);
+    console.log(a.length);
+    for (let i = 0; i < a.length; i++) {
+      console.log(a[i]);
+    }
+
+    a.map((item, index) => {
+      console.log(item, index);
+    });
+
+    a.forEach((item, index) => {
+      console.log(item, index);
+    });
+
+    let b = [1, 5, 7, 10];
+
+    let newArr = b.map((item) => item * 2);
+
+    for (let i = 0; i < newArr.length; i++) {
+      console.log(newArr[i]);
+    }
+
+    let arr2 = [1, 2, 7, 10];
+    let newArr2 = arr2.filter((item) => item % 2 === 0);
+    console.log(newArr2, "lenght", newArr2.lengh);
+
+    let arr3 = [1, 2, 7, 10];
+    let newArr3 = arr3.map((item) => item % 2 === 0);
+    console.log(newArr3, "lenght", newArr3.lengh);
+
+    let arr4 = [
+      {
+        name: "Ram",
+        email: "ram@gamil.com",
+      },
+      {
+        name: "Shyam",
+        email: "shyam@gamil.com",
+      },
+      {
+        name: "Parmod",
+      },
+    ];
+    let newArr4 = arr4.filter((item) => item.email !== undefined);
+    console.log(newArr4, "lenght", newArr4.length);
+
+    let newArr5 = arr4.filter((item) => item.email == undefined);
+    console.log(newArr5, "lenght", newArr5.length);
+
+    // let newArr6 = arr4.findIndex((item) => item.email === "ram@gmail.com");
+    // console.log(newArr6);
+
+    // let newArr7 = arr4.findLastIndex((item) => item.email === "ram@gmail.com");
+    // console.log(newArr7);
+
+    let employees = [
+      {
+        firstName: "John",
+        lastName: "Doe",
+        age: 27,
+        joinedDate: "December 15, 2017",
+      },
+
+      {
+        firstName: "Ana",
+        lastName: "Rosy",
+        age: 25,
+        joinedDate: "January 15, 2019",
+      },
+
+      {
+        firstName: "Zion",
+        lastName: "Albert",
+        age: 30,
+        joinedDate: "February 15, 2011",
+      },
+    ];
+    employees.sort((a, b) => {
+      let fa = a.firstName.toLowerCase(),
+        fb = b.firstName.toLowerCase();
+
+      if (fa < fb) {
+        return -1;
+      }
+      if (fa > fb) {
+        return 1;
+      }
+      return 0;
+    });
+    employees.forEach((e) => {
+      console.log(`${e.firstName} ${e.lastName}`);
+    });
+
+    let arr5 = [1, 3, 10, 6, 2, 5];
+    console.log(arr5.reduce((sum, a) => sum + a));
+    const str = arr5.join(",");
+    console.log(str);
+    console.log(str.split(","));
+    console.log(arr5.shift());
+    console.log("after shift ", arr5);
+    arr5.unshift(1, -1, 2.5);
+    console.log("after unshift ", arr5);
+
+    console.log(arr5.includes(30));
+    console.log(arr.includes(30), arr.indexOf(30));
+
+    arr6 = [1, 5, 4, 8, 96, 3, 8, 5, 114];
+
+    console.log(arr6.splice(2, 2), "after", arr6);
+
+    console.log(arr.concat([98, 92, 15]));
+  </script>
+  <body></body>
+</html>

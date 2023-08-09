@@ -1,0 +1,26 @@
+<script>
+  let admission = {
+    course: "Btech.",
+    fees: 24000,
+    years: 4,
+  };
+
+  let student = {
+    name: "Jitesh",
+    contact: 8295678110,
+    email: "jitesh.goyal@gmail.com",
+    // address: {
+    //   primary: "primary address",
+    //   secondary: "seconday address",
+    // },
+    __proto__: admission,
+  };
+
+  const {
+    name,
+    contact,
+    email,
+    address: ads = { primary: "", secondary: "" },
+  } = student;
+  console.log("name ", adrs);
+</script>

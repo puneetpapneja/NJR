@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form</title>
+    <style>
+      .err {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="return checkAll()">
+      <label for="">First Name: </label><input type="text" id="fName" />
+      <span class="err" id="fnameerror"></span><br /><br />
+      <label for="">Last Name: </label><input type="text" id="lName" />
+      <span class="err" id="lnameerror"></span><br /><br />
+      <label for="">Email: </label><input type="mail" id="mail" /><span
+        class="err"
+        id="mailerror"
+        class="err"
+      ></span
+      ><br /><br />
+      <label for="">Password: </label><input type="password" id="pass" />
+      <span id="passerror" class="err"></span> <br /><br />
+      <label for="">Confirm Password: </label
+      ><input type="password" id="cpass" />
+      <span id="cpasserror" class="err"></span><br /><br />
+      <label>Gender:</label> Male<input type="radio" name="Gender" />
+      Female<input type="radio" name="Gender" />
+      <span id="gender" class="err"></span><br /><br />
+      <label>Date of Birth : </label>
+      <select id="date">
+        <option>Days</option>
+        ;
+        <script>
+          for (let i = 1; i < 32; i++) {
+            document.write("<option>" + i + "</option> ");
+          }
+        </script>
+      </select>
+      <select id="month">
+        <option>Month</option>
+        ;
+        <script>
+          for (let i = 1; i < 13; i++) {
+            document.write("<option>" + i + "</option> ");
+          }
+        </script>
+      </select>
+      <select id="year">
+        <option>Year</option>
+        ;
+        <script>
+          for (let i = 1950; i < 2024; i++) {
+            document.write("<option>" + i + "</option> ");
+          }
+        </script>
+      </select>
+      <span id="dob" class="err"></span> <br /><br />
+      <input type="checkbox" /><label> Accept Terms and Condition </label>
+      <br /><br />
+      <input type="submit" value="submit" />
+    </form>
+    <script>
+      const checkAll = () => {
+        const fName = document.getElementById("fName");
+        const fnameerror = document.getElementById("fnameerror");
+        const lName = document.getElementById("lName");
+        const lNameerror = document.getElementById("lnameerror");
+        const Email = document.getElementById("mail");
+        const mailerror = document.getElementById("mailerror");
+        const pass = document.getElementById("pass");
+        const passerror = document.getElementById("passerror");
+        const cpass = document.getElementById("cpass");
+        const cpasserror = document.getElementById("cpasserror");
+        const gender = document.getElementsByName("Gender");
+        const gendererror = document.getElementById("gender");
+
+        fnameerror.innerHTML = "";
+        lNameerror.innerHTML = "";
+        passerror.innerHTML = "";
+        mailerror.innerHTML = "";
+        cpasserror.innerHTML = "";
+
+        let isSelected = false;
+
+        if (gender[0].checked || gender[1].checked) {
+        }
+        if (isSelected) {
+          gendererror.innerHTML = "";
+        } else {
+          gendererror.innerHTML = "<b> *</b>";
+        }
+
+        if (fName.value == "") {
+          fnameerror.innerHTML = "<b> *</b>";
+        }
+        if (lName.value == "") {
+          lnameerror.innerHTML = "<b> *</b>";
+        }
+        if (Email.value == "") {
+          mailerror.innerHTML = "<b> *</b>";
+        }
+        if (pass.value == "") {
+          passerror.innerHTML = "<b> *</b>";
+        }
+        if (cpass.value == "") {
+          cpasserror.innerHTML = "<b> *</b>";
+        }
+        if (
+          fName.value == "" ||
+          lName.value == "" ||
+          Email.value == "" ||
+          cpass.value == "" ||
+          pass.value == ""
+        ) {
+          return false;
+        }
+        return true;
+      };
+    </script>
+  </body>
+</html>
