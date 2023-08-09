@@ -57,8 +57,10 @@ function App() {
   ]
   return (
     <React.Fragment>
-      <Header />
-      <RouterProvider router={createBrowserRouter(routes)}></RouterProvider>
+      
+      <RouterProvider router={createBrowserRouter(routes)}>
+     
+      </RouterProvider>
       {/* <ToDoList /> */}
       {/* <button onClick={()=> setShowHeader(!showHeader)}>unmount hooks</button>
       {showHeader ? null :<Hooks /> } */}
