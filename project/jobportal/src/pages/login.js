@@ -1,6 +1,6 @@
 import React from 'react'
 import { Login } from '../components/login'
 
-export const loginPage = () => {
+export const LoginPage = () => {
   return  <Login/>
 }
