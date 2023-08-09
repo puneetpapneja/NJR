@@ -1,4 +1,5 @@
 import React  from "react";
+import { Button } from "react-bootstrap";
 import "./Item.css";
 
 const Item=(props)=>{
@@ -26,7 +27,10 @@ const Item=(props)=>{
   <div>cello</div>
   <div>150 ruppes</div>
         ))
-    } */}
+    } */
+    <Button variant="primary" >primary</Button>
+
+    }
     </div>
 
 );
