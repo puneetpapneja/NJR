@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 import './login.css';
 
 const Login = () => {
@@ -36,6 +37,7 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <Link to="/Register">Dont have a account?Register now</Link>
                         </div>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <div className='d-flex justify-content-center'>

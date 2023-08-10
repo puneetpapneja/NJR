@@ -47,8 +47,7 @@ const Register = () => {
                             </div>
                         </div>
                         <div className="input-group">
-                            <a href="">Have a account?</a>
-                            <Link to="/Login">Log in now</Link>
+                            <Link to="/Login">Have a account?Log in now</Link>
                         </div>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <div className='d-flex justify-content-center'>
