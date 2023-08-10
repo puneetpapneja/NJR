@@ -12,7 +12,14 @@ const NavBar = () =>{
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/about">about us</Nav.Link>
             <Nav.Link as={Link} to="/contact">Contact us</Nav.Link>
-            
+            <NavDropdown title="Topics" id="basic-nav-dropdown">
+              <NavDropdown.Item as={Link} to="/usememo">
+                useMemo Example
+              </NavDropdown.Item>    
+              <NavDropdown.Item as={Link} to="/item">
+                memo component
+              </NavDropdown.Item>             
+            </NavDropdown>            
           </Nav>
         </Navbar.Collapse>
       </Container>
