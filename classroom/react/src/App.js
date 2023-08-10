@@ -7,7 +7,8 @@ import { routes } from './routing';
 function App() {
   return (
     <RouterProvider router={createBrowserRouter(routes)}>
-    </RouterProvider>);
+    </RouterProvider>
+    );
 }
 
 export default App;

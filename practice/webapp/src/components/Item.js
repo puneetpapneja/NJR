@@ -1,16 +1,44 @@
 import './Item.css';
+import React, {useState} from "react";
 
-const Item =(props)=>{
-    const {list: items} = props;
+const ListItems = React.memo(({items})=>{
+    return items?.map(item=>(
+        <tr>
+            <td>{item.item}</td>
+            <td>{item.brand}</td>
+            <td>{item.price}</td>
+        </tr>
+    ))
+})
+
+const Item =({list: items , heading})=>{
+    const [hasShow, setHasShow]= useState(true);
+    const handleClick = ()=>{
+        setHasShow(!hasShow);
+        console.log("hasShow - ", hasShow);
+    }
+
     return (
-        <div class="head">
-    <div id="a1">
-        Bottle
-    </div>
-    <div id="a2">cello</div>
-    <div id="a3">115</div>
-    </div>
-    );
+        <div>
+            <h1>{heading} 
+            <button onClick={handleClick}>click</button>
+            </h1>
+            <table>
+                <thead>
+                <tr>
+                <th>Item</th>
+                <th>Brand</th>
+                <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <ListItems item={items}></ListItems>
+                </tbody>
+
+
+            </table>
+        </div>
+    )
 }
 
 export default Item;
