@@ -3,9 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+<<<<<<< HEAD
 //bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 //bootstrap Bundle JS
+=======
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+>>>>>>> 05ebde8791f651ead5cccd711d676e201d42d6e5
 import "bootstrap/dist/js/bootstrap.bundle.min";
 // test()
 // test1();
