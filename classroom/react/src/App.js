@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
-import ToDoList from './components/todolist';
+import ToDoList from './components/ToDoList';
 import Header from './components/Header';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import Home from './components/Home';
