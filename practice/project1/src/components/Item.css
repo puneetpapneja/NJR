@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+table  tr th, table tr td {
+    border: 1px solid red;
+}
+
+/* .hide { 
+    display: none;
+}
+
+.show {
+    display: block;
+} */
