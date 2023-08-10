@@ -1,10 +1,10 @@
 import React from 'react';
-import Login from './components/login';
+import Loginpage from './pages/loginpage';
 
 export const routing = [
     {
         path: "/",
-        element:  <Login />
+        element:  <Loginpage />
     }
 ]
 
