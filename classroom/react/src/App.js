@@ -1,19 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< HEAD
 import Item from './components/Item';
+=======
+import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { routes } from './routing';
+>>>>>>> 05ebde8791f651ead5cccd711d676e201d42d6e5
 
-// export const test = ()=>{
-
-// }
-// export const test1 = ()=>{
-
-// }
-// const body = document.getElementById("body");
-// const p = document.createElement("p");
-// p.innerHTML ="testing"
-// body.append(p);
 
 function App() {
+<<<<<<< HEAD
   const items = [
     {
         item: "bottle",
@@ -55,6 +52,11 @@ function App() {
       <Item list={items2} />
     </div>
   );
+=======
+  return (
+    <RouterProvider router={createBrowserRouter(routes)}>
+    </RouterProvider>);
+>>>>>>> 05ebde8791f651ead5cccd711d676e201d42d6e5
 }
 
 export default App;
