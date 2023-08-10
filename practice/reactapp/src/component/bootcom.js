@@ -18,7 +18,7 @@ function BasicExample() {
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="">Contact</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+               Callback
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
