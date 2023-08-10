@@ -5,7 +5,7 @@ import React from "react";
 const PageLayout = () => {
   return (
     <React.Fragment>
-      {/* <Header /> */}
+      <Header />
       <Outlet />
     </React.Fragment>
   );
