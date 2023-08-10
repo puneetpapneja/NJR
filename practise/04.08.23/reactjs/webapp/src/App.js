@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Item from './components/Items';
+
+const items1=[
+  {
+    item:"bottle",
+    brand:"milton",
+    price:"Rs.200"
+  },
+  {
+    item:"tiffin",
+    brand:"milton",
+    price:"Rs.300"
+  },
+  {
+    item:"bottle",
+    brand:"tupperware",
+    price:"Rs.250"
+  }
+  
+]
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <Item item="bottle" brand="tupperware" price="Rs.20"></Item> */}
+      <Item list = {items1}></Item>
     </div>
   );
 }
