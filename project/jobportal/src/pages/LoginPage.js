@@ -22,7 +22,9 @@ const LoginPage = () => {
           <Button variant="primary" type="submit" className="w-100">
             Login
           </Button>
+          
         </Form>
+        
 
         <p className="mt-3 text-center">Don't have an account?<Button variant="link">Sign up</Button></p>
       </div>

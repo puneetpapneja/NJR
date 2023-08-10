@@ -6,6 +6,7 @@ import Header from './components/Header';
 import PageLayout from './components/page-layout';
 import Memo from './components/Memo';
 import Item from './components/Item';
+import Callback from './components/Callback';
 export const routing = [
     {
         path: "/",
@@ -22,6 +23,10 @@ export const routing = [
     {
         path: "/usememo",
         element:  <Memo />
+    },
+    {
+        path: "/callback",
+        element:  <Callback />
     },
     {
         path: "/item",
