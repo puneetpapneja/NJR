@@ -1,15 +1,26 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './Item.css';
-const Item = ({list: items, heading })=>{   
-    const [hasShow, setHasShow] = useState(true);
-    const handleClick = () => {
-        setHasShow(!hasShow);
-    }
 
-    console.log("hasShow -", hasShow);
+const ListItems = React.memo(({items}) => {
+    return items?.map(item => (
+        <tr>
+            <td>{item.item}</td>
+            <td>{item.brand}</td>
+            <td>{item.price}</td>
+        </tr>
+        ))
+});
+
+const Item = ({list: items, heading })=>{ 
+    const [hasShow, setHasShow] = useState(true);  
+    
+    const handleClick = () => {
+       setHasShow(!hasShow);
+        console.log("hasshow - ", hasShow);
+    }
     return (<div>
         <h1>{heading} <button onClick={handleClick}> click </button></h1>
-            <table className={hasShow ? 'show' : 'hide'}>
+            <table >
                 <thead>
                 <tr>
                     <th>Item</th>
@@ -19,13 +30,7 @@ const Item = ({list: items, heading })=>{
                 </thead>
 
                 <tbody>
-                    {items?.map(item => (
-                    <tr>
-                        <td>{item.item}</td>
-                        <td>{item.brand}</td>
-                        <td>{item.price}</td>
-                    </tr>
-                    ))}
+                    <ListItems items={items} />
                     
                 </tbody>
 
