@@ -12,9 +12,9 @@ function App() {
   return (
     <>
     <div className='arun'>
-      <Item x='sattle' clr='red'/>
-      <Item x='cello' clr='green'/>
-      <Item x='115' clr='purple'/>
+      <Item x='sattle' clr='lightred'/>
+      <Item x='cello' clr='lightgreen'/>
+      <Item x='115' clr='lightpurple'/>
       {objects.map(e=>{
        return <Item key={e.name} x={e.name} clr={e.clr}/>
       })}

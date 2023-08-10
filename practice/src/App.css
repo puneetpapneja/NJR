@@ -47,10 +47,16 @@
 
 #img2{
   padding: 20px;
+  margin: 10px;
   display: flex;
   justify-content: center;
   justify-items: center;
   align-items:center ;
 
   
+}
+
+#image{
+  padding: 10px;
+  margin: 50px;
 }
