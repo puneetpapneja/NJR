@@ -1,0 +1,11 @@
+import { Loginpage } from "./pages/Loginpage";
+
+ const routes=[
+    {
+        path:"/login",
+        element:<Loginpage/>
+    }
+]
+
+export default routes;
+
