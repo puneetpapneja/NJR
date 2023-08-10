@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 import './login.css';
 
 const Register = () => {
@@ -47,7 +48,7 @@ const Register = () => {
                         </div>
                         <div className="input-group">
                             <a href="">Have a account?</a>
-                            <a href="">Login now</a>
+                            <Link to="/Login">Log in now</Link>
                         </div>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
                         <div className='d-flex justify-content-center'>

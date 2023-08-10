@@ -38,9 +38,11 @@ const Login = () => {
                             />
                         </div>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
-                        <button type="button" onClick={handleLogin} className="btn btn-primary">
-                            Login
-                        </button>
+                        <div className='d-flex justify-content-center'>
+                            <button type="button" onClick={handleLogin} className="btn btn-primary">
+                                Login
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
