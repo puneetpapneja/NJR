@@ -18,7 +18,10 @@ const NavBar = () =>{
               </NavDropdown.Item>    
               <NavDropdown.Item as={Link} to="/item">
                 memo component
-              </NavDropdown.Item>             
+              </NavDropdown.Item>    
+              <NavDropdown.Item as={Link} to="/callback">
+                Callback component
+              </NavDropdown.Item>           
             </NavDropdown>            
           </Nav>
         </Navbar.Collapse>
