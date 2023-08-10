@@ -1,7 +1,9 @@
 import { Login } from "../component/Login";
 
-export const Loginpage=()=>{
+const Loginpage=()=>{
     return(
         <Login/>
     )
 }
+
+export default Loginpage;

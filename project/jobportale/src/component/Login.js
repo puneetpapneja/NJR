@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 
 
@@ -48,7 +49,7 @@ export const Login = () => {
             <Row>
                 <Col></Col>
                 <Col>
-                <a href='#'>Donot have account? Register</a>
+                <Link to="/Registerpage">Donot have account? Register</Link>
                 </Col>
                 <Col></Col>
                 
