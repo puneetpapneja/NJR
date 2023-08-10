@@ -7,3 +7,11 @@ table {
 table  tr th, table tr td {
     border: 1px solid red;
 }
+
+/* .hide { 
+    display: none;
+}
+
+.show {
+    display: block;
+} */
