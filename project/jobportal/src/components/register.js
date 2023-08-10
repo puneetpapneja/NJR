@@ -20,16 +20,25 @@ return (
     <Form.Control type="password" placeholder="Password" />
     </Form.Group>
 
-    <Form.Group className="mb-3" controlId="formBasicRadio">
-    <Form.Check
+    <Form.Group controlId="formBasicRadio">
+    {['radio'].map((type) => (
+        <div key={`inline-${type}`} className="mb-3">
+          <Form.Check
             inline
-            label="Job Seeker"
-            id={"Job seeker"}/>
-     <Form.Check
-            inline
-            label="Job Recruiter"
-            id={"Job Recruiter"}
+            label="Job Seekers"
+            name="group1"
+            type={type}
+            id={`inline-${type}-1`}
           />
+          <Form.Check
+            inline
+            label="Job Recruiters"
+            name="group1"
+            type={type}
+            id={`inline-${type}-2`}
+          />
+        </div>
+      ))}
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
