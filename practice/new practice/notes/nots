@@ -11,3 +11,5 @@ git reset --hard origin/master
 git checkout -b vaibhav
 git push origin vaibhav
 git pull origin master
+npm i react-router-dom
+npm i
