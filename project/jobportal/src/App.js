@@ -1,19 +1,16 @@
-import Login from "./pages/login"
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-
+import React from 'react';
+import LoginPage from './components/LoginPage';
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />}></Route>
-      </Routes>
-    </BrowserRouter>
-  )
+    <div className="App">
+      <LoginPage />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
 
 // import {use state} from 'react' 
 // function App() {
