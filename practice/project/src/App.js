@@ -2,6 +2,7 @@
 import './App.css';
 // import Navbar from './components/Navbar.js';
 import Login from "./components/login.js";
+import Register from "./components/Register.js";
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
     {/* <Navbar /> */}
     <Login/>
+    <Register/>
     </>
   );
 }
