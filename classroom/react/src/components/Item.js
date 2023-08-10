@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import './Item.css';
-const Item = (props)=>{
-    const {list: items } = props;
-    return (<div>
-            <table>
-=======
 import React, { useState } from 'react';
 import './Item.css';
 
@@ -28,7 +21,6 @@ const Item = ({list: items, heading })=>{
     return (<div>
         <h1>{heading} <button onClick={handleClick}> click </button></h1>
             <table >
->>>>>>> 05ebde8791f651ead5cccd711d676e201d42d6e5
                 <thead>
                 <tr>
                     <th>Item</th>
