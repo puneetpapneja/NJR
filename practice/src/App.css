@@ -45,9 +45,12 @@
   
 }
 
-#image{
-  width: 100%;
-  height: 800px;
+#img2{
+  padding: 20px;
   display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items:center ;
+
   
 }
