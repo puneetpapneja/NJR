@@ -8,7 +8,7 @@ const Memo = () => {
     const handleChange = (event) => setNumber(event.target.value)
     const getSquare = () => {
         console.log("getSquare called");
-        return parseInt(number) * 2;
+        return parseInt(number) * parseInt(number);
     }
     const square = useMemo(() => getSquare(),[number]);
 
