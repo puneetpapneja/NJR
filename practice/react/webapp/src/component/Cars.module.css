@@ -1,0 +1,36 @@
+
+.fea{
+    list-style: none;
+}
+.fea::before{
+    content: "\00BB";
+}
+.outer{
+    display: flex;
+    width:100%;
+    height:40% ;
+}
+#img{
+    width:100%;
+    height:60%;
+}
+.main{
+    width:50vw;
+    height:80vh;
+    border:5px solid black;
+}
+img{
+    width: 100%;
+    height:100%;
+}
+
+.inner1{
+    border-right: 1.3px solid black;
+    border-top: 2px solid black;
+    width: 50%;
+}
+.inner2{
+    border-left: 1.3px solid black;
+    border-top: 2px solid black;
+    width: 50%;
+}
