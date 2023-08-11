@@ -1,0 +1,46 @@
+<!-- 27/7/23 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #error {
+      color: red;
+    }
+  </style>
+  <body>
+    <script>
+      const handleclick = () => {
+        document.write("the value are change");
+      };
+      const handleKeyUp = () => {
+        document.write("the key are up");
+      };
+      const handleKeyDown = () => {
+        document.write("the key are down");
+      };
+      const handleKeyPress = () => {
+        document.write("the key are press");
+      };
+      const handlesubmit = () => {
+        const t = document.getElementById("item").value;
+        const r = document.getElementById("error");
+        if (t === "") {
+          r.innerHTML = "<b>enter your name</b>";
+          return false;
+        } else {
+          r.innerHTML = "";
+        }
+        return true;
+      };
+    </script>
+    <form action="" onsubmit=" return handlesubmit()">
+      <input type="text" id="item" />
+      <span id="error"></span>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="tip1" />
+    <input type="text" id="tip2" />
+    <input type="button" id="add" value="add" onclick="add()" />
+    <input type="button" id="sub" value="sub" onclick="sub()" />
+    <input type="button" id="mul" value="mul" onclick="mul()" />
+    <input type="button" id="div" value="div" onclick="div()" />
+    <input type="text" id="tip3" />
+  </body>
+  <script>
+    const add = () => {
+      const text1 = document.getElementById("tip1");
+      const text2 = document.getElementById("tip2");
+      const tip3 = document.getElementById("tip3");
+      tip3.value = parseInt(text1.value) + parseInt(text2.value);
+    };
+    const sub = () => {
+      const text1 = document.getElementById("tip1");
+      const text2 = document.getElementById("tip2");
+      const tip3 = document.getElementById("tip3");
+      tip3.value = parseInt(text1.value) - parseInt(text2.value);
+    };
+    const mul = () => {
+      const text1 = document.getElementById("tip1");
+      const text2 = document.getElementById("tip2");
+      const tip3 = document.getElementById("tip3");
+      tip3.value = parseInt(text1.value) * parseInt(text2.value);
+    };
+    const div = () => {
+      const text1 = document.getElementById("tip1");
+      const text2 = document.getElementById("tip2");
+      const tip3 = document.getElementById("tip3");
+      tip3.value = parseInt(text1.value) / parseInt(text2.value);
+    };
+  </script>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let a = [1, 5, 10, "Ram", true];
+      let array = new Array();
+      array.push(5);
+
+      //   a.map((item, k) => {
+      //     console.log(item, k);
+      //   });
+      //   a.forEach((item, idx) => {
+      //     console.log(item, idx);
+      //   });
+      //   let copyarry = a.map((item,idx)=>item*2);
+      //   copyarry.forEach((item, idx) => {
+      //     console.log(item, idx);
+      //   });
+      //filter check array by filters
+      let b = [3, 4, 5, 6, 7, 1, 1, 1, 1];
+      let bfilter = b.filter((item) => item % 2 === 0);
+      bfilter.forEach((item, idx) => {
+        console.log(item, idx);
+      });
+
+      console.log("new");
+      let bmap = b.map((item) => item % 2 === 0);
+      bmap.forEach((item, idx) => {
+        console.log(item, idx);
+      });
+
+      let objectarry = [
+        {
+          name: "Ram",
+          mail: "123@",
+        },
+        {
+          name: "Ramu",
+          mail: "1234@",
+        },
+        {
+          name: "shamu",
+        },
+      ];
+      let objectarryFilter = objectarry.filter((item) => item.mail);
+
+      console.log(objectarryFilter);
+      console.log("new");
+      objectarryFilter = objectarry.filter((item) => item?.mail);
+
+      console.log(objectarryFilter);
+      console.log("new");
+      let objectarryFind = objectarry.find((item) => item.mail === "123@");
+
+      console.log(objectarryFind);
+      let objectarryIndex = objectarry.find((item) => item.mail === "123@");
+
+      console.log(objectarryIndex);
+      let array1 = [1, 5, 3, 2, 4, 6, 7];
+      //
+    //   const arrayOfObjects = [
+    //     { name: "John", age: 30 },
+    //     { name: "Alice", age: 25 },
+    //     { name: "Bob", age: 35 },
+    //     // More objects...
+    //   ];
+    //   const sortedArray = arrayOfObjects.sort((a, b) => {
+    //     // Use the localeCompare() method to compare the 'name' properties
+    //     // This ensures proper sorting for strings with special characters or different cases
+    //     return a.name.localeCompare(b.name);
+    //   });
+    //   const sortedArray = arrayOfObjects.sort((a, b) => {
+    //     // Use the localeCompare() method to compare the 'name' properties
+    //     // This ensures proper sorting for strings with special characters or different cases
+    //     return a.name.localeCompare(b.name);
+    //   });
+    //   const sortedArray = arrayOfObjects.slice().sort((a, b) => {
+    //     return a.name.localeCompare(b.name);
+    //   });
+
+
+      let arrayqw=[24,6,7,7,8,65,4,3,3,4,5,];
+      console.log(arrayqw.reduce((sum,a)=>sum+a));
+      console.log(arrayqw.includes(7));
+      console.log(arrayqw.includes(7),arrayqw.indexOf(3),arrayqw.lastIndexOf(3));
+
+
+    //   slice-------------------------------------------------------------------------------
+    //delte elemet using filter and splice
+    console.log(arrayqw.splice(3,1),"after deeletion",arrayqw);
+    console.log(arrayqw.splice(3,0,3,4,5,6),"after deeletion",arrayqw);
+
+
+    //concat 2 array---------------------------------------
+    console.log("new");
+    let arr=[3,4,5,6,3,2,1];
+    console.log(arr.concat(3,5,5,6));
+
+    // map , set , object
+    const set1=new Set([ 1,1,1,3,4,6,7,44,44]);
+    console.log(set1);
+    
+    </script>
+  </body>
+</html>

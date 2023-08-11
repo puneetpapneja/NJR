@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <input type="button" value="check" onclick="check()" />
+  </body>
+  <script>
+    function check() {
+      const a = document.getElementById("input"); //obj
+      let b = parseInt(a.value);
+      let ans = 0;
+      let c = 0;
+      let d = 0;
+      while (b != 0) {
+        digit = b % 10;
+        c = digit * digit * digit;
+        ans = ans + c;
+        b = parseInt(b / 10);
+      }
+
+      if (ans == parseInt(a.value)) {
+        a.value = "YES ";
+      } else {
+        a.value = "NO";
+      }
+    }
+  </script>
+</html>
+<!-- const input = document.getElementById("input");
+      const inputvalue = parseInt(input.value);
+      document.write(input.value);
+      let a = inputvalue % 10;
+      let b = inputvalue;
+      let value = 0;
+      let c = 0;
+      while (b != 0) {
+        c = a * a * a;
+        value = value + c;
+        b = inputvalue / 10;
+      }
+      if (value == inputvalue) {
+        input.value = "yes";
+      } else {
+        input.value = "No";
+      } -->

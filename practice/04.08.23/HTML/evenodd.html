@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" />
+    <button type="button" onclick="check()">check</button>
+  </body>
+  <script>
+    const check = () => {
+        const input = document.getElementById("input");
+        if(input.value %2==0){
+            input.value = "even"
+        }else{
+            input.value = "odd"
+        }
+    };
+  </script>
+</html>

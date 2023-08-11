@@ -1,0 +1,51 @@
+<!-- 28/7/23 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="hover and dblclick" />
+    <input type="text" id="input" onchange="doit()" placeholder="onchnage" />
+    <input
+      type="text"
+      id="input"
+      onkeypress="doit()"
+      placeholder="onkeypress"
+    />
+    <input type="text" id="inpsut" onkeydown="doit()" placeholder="onkeydown" />
+    <input type="text" id="input" onkeyup="doit()" placeholder="onkeyup" />
+    <button type="button" ondblclick="check()">check</button>
+    <button type="button" onmouseover="check()">hovercheck</button>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <form onsubmit="formcheck()">
+      <input type="text" id="inputform" name="inputgive" />
+      <input type="submit" value="check form" />
+    </form>
+  </body>
+  <script>
+    const formcheck = () => {
+      const nameElement = document.getElementById("inputform");
+      if (inputgive.value === "") {
+        alert("false");
+        return false;
+      }
+      return true;
+    };
+    const doit = () => {
+      document.write("changed");
+    };
+    const check = () => {
+      const input = document.getElementById("input");
+      if (input.value % 2 == 0) {
+        input.value = "even";
+      } else {
+        input.value = "odd";
+      }
+    };
+  </script>
+</html>

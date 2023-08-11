@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="return checkForm()">
+      Name:<input type="text" id="name" /><span id="nameerror"></span>
+      <br />
+      <br />
+      E mail:<input type="mail" id="mail" /><span id="mailerror"></span>
+      <br />
+      <br />
+      Password:<input type="password" id="pass" /><span id="passerror"></span>
+      <br />
+      <br />
+      Confirm Password:<input type="text" id="cpass" /><span
+        id="cpasserror"
+      ></span>
+      <br />
+      <br />
+      Gender: Male</label> <input type="radio" name="group" id="Male"/>
+      Female</label> <input type="radio" name="group" id="Female"/><span id="Gender"></span>
+      <br />
+      <br />
+
+      <input type="submit" />
+    </form>
+  </body>
+  <script>
+    const checkForm = () => {
+      const name = document.getElementById("name");
+      const nameerror = document.getElementById("nameerror");
+      const mail = document.getElementById("mail");
+      const mailerror = document.getElementById("mailerror");
+      const pass = document.getElementById("pass");
+      const passerror = document.getElementById("passerror");
+      const cpass = document.getElementById("cpass");
+      const cpasserror = document.getElementById("cpasserror");
+      const male = document.getElementById("Male");
+      const female = document.getElementById("Female");
+      const gender = document.getElementById("Gender");
+
+      
+      
+      nameerror.innerHTML = "";
+      mailerror.innerHTML = "";
+      passerror.innerHTML = "";
+      cpasserror.innerHTML = "";
+      gender.innerHTML = "";
+      const radioButtons = document.getElementsByName('group');
+      let isSelected = false;
+
+  for (let i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      isSelected = true;
+      break;
+    }
+  }
+
+  if (isSelected) {
+    console.log("1")
+    gender.innerHTML = "";
+  } else {
+    console.log('None of the radio buttons is selected.');
+    
+    gender.innerHTML = "<b>*</b>";
+  }
+      
+      if (name.value == "") {
+        nameerror.innerHTML = "<b>*</b>";
+      }
+      if (mail.value == "") {
+        mailerror.innerHTML = "<b>*</b>";
+      }
+      if (pass.value == "") {
+        passerror.innerHTML = "<b>*</b>";
+      }
+      if (cpass.value == "") {
+        cpasserror.innerHTML = "<b>*</b>";
+      }
+      
+      if (
+        name.value != "" &&
+        mail.value != "" &&
+        pass.value != "" &&
+        cpass.value != ""
+      ) {
+        return true;
+      }
+      return false;
+    };
+  </script>
+</html>

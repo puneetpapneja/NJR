@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let admission = {
+        course: "Btech",
+        fees: 24000,
+        years: 4,
+      };
+      let student = {
+        name: "Jitesh",
+        contact: 8955656565161,
+        email: "jitesh.goyal@mail.com",
+        address: {
+          primary: "pri add",
+          secondary: "sec add",
+        },
+        __proto__: admission,
+      };
+      console.log(student.fees);
+      const {
+        name,
+        contact,
+        mail1,
+        address: adrs = { primary: "", secondary: "" },
+      } = student;
+      console.log(name);
+      console.log(name, adrs);
+      const { email, ...restfield } = student;
+      console.log(restfield);
+      const newObj = { ...restfield };
+      console.log(newObj);
+      //it dont hold reference
+      //on second level of nesting it will hold reference
+      restfield.name = "test";
+      console.log(restfield);
+      console.log(student)
+      //on 1st level it does not hold reference
+      restfield.address.primary = "test";
+      console.log(student);
+      //changed on 2nd level
+
+      console.log("new obj", restfield);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!-- 29/7/23 -->
+<html>
+  <head></head>
+  <body>
+    <script>
+      const studentDtls = {
+        firstName: "Ram",
+        lastName: "Sharma",
+        phone: 2385798375983,
+        age: 15,
+      };
+      //  we can make multiple arrays of objects
+      const flName1 = [
+        {
+          firstName: "ramu",
+          lastName: "sharma",
+          getFullName: function fullngive() {
+            return this.firstName + " " + this.lastName;
+          },
+        },
+        {
+          firstName: "rahul",
+          lastName: "jain",
+          getFullName: function fullngive() {
+            return this.firstName + " " + this.lastName;
+          },
+        },
+        {
+          firstName: "Ram",
+          lastName: "ram",
+          getFullName: function fullngive() {
+            return this.firstName + " " + this.lastName;
+          },
+        },
+      ];
+      console.log(Object.keys(flName1[2]));
+      console.log(Object.values(flName1[2]));
+      const flName = {
+        firstName: "ramu",
+        lastName: "sharma",
+        getFullName: () => {
+          //return flName.firstName+" "+flName.lastName
+          return this.firstName + " " + this.lastName;
+        },
+      };
+
+      let fnamearr = Object.keys(flName);
+      let lnamearr = Object.values(flName);
+      //console.log(fnamearr[0]+"="+lnamearr[0]);
+      console.log(flName.getFullName());
+    </script>
+  </body>
+</html>

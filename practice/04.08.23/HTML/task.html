@@ -1,0 +1,59 @@
+<!-- 27/7/23 -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>form</title>
+    <style>
+      #errorname {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="return handlesubmit()">
+      name
+      <input type="text" id="itemname"  on />
+      <span id="errorname"></span>
+      <br />
+      <br />
+      E mail
+      <input type="email" id="itemmail"  />
+      <span id="erroremail></span>
+      <br>
+      <br>
+      
+      <br />
+      <br />
+      <input type="radio" />
+      <label>Accept terms & conditions</label>
+      <br />
+      <br />
+
+      <input type="submit" />
+    </form>
+    <script>
+      const handlesubmit = () => {
+        const name = document.getElementById("itemname").value;
+        const errorname = document.getElementById("errorname");
+
+        const mail = document.getElementById("mail").value;
+        const errormail = document.getElementById("errormail");
+
+        if (name=== "") {
+          errorname.innerHTML = "<b>*</b>";
+
+          
+
+          return false;
+        } else {
+          errorname.innerHTML = "";
+        }
+        return true;
+      };
+      
+    </script>
+  </body>
+</html>
+
+

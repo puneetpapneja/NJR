@@ -1,0 +1,33 @@
+<!-- 2/8/23 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Delay</title>
+  </head>
+  <body>
+    <div>
+      <input type="button" value="start" onclick="START()" /><input
+        type="button"
+        value="Stop"
+        onclick="STOP()"
+      />
+    </div>
+    <div></div>
+    <script>
+      setTimeout(() => console.log("hello from timeout"), 2000);
+      var timer = null;
+      const START = () => {
+        timer = setInterval(() => console.log("hello from timeInterval"), 2000);
+      };
+      const STOP = () => {
+        clearInterval(timer);
+        console.log("stopped interval");
+      };
+      let a=NaN;
+      let b=20;
+      let c=a?a:b;
+      console.log(c);
+      console.log(a||b);
+    </script>
+  </body>
+</html>

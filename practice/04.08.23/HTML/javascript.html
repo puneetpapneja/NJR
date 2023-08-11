@@ -1,0 +1,23 @@
+<!-- internal javascript -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      const callback = () => {
+        const text = document.getElementById("normalip");
+        text.value = 100;
+      };
+      const handleCick = (callback) => {
+        callback();
+      };
+    </script>
+  </head>
+  <body>
+    <input type="text" name="" id="normalip" />
+    <input type="button" value="click" onclick="handleCick(callback)" />
+  </body>
+</html>
+<!-- var 
+     let 
+     const
+ -->

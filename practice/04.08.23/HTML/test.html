@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <style>
+            .error-message {
+  color: red;
+  display: none;
+}
+
+        </style>
+    </head>
+    <body>
+        <form id="myForm">
+            <div>
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name">
+              <span class="error-message" id="error-name">*</span>
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email">
+              <span class="error-message" id="error-email">*</span>
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password">
+              <span class="error-message" id="error-password">*</span>
+            </div>
+            <div>
+              <label for="confirm-password">Confirm Password:</label>
+              <input type="password" id="confirm-password" name="confirm-password">
+              <span class="error-message" id="error-confirm-password">*</span>
+            </div>
+          
+            <button type="button" onclick="validateForm()">Submit</button>
+          </form>
+          
+          
+    </body>
+    <script>
+        function validateForm() {
+  // Reset error messages
+  const errorMessages = document.getElementsByClassName('error-message');
+  for (let i = 0; i < errorMessages.length; i++) {
+    errorMessages[i].style.display = 'none';
+  }
+
+  // Check if any input fields are empty
+  const inputs = document.getElementsByTagName('input');
+  let formValid = true;
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.trim() === '') {
+      const fieldName = inputs[i].getAttribute('name');
+      const errorMessage = document.getElementById(`error-${fieldName}`);
+      errorMessage.style.display = 'inline';
+      formValid = false;
+    }
+  }
+
+  // Additional validation for password and confirm password
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm-password').value;
+  if (password !== confirmPassword) {
+    const errorMessage = document.getElementById('error-confirm-password');
+    errorMessage.textContent = 'Passwords do not match';
+    errorMessage.style.display = 'inline';
+    formValid = false;
+  }
+
+  // If the form is valid, you can submit it or perform other actions here
+  if (formValid) {
+    document.getElementById('myForm').submit();
+  }
+}
+
+    </script>
+</html>
+  
