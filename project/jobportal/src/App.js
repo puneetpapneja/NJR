@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Login from "./componants/Login";
+import Memo from "../../../practice/webapp/src/componants/Memo";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
+    <div>
+      <h1>helo</h1>
     </div>
   );
 }
