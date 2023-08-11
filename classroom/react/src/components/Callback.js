@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 const arr = new Set();
 const Callback = () =>{
@@ -6,12 +6,16 @@ const Callback = () =>{
     const [number, setNumber] = useState(0);
     
     const handleIncrement = useCallback(() => setCount(count + 1), [count]);
-    const handleDecrement = useCallback(() => setCount(count - 1), [count]);
-    const incrementNumber = useCallback(() => setNumber(number +1), [number]);
-    arr.add(handleIncrement);
-    arr.add(handleDecrement);
-    arr.add(incrementNumber);
-    alert("Size of array is " + arr.size);
+    const handleDecrement = useCallback(() => setCount(count - 1),[count]);
+    const incrementNumber = useCallback(() => setNumber(number +1),[number]);
+    useEffect(()=> {
+        arr.add(handleIncrement);
+        arr.add(handleDecrement);
+        arr.add(incrementNumber);
+        console.log("arr", arr);
+    })
+    
+    //alert("Size of array is " + arr.size);
     return (
         <Container fluid>
         <Row>
