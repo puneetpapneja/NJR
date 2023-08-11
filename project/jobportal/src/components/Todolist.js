@@ -19,14 +19,14 @@ function App() {
 
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1 className='todo'>Todo List</h1>
       <div>
         <input
           type="text"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
         />
-        <button  className="btn" onClick={addTodo}>Add</button>
+        <button  className="btn1" onClick={addTodo}>Add</button>
       </div>
       <ul>
         {todoList.length === 0 ? (

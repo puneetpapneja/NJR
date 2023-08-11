@@ -22,5 +22,4 @@ const CarInfoComponent = ({ car }) => {
     </div>
   );
 };
-
 export default CarInfoComponent;

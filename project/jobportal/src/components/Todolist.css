@@ -1,4 +1,4 @@
-.btn{
+.btn1{
     margin: 6px ;
     color: white;
     background-color: black;
@@ -6,4 +6,9 @@
     border-radius: 5px;
     width: 70px;
     height: 25px;
+}
+.todo{
+    color: green !important;
+    text-shadow: none !important;
+    text-align: start !important;
 }
