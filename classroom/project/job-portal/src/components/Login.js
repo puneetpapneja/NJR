@@ -9,7 +9,7 @@ export default function Login() {
       <h1 className="text-center">Login</h1>
       <Form className="text-center" style={{ marginTop: "8vh" }}>
         <Form.Group
-          className="mb-4 mx-auto text-center col-md-4"
+          className="mb-4 mx-auto text-center col-md-3"
           controlId="formBasicEmail"
         >
           <Form.Label>Email address</Form.Label>
@@ -17,7 +17,7 @@ export default function Login() {
         </Form.Group>
 
         <Form.Group
-          className="mb-4 mx-auto text-center col-md-4"
+          className="mb-4 mx-auto text-center col-md-3"
           controlId="formBasicPassword"
         >
           <Form.Label>Password</Form.Label>
@@ -32,7 +32,7 @@ export default function Login() {
         <Form.Group className="text-center">
           <Button
             style={{ backgroundColor: "black", border: "none" }}
-            className="mt-3 mx-auto col-md-2"
+            className="mt-3 mx-auto col-md-1"
             type="submit"
           >
             Submit

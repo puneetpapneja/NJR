@@ -6,9 +6,7 @@ import { Outlet } from "react-router-dom";
 const PageLayout = () => {
   return (
     <React.Fragment>
-      {/* <Everything> */}
       <Outlet />
-      {/* </Everything> */}
     </React.Fragment>
   );
 };

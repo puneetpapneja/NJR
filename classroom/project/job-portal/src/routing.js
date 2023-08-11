@@ -8,10 +8,7 @@ export const routing = [
     path: "/",
     element: <Login />,
   },
-  // {
-  //   path: "/login",
-  //   element: <Login />,
-  // },
+  
   {
     path: "/signup",
     element: <SignUp />,
