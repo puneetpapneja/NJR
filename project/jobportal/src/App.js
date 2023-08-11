@@ -1,11 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import Login from "./components/Login";
+import Loginpage from './pages/Loginpage';
+import Registerpage from './pages/Registerpage';
+import { Container } from 'react-bootstrap';
+
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Container>
+       <Loginpage/>
+       <Registerpage/>
+    </Container>
   );
 }
 
