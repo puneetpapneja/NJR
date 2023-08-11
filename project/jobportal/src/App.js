@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login';
+import Login from './components/login';
 import Register from './components/Register';
 
 
@@ -8,7 +8,7 @@ import Register from './components/Register';
 
 function App() {
   return (
-    <div className="App">
+    <div >
      <Login />
      <Register />
     </div>
