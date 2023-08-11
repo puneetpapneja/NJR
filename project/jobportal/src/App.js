@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -22,4 +22,18 @@ function App() {
   );
 }
 
+export default App;*/
+
+import React from 'react';
+import LoginPage from './pages/LoginPage';
+
+function App() {
+  return (
+    <div className="App">
+      <LoginPage />
+    </div>
+  );
+}
+
 export default App;
+
