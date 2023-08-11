@@ -1,7 +1,6 @@
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 
-
- function Login() {
+function Register() {
   return (
     <div>
       <Container>
@@ -11,8 +10,8 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
             <Card className="shadow">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2">Login</h2>
-                  
+                  <h2 className="fw-bold mb-2">Register</h2>
+
                   <div className="mb-3">
                     <Form>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -20,7 +19,7 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
                           Email address
                         </Form.Label> */}
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control  id="ex2" type="email" />
+                        <Form.Control  type="email" />
                       </Form.Group>
 
                       <Form.Group
@@ -30,13 +29,37 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" />
                       </Form.Group>
+                      <div class="form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
+                        />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                        Job Seeker
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
+                        />
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Job Recruiter
+                        </label>
+                      </div>
+
                       <Form.Group
                         className="mb-3"
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
                           <a className="text-primary" href="#!">
-                            Don't have a account? Register Now
+                            Have a account ? Login Now
                           </a>
                         </p>
                       </Form.Group>
@@ -45,7 +68,7 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
                           Login
                         </Button>
                       </div> */}
-                      <Button variant="dark">Login</Button>
+                      <Button variant="dark">Register</Button>
                     </Form>
                     {/* <div className="mt-3">
                       <p className="mb-0  text-center">
@@ -65,4 +88,4 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
     </div>
   );
 }
-export default Login;
+export default Register;
