@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 const Memo = () => {
@@ -45,12 +45,8 @@ const Memo = () => {
 =======
     const [number, setNumber] = useState();
     const [counter, setCounter] = useState(0);
-    const refNumber = useRef();
-    const handleClick = () => {
-        console.log("ref", refNumber);
-        setCounter(counter + 1);
-    }
-
+    
+    const handleClick = () => setCounter(counter + 1);
     const handleChange = (event) => setNumber(event.target.value)
     const getSquare = () => {
         console.log("getSquare called");
@@ -72,7 +68,6 @@ const Memo = () => {
         <Row>
             <Col xs={6}>
                 <Form.Control
-                    ref={refNumber}
                     type="text"
                     id="inputPassword5"
                     aria-describedby="passwordHelpBlock"
