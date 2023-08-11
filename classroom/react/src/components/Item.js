@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './Item.css';
-<<<<<<< HEAD
-const Item = (props)=>{
-    const {list: items } = props;
-=======
 
 const ListItems = React.memo(({items}) => {
     return items?.map(item => (
@@ -22,7 +18,6 @@ const Item = ({list: items, heading })=>{
        setHasShow(!hasShow);
         console.log("hasshow - ", hasShow);
     }
->>>>>>> 05ebde8791f651ead5cccd711d676e201d42d6e5
     return (<div>
         <h1>{heading} <button onClick={handleClick}> click </button></h1>
             <table >

@@ -1,16 +1,16 @@
 import './App.css';
 import React, { useState } from 'react';
-import Header from './Header';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import Home from './Home';
-import { routes } from './routing';
+import Header from "./component/Header"
+import  {routes}  from  "./routing";
+import Memo from "./component/Memo"
 
 
 function App() {
-  return (<div>
-    <Header />
-      <RouterProvider router={createBrowserRouter(routes)} />
-    </div>
+  // return (<div>
+  //   <Header />
+  //     <RouterProvider router={createBrowserRouter(routes)} />
+  //   </div>
     /* // <div className="App">
     //   <header className="App-header">
      
@@ -36,7 +36,16 @@ function App() {
     // {/* <Item />
     // <Item /> */}
     // </div>
-  );
+  // );
+  return (
+      <>     <RouterProvider router={createBrowserRouter(routes)}> </RouterProvider>
+  
+</>
+
+);
+    // < Memo />
+    // <Header/>
+  
 }
 
 export default App;
