@@ -33,7 +33,7 @@ const ToDoList = () =>{
         todoItem?.map((i,j)=>
             <ol >
                 <li className={styles.list}>{j+1}.{i}
-                <button onClick={()=>handleChange(i)}>delete</button></li>
+                <button onClick={()=>handleChange(j)}>delete</button></li>
             </ol>
         )}
         </div>

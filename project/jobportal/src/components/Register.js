@@ -1,9 +1,8 @@
-import {Button, Form,Container,Row} from 'react-bootstrap';
+import {Button, Form,Container,Row, Col} from 'react-bootstrap';
 import {useState} from 'react';
-import styles from './Login.module.css'
 // import {Link} from 'react-router-dom';
 
-export default function Login(){
+export default function Register(){
     
     
   
@@ -18,9 +17,9 @@ export default function Login(){
     }
     return (
        
-    <Container className='border border-dark rounded p-3' >
+    <Container className='border border-dark rounded p-3'>
        <Row>
-       <h1 className='text-center'>Login</h1>
+       <h1 className='text-center' >Register</h1>
        </Row>
        <Form noValidate validated={validated} onSubmit={handleSubmit}>
        <Row>
@@ -36,16 +35,22 @@ export default function Login(){
         </Form.Group>
         </Row>
         <br/>
-        
-        <Button variant="link">Dont have a account? Register Now</Button>
-        {/* <Link to="">Dont have a account? Register Now</Link> */}
-       <br/>
+        <Row>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Seeker' name="role" id='inline-default-radio'/>
+            </Col>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Recruiter' name='role' id='inline-default-radio'/>
+            </Col>
+        </Row>
+        <br/>
+        <Button variant="link" >Have an account? Login Now</Button>
+        <br/>
         <Container className='text-center'>
-        <Button type="submit" variant='dark'>Login</Button>
+        <Button type="submit" variant='dark'>Register</Button>
         </Container>
        </Form>
     </Container>
  
  )
-    // }
 }
