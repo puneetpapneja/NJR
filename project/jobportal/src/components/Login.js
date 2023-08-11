@@ -26,7 +26,7 @@ export default function Login(){
        <Row>
         <Form.Group controlId='formEmail'>
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" />
+            <Form.Control type="email" width="40px"/>
         </Form.Group>
         </Row>
         <Row>
@@ -40,8 +40,8 @@ export default function Login(){
         {/* <Link to="">Dont have a account? Register Now</Link> */}
         <a href="">Dont have a account? Register Now</a>
         </Row><br/>
-        <Container className='text-center'>
-        <Button type="submit" variant='dark'>Login</Button>
+        <Container className='text-center' id="blk1">
+        <Button type="submit" variant='dark' id="bt1" >Login</Button>
         </Container>
        </Form>
     </Container>
