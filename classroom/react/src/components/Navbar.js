@@ -28,6 +28,12 @@ const NavBar = () =>{
               
               </NavDropdown>          
             </Nav>
+              </NavDropdown.Item>    
+              <NavDropdown.Item as={Link} to="/callback">
+                Callback component
+              </NavDropdown.Item>           
+            </NavDropdown>            
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

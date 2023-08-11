@@ -4,11 +4,10 @@ import Aboutus from './components/About';
 import Contactus from './components/Contact';
 import Header from './components/Header';
 import PageLayout from './components/page-layout';
-
 import ToDoList from './components/ToDoList';
 import Memo from './components/Memo';
 import item from './components/item';
-
+import Callback from './components/Callback';
 export const routing = [
     {
         path: "/",
@@ -29,7 +28,11 @@ export const routing = [
         element:  <Memo />
     },
     {
-        path: "/item",
+        path: "/callback",
+        element:  <Callback />
+    },
+    {
+        path: "/Item",
         element:  <Item />
     },
 
