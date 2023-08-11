@@ -1,39 +1,18 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Item from './components/Item';
-import prac1 from './components/ass1';
+import React from 'react';
+
+// import Item from './components/Item';
+// import prac1 from './components/ass1';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import { routing } from './routing';
 
 
 function App() {
-  const items=[
-    {
-        item:"Bottle",
-        brand:"cello",
-        price:50
-    },
-    {
-        item:"Bottle",
-        brand:"eva",
-        price:100
-    },
-    {
-        item:"Bottle",
-        brand:"milton",
-        price:115
-    },
-    {
-        item:"Bottle",
-        brand:"hello",
-        price:105
-    }
-]
   return (
-    <div className="App">
-      <Item list={items}></Item>
-      <Item ></Item>
-      <Item></Item>
-      <Item></Item>
-    </div>
+    <RouterProvider router={createBrowserRouter(routing)}>
+       <h1>Hello</h1>
+    </RouterProvider>
   );
 }
 
