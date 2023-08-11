@@ -1,7 +1,7 @@
-import {Button, Form,Container,Row} from 'react-bootstrap';
+import {Button, Form,Container,Row,Col} from 'react-bootstrap';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
-export default function Login(){
+export default function Register(){
     
     //    function FormExample() {
     //         const [validated, setValidated] = useState(false);
@@ -19,7 +19,7 @@ export default function Login(){
        
     <Container>
        <Row>
-       <h1 className='text-center'>Login</h1>
+       <h1 className='text-center'>Register</h1>
        </Row>
        {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
        <Form>
@@ -37,14 +37,21 @@ export default function Login(){
         </Row>
         <br/>
         <Row>
-        {/* <Link to="">Dont have a account? Register Now</Link> */}
-
-        <Container className='flow-start'>
-            <Button variant='link' as={Link} to={"/register"}>Register</Button> Dont't have an account? Register Now
-        </Container>
+            <Col>
+                    <Form.Check type="radio" label="Job Seeker" name ="role" id='Job-Seeker'/>
+            </Col>
+            <Col>
+                    <Form.Check type="radio" label="Job Recruiter" name ="role" id='Job-Recruiter'/>
+            </Col>
+            </Row>
+        <Row>
+            {/* <Link to="">Dont have a account? Register Now</Link> */}
+            <Container className="flow-start">
+            <Button variant='link' as={Link} to={"/login"}>Already have an account? Login Now</Button> 
+            </Container>
         </Row><br/>
         <Container className='text-center'>
-        <Button type="submit" variant='dark'>Login</Button>
+        <Button type="submit" variant='dark'>Register</Button>
         </Container>
        </Form>
     </Container>
