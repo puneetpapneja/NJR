@@ -22,17 +22,12 @@ const NavBar = () =>{
             </NavDropdown>  
             
             <NavDropdown title="Assignments" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/ToDoList">
-                
-              </NavDropdown.Item>  
-              
-              </NavDropdown>          
-            </Nav>
-              </NavDropdown.Item>    
+              <NavDropdown.Item as={Link} to="/ToDoList">  
+              </NavDropdown.Item>                 
               <NavDropdown.Item as={Link} to="/callback">
                 Callback component
               </NavDropdown.Item>           
-            </NavDropdown>            
+            </NavDropdown>              
           </Nav>
         </Navbar.Collapse>
       </Container>

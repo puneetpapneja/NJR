@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './item.css';
+
 
 const ListItems = React.memo(({items}) => {
     return items?.map(item => (
