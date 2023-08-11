@@ -24,7 +24,9 @@ function Todo(){
         <button onClick={add}>add</button>
         
         {arr.map((ele, index) => (
+          console.log(index);
           <h1 key={index}>{ele} <button onClick={clear}>clear</button></h1>
+          
         ))}
        
         
