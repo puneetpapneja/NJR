@@ -23,6 +23,8 @@ h1{
 .mb-3  label{
     text-align: start;
     padding-left: 10px;
+    
+    
 }
 .arun{
     display: flex;
@@ -31,5 +33,11 @@ h1{
     align-items: center;
 }
 .arun button{
-    width: 155px;
+    width: 170px;
+}
+
+.radioo {
+    
+    display: flex;
+    justify-content: center;
 }

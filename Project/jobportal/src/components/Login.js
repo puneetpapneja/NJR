@@ -1,12 +1,14 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Login.css';
-function BasicExample() {
+import { Link } from 'react-router-dom';
+
+function Login() {
   return (
     <>
-     <h1>Login Page</h1>
+    
     <Form className="form">
-       
+     <h1>Login Page</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control className="input" type="email" placeholder="Enter email" />
@@ -17,15 +19,17 @@ function BasicExample() {
         <Form.Label>Password</Form.Label>
         <Form.Control className="input" type="password" placeholder="Password" />
       </Form.Group>
-      <div>
-      <a href='/'>Don't have a account?Register Now</a>
+
+      
+     
+      <div className='arun'>
+      <Link to="/Register">Don't have a account?Register Now</Link>
+       
+      <Button  className="btn" variant="primary" type="submit">Login</Button>
       </div>
-      <Button className="btn" variant="primary" type="submit">
-        Submit
-      </Button>
     </Form>
     </>
   );
 }
 
-export default BasicExample;
+export default Login;
