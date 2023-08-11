@@ -28,18 +28,12 @@ const NavBar = () => {
                 memo component
               </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/callback">
-<<<<<<< HEAD
-                Callback component
-              </NavDropdown.Item>
-            </NavDropdown>
-=======
                 useCallback component
-              </NavDropdown.Item>           
+              </NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/ref">
                 useRef component
-              </NavDropdown.Item>           
-            </NavDropdown>            
->>>>>>> aaf16160e37564c86318ec8c804ce6c87e55058c
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
