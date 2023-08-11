@@ -30,13 +30,15 @@ export default function Login() {
         {/* </LinkContainer> */}
 
         <Form.Group className="text-center">
-          <Button
-            style={{ backgroundColor: "black", border: "none" }}
-            className="mt-3 mx-auto col-md-2"
-            type="submit"
-          >
-            Submit
-          </Button>
+          <Link to="/dashboard">
+            <Button
+              style={{ backgroundColor: "black", border: "none" }}
+              className="mt-3 mx-auto col-md-2"
+              type="submit"
+            >
+              Submit
+            </Button>
+          </Link>
         </Form.Group>
       </Form>
     </div>
