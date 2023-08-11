@@ -39,7 +39,7 @@ const RegisterPage = () => {
       ))}
 
           <Button variant="link">Have an account? Log in</Button>
-          <Button variant="primary" type="submit" className="w-100">
+          <Button variant="dark" type="submit" className="w-100">
             Register
           </Button>
         </Form>
