@@ -1,3 +1,9 @@
 import "./card.css"
 
-function Card({})
+export default function Card({ }) {
+    let A = 15;
+    return <>
+    <input type="text"/>
+    <button>Click me</button>
+    </>;
+}

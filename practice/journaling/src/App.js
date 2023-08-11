@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Item, { Shubham } from "./components/Item"
+import Card from './components/Card';
 
 // const body = document.getElementById("body");
 // const p = document.createElement("p");
@@ -54,15 +55,7 @@ const Items2 = [
   }
 ]
   return (
-    <>
-    <Item items={ItemHead}/>
-    <Item items={Items}/>
-    <Item items={Items2}/>
-    
-    {/* <Item/>
-    <Item/> */}
-    {/* <Item></Item> */}
-    <Shubham/>
+    <><Card/>
     </>
      
   );
