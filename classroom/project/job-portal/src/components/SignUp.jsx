@@ -45,7 +45,7 @@ export default function SignUp() {
               />
             </div>
           ))}
-          <Link as={Link} to="/login">
+          <Link as={Link} to="/">
             Don't Have An Account? Register Now
           </Link>
         </Form.Group>

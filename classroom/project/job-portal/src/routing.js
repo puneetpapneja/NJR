@@ -6,12 +6,12 @@ import SignUp from "./components/SignUp";
 export const routing = [
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/login",
     element: <Login />,
   },
+  // {
+  //   path: "/login",
+  //   element: <Login />,
+  // },
   {
     path: "/signup",
     element: <SignUp />,
