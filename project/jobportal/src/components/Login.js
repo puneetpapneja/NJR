@@ -13,7 +13,7 @@ function Login() {
           <Card>
             <Card.Body>
               <Card.Title>
-                <h1>Login</h1>
+                <h1 className="text-center">Login</h1>
               </Card.Title>
               <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -25,10 +25,18 @@ function Login() {
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
+
+                <Form.Group
+                        className="mb-3"
+                        controlId="formBasicCheckbox"
+                      >
+                        <p className="small">
+                          <a className="text-primary" href="#!">
+                            Dont have a account?Register Now
+                          </a>
+                        </p>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="dark" type="submit">
                   Submit
                 </Button>
               </Form>
