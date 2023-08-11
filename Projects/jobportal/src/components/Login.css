@@ -1,0 +1,18 @@
+h1{
+    color:black;
+    text-align: center;
+    font-size: 65px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px 1px blue;
+    background-color: aqua;
+    }
+.input{
+    width: 400px !important;
+}
+.form{
+    margin-left: 400px;
+    margin-top: 40px;
+}
+.btn{
+    margin-top: 9px ;
+}
