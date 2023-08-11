@@ -1,60 +1,10 @@
 import './App.css';
-import React, { useState } from 'react';
-import ToDoList from './components/todolist';
-import Header from './components/Header';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import Home from './components/Home';
+import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './routing';
 
-// export const test = ()=>{
-
-// }
-// export const test1 = ()=>{
-
-// }
-// const body = document.getElementById("body");
-// const p = document.createElement("p");
-// p.innerHTML ="testing"
-// body.append(p);
 
 function App() {
-
-  const [showHeader, setShowHeader] = useState(false);
-  const items = [
-    {
-        item: "bottle",
-        brand: "Cello",
-        price: 115
-    },
-    {
-        item: "Mobile",
-        brand: "Moto",
-        price: 11500
-    },
-    {
-        item: "Iphone 5s",
-        brand: "Iphone",
-        price: 26000
-    }
-  ]
-
-  const items2 = [
-    {
-      item: "Polo",
-      brand: "VW",
-      price: 1100000
-  },
-  {
-      item: "i20",
-      brand: "hyundai",
-      price: 1200000
-  },
-  {
-      item: "K10",
-      brand: "Maruti Suzuki",
-      price: 500000
-  }
-  ]
   return (
     <React.Fragment>
       
@@ -72,7 +22,6 @@ function App() {
  <Card>
   <Item list={items2} heading="Cars" testContent="testContent" />
  </Card> */}
-    <ToDoList/>
  </React.Fragment>
 
 
