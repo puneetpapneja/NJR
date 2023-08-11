@@ -20,7 +20,10 @@ const NavBar = () =>{
                 memo component
               </NavDropdown.Item>    
               <NavDropdown.Item as={Link} to="/callback">
-                Callback component
+                useCallback component
+              </NavDropdown.Item>           
+              <NavDropdown.Item as={Link} to="/ref">
+                useRef component
               </NavDropdown.Item>           
             </NavDropdown>            
           </Nav>
