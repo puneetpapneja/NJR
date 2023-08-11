@@ -1,12 +1,10 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard'
+import Register from './components/Register';
+import Login from './components/Login'
 function App() {
   return (
-    <>
-    <Dashboard/>
-    </>
+    
+<Register/>
   );
 }
 

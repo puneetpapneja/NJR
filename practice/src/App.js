@@ -1,5 +1,5 @@
 import './App.css';
-import Todolist from './components/Todolist';
+import Memo1 from './components/Memo1';
 function App() {
 //const carData = {
   //ar1: {
@@ -18,12 +18,13 @@ function App() {
  return (
     //<div className="App">
 <>
-<Todolist/>
+<Memo1/>
 </>
 //<Item></Item>
 //<Assign1 car={carData.car1}></Assign1>
 //<Assign1 car={carData.car2}></Assign1>
     //</div>
+    
   );
 }
 

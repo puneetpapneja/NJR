@@ -1,0 +1,22 @@
+h1{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.forms{
+    width: 400px !important;
+}
+.input{
+      margin-left: 500px;
+     margin-top: 40px;
+}
+.radio{
+    display: flex;
+    
+}
+#radio{
+    margin: 4px;
+}
+.btn {
+    margin-top: 9px;
+}

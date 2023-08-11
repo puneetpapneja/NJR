@@ -31,7 +31,6 @@ const Item = ({list: items, heading })=>{
 
                 <tbody>
                     <ListItems items={items} />
-                    
                 </tbody>
 
             </table>

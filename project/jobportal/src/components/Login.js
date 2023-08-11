@@ -9,13 +9,13 @@ function BasicExample() {
        
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control className="input" type="email" placeholder="Enter email" />
+        <Form.Control className="inputs" type="email" placeholder="Enter email" />
         
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control className="input" type="password" placeholder="Password" />
+        <Form.Control className="inputs" type="password" placeholder="Password" />
       </Form.Group>
       <div>
       <a href='/'>Don't have a account?Register Now</a>
@@ -28,4 +28,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default BasicExample;
