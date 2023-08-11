@@ -1,34 +1,27 @@
 import item from "./item.css"
 
-const Item = () =>{
+const Item = () => {
     const Items = [
         {
-            item : "Bottle",
-            brand: "Cello" ,
+            item: "Bottle",
+            brand: "Cello",
             Price: 120,
-            
+
         },
         {
-            item : "Phone",
-            brand: "MI" ,
+            item: "Phone",
+            brand: "MI",
             Price: 12000,
-            
+
         }
 
     ]
 
-    return(
+    return (
         <>
-        <img src=""></img>
-        
-        
-        </>
 
-        
-        
-        
-        
+        </>
     )
-    
+
 }
 export default Item;
