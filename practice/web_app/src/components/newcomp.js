@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';  // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function LoginScreen() {
   const [username, setUsername] = useState('');
@@ -15,7 +15,6 @@ function LoginScreen() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add authentication logic here
     console.log('Logging in with:', username, password);
   };
 
