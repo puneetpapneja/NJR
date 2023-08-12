@@ -10,11 +10,13 @@ const Memo = () => {
         setCounter(counter + 1);
     }
 
-    const handleChange = (event) => setNumber(event.target.value)
-    const getSquare = () => {
-        console.log("getSquare called");
-        return parseInt(number) * 2;
-    }
+    
+    // const handleClick = () => setCounter(counter + 1);
+    // const handleChange = (event) => setNumber(event.target.value)
+    // const getSquare = () => {
+    //     console.log("getSquare called");
+    //     return parseInt(number) * 2;
+    // }
     const square = useMemo(() => getSquare(),[number]);
 
     return (<Container fluid>
