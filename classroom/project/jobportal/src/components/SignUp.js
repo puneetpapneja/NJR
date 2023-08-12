@@ -31,13 +31,22 @@ function SignUp() {
         />
       </div>
 
+      <div className="mb-3">
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          className="form-control"
+          placeholder="Enter password"
+        />
+      </div>
+
       <div className="d-grid">
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-success">
           Sign Up
         </button>
       </div>
       <p className="forgot-password text-right">
-        Already registered <a href="/sign-in">sign in?</a>
+      <b> Already registered ? </b>  <a className="no-underline" href="/sign-in">sign in</a>
       </p>
     </form>
   );

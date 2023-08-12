@@ -1,4 +1,6 @@
-// import React, { Component } from 'react'
+
+import { Link } from 'react-router-dom'
+
 
 function Login() {
  
@@ -11,7 +13,7 @@ function Login() {
           <input
             type="email"
             className="form-control"
-            placeholder="Enter email"
+            placeholder="Email"
           />
         </div>
 
@@ -20,7 +22,7 @@ function Login() {
           <input
             type="password"
             className="form-control"
-            placeholder="Enter password"
+            placeholder="Password"
           />
         </div>
 
@@ -38,12 +40,18 @@ function Login() {
         </div>
 
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-success">
             Submit
           </button>
         </div>
         <p className="forgot-password text-right">
-          Forgot <a href="_blank">password?</a>
+           <a className="no-underline" href="_blank">Forgot password ?</a>
+          
+        
+          <Link className="nav-link" to={'/sign-up'}>
+                  
+                    Sign Up
+                    </Link>
         </p>
       </form>
     )
