@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 function LoginScreen() {
   const [username, setUsername] = useState('');
@@ -20,32 +20,48 @@ function LoginScreen() {
 
   return (
     <div className="container mt-5">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2 className="text-center mb-4">Login</h2>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            className="form-control"
-            value={username}
-            onChange={handleUsernameChange}
-            required
-          />
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header bg-primary text-white text-center">
+              <h4>Login</h4>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label htmlFor="username">Username</label>
+                  <input
+                    type="text"
+                    id="username"
+                    className="form-control"
+                    placeholder="Enter username"
+                    value={username}
+                    onChange={handleUsernameChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="form-control"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <button type="submit" className="btn btn-primary btn-block">
+                    Login
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            className="form-control"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary btn-block">Login</button>
-      </form>
+      </div>
     </div>
   );
 }
