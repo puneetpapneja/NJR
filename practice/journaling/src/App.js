@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Item, { Shubham } from "./components/Item"
 import Card from './components/Card';
-import Login from './login';
+import FormGroupExample from './login';
+import RegestrationForm from './components/regestration';
 
 
 // const body = document.getElementById("body");
@@ -59,7 +60,10 @@ function App() {
   return (
     <>
     {/* <Card/> */}
-      {/* <Login/> */}
+      {/* <LoginPage/>
+      <FormTextExampl/> */}
+      {/* <FormGroupExample/> */}
+      <RegestrationForm />
     </>
      
   );
