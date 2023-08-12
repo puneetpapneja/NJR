@@ -51,6 +51,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group className="text-center">
+        <Link to="/dashboard">
           <Button
             style={{ backgroundColor: "black", border: "none" }}
             className="mx-auto col-md-1"
@@ -58,6 +59,7 @@ export default function SignUp() {
           >
             Submit
           </Button>
+          </Link>
         </Form.Group>
       </Form>
     </div>
