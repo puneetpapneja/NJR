@@ -13,15 +13,15 @@ export default function Content(){
             <Row>
                 <Col md="2"></Col>
                 <Col className="bg-info" xs="12" md="2">
-                    <ContentStructure title="8" subtitle="Applied Jobs" />
+                    <ContentStructure title="7" subtitle="Applied Jobs" />
                 </Col>
                 <Col xs="12" md="1"></Col>
                 <Col className="bg-danger" xs="12" md="2">
-                    <ContentStructure title="8" subtitle="Applied Jobs" />
+                    <ContentStructure title="40" subtitle="Total Post" />
                 </Col>
                 <Col xs="12" md="1"></Col>
                 <Col className="bg-primary" xs="12" md="2">
-                    <ContentStructure title="8" subtitle="Applied Jobs" />
+                    <ContentStructure title="2" subtitle="Today's Posts" />
                 </Col>
                 <Col md="2"></Col>
             </Row>
