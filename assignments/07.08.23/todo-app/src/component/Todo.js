@@ -3,11 +3,13 @@ import { useRef, useState } from "react";
 
 function Todo(){
     const userR = useRef(null);
+    const userc=useRef(null);
     const arr1 = [];
     const [arr, setarr] = useState(arr1);
   
     function clear() {
-      setarr([]);
+       const del=userc.current;
+        console.log(del);
     }
   
     function add() {
@@ -22,10 +24,10 @@ function Todo(){
       
        <input ref={userR} type="text" placeholder="enter data to insert" />
         <button onClick={add}>add</button>
-        
-        {arr.map((ele, index) => (
-          console.log(index);
-          <h1 key={index}>{ele} <button onClick={clear}>clear</button></h1>
+         
+        {arr.map((ele ,index) => (
+          
+          <h1  ref={userc} key={index}>{ele} <button onClick={clear}>clear</button></h1>
           
         ))}
        

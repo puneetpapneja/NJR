@@ -6,7 +6,7 @@ import PageLayout from './component/page-layout';
 export const routing=[
     {
         path:"/",
-        element:<home/>
+        element:<Home/>
     },
     {
         path:"/about",

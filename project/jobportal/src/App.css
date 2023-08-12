@@ -1,0 +1,41 @@
+#search{
+  width: 440px;
+}
+
+
+.bg-body-tertiary{
+  margin: 0 60px 0 60px;
+  
+}
+
+.footer{
+  background-color: black;
+  color: white;
+  height: 55px;
+  position:relative;
+  top: 10vh;
+  margin: 0 60px 0 60px;
+  text-align: center;
+   line-height: 3;
+}
+
+.boxes{
+  height: 200px;
+  width: 250px;
+  margin: 10px;
+}
+.boxes , .h1 {
+ 
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash_box{
+  
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  margin: 120px 180px 120px 180px;
+}
