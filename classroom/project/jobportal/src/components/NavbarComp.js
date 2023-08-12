@@ -90,7 +90,7 @@ function NavbarComp() {
       </Container>
 
     
-      <footer className="footer p-5 m-5 bg-black py-2 text-white text-center">
+      <footer className="footer py-3 bg-black py-2 text-white text-center">
         <p>
           &copy;TM@2023 - Techno India NJR Institute of Technology-All Rights Reserved
         </p>
