@@ -1,4 +1,16 @@
 import { Form,Button,Container,Row, Col } from "react-bootstrap";
+import { setSession } from "../utils";
+import { useNavigate } from "react-router-dom";
+const Handelclick= () =>{
+    const navigate = useNavigate();
+    setSession("Registered");
+    navigate("/");
+}
+const SwitchTo = () =>{
+    const navigate = useNavigate();
+    setSession("log in");
+    navigate("/Login");
+}
 export default function Register(){
     return(
         <Container>
@@ -7,19 +19,22 @@ export default function Register(){
             </Row>
             <Row>
                 <Form.Group>
-                    <Form.Label>Email Address</Form.Label>
+                    <Form.Label className="my-3">Email Address</Form.Label>
                     <br />
                     <Form.Control type="text"></Form.Control>
                 </Form.Group>
             </Row>
             <Row>
                 <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="my-3">Password</Form.Label>
                     <br />
                     <Form.Control type="text"/>
                 </Form.Group>
             </Row>
             <Row>
+            <Row>
+            <br />
+            </Row>
             <Col>
                     <Form.Check type="radio" label="Job Seeker" name ="role" id='Job-Seeker'/>
             </Col>
@@ -28,12 +43,12 @@ export default function Register(){
             </Col>
             </Row>
             <Row>
-                <Container className="float-start">
-                    <Button variant="link">Already have an account? Login Now</Button>
+                <Container className="float-start my-3">
+                    <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
                 </Container>
             </Row>
             <Row>
-                <Button type="Submit" variant="dark">Register</Button>
+                <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
             </Row>
         </Container>
     );
