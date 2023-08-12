@@ -5,8 +5,10 @@ import Register from "./components/Register";
 function App() {
   return (
     <div>
-      <Login />
-      <Register />
+      <span>
+        <Login />
+        <Register />
+      </span>
     </div>
   );
 }
