@@ -17,7 +17,7 @@ export default function Login(){
     }
     return (
        
-    <Container className='border border-dark rounded p-3' >
+    <Container className='border border-dark rounded p-3 media-container' >
        <Row>
        <h1 className='text-center'>Login</h1>
        </Row>
@@ -34,11 +34,11 @@ export default function Login(){
             <Form.Control type="password" />
         </Form.Group>
         </Row>
-        <br/>
+        
         
         <Button variant="link">Dont have a account? Register Now</Button>
         {/* <Link to="">Dont have a account? Register Now</Link> */}
-       <br/>
+        <br/>
         <Container className='text-center'>
         <Button type="submit" variant='dark'>Login</Button>
         </Container>

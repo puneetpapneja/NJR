@@ -37,10 +37,10 @@ export default function Register(){
         <br/>
         <Row>
             <Col xs='6'>
-                <Form.Check type='radio' label='Job Seeker' name="role" id='inline-default-radio'/>
+                <Form.Check type='radio' label='Job Seeker' name="role"/>
             </Col>
             <Col xs='6'>
-                <Form.Check type='radio' label='Job Recruiter' name='role' id='inline-default-radio'/>
+                <Form.Check type='radio' label='Job Recruiter' name='role' />
             </Col>
         </Row>
         <br/>
