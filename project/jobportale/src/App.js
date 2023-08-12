@@ -1,11 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { routes } from './routing';
-
+//import RegisterPage from './pages/registerpage.js';
+import LoginPage from './pages/loginpage.js';
 function App() {
   return (
-    <RouterProvider router={createBrowserRouter(routes)}></RouterProvider>
+    <LoginPage/>
+   // <RegisterPage />
   );
 }
 export default App;
