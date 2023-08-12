@@ -1,45 +1,50 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Button, Form,Container,Row} from 'react-bootstrap';
+import {useState} from 'react';
+// import {Link} from 'react-router-dom';
 
-function Login() {
-  return (
-    <div>
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title>
-                <h1>Login</h1>
-              </Card.Title>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <h4>Email address</h4>
-                  <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-                <h4>Password</h4>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Dont haave a account? Register Now" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                  Login
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+export default function Login(){
+    
+    
+  
+    const [validated, setValidated] = useState(false)
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        setValidated(true);
+    }
+    return (
+       
+    <Container className='border border-dark rounded p-3 media-container' >
+       <Row>
+       <h1 className='text-center'>Login</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" />
+        </Form.Group>
+        </Row>
+        <Row>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" />
+        </Form.Group>
+        </Row>
+        
+        
+        <Button variant="link">Dont have a account? Register Now</Button>
+        {/* <Link to="">Dont have a account? Register Now</Link> */}
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Login</Button>
+        </Container>
+       </Form>
     </Container>
-    </div>
-  );
+ 
+ )
+    // }
 }
-
-export default Login;
