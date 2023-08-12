@@ -4,10 +4,12 @@ import Registrationpage from './pages/Registerationpage';
 export const routing=[
     {
         path:'/',
-        element:<LoginPage/>
+        element:<LoginPage/>,
+        exact: true
     },
     {
         path:'/Registration',
-        element:<Registrationpage/>
-    },
+        element:<Registrationpage/>,
+        exact: true,
+    }
 ]

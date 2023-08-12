@@ -17,9 +17,7 @@ function BasicExample() {
         <Form.Label>Password</Form.Label>
         <Form.Control className="input" type="password" placeholder="Password" />
       </Form.Group>
-      <div>
-      <a href='/'>Don't have a account?Register Now</a>
-      </div>
+      
       <div class="control">
                 <input type="radio" name="rd_1"/>Job Seeker
                 <input type="radio" name="rd_2"/>Job Recruiter 

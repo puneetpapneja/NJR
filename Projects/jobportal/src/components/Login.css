@@ -1,4 +1,6 @@
-h1{
+.container{
+    display: flex;
+    justify-content: center;
     color:black;
     text-align: center;
     font-size: 65px;
