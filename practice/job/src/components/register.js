@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './login.css';
 
-const Login = () => {
+const Register = () => {
     const [username, setUsername] = useState('');
+    const [Email, setemail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
@@ -11,21 +12,21 @@ const Login = () => {
             setErrorMessage('');
             alert('Login successful!');
         } else {
-            setErrorMessage('Invalid username or password');
+            setErrorMessage('Invalid Email address or password');
         }
     };
 
     return (
         <>
-            <div className="login-container">
-                <div className="login-box">
-                    <h2 style={{ textAlign: "center", fontFamily: "cursive" }}>Login</h2>
+            <div className="Register-container">
+                <div className="Register-box">
+                    <h2 style={{ textAlign: "center", fontFamily: "cursive" }}>Register</h2>
                     <form>
                         <div className="input-group">
-                            <label>Username:</label>
+                            <label>Email address:</label>
                             <input
                                 type="text"
-                                value={username}
+                                value={Email}
                                 onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
@@ -48,4 +49,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
