@@ -1,5 +1,5 @@
 import React from "react";
 import Registration from "../components/Registration"
-export default function Registerationpage(){
+export default function Registrationpage(){
     return(<Registration/>)
 }

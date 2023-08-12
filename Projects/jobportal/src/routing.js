@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PageLayout from './components/PageLayout';
 import Login from './components/Login';
 import Memo1 from './components/Memo1'
 import Dashboard from './components/Dashboard';
 import Registration from './components/Registration';
+import Header from './components/Header';
 export const routing = [
     {
         path: "/Login",
