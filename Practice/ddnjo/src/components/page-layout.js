@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom"
+import Header from "./Header"
 import React from 'react';
-import Memocomponent from "./Memocomponent";
-import Memopractice from "./Memopractice";
 
 const PageLayout = ()=>{
     return (
         <React.Fragment>
-            <Memocomponent/>
+            <Header />
+            <Outlet />
         </React.Fragment>
     )
 }
