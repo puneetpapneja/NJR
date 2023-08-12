@@ -11,6 +11,7 @@ function App() {
     <div >
      <Login />
      <Register />
+     
     </div>
     
   );
