@@ -1,0 +1,35 @@
+/* Navbar */
+.navbar {
+    margin-bottom: 20px;
+  }
+  
+  /* Colored Boxes */
+  .colored-box {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .red {
+    background-color: #ff6b6b;
+    color: white;
+  }
+  
+  .blue {
+    background-color: #5f87e3;
+    color: white;
+  }
+  
+  .green {
+    background-color: #3ac484;
+    color: white;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  

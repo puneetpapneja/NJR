@@ -1,5 +1,4 @@
-/* Add these styles to your CSS file */
-
+/* 
 .container {
   display: flex;
   justify-content: center;
@@ -79,10 +78,10 @@ a:hover {
 
 .login-box {
   background-color: #f8f9fa; /* Change to off-white color */
-  border-radius: 8px;
+  /* border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
   text-align: center;
-}
+}  */
