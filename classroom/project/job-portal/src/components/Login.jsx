@@ -1,9 +1,16 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
-import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { LinkContainer } from "react-router-bootstrap";
+// import { Nav } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { setSession } from "../utils/utils";
 export default function Login() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    setSession("bheru");
+    navigate("/");
+  };
+
   return (
     <div style={{ marginTop: "18vh" }}>
       <h1 className="text-center">Login</h1>
@@ -30,15 +37,14 @@ export default function Login() {
         {/* </LinkContainer> */}
 
         <Form.Group className="text-center">
-          <Link to="/dashboard">
-            <Button
-              style={{ backgroundColor: "black", border: "none" }}
-              className="mt-3 mx-auto col-md-2"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </Link>
+          <Button
+            style={{ backgroundColor: "black", border: "none" }}
+            className="mt-3 mx-auto col-md-2"
+            type="submit"
+            onClick={handleClick}
+          >
+            Submit
+          </Button>
         </Form.Group>
       </Form>
     </div>

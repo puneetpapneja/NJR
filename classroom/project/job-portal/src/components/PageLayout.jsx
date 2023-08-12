@@ -1,13 +1,28 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-// import Login from "./Login";
-// import Everything from "./Everything";
+import Navigation from "./Navigation";
+import { Col, Container, Row } from "react-bootstrap";
+import { getSession } from "../utils/utils";
+import Login from "./Login";
 
 const PageLayout = () => {
+  if (!getSession()) {
+    return <Login />;
+  }
+
   return (
-    <React.Fragment>
-      <Outlet />
-    </React.Fragment>
+    <Container fluid>
+      <Row>
+        <Col>
+          <Navigation />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Outlet />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
