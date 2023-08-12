@@ -1,15 +1,32 @@
 import React from 'react';
-import LoginPage from './pages/loginpage';
-import Registrationpage from './pages/Registerationpage';
-export const routing=[
+import PageLayout from './components/PageLayout';
+import Login from './components/Login';
+import Memo1 from './components/Memo1'
+import Dashboard from './components/Dashboard';
+import Registration from './components/Registration';
+export const routing = [
     {
-        path:'/',
-        element:<LoginPage/>,
-        exact: true
+        path: "/Login",
+        element:  <Login/>
     },
     {
-        path:'/Registration',
-        element:<Registrationpage/>,
-        exact: true,
+        path: "/Registration",
+        element:  <Registration/>
+    },
+    {
+        path: "/Memo",
+        element: <Memo1/>
+    },
+    {
+        path: "/dashboard",
+        element:  <Dashboard/>
+    }
+
+]
+export const routes = [
+    {
+        path: "/",
+        element: <PageLayout />,
+        children: routing
     }
 ]
