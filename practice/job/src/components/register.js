@@ -1,52 +1,52 @@
-import React, { useState } from 'react';
-import './login.css';
-
-const Register = () => {
-    const [username, setUsername] = useState('');
-    const [Email, setemail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-
-    const handleLogin = () => {
-        if (username === 'user' && password === 'password') {
-            setErrorMessage('');
-            alert('Login successful!');
-        } else {
-            setErrorMessage('Invalid Email address or password');
-        }
-    };
-
+import { Button, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+export default function Register(){
+    
+    //    function FormExample() {
+    //         const [validated, setValidated] = useState(false);
+          
+    //         const handleSubmit = (event) => {
+    //           const form = event.currentTarget;
+    //           if (form.checkValidity() === false) {
+    //             event.preventDefault();
+    //             event.stopPropagation();
+    //           }
+          
+    //           setValidated(true);
+    //         };
     return (
-        <>
-            <div className="Register-container">
-                <div className="Register-box">
-                    <h2 style={{ textAlign: "center", fontFamily: "cursive" }}>Register</h2>
-                    <form>
-                        <div className="input-group">
-                            <label>Email address:</label>
-                            <input
-                                type="text"
-                                value={Email}
-                                onChange={(e) => setUsername(e.target.value)}
-                            />
-                        </div>
-                        <div className="input-group">
-                            <label>Password:</label>
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
-                        {errorMessage && <p className="error-message">{errorMessage}</p>}
-                        <button type="button" onClick={handleLogin} className="btn btn-primary">
-                            Login
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </>
-    );
-};
-
-export default Register;
+       
+    <Container>
+       <Row>
+       <h1 className='text-center'>Register</h1>
+       </Row>
+       {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
+       <Form>
+       <Row>
+        <Form.Group controlId='Email Address'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" />
+        </Form.Group>
+        </Row>
+        <Row>
+        <Form.Group controlId='Password'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" />
+        </Form.Group>
+        </Row>
+        <br/>
+        <Row>
+        <Container className="float-start">
+        <Button variant="link" as = {Link} to={"/login"}> Already have an Account ? Login in Now</Button>
+        </Container>
+    
+        </Row><br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Register</Button>
+        </Container>
+       </Form>
+    </Container>
+ 
+ )
+// }
+}
