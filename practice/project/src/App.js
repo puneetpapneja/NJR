@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-            {/* <Route path='/' element={<Navbar/>}/> */}
             <Navbar/>
         <div>
           <Routes>
