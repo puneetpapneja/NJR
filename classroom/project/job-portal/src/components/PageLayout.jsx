@@ -4,7 +4,7 @@ import Navigation from "./Navigation";
 import { Col, Container, Row } from "react-bootstrap";
 import { getSession } from "../utils/utils";
 import Login from "./Login";
-
+import Footer from "./Footer";
 const PageLayout = () => {
   if (!getSession()) {
     return <Login />;
@@ -20,6 +20,11 @@ const PageLayout = () => {
       <Row>
         <Col>
           <Outlet />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Footer />
         </Col>
       </Row>
     </Container>
