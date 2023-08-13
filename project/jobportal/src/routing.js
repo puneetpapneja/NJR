@@ -1,37 +1,20 @@
 import React from 'react';
-import PageLayout from './components/PageLayout';
-import Login from './components/Login';
-import Memo1 from './components/Memo1'
-import Dashboard from './components/Dashboard';
-import Todolist from './components/Todolist';
-import Register from './components/Register';
+import Loginpage from './pages/Loginpage';
+import Registerpage from './pages/registerpage';
+import PageLayout from './pages/page-layout';
+
 export const routing = [
     {
-        path: "/todolist",
-        element:  <Todolist/>
-    },
-    {
-        path: "/login",
-        element:  <Login/>
+        path: "/",
+        element:  <Loginpage />
     },
     {
         path: "/register",
-        element:  <Register />
-    },
-    {
-        path: "/memo",
-        element:  <Memo1/>
+        element:  <Registerpage />
     },
     {
         path: "/dashboard",
-        element:  <Dashboard/>
+        element: <PageLayout />,
     }
 
-]
-export const routes = [
-    {
-        path: "/",
-        element: <PageLayout />,
-        children: routing
-    }
 ]
