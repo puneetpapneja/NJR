@@ -1,4 +1,4 @@
-import { Container, Nav, NavDropdown, Navbar,Form } from "react-bootstrap";
+import { Container, Nav, Navbar,Form } from "react-bootstrap";
 import {Link} from 'react-router-dom';
 
 const NavBar = () =>{
@@ -13,12 +13,12 @@ const NavBar = () =>{
             <Nav.Link href="" className="me-3">Post A Job</Nav.Link>
             <Nav.Link href="" className="me-3">Applied job</Nav.Link>
             <Nav.Link href="" className="me-3">Posted job</Nav.Link>
-            <Nav.Link href="" className="me-3"><Form ><Form.Control type="text" placeholder="Search" /></Form></Nav.Link>
+            <Nav.Link href="" className="me-3"><Form ><Form.Control type="text" placeholder="search" /></Form></Nav.Link>
           </Nav>
           </Navbar.Collapse>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end me-3">
             <Nav>
-            <Nav.Link href=""><Container className="glyphicon glyphicon-user">User</Container></Nav.Link>
+            <Nav.Link href=""><Container className="glyphicon glyphicon-user"><i class="bi bi-person-circle"></i></Container></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

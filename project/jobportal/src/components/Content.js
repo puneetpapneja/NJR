@@ -6,7 +6,7 @@ return(
     <Row >
         <h1>Dashboard</h1>
     </Row>
-    <Container style={{height:150}}>
+    <Container>
     <Row className="h-100" >
         <Col xs="12" md="3" className="bg-danger"><Square value="7" title="Applied Job's" /></Col>
         <Col md="1"></Col>
