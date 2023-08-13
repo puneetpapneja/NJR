@@ -1,34 +1,44 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./signup.css";
+
 export default function SignUp() {
+  const labelStyle = {
+    fontWeight: "bold",
+    marginTop: "1rem",
+    textAlign: "left"
+  };
+
+  const linkStyle = {
+    display: "block",
+    marginBottom: "0.5rem",
+    marginTop: "1rem"
+  };
   return (
-    <div style={{ marginTop: "18vh" }}>
-      <h1 className="text-center">Register</h1>
-      <Form style={{ marginTop: "8vh" }}>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <Card className="text-center p-4 mx-auto col-md-4">
+      <h1 className="mb-4">Register</h1>
+      <Form>
         <Form.Group
-          className="mb-4 mx-auto text-center col-md-3"
           controlId="formBasicEmail"
         >
-          <Form.Label>Email address</Form.Label>
+          <Form.Label style={labelStyle}>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
 
         <Form.Group
-          className="mb-4 mx-auto text-center col-md-3"
           controlId="formBasicPassword"
         >
-          <Form.Label>Password</Form.Label>
+          <Form.Label style={labelStyle}>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
         <Form.Group
-          className="mb-4 mx-auto text-center col-md-3"
           controlId="formBasicCheckbox"
         >
           {["radio"].map((type) => (
-            <div key={`inline-${type}`} className="mb-3">
+            <div key={`inline-${type}`} className="mb-3 mt-3">
               <Form.Check
                 inline
                 label="Job Seeker"
@@ -45,8 +55,8 @@ export default function SignUp() {
               />
             </div>
           ))}
-          <Link as={Link} to="/">
-            Don't Have An Account? Register Now
+          <Link as={Link} to="/" style={linkStyle}>
+            Have An Account? Login Now
           </Link>
         </Form.Group>
 
@@ -54,14 +64,16 @@ export default function SignUp() {
         <Link to="/dashboard">
           <Button
             style={{ backgroundColor: "black", border: "none" }}
-            className="mx-auto col-md-1"
+            className="mt-3"
             type="submit"
+            block
           >
-            Submit
+            Register
           </Button>
           </Link>
         </Form.Group>
       </Form>
+      </Card>
     </div>
   );
 }
