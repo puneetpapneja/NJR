@@ -1,5 +1,5 @@
 import {Form,Button,Container,Row} from 'react-bootstrap';
-import { setSession } from '../utils';
+import { setKey, setSession } from '../utils';
 import { useNavigate } from 'react-router-dom';
 export default function Login(){
     const navigate = useNavigate();
@@ -8,14 +8,15 @@ export default function Login(){
         navigate("/");
     }
     const SwitchTo = () =>{
-        setSession("register");
+        setSession("");
+        setKey("register");
         navigate("/Registeration");
     }
     return(
         <Container>
             <Form>
                 <Row>
-                    <h1 className='text-center'>Login</h1>
+                    <h1 className='text-center my-5'>Login</h1>
                 </Row>
                 <Row>
                     <Form.Group>
@@ -32,7 +33,7 @@ export default function Login(){
                     </Form.Group>
                 </Row>
                 <Row>
-                    <Container className='float-start my-3'>
+                    <Container className='float-start mb-5 mt-3'>
                     <Button variant='link' href='/Registeration' onClick={SwitchTo}>Don't have an account? Register Now</Button>
                     </Container>
                 </Row>
