@@ -4,6 +4,7 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 const Memo = () => {
     const [number, setNumber] = useState();
     const [counter, setCounter] = useState(0);
+    
     const handleClick = () => setCounter(counter + 1);
     const handleChange = (event) => setNumber(event.target.value)
     const getSquare = () => {
