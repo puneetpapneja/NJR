@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
   return (
@@ -38,9 +39,11 @@ const RegisterPage = () => {
         </div>
       ))}
 
-          <Button variant="link">Have an account? Log in</Button>
-          <Button variant="dark" type="submit" className="w-100">
-            Register
+<Button variant="link">
+            Have an account? <Link to="/LoginPage">Log in</Link>
+          </Button>
+          <Button variant="dark" type="submit" className="w-100"><Link to="/LoginPage">
+            Register</Link>
           </Button>
         </Form>
 
