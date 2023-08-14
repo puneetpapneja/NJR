@@ -16,5 +16,9 @@ export const routing = [
         path: "/dashboard",
         element: <PageLayout />,
     }
+    , {
+        path: "/postajob",
+        element: <PageLayout />,
+    }
 
 ]

@@ -18,7 +18,7 @@ function NavScrollExample() {
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Post A Job</Nav.Link>
+            <Nav.Link href="/postajob">Post A Job</Nav.Link>
             <Nav.Link href="#" >
               Applied job
             </Nav.Link>
