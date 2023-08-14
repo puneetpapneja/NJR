@@ -1,4 +1,4 @@
-import {Button, Form,Container,Row} from 'react-bootstrap';
+import {Button, Form,Container,Row,Col} from 'react-bootstrap';
 import {useState} from 'react';
 import {Link} from 'react-router-dom';
 export default function Register(){
@@ -17,32 +17,40 @@ export default function Register(){
     //         };
     return (
        
-        
-    <Container className='container-form'>
+    <Container>
        <Row>
        <h1 className='text-center'>Register</h1>
        </Row>
        {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
-       <Form border=''>
+       <Form>
        <Row>
-       <Form.Label>Email address</Form.Label>
         <Form.Group controlId='formEmail'>
-            
-            <Form.Control className='input-login' type="email" />
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" />
         </Form.Group>
         </Row>
         <Row>
-        <Form.Label>Password</Form.Label>
         <Form.Group controlId='formPassword'>
-            <Form.Control className='input-login' type="password" />
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" />
         </Form.Group>
         </Row>
         <br/>
         <Row>
-        {/* <Link to="">Have a account? LOgin Now</Link> */}
-         <Link to="">Have a account? Login Now</Link> 
+            <Col>
+                    <Form.Check type="radio" label="Job Seeker" name ="role" id='Job-Seeker'/>
+            </Col>
+            <Col>
+                    <Form.Check type="radio" label="Job Recruiter" name ="role" id='Job-Recruiter'/>
+            </Col>
+            </Row>
+        <Row>
+            {/* <Link to="">Dont have a account? Register Now</Link> */}
+            <Container className="flow-start">
+            <Button variant='link' as={Link} to={"/login"}>Already have an account? Login Now</Button> 
+            </Container>
         </Row><br/>
-        <Container className='d-flex justify-content-between'>
+        <Container className='text-center'>
         <Button type="submit" variant='dark'>Register</Button>
         </Container>
        </Form>

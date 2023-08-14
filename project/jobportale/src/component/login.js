@@ -17,32 +17,33 @@ export default function Login(){
     //         };
     return (
        
-        
-    <Container className='container-form'>
+    <Container>
        <Row>
        <h1 className='text-center'>Login</h1>
        </Row>
        {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
-       <Form border=''>
+       <Form>
        <Row>
-       <Form.Label>Email address</Form.Label>
         <Form.Group controlId='formEmail'>
-            
-            <Form.Control className='input-login' type="email" />
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" />
         </Form.Group>
         </Row>
         <Row>
-        <Form.Label>Password</Form.Label>
         <Form.Group controlId='formPassword'>
-            <Form.Control className='input-login' type="password" />
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" />
         </Form.Group>
         </Row>
         <br/>
         <Row>
         {/* <Link to="">Dont have a account? Register Now</Link> */}
-         <Link to=""> Dont have a account? Register Now</Link> 
+
+        <Container className='flow-start'>
+            <Button variant='link' as={Link} to={"/register"}>Register</Button> Dont't have an account? Register Now
+        </Container>
         </Row><br/>
-        <Container className='d-flex justify-content-between'>
+        <Container className='text-center'>
         <Button type="submit" variant='dark'>Login</Button>
         </Container>
        </Form>
