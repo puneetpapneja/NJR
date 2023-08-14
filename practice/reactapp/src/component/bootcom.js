@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function BasicExample() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
+      <Container fluid>
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -20,7 +20,7 @@ function BasicExample() {
               <NavDropdown.Item href="#action/3.2">
                Callback
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/todo">TodoList</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link

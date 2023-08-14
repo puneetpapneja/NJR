@@ -1,8 +1,7 @@
 import { useState } from "react";
-
+var a=[];
 export const Todolist = () => {
     const [todo, setTodo] = useState()
-    let a = []
     let count = 0
     const handleChange = (event) => {
         setTodo(event.target.value)

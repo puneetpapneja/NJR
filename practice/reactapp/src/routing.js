@@ -1,6 +1,7 @@
 import { About } from "./component/about"
 import { Contact } from "./component/contact"
 import { Home } from "./component/home"
+import { Todolist } from "./component/todoList"
 import {Header} from "./page/Header"
 const routing=[
     {
@@ -14,6 +15,10 @@ const routing=[
     {
         path:"/contact",
         element:<Contact/>
+    },
+    {
+        path:"/todo",
+        element:<Todolist/>
     }
 ]
 
