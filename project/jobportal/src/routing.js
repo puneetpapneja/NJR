@@ -2,6 +2,7 @@ import React from 'react';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
+import Appliedjob from './pages/Appliedjob';
 
 export const routing = [
     {
@@ -19,6 +20,10 @@ export const routing = [
     {
         path: "/Dashboard",
         element:  <Dashboard />
+    },
+    {
+        path: "/Appliedjob",
+        element:  < Appliedjob />
     }
    
 ]

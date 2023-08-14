@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav, Form, FormControl, Button, Image, Container, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
@@ -29,12 +30,16 @@ const Dashboard = () => {
         <h1>Dashboard</h1>
         <div className="row justify-content-center">
           <div className="col-md-3">
+            <Link to="/Appliedjob">
             <Card className="bg-info text-white">
               <Card.Body>
-                <Card.Title>Applied Jobs</Card.Title>
+              <Card.Title>
+                    Applied Job
+                    </Card.Title>
                 <Card.Text>7 jobs</Card.Text>
               </Card.Body>
             </Card>
+            </Link>
           </div>
           <div className="col-md-3">
             <Card className="bg-primary text-white">
