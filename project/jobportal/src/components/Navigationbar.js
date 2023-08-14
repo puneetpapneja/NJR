@@ -15,7 +15,7 @@ export default function Navigationbar(){
             <Nav.Link as={Link} to="/" className="me-5">Posted Job</Nav.Link>
             <Nav.Link className="me-5"><Form.Control type="text" placeholder="Search" /></Nav.Link>
             </Navbar.Collapse>
-            <i className="glyphicon glyphicon-user"/>
+            <i class="bi bi-person-circle"></i>
         </Navbar>
         </Container>
     );
