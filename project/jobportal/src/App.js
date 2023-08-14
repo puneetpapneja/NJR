@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Memo from "../../../practice/webapp/src/componants/Memo";
+import DashboardScreen from "./pages/DashboardScreen";
 
 function App() {
   return (
     <div>
-      <h1>helo</h1>
+      <DashboardScreen />
     </div>
   );
 }

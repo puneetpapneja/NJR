@@ -77,10 +77,11 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import "../App.css";
 
 function Login() {
   return (
-    <Container>
+    <Container className="logReg">
       <Row className="justify-content-center">
         <Col xs={12} md={6}>
           <Card>
@@ -99,7 +100,10 @@ function Login() {
                   <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                  <Form.Check type="checkbox" label="Check me out" />
+                  <Form.Check
+                    type="checkbox"
+                    label="Accept Terms & Conditions"
+                  />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                   Submit
