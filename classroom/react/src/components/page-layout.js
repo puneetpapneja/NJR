@@ -1,5 +1,6 @@
-import { Outlet } from "react-router-dom"
-import Header from "./Header"
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+// import { Route, Routes, Outlet } from "react-router";
 import React from 'react';
 
 const PageLayout = ()=>{
@@ -8,7 +9,7 @@ const PageLayout = ()=>{
             <Header />
             <Outlet />
         </React.Fragment>
-    )
+    );
 }
 
 export default PageLayout;

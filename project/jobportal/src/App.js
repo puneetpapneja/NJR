@@ -1,15 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import PlaintextExample from './components/pages/loginPage';
-import RegisterP from './components/pages/registerPage';
+import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { routes } from './routing';
+
 
 function App() {
   return (
-    <>
-    {/* <PlaintextExample></PlaintextExample> */}
-    <RegisterP></RegisterP>
-    </>
-  );
+    <RouterProvider router={createBrowserRouter(routes)}>
+    </RouterProvider>
+    );
 }
 
 export default App;

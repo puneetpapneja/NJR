@@ -13,8 +13,8 @@ function BasicExample() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/about">about us</Nav.Link>
-            <Nav.Link as={Link} to="/contact">contact us</Nav.Link>
+            <Nav.Link as={Link} to="/About">about us</Nav.Link>
+            <Nav.Link as={Link} to="/Contact">contact us</Nav.Link>
             <NavDropdown title="Topics" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
