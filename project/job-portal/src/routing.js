@@ -1,9 +1,11 @@
-import About from "./components/About";
+// import About from "./pages/";
 import PageLayout from "./components/PageLayout";
 import Login from "./components/Login";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import SignUp from "./components/SignUp";
-import Dashboard from "./components/dashboard";
+import Dashboard from "./pages/dashboard";
+import PostJob from "./pages/post";
+import AppliedJob from "./components/appliedjob";
 export const routing = [
   {
     path: "/",
@@ -18,6 +20,16 @@ export const routing = [
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+
+  {
+    path: "/postjob",
+    element: <PostJob />,
+  },
+
+  {
+    path: "/appliedjob",
+    element: <AppliedJob />,
   },
 ];
 
