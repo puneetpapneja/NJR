@@ -1,7 +1,4 @@
-import React from 'react';
-import Register from '../components/Register';
-const registerpage = ()=>{
-    
-    return <Register />
+import Register from '../components/Register.js';
+export default function RegisterPage(){
+    return(<Register />);
 }
-export default registerpage;

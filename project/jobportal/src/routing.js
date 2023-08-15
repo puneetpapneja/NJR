@@ -1,24 +1,31 @@
-import React from 'react';
-import Loginpage from './pages/Loginpage';
-import Registerpage from './pages/registerpage';
-import PageLayout from './pages/page-layout';
-
-export const routing = [
+import React from "react";
+import Dashboard from "./pages/Dashboardpage"
+import LoginPage from "./pages/loginpage";
+import RegisterPage from "./pages/registerpage";
+import Pagelayout from "./components/Page-layout";
+import Post from "./pages/Post";
+export const routes=[
     {
-        path: "/",
-        element:  <Loginpage />
+        path:"/",
+        element: <Dashboard />        
     },
     {
-        path: "/register",
-        element:  <Registerpage />
+        path:"/Login",
+        element: <LoginPage />
     },
     {
-        path: "/dashboard",
-        element: <PageLayout />,
+        path:"/Registeration",
+        element: <RegisterPage />
+    },
+    {
+        path:"/PostJob",
+        element: <Post />
     }
-    , {
-        path: "/postajob",
-        element: <PageLayout />,
+]
+export const routing =[
+    {
+        path:"/",
+        element:<Pagelayout />,
+        children: routes
     }
-
 ]

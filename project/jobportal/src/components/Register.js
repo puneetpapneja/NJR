@@ -1,44 +1,132 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import './Register.css';
-function BasicExample() {
-  return (
-    <>
-    <h1>Register</h1>
-    <Form className="input">
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control className="forms" type="email" placeholder="Enter email" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control className="forms" type="password" placeholder="Password" />
-      </Form.Group>
-      <div className="radio">
-      <Form.Check 
-            type='radio'
-            id='radio'
-            label="Job Seekers"
-            name="radio"
-          />
-       
-          <Form.Check 
-            type='radio'
-            id='radio'
-            name="radio"
-            label="Job Recruiters"
-          />
-         </div>
-         <div>
-      <a href='/'>Have a Account?Login Now</a>
-      </div>
-      <Button className="btn" variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    </>
-  );
+import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
+import { setKey, setSession } from "../utils";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+export default function Register(){
+    const navigate = useNavigate();
+    const [email,setEmail]=useState("");
+    const [emailError,setEmailError] = useState("");
+    const [password,setPassword]=useState("");
+    const [passwordError,setPasswordError]=useState("");
+    const [role,setRole]=useState("");
+    const [roleError,setRoleError]=useState("");
+    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const Handelclick= (event) =>{
+        if(!email || !emailRegExp.test(email))
+        {
+            event.preventDefault();
+            setEmailError("*invalid email format");
+            return;
+        }
+        if(!password || !passwordRegExp.test(password)){
+            event.preventDefault();
+            setPasswordError("*Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
+            return;
+        }
+        if(!role)
+        {
+            event.preventDefault();
+            setRoleError("*select a role");
+            return;
+        }
+        else
+        {
+            setSession("Registered");
+            navigate("/");
+        }
+    }
+    const SwitchTo = () =>{
+        setSession("");
+        setKey("login");
+        navigate("/Login");
+    }
+    return(
+        <Container>
+            <Form>
+                <Row>
+                    <h1 className="text-center my-5">Register</h1>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className="my-3">Email Address</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type="text"
+                            value={email}
+                            onChange={(e)=>{
+                                    setEmail(e.target.value);
+                                    setEmailError("");
+                                }
+                            }
+                        />
+                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className="my-3">Password</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type="text"
+                            value={password}
+                            onChange={
+                                (e)=>{
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                }
+                            }
+                        />
+                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                <br />
+                </Row>
+                <Row>
+                        <Col>
+                            <Form.Check 
+                                type="radio" 
+                                label="Job Seeker" 
+                                name ="role" 
+                                id='Job-Seeker' 
+                                value="Job Seeker" 
+                                checked={role === "Job Seeker"}
+                                onChange={
+                                    (e)=>{
+                                        setRole(e.target.value);
+                                        setRoleError("");
+                                    }
+                                }
+                            />
+                        </Col>
+                        <Col>
+                            <Form.Check 
+                                type="radio" 
+                                label="Job Recruiter" 
+                                name ="role" 
+                                id='Job-Recruiter' 
+                                value="Job Recruiter" 
+                                checked={role === "Job Recruiter"}
+                                onChange={
+                                    (e)=>{
+                                        setRole(e.target.value);
+                                        setRoleError("");
+                                    }
+                                }
+                            />
+                        </Col>
+                        {roleError && <Alert variant="danger">{roleError}</Alert>}
+                </Row>
+                <Row>
+                    <Container className="float-start mb-5 mt-3">
+                        <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
+                    </Container>
+                </Row>
+                <Row>
+                    <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
+                </Row>
+            </Form>
+        </Container>
+    );
 }
-
-export default BasicExample;
