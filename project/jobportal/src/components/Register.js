@@ -1,4 +1,5 @@
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Register() {
   return (
@@ -58,9 +59,9 @@ function Register() {
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
-                          <a className="text-primary" href="#!">
+                          <Link className="text-primary" to="/">
                             Have a account ? Login Now
-                          </a>
+                          </Link>
                         </p>
                       </Form.Group>
                       {/* <div className="d-grid" >
