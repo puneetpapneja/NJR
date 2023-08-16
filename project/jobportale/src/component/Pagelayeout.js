@@ -1,0 +1,6 @@
+const Pagelayeout=()=>{
+    return (
+    
+         <Pagelayeout/>
+    )
+}
