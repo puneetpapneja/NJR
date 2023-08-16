@@ -6,7 +6,7 @@ function Header() {
   return (
     <div>
       <NavScrollExample />
-      <Outlet />
+     
     </div>
   );
 }
