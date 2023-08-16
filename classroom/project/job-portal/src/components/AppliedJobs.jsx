@@ -1,6 +1,5 @@
 import React from "react";
 import { Form } from "react-router-dom";
-import SearchBar from "./SearchBar";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import jobData from "./resources/jobDetailData.json";
