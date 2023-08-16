@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -19,6 +19,19 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+
+export default App;*/
+
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login';
+function App() {
+  return (
+    <>
+    <Login></Login>
+    </>
   );
 }
 
