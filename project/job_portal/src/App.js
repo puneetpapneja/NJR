@@ -1,4 +1,24 @@
+import './App.css';
 import React from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { routes } from './routing';
+
+
+function App() {
+  return (
+    <React.Fragment>
+      <RouterProvider router={createBrowserRouter(routes)}>
+ 
+ </RouterProvider> 
+    </React.Fragment>
+
+);
+}
+
+export default App;
+
+
+/*import React from 'react';
 //import LoginPage from './pages/LoginPage';
 //import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
@@ -10,7 +30,7 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/
  
  
  

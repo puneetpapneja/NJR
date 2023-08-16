@@ -1,44 +1,28 @@
 import React from 'react';
-import Home from './components/Home';
-import Aboutus from './components/About';
-import Contactus from './components/Contact';
-import Header from './components/Header';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import DashboardPage from './pages/DashboardPage';
 import PageLayout from './components/page-layout';
-import Memo from './components/Memo';
-import Item from './components/Item';
-import Callback from './components/Callback';
-import Ref from './components/Ref';
+
 export const routing = [
     {
         path: "/",
-        element:  <Home />
+        element:  <LoginPage /> 
     },
     {
-        path: "/about",
-        element:  <Aboutus />
+        path: "/LoginPage",
+        element:  <LoginPage />
     },
     {
-        path: "/contact",
-        element:  <Contactus />
+        path: "/RegisterPage",
+        element:  <RegisterPage /> 
     },
     {
-        path: "/usememo",
-        element:  <Memo />
-    },
-    {
-        path: "/callback",
-        element:  <Callback />
-    },
-    {
-        path: "/ref",
-        element:  <Ref />
-    },
-    {
-        path: "/item",
-        element:  <Item list={[{item: "Bottle", brand:"Cello", price:115}]} heading="Ceramic Products" />
+        path: "/DashboardPage",
+        element:  <DashboardPage /> 
     }
+    
 ]
-
 export const routes = [
     {
         path: "/",
