@@ -1,16 +1,20 @@
-import './App.css';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import { routing } from './routing';
-import React from 'react';
+import { Container } from "react-bootstrap";
+import Content from "./components/Content";
+import Footer from "./components/Footer";
+import NavBar from "./components/Navbar";
+
 
 
     function App() {
         return (
-          <React.Fragment>
-            <RouterProvider router={createBrowserRouter(routing)}>
+          <Container>
+            {/* <RouterProvider router={createBrowserRouter(routing)}>
        
-       </RouterProvider> 
-          </React.Fragment>
+       </RouterProvider>  */}
+       <NavBar/>
+       <Content/>
+       <Footer/>
+       </Container>
       
   );
 }

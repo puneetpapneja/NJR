@@ -1,5 +1,5 @@
 import { Container, Nav, Navbar,Form } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 
 const NavBar = () =>{
     return (
@@ -9,7 +9,7 @@ const NavBar = () =>{
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="ms-3">
           <Nav className="ms-3">
-            <Nav.Link as={Link} to="/" className="me-3">Home</Nav.Link>
+            <Nav.Link href="">Home</Nav.Link>
             <Nav.Link href="" className="me-3">Post A Job</Nav.Link>
             <Nav.Link href="" className="me-3">Applied job</Nav.Link>
             <Nav.Link href="" className="me-3">Posted job</Nav.Link>
