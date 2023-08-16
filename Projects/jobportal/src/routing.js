@@ -1,34 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PageLayout from './components/PageLayout';
-import Login from './components/Login';
-import Memo1 from './components/Memo1'
-import Dashboard from './components/Dashboard';
-import Registration from './components/Registration';
-import Header from './components/Header';
-export const routing = [
+import React from "react";
+import Dashboard from "./pages/Dashboardpage"
+import LoginPage from "./pages/loginpage";
+import RegisterPage from "./pages/registerpage";
+import Pagelayout from "./components/Page-layout";
+import Post from "./pages/Post";
+import Applied from "./components/Appliedjob";
+export const routes=[
     {
-        path: "/Login",
-        element:  <Login/>
+        path:"/",
+        element: <Dashboard />        
     },
     {
-        path: "/Registration",
-        element:  <Registration/>
+        path:"/Login",
+        element: <LoginPage />
     },
     {
-        path: "/Memo",
-        element: <Memo1/>
+        path:"/Registeration",
+        element: <RegisterPage />
     },
     {
-        path: "/dashboard",
-        element:  <Dashboard/>
+        path:"/PostJob",
+        element: <Post />
+    },
+    {
+        path:"/AppliedJob",
+        element: <Applied />
     }
-
 ]
-export const routes = [
+export const routing =[
     {
-        path: "/",
-        element: <PageLayout />,
-        children: routing
+        path:"/",
+        element:<Pagelayout />,
+        children: routes
     }
 ]

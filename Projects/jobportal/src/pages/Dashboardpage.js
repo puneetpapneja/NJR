@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "./components/Dashboard";
-export default function DashboardPage(){
-    return(<Dashboard/>)
+import Content from "../components/Content";
+export default function Dashboard(){
+    return(<Content/>);
 }
