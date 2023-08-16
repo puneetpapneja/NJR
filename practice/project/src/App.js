@@ -5,7 +5,7 @@ import Login from "./components/login.js";
 import Register from "./components/Register.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from './components/footer';
-import Cards from "./components/Cards";
+import Cards from "./components/cards";
 
 
 function App() {
