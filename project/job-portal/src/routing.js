@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import SignUp from "./components/SignUp";
 import Dashboard from "./pages/dashboard";
 import PostJob from "./pages/post";
-import AppliedJob from "./components/appliedjob";
+import Apply from "./pages/apply";
 export const routing = [
   {
     path: "/",
@@ -29,7 +29,7 @@ export const routing = [
 
   {
     path: "/appliedjob",
-    element: <AppliedJob />,
+    element: <Apply />,
   },
 ];
 

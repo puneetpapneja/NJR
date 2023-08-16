@@ -20,10 +20,10 @@ function Navigation() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link to="/dashboard" className="me-4">Home</Link>
-                        <Link to="/postjob" className="me-4">Post a Job</Link>
-                        <Link to="/appliedjob" className="me-4">Applied Job</Link>
-                        <Link to="/" className="me-4">Posted Job</Link>
+                        <Link to="/dashboard" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link>
+                        <Link to="/postjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Post a Job</Link>
+                        <Link to="/appliedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Applied Job</Link>
+                        <Link to="/" className="me-4" style={{ color: 'black', textDecoration: 'none' }}> Posted Job</Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

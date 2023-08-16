@@ -1,30 +1,44 @@
 import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
+
+
+const formStyle = {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "3%",
+};
+
+
 
 export default function PostJob() {
     return (
-        <Container className="mt-5">
-            <h1 className="mb-4">Post Job</h1>
-            <Form>
-                <Form.Group controlId="jobTitle">
-                    <Form.Label>Job Title</Form.Label>
-                    <Form.Control type="text" placeholder="Enter job title" />
-                </Form.Group>
 
-                <Form.Group controlId="jobDescription">
-                    <Form.Label>Job Description</Form.Label>
-                    <Form.Control as="textarea" placeholder="Enter job description" rows={4} />
-                </Form.Group>
+        <Form style={formStyle}>
 
-                <Form.Group controlId="maxSalary">
-                    <Form.Label>Max Salary</Form.Label>
-                    <Form.Control type="number" placeholder="Enter max salary" />
-                </Form.Group>
+            <h1 className="mb-4" >Post Job</h1>
 
-                <Button variant="primary" type="submit">
-                    Post
-                </Button>
-            </Form>
-        </Container>
+            <Form.Group className="mb-3 col-md-4" controlId="jobTitle">
+                <Form.Label>Job Title</Form.Label>
+                <Form.Control type="text" placeholder="Enter job title" />
+            </Form.Group>
+
+            <Form.Group className="mb-3 col-md-4" controlId="jobDescription">
+                <Form.Label>Job Description</Form.Label>
+                <Form.Control as="textarea" placeholder="Enter job description" rows={4} />
+            </Form.Group>
+
+            <Form.Group className="mb-3 col-md-4" controlId="maxSalary">
+                <Form.Label>Max Salary</Form.Label>
+                <Form.Control type="number" placeholder="Enter max salary" />
+            </Form.Group>
+
+            <Button style={{ backgroundColor: 'black', border: 'none' }} type="submit">
+                Post
+            </Button>
+        </Form>
+
+
     );
 }
