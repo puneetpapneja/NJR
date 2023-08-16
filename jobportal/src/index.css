@@ -1,0 +1,125 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #0b5cff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cardstitle{
+  font-size: large;
+  font-weight: bold;
+  margin-top: 90px;
+}
+
+.cardBox{
+  margin-top: 10px;
+}
+.bg-body-tertiary{
+  width: 90%;
+  margin: auto;
+  border-radius: 10px;
+  color: black;
+}
+
+.d-flex{
+  width: 300px;
+  margin-right: 100px;
+}
+
+.navitems{
+  width: 70%;
+}
+.footer{
+ 
+  height: 50px;
+  background-color: rgb(241, 118, 11);
+
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  border-radius: 5px;
+
+  border: 2px solid black;
+ 
+  height: 40px;
+}
+
+.footertext{
+  margin-top: 7px;
+  color: white;
+}
+
+
+.container{
+
+  margin-top: 100px;
+  height: 400px;
+  
+}
+
+
+
+.row2{
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.col1{
+  border: 2px solid black;
+  background-color: chocolate;
+  margin-right: 70px;
+}
+.col2{
+  border: 2px solid black;
+  background-color: rgb(235, 49, 24);
+}
+.col3{
+  border: 2px solid black;
+  background-color: rgb(12, 187, 15);
+  margin-left: 70px;
+}
+
+
+.carditems{
+  text-align: center;
+  padding-top: 38px;
+  color: rgb(239, 237, 237);
+}
+
+.postform{
+  height: 500px;
+}
