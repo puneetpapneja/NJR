@@ -1,20 +1,38 @@
-import { Home } from "./pages/Dashbord";
-import Loginpage from "./pages/Loginpage";
-import { Registerpage } from "./pages/Registerpage";
+import { Job } from "./component/Jobs";
+import { Post } from "./component/Postjob";
+import Register from "./component/Register"
+import Login from "./component/Login"
+import { Dashboard } from "./component/dashbord";
+import Home from "./component/Page-Layout"
 
-const routes = [
+const routing = [
+    {
+        path:"/",
+        element:<Dashboard/>
+    },
+    {
+        path:"/Post",
+        element:<Post/>
+    },
+    {
+        path:"/Job",
+        element:<Job/>
+    }
+];
+ const Routes=[
+    {
+        path:"/",
+        element:<Home/>,
+        children: routing
+    },
     {
         path: "/Login",
-        element: <Loginpage/>
+        element: <Login/>
     },
     {
         path: "/Registerpage",
-        element:<Registerpage/>
-    },
-    {
-        path:"/",
-        element:<Home/>
+        element:<Register/>
     }
-];
+ ]
 
-export default routes;
+export default Routes;

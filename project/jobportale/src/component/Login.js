@@ -8,16 +8,13 @@ import { Link } from 'react-router-dom';
 
 
 
-export const Login = () => {
+ const Login = () => {
     return (
-        <Container>
+        <Container className='w-25'>
             <Row>
-                <Col sm={5}></Col>
-                <Col><h1>Login </h1></Col>
-                <Col></Col>
+                <Col className='text-center'><h1>Login </h1></Col>
             </Row>
             <Row>
-            <Col></Col>
                 <Col md="12">
                     <InputGroup className="mb-3">
                         <InputGroup.Text id="basic-addon1">Name</InputGroup.Text>
@@ -28,11 +25,9 @@ export const Login = () => {
                         />
                     </InputGroup>
                 </Col>
-                <Col></Col>
             </Row>
             <Row>
-                <Col></Col>
-                <Col md="12">
+                <Col>
                     <Form.Label htmlFor="inputPassword5">Password</Form.Label>
                     <Form.Control
                         type="password"
@@ -44,23 +39,16 @@ export const Login = () => {
                         and must not contain spaces, special characters, or emoji.
                     </Form.Text>
                 </Col>
-                <Col></Col>
             </Row>
-            <Row>
-                <Col></Col>
-                <Col>
+            <Row className='text-center'>
                 <Link to="/Registerpage">Donot have account? Register</Link>
-                </Col>
-                <Col></Col>
-                
             </Row>
             <Row >
-                <Col md="5"></Col>
-                <Col>
+                <Col className='text-center'> 
                     <Button variant="outline-success">Submit</Button>
                 </Col>
-                <Col></Col>
             </Row>
         </Container>
     )
 }
+export default Login
