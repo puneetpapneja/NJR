@@ -1,6 +1,20 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "express": "^4.18.2",
     "it": "^1.1.1"
+=======
+  "name": "service",
+  "version": "1.0.0",
+  "description": "WebAPIs",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+>>>>>>> b621d9dd449e5bcd8e8495cd644c6a823bdda5d6
   }
 }

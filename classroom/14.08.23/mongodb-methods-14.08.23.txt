@@ -1,0 +1,575 @@
+> db.createCollection("studentDtls");
+{ "ok" : 1 }
+> show collections
+empDtls
+salary
+studentDtls
+students
+> db.courses.insertOne({id: 1, name: 'Btech. (CS)'})
+{
+        "acknowledged" : true,
+        "insertedId" : ObjectId("64d9a2f89f6f22f419d3b8de")
+}
+> show collections
+courses
+empDtls
+salary
+studentDtls
+students
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+> db.courses.insertOne({_id: 2, id: 2, name: 'Btech. (it)'})
+{ "acknowledged" : true, "insertedId" : 2 }
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+> db.courses.find().pretty();
+{
+        "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"),
+        "id" : 1,
+        "name" : "Btech. (CS)"
+}
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+> db.courses.find({id: 1}).pretty();
+{
+        "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"),
+        "id" : 1,
+        "name" : "Btech. (CS)"
+}
+> db.courses.find({id: 2}).pretty();
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.insertOne({_id: 2, id: 2, name: 'Btech. (EC)'})
+WriteError({
+        "index" : 0,
+        "code" : 11000,
+        "errmsg" : "E11000 duplicate key error collection: practice.courses index: _id_ dup key: { _id: 2.0 }",
+        "op" : {
+                "_id" : 2,
+                "id" : 2,
+                "name" : "Btech. (EC)"
+        }
+}) :
+WriteError({
+        "index" : 0,
+        "code" : 11000,
+        "errmsg" : "E11000 duplicate key error collection: practice.courses index: _id_ dup key: { _id: 2.0 }",
+        "op" : {
+                "_id" : 2,
+                "id" : 2,
+                "name" : "Btech. (EC)"
+        }
+})
+WriteError@src/mongo/shell/bulk_api.js:465:48
+mergeBatchResults@src/mongo/shell/bulk_api.js:871:49
+executeBatch@src/mongo/shell/bulk_api.js:940:13
+Bulk/this.execute@src/mongo/shell/bulk_api.js:1182:21
+DBCollection.prototype.insertOne@src/mongo/shell/crud_api.js:264:9
+@(shell):1:1
+> db.courses.insertOne({_id: 3, id: 2, name: 'Btech. (EC)'})
+{ "acknowledged" : true, "insertedId" : 3 }
+> db.courses.find({id: 2}).pretty();
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+> db.courses.findOne({id: 2}).pretty();
+uncaught exception: TypeError: db.courses.findOne(...).pretty is not a function :
+@(shell):1:1
+> db.courses.findOne({id: 2});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+> db.courses.find({id: {$lt: 2}});
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({id: {$lte: 2}});
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({_id: {$lte: 2}});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+>
+>
+>
+>
+> db.courses.find({_id: {$in: ["Btech."]}});
+> db.courses.find({_id: {$in: ["Btech. (cs)"]}});
+> db.courses.find({name: {$in: ["Btech."]}});
+> db.courses.find({name: {$in: ["Btech. (cs)"]}});
+> db.courses.find({name: {$in: ["Btech. (it)"]}});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({name: {$nin: ["Btech. (it)"]}});
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({id: 2, _id: 3});
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({$and : [{id: 2}, {_id: 3}]});
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({$or : [{id: 2}, {_id: 3}]});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({$or : [{_id: {$in: [2,3]}]});
+...
+...
+>
+>
+> db.courses.find({$or : [{_id: {$in: [2,3]}}]});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+> db.courses.find({$or : [{_id: {$in: [2,3]}}]},{_id: 1, id: 0, name: 1});
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "Cannot do inclusion on field name in exclusion projection",
+        "code" : 31253,
+        "codeName" : "Location31253"
+}
+> db.courses.find({$or : [{_id: {$in: [2,3]}}]},{id: 0, name: 1});
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "Cannot do inclusion on field name in exclusion projection",
+        "code" : 31253,
+        "codeName" : "Location31253"
+}
+> db.courses.find({$or : [{_id: {$in: [2,3]}}]},{id: 0, name: 1});
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "Cannot do inclusion on field name in exclusion projection",
+        "code" : 31253,
+        "codeName" : "Location31253"
+}
+> db.courses.find({$or : [{_id: {$in: [2,3]}}]},{name: 1});
+{ "_id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({id: 2, $or:[{id: 3}]});
+> db.courses.find({id: 2, $or:[{id: 1}]});
+> db.courses.find({id: 2});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+> db.courses.find({id: 2, $or[{name: "Btech. (it)}]});
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:27
+> db.courses.find({id: 2, $or[{name: "Btech. (it)"}]});
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:27
+> db.courses.find({id: 2, $or:[{name: "Btech. (it)"}]});
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({id: 2, $or:[{name: "Btech. (EC)"}]});
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find({id: 2, $or:[{name: "Btech. (EC)"}, {age: {$gt: 25}}]});
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.insert({id: 4: name: "Msc. (it)"})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:24
+> db.courses.insert({id: 4: name: "Msc. (it)"}})
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:24
+> db.courses.insert([{id: 4: name: "Msc. (it)"}])
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:25
+> db.courses.insert({id: 4, name: "Msc. (it)"}})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:44
+> db.courses.insert({id: 4, name: "Msc. (it)"})
+WriteResult({ "nInserted" : 1 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.insert([{id: 5, name: "Msc. (cs)"},{id: 6, name: "BCA"}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.insertMany([{id: 7, name: "Msc. (ec)"},{id: 8, name: "MCA"}])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("64d9acda9f6f22f419d3b8e2"),
+                ObjectId("64d9acda9f6f22f419d3b8e3")
+        ]
+}
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : 3, "id" : 2, "name" : "Btech. (EC)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+>
+>
+>
+> db.courses.remove({_id:3});
+WriteResult({ "nRemoved" : 1 })
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "id" : 2, "name" : "Btech. (it)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.update({id:2, $set: {name: "Btech. (civil)"}})
+uncaught exception: Error: need an update object or pipeline :
+DBCollection.prototype._parseUpdate@src/mongo/shell/collection.js:461:15
+DBCollection.prototype.update@src/mongo/shell/collection.js:510:18
+@(shell):1:1
+> db.courses.update({id:2}, $set: {name: "Btech. (civil)"})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:30
+> db.courses.update({id:2},{name: "Btech. (civil)"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (civil)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.update({id:2},{name: "Btech. (civil)", durationInYears: 3})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (civil)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+> db.courses.update({_id:2},{name: "Btech. (civil)", durationInYears: 3})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (civil)", "durationInYears" : 3 }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+> db.courses.update({_id:2},{name: "Btech. (ec)"})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (ec)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+>
+> db.courses.updateOne({_id:2},{name: "Btech. (ec)"})
+uncaught exception: Error: the update operation document must contain atomic operators :
+DBCollection.prototype.updateOne@src/mongo/shell/crud_api.js:565:19
+@(shell):1:1
+> db.courses.updateOne({_id:2},{name: "Btech. (civil)"})
+uncaught exception: Error: the update operation document must contain atomic operators :
+DBCollection.prototype.updateOne@src/mongo/shell/crud_api.js:565:19
+@(shell):1:1
+> db.courses.updateOne({_id:2},{$set: : {name: "Btech. (civil)"}})
+uncaught exception: SyntaxError: expected expression, got ':' :
+@(shell):1:36
+> db.courses.updateOne({_id:2},{$set: {name: "Btech. (civil)"}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (civil)" }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+> db.courses.update({_id:2},{name: "Btech. (ec)", durationInYear: 3 })
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (ec)", "durationInYear" : 3 }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+>
+> db.courses.update({_id:2},{$set: {name: "Btech. (ec)"}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (ec)", "durationInYear" : 3 }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+> db.courses.update({_id:2},{$set: {name: "Btech. (civil)"}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.courses.find();
+{ "_id" : ObjectId("64d9a2f89f6f22f419d3b8de"), "id" : 1, "name" : "Btech. (CS)" }
+{ "_id" : 2, "name" : "Btech. (civil)", "durationInYear" : 3 }
+{ "_id" : ObjectId("64d9ac629f6f22f419d3b8df"), "id" : 4, "name" : "Msc. (it)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e0"), "id" : 5, "name" : "Msc. (cs)" }
+{ "_id" : ObjectId("64d9ac9a9f6f22f419d3b8e1"), "id" : 6, "name" : "BCA" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e2"), "id" : 7, "name" : "Msc. (ec)" }
+{ "_id" : ObjectId("64d9acda9f6f22f419d3b8e3"), "id" : 8, "name" : "MCA" }
+>
+>
+>
+>
