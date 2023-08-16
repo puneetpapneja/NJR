@@ -1,4 +1,6 @@
-import Register from '../components/Register.js';
-export default function RegisterPage(){
-    return(<Register />);
+import Register from "../components/Register";
+
+const LoginPage=()=>{
+    return <Register/>
 }
+export default LoginPage;
