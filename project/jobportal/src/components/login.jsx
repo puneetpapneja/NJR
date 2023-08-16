@@ -2,6 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import "./login.css"
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   return (
@@ -20,6 +21,7 @@ export const Login = () => {
       <Button variant="dark" type="submit" className='button'>
         Submit
       </Button>
+      <Link as={Link}to="/Registration">Registration</Link>
     </Form>
         </div>
     </div>
