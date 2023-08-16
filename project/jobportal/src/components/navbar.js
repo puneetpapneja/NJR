@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // import NavDropdown from 'react-bootstrap/NavDropdown';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+// import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Navigation() {
     return (
@@ -33,7 +33,7 @@ function Navigation() {
                             aria-label="Search"
                         />
                     </Form>
-                    <i class="bi bi-person-circle" style={{ fontSize: '27px', marginTop: 'auto', marginBottom: 'auto' }}></i>
+                    {/* <i class="bi bi-person-circle" style={{ fontSize: '27px', marginTop: 'auto', marginBottom: 'auto' }}></i> */}
                 </Navbar.Collapse>
 
             </Container>
