@@ -5,4 +5,8 @@ classroom/service/node_modules/
 =======
 project/jobportal/node_modules/ 
 practice/node_modules/
+<<<<<<< HEAD
 >>>>>>> 61f5fa105 (	modified:   .gitignore)
+=======
+project/service/node_modules
+>>>>>>> 315606d3e (	modified:   .gitignore)
