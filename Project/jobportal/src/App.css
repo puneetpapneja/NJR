@@ -77,8 +77,8 @@ a:hover {
 }
 
 .login-box {
-  background-color: #f8f9fa; /* Change to off-white color */
-  /* border-radius: 8px;
+  background-color: #f8f9fa; 
+  border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;

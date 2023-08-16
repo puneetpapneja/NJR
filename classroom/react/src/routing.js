@@ -6,11 +6,8 @@ import Header from './components/Header';
 import PageLayout from './components/page-layout';
 import Memo from './components/Memo';
 import Item from './components/Item';
-<<<<<<< HEAD
-=======
 import Callback from './components/Callback';
 import Ref from './components/Ref';
->>>>>>> aaf16160e37564c86318ec8c804ce6c87e55058c
 export const routing = [
     {
         path: "/",
@@ -29,8 +26,6 @@ export const routing = [
         element:  <Memo />
     },
     {
-<<<<<<< HEAD
-=======
         path: "/callback",
         element:  <Callback />
     },
@@ -39,7 +34,6 @@ export const routing = [
         element:  <Ref />
     },
     {
->>>>>>> aaf16160e37564c86318ec8c804ce6c87e55058c
         path: "/item",
         element:  <Item list={[{item: "Bottle", brand:"Cello", price:115}]} heading="Ceramic Products" />
     }
