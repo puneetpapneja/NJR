@@ -1,48 +1,28 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React from 'react';
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+
 
 function Dashboard() {
   return (
-   <container>
-     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="#">Logo</Navbar.Brand>
-        <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-        
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Post A Job</Nav.Link>
-            <Nav.Link href="#action1">Applied job</Nav.Link>
-            <Nav.Link href="#action2">Posted job</Nav.Link>
-
-            <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="ms-25rem"
-              aria-label="Search"
-            />
-           
-          </Form>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#home">MyLogo</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <NavDropdown title="Jobs" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#posted-job">Posted a Job</NavDropdown.Item>
+            <NavDropdown.Item href="#applied-job">Applied Job</NavDropdown.Item>
+            <NavDropdown.Item href="#posted-job">Posted Job</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="ml-sm-10" />
          
-
-         
-       </Nav>
-      </Container>
+        </Form>
+      </Navbar.Collapse>
     </Navbar>
-   </container>
-  
-
   );
 }
 
-export default Dashboard
+export default Dashboard;
