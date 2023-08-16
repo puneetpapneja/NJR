@@ -42,10 +42,10 @@ export default function Register(){
         navigate("/Login");
     }
     return(
-        <Container>
+        <Container className="d-flex justify-content-center">
             <Form>
                 <Row>
-                    <h1 className="text-center my-5">Register</h1>
+                    <h1 className="text-center my-5 text-danger">Register</h1>
                 </Row>
                 <Row>
                     <Form.Group>

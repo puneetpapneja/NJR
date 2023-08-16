@@ -4,6 +4,7 @@ import LoginPage from "./pages/loginpage";
 import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/Page-layout";
 import Post from "./pages/Post";
+import Applied from './pages/Appliedajob';
 export const routes=[
     {
         path:"/",
@@ -20,6 +21,10 @@ export const routes=[
     {
         path:"/PostJob",
         element: <Post />
+    },
+    {
+        path:"/AppliedJob",
+        element: <Applied />
     }
 ]
 export const routing =[
