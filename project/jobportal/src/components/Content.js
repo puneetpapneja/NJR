@@ -4,7 +4,7 @@ const Content=()=>{
 return(
 <Container className="w-75 mt-5" >
     <Row >
-        <h1>Dashboard</h1>
+        <h1 className="mt-5">Dashboard</h1>
     </Row>
     <Container>
     <Row className="h-100" >
