@@ -1,103 +1,107 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-
-const RegisterPage = ({ handlePageChange, handleRegister }) => {
-  const [registerForm, setRegisterForm] = useState({
-    email: '',
-    password: '',
-    userType: 'jobSeeker',
-    companyName: '',
-  });
-
+import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
+import { setKey, setSession } from "../utils";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+export default function Register(){
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userType, setUserType] = useState('jobSeeker');
+  const [companyName, setCompanyName] = useState('');
   const [error, setError] = useState('');
-
-  const handleRegisterChange = (e) => {
-    const { name, value } = e.target;
-    setRegisterForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
+      const Handelclick= (event) =>{
+         if(!email || !isValidEmail(email))
+        {
+            event.preventDefault();
+            setError("*invalid email format");
+            return;
+        }
+        if(!password || !isValidPassword(password)){
+            event.preventDefault();
+            setError("*Password must contain one capital,one special symbol");
+            return;
+        }
+        else
+        {
+            setSession("Registered");
+            navigate("/");
+        }
+    }
+    const SwitchTo = () =>{
+        setSession("");
+        setKey("login");
+        navigate("/Login");
+    }
+    const isValidEmail = (email) => {
+    return email.includes('@gmail.com');
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setError('');
-    handleRegister(registerForm, setError);
+  const isValidPassword = (password) => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*]/.test(password);
+    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
   };
-
-  return (
-    <Container className="py-5">
-      <Row className="justify-content-center">
-        <Col xs={12} md={6}>
-          <h2 className="mb-3">Register</h2>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="registerEmail">
-              <Form.Label>Email:</Form.Label>
+    return(
+       <Row className="justify-content-center">
+      <Col xs={12} md={6}>
+        <h2 className="mb-3">REGISTER</h2>
+        <Form>
+          <Form.Group controlId="registerEmail">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group controlId="registerPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group controlId="userType">
+            <Form.Label>User Type:</Form.Label>
+            <Form.Check
+              type="radio"
+              label="Job Seeker"
+              name="userType"
+              value="jobSeeker"
+              checked={userType === 'jobSeeker'}
+              onChange={() => setUserType('jobSeeker')}
+              required
+            />
+            <Form.Check
+              type="radio"
+              label="Job Recruiter"
+              name="userType"
+              value="jobRecruiter"
+              checked={userType === 'jobRecruiter'}
+              onChange={() => setUserType('jobRecruiter')}
+              required
+            />
+          </Form.Group>
+          {userType === 'jobRecruiter' && (
+            <Form.Group controlId="companyName">
+              <Form.Label>Company Name:</Form.Label>
               <Form.Control
-                type="email"
-                name="email"
-                value={registerForm.email}
-                onChange={handleRegisterChange}
+                type="text"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
                 required
               />
             </Form.Group>
-            <Form.Group controlId="registerPassword">
-              <Form.Label>Password:</Form.Label>
-              <Form.Control
-                type="password"
-                name="password"
-                value={registerForm.password}
-                onChange={handleRegisterChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group controlId="userType">
-              <Form.Label>User Type:</Form.Label>
-              <Form.Check
-                type="radio"
-                label="Job Seeker"
-                name="userType"
-                value="jobSeeker"
-                checked={registerForm.userType === 'jobSeeker'}
-                onChange={handleRegisterChange}
-                required
-              />
-              <Form.Check
-                type="radio"
-                label="Job Recruiter"
-                name="userType"
-                value="jobRecruiter"
-                checked={registerForm.userType === 'jobRecruiter'}
-                onChange={handleRegisterChange}
-                required
-              />
-            </Form.Group>
-            {registerForm.userType === 'jobRecruiter' && (
-              <Form.Group controlId="companyName">
-                <Form.Label>Company Name:</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="companyName"
-                  value={registerForm.companyName}
-                  onChange={handleRegisterChange}
-                  required
-                />
-              </Form.Group>
-            )}
-            {error && <Alert variant="danger">{error}</Alert>}
-            <Button type="submit">Submit</Button>
-          </Form>
-          <p className="mt-3">
-            Already have an account?{' '}
-            <Link to="/" className="text-primary" onClick={handlePageChange}>
-              Login
-            </Link>
-          </p>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
-
-export default RegisterPage;
+          )}
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
+          <Button type="Submit" onClick={Handelclick}>Register</Button>
+        </Form>
+      </Col>
+    </Row>
+    );
+}

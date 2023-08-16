@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import { Outlet } from "react-router";
 import Footer from "./footerbody";
 import { getKey, getSession } from "../utils";
-import LoginPage from '../pages/loginpage';
+import LoginPage from '../pages/Loginpage';
 import RegisterPage from "../pages/registerpage";
 export default function Pagelayout(){
     if(!getSession())

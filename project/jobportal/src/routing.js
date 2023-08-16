@@ -1,6 +1,6 @@
 import React from "react";
 import Dashboard from "./pages/Dashboardpage"
-import LoginPage from "./pages/loginpage";
+import LoginPage from "./pages/Loginpage";
 import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/Page-layout";
 import Post from "./pages/Post";
@@ -15,7 +15,7 @@ export const routes=[
         element: <LoginPage />
     },
     {
-        path:"/Registeration",
+        path:"/Register",
         element: <RegisterPage />
     },
     {
