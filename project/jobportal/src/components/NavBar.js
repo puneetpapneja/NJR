@@ -28,6 +28,9 @@ function NavScrollExample() {
             <Nav.Link as={Link} to="/log">
               Post A Job
             </Nav.Link>
+            <Nav.Link as={Link} to="/dash">
+              dashboard
+            </Nav.Link>
             <Nav.Link as={Link} to="/action2">
               Applied Job
             </Nav.Link>

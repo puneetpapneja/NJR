@@ -1,9 +1,11 @@
-import React, { Children } from "react";
+import React from "react";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Pagelayout from "./components/pagelayout";
+import Dashboard from "./components/Dashboard";
+import Yash from "./components/yash";
 
-export const prouting = [
+const prouting = [
   {
     path: "/log",
     element: <Login />,
@@ -12,12 +14,16 @@ export const prouting = [
     path: "/reg",
     element: <Register />,
   },
+  {
+    path: "/dash",
+    element: <Yash />,
+  },
 ];
 
 export const routes = [
   {
     path: "/",
     element: <Pagelayout />,
-    Children: prouting,
+    children: prouting,
   },
 ];
