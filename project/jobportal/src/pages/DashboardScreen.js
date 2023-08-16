@@ -1,13 +1,18 @@
 import React from "react";
 import DashboardBox from "../componants/DashboardBox";
+import Box from "../componants/DashboardBox";
+import { Container } from "react-bootstrap";
 
 const DashboardScreen = () => {
   return (
-    <div>
-      <DashboardBox title="7" desc="Applied jobs" />
-      <DashboardBox title="12" desc="Total Post" />
-      <DashboardBox title="14" desc="Today's post" />
-    </div>
+    <Container className="outer_box">
+      <h1>Dashboard</h1>
+      <Container className="dash_box">
+        <Box title="7" content="Applied" backgroundColor="red" />
+        <Box title="40" content="Total Post " backgroundColor="green" />
+        <Box title="2" content="Today Post " backgroundColor="purple" />
+      </Container>
+    </Container>
   );
 };
 

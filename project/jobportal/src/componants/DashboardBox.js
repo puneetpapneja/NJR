@@ -1,15 +1,15 @@
-import React from "react";
-import { Container } from "react-bootstrap";
-import "../App.css";
-
-const DashboardBox = (props) => {
+function Box(props){
   return (
-    <div className="dasboardBox">
+      <>
+      <div className="boxes"  style={{
+      backgroundColor: props.backgroundColor, // Use the value passed via props
+      
+    }}>
+      
       <h1>{props.title}</h1>
-
-      <h3>{props.desc}</h3>
-    </div>
-  );
-};
-
-export default DashboardBox;
+       <h3> {props.content}</h3>
+      </div>
+      </>
+  )  ;
+}
+export default Box;

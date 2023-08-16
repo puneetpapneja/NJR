@@ -1,11 +1,23 @@
 import "./App.css";
+import Login from "./componants/Login";
+import Register from "./componants/Register";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Menu from "./componants/Menu";
+import PostAJob from "./componants/PostAJob";
 import DashboardScreen from "./pages/DashboardScreen";
 
 function App() {
   return (
-    <div>
-      <DashboardScreen />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Menu />}>
+          <Route index element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/postajob" element={<PostAJob />} />
+          <Route path="/dashboard" element={<DashboardScreen />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
