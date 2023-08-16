@@ -1,7 +1,7 @@
 import Content from "./components/Content";
-import Pagelayout from "./pages/Pagelayout";
-import Registerpage from "./pages/Registerpage";
-import Loginpage from "./pages/Loginpage";
+import Pagelayout from "./pages1/Pagelayout";
+import Registerpage from "./pages1/Registerpage";
+import Loginpage from "./pages1/Loginpage";
 
 export const routing = [
     {
