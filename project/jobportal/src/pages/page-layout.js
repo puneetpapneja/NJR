@@ -8,7 +8,7 @@ const PageLayout = ()=>{
     return (
         <React.Fragment>
             <Header />
-            <Boxcomponent />
+            <Outlet />
             <Footer />
         </React.Fragment>
     )

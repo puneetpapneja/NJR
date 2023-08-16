@@ -2,6 +2,8 @@ import React from 'react';
 import Loginpage from './pages/loginpage';
 import Registerpage from './pages/registerpage';
 import PageLayout from './pages/page-layout';
+import Boxcomponent from "./components/boxcomponent";
+import Postpage from './pages/postpage';
 
 export const routing = [
     {
@@ -14,15 +16,19 @@ export const routing = [
     },
     {
         path: "/dashboard",
-        element: <PageLayout />,
+        element: <Boxcomponent />,
+    },
+    {
+        path: "/postjob",
+        element: <Postpage />,
     }
 
 ]
 
-// export const routes = [
-//     {
-//         path: "/",
-//         element: <PageLayout />,
-//         children: routing
-//     }
-// ]
+export const routes = [
+    {
+        path: "/",
+        element: <PageLayout />,
+        children: routing
+    }
+]

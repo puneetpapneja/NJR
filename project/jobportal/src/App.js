@@ -1,13 +1,13 @@
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import { routing } from './routing';
+import { routes } from './routing';
 import React from 'react';
 
 
     function App() {
         return (
           <React.Fragment>
-            <RouterProvider router={createBrowserRouter(routing)}>
+            <RouterProvider router={createBrowserRouter(routes)}>
        
        </RouterProvider> 
           </React.Fragment>

@@ -12,10 +12,10 @@ function Navbarbody() {
           <Nav className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Post a Job</Nav.Link>
-            <Nav.Link href="#action2">Applied Job</Nav.Link>
-            <Nav.Link href="#action2">Postes Job</Nav.Link>
+            <Nav.Link as={Link} to="/dashboard">Home</Nav.Link>
+            <Nav.Link as={Link} to="/postjob">Post a Job</Nav.Link>
+            <Nav.Link as={Link} to="/appliedjob">Applied Job</Nav.Link>
+            <Nav.Link as={Link} to="/postesjob">Postes Job</Nav.Link>
             
          
           <Form className="d-flex">
