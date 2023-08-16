@@ -1,8 +1,13 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 export default function SignUp() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    setSession("bheru");
+    navigate("/");
+  };
   return (
     <div style={{ marginTop: "18vh" }}>
       <h1 className="text-center">Register</h1>
@@ -51,15 +56,14 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group className="text-center">
-          <Link to="/dashboard">
-            <Button
-              style={{ backgroundColor: "black", border: "none" }}
-              className="mx-auto col-md-2"
-              type="submit"
-            >
-              Submit
-            </Button>
-          </Link>
+          <Button
+            style={{ backgroundColor: "black", border: "none" }}
+            className="mx-auto col-md-2"
+            type="submit"
+            onClick={handleClick}
+          >
+            Submit
+          </Button>
         </Form.Group>
       </Form>
     </div>

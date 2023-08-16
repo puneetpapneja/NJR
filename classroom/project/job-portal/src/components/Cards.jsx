@@ -1,5 +1,5 @@
 import Card from "react-bootstrap/Card";
-import data from "./cardData.json";
+import data from "./resources/dashboardCardData.json";
 
 const cardStyle = {
   textAlign: "center",
@@ -12,7 +12,6 @@ const cardStyle = {
 function Cards() {
   return (
     <>
-      <Card.Title style={{ margin: "2.5vh 0 0 3vw" }}>DASHBOARD</Card.Title>
       {data.map((card) => (
         <Card key={card.id} style={cardStyle} inline>
           <Card.Body>
