@@ -25,6 +25,7 @@ function Dashboard() {
             <Nav.Link as={Link} to="/postss"> Post a Job</Nav.Link>
             <Nav.Link as={Link} to="/AppliedJob">Applied Job</Nav.Link>
             <Nav.Link as={Link} to="/PostJob">Posted Job</Nav.Link>
+            <Link to="/PostJob">hello</Link>
             
           </Nav>
           <Form className="d-flex">

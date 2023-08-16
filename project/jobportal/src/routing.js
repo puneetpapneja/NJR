@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './components/pages/Home';
-import Postss from './components/pages/Postss';
-import PageLayout from './components/pages/Pagelayout';
-import AppliedJob from './components/pages/AppliedJob';
-import PostJob from './components/pages/PostJob';
+import Home from './pages/Home';
+import Postss from './pages/Postss';
+import PageLayout from './pages/Pagelayout';
+import AppliedJob from './pages/AppliedJob';
+import PostJob from './pages/PostJob';
 // import { Route, Routes, Outlet } from "react-router";
 export const routing=[
     {

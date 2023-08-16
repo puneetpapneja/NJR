@@ -1,4 +1,4 @@
-import Dashboard from "./Dashboard"
+import Dashboard from "../pages/Dashboard"
 
 const Header=()=>{
     return(
