@@ -1,54 +1,79 @@
-function SignUp() {
+import React from "react";
+import { Form, Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./signup.css";
+
+export default function SignUp() {
+  const labelStyle = {
+    fontWeight: "bold",
+    marginTop: "1rem",
+    textAlign: "left"
+  };
+
+  const linkStyle = {
+    display: "block",
+    marginBottom: "0.5rem",
+    marginTop: "1rem"
+  };
   return (
-    <form>
-      <h3>Sign Up</h3>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <Card className="text-center p-4 mx-auto col-md-4">
+      <h1 className="mb-4">Register</h1>
+      <Form>
+        <Form.Group
+          controlId="formBasicEmail"
+        >
+          <Form.Label style={labelStyle}>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
+        </Form.Group>
 
-      <div className="mb-3">
-        <label>First name</label>
-        <input type="text" className="form-control" placeholder="First name" />
-      </div>
+        <Form.Group
+          controlId="formBasicPassword"
+        >
+          <Form.Label style={labelStyle}>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
+        </Form.Group>
 
-      <div className="mb-3">
-        <label>Last name</label>
-        <input type="text" className="form-control" placeholder="Last name" />
-      </div>
+        <Form.Group
+          controlId="formBasicCheckbox"
+        >
+          {["radio"].map((type) => (
+            <div key={`inline-${type}`} className="mb-3 mt-3">
+              <Form.Check
+                inline
+                label="Job Seeker"
+                name="group1"
+                type={type}
+                id={`inline-${type}-1`}
+              />
+              <Form.Check
+                inline
+                label="Job Recruiter"
+                name="group1"
+                type={type}
+                id={`inline-${type}-2`}
+              />
+            </div>
+          ))}
+          <Link as={Link} to="/" style={linkStyle}>
+            Have An Account? Login Now
+          </Link>
+        </Form.Group>
 
-      <div className="mb-3">
-        <label>Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          placeholder="Enter email"
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Password</label>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter password"
-        />
-      </div>
-
-      <div className="mb-3">
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          className="form-control"
-          placeholder="Enter password"
-        />
-      </div>
-
-      <div className="d-grid">
-        <button type="submit" className="btn btn-success">
-          Sign Up
-        </button>
-      </div>
-      <p className="forgot-password text-right">
-      <b> Already registered ? </b>  <a className="no-underline" href="/sign-in">sign in</a>
-      </p>
-    </form>
+        <Form.Group className="text-center">
+        <Link to="/dashboard">
+          <Button
+            style={{ backgroundColor: "black", border: "none" }}
+            className="mt-3"
+            type="submit"
+            block
+          >
+            Register
+          </Button>
+          </Link>
+        </Form.Group>
+      </Form>
+      </Card>
+    </div>
   );
 }
-export default SignUp;
