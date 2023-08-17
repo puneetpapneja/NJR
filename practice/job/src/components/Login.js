@@ -1,51 +1,55 @@
-import { Button, Container, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-export default function Login(){
-    
-    //    function FormExample() {
-    //         const [validated, setValidated] = useState(false);
-          
-    //         const handleSubmit = (event) => {
-    //           const form = event.currentTarget;
-    //           if (form.checkValidity() === false) {
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //           }
-    //           setValidated(true);
-    //         };
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import './login.css';
+
+const Login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleLogin = () => {
+        if (username === 'user' && password === 'password') {
+            setErrorMessage('');
+            alert('Login successful!');
+        } else {
+            setErrorMessage('Invalid username or password');
+        }
+    };
+
     return (
-       
-    <Container>
-       <Row>
-       <h1 className='text-center'>Login</h1>
-       </Row>
-       {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
-       <Form>
-       <Row>
-        <Form.Group controlId='formEmail'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" />
-        </Form.Group>
-        </Row>
-        <Row>
-        <Form.Group controlId='formPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" />
-        </Form.Group>
-        </Row>
-        <br/>
-        <Row>
-        <Container className="float-start">
-      
-        <Button variant='link' as={Link} to={"/register"}>Register</Button  >Dont have an account?Register Now
-        </Container>
-        </Row><br/>
-        <Container className='text-center'>
-        <Button type="submit" variant='dark'>Login</Button>
-        </Container>
-       </Form>
-    </Container>
- 
- )
-    // }
-}
+        <>
+            <div className="login-container">
+                <div className="login-box">
+                    <h2 style={{ textAlign: "center", fontFamily: "cursive" }}>Login</h2>
+                    <form>
+                        <div className="input-group">
+                            <label>Username:</label>
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                            />
+                        </div>
+                        <div className="input-group">
+                            <label>Password:</label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <Link to="/Register">Dont have a account?Register now</Link>
+                        </div>
+                        {errorMessage && <p className="error-message">{errorMessage}</p>}
+                        <div className='d-flex justify-content-center'>
+                            <button type="button" onClick={handleLogin} className="btn btn-primary">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default Login;
