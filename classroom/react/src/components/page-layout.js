@@ -8,7 +8,7 @@ const PageLayout = ()=>{
             <Header />
             <Outlet />
         </React.Fragment>
-    )
+    );
 }
 
 export default PageLayout;

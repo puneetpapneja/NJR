@@ -57,11 +57,9 @@ function Register() {
                           </a>
                         </p>
               </Form.Group>
-
-                
-                <Button variant="dark" type="submit">
+              <Button variant="dark" type="submit">
                   Register
-                </Button>
+              </Button>
               </Form>
             </Card.Body>
           </Card>
