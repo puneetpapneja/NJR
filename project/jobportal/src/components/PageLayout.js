@@ -9,10 +9,10 @@ import RegisterPage from "../pages/registerpage";
 export default function Pagelayout(){
     if(!getSession())
     {
-        if(getKey()=="login")
-        return(<LoginPage />);
-        else
+        if(getKey()==="register")
         return(<RegisterPage />);
+        else
+        return(<LoginPage />);
     }
     else
     {

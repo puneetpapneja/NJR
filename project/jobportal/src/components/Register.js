@@ -12,6 +12,9 @@ export default function Register(){
     const [roleError,setRoleError]=useState("");
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const [comp,setComp]=useState("d-none");
+    const [compError,setCompError]=useState("");
+    const [company,setCompany]=useState("");
     const Handelclick= (event) =>{
         if(!email || !emailRegExp.test(email))
         {
@@ -30,10 +33,16 @@ export default function Register(){
             setRoleError("*select a role");
             return;
         }
+        if(role === "Job Recruiter" && !company)
+        {
+            event.preventDefault();
+            setCompError("*required");
+            return;
+        }
         else
         {
             setSession("Registered");
-            navigate("/");
+            navigate("/Login");
         }
     }
     const SwitchTo = () =>{
@@ -96,6 +105,7 @@ export default function Register(){
                                     (e)=>{
                                         setRole(e.target.value);
                                         setRoleError("");
+                                        setComp("d-none")
                                     }
                                 }
                             />
@@ -112,11 +122,28 @@ export default function Register(){
                                     (e)=>{
                                         setRole(e.target.value);
                                         setRoleError("");
+                                        setComp("d-block")
                                     }
                                 }
                             />
                         </Col>
                         {roleError && <Alert variant="danger">{roleError}</Alert>}
+                </Row>
+                <Row className={comp}>
+                    <Form.Group>
+                        <Form.Label className="my-3">Company/Institute</Form.Label>
+                        <Form.Control 
+                            type="text"
+                            value={company}
+                            onChange={
+                                (e)=>{
+                                    setCompany(e.target.value);
+                                    setCompError("");
+                                }
+                            }
+                        />
+                    </Form.Group>
+                    {compError &&  <Alert variant="danger">{compError}</Alert>}
                 </Row>
                 <Row>
                     <Container className="float-start mb-5 mt-3">

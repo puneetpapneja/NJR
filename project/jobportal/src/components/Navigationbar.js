@@ -15,7 +15,7 @@ export default function Navigationbar(){
             <Nav.Link as={Link} to="/" className="me-5">Posted Job</Nav.Link>
             <Nav.Link className="me-5"><Form.Control type="text" placeholder="Search" /></Nav.Link>
             </Navbar.Collapse>
-            <i class="bi bi-person-circle"></i>
+            <i class="bi bi-person-circle px-4 fs-1"></i>
         </Navbar>
         </Container>
     );
