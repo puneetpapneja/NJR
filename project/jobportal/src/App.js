@@ -4,6 +4,12 @@ import Login from './components/login';
 import Register from './components/Register';
 import NavScrollExample from './components/NavBar';
 import NavBar from './components/NavBar';
+import PostAJob from './components/Postajob';
+import Dashbody from './components/Dashboard';
+import Box from './components/box';
+import Footer from './components/footer';
+
+
 
 
 
@@ -11,9 +17,11 @@ import NavBar from './components/NavBar';
 function App() {
   return (
     <div >
-     {/* <Login />
-     <Register /> */}
-     <NavBar />
+      <NavBar />
+     <Dashbody />
+     <Box />
+    <Footer />
+
      
     </div>
     
