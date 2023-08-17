@@ -15,7 +15,7 @@ function Login() {
   const gotoDashboard = () => {
     navigate("/dashboard");
   };
-  
+
   return (
     <Container className="logReg">
       <Row className="justify-content-center">
@@ -41,7 +41,11 @@ function Login() {
                   </label>
                 </Form.Group>
 
-                <Button variant="primary" type="submit" onClick={gotoDashboard}>
+                <Button
+                  style={{ backgroundColor: "black", border: "none" }}
+                  type="submit"
+                  onClick={gotoDashboard}
+                >
                   Login
                 </Button>
               </Form>

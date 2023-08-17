@@ -1,43 +1,44 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Menu from "./Menu";
-import "../App.css";
-const PostAJob = () => {
-  return (
-    <>
-      <Container className="whole">
-        <h1>Post A Job</h1>
-        <Row className="justify-content-center" id="Postajob">
-          <Col xs={12} md={6}>
-            <Card.Title></Card.Title>
-            <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-              </Form.Group>
+import { Form, Button } from "react-bootstrap";
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <label>Don't have account? Register now</label>
-              </Form.Group>
-
-              <Button variant="primary" type="submit">
-                Login
-              </Button>
-            </Form>
-          </Col>
-        </Row>
-      </Container>
-    </>
-  );
+const formStyle = {
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+  marginTop: "6%",
 };
 
-export default PostAJob;
+export default function PostJob() {
+  return (
+    <Form style={formStyle} className="postajobform">
+      <h1 className="mb-4">Post Job</h1>
+
+      <Form.Group className="mb-3 col-md-4" controlId="jobTitle">
+        <Form.Label>Job Title</Form.Label>
+        <Form.Control type="text" placeholder="Enter job title" />
+      </Form.Group>
+
+      <Form.Group className="mb-3 col-md-4" controlId="jobDescription">
+        <Form.Label>Job Description</Form.Label>
+        <Form.Control
+          as="textarea"
+          placeholder="Enter job description"
+          rows={4}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3 col-md-4" controlId="maxSalary">
+        <Form.Label>Max Salary</Form.Label>
+        <Form.Control type="number" placeholder="Enter max salary" />
+      </Form.Group>
+
+      <Button
+        style={{ backgroundColor: "black", border: "none" }}
+        type="submit"
+      >
+        Post
+      </Button>
+    </Form>
+  );
+}

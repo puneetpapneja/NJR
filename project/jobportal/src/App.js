@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Menu from "./componants/Menu";
 import PostAJob from "./componants/PostAJob";
 import DashboardScreen from "./pages/DashboardScreen";
+import AppliedJob from "./componants/AppliedJob";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/postajob" element={<PostAJob />} />
           <Route path="/dashboard" element={<DashboardScreen />} />
+          <Route path="/appliedjob" element={<AppliedJob />} />
         </Route>
       </Routes>
     </BrowserRouter>

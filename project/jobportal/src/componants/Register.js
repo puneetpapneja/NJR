@@ -45,7 +45,11 @@ function Register() {
                     Already Registered. Go to logIn
                   </label>
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={gotoDashboard}>
+                <Button
+                  style={{ backgroundColor: "black", border: "none" }}
+                  type="submit"
+                  onClick={gotoDashboard}
+                >
                   Submit
                 </Button>
               </Form>

@@ -20,14 +20,16 @@ const Menu = () => {
             <Nav.Link as={Link} to="/postajob">
               Post a Job
             </Nav.Link>
-            <Nav.Link>Applied Job</Nav.Link>
+            <Nav.Link as={Link} to="/appliedjob">
+              Applied Job
+            </Nav.Link>
             <Nav.Link>posted Job</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Form className="d-flex  searchbtn">
           <Form.Control type="search" placeholder="Search" className="mb-3" />
         </Form>
-        <i class="bi bi-person-circle"></i>
+        <i class="bi bi-person-circle profile"></i>
       </Navbar>
 
       <Outlet />

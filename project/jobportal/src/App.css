@@ -65,10 +65,9 @@ margin-right: 3%;
 .outer_box  h1{
  margin-top: 20%;
 
-
-
- 
- 
+}
+.postajobform{
+  margin-bottom: 5%;
 }
 
 .outer_box{
@@ -76,4 +75,8 @@ margin-right: 3%;
 }
 .whole{
   margin-bottom:200px ;
+}
+.profile{    
+  height: 42px;
+  width: 28px;
 }
