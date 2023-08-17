@@ -1,6 +1,13 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 classroom/project/service
 
 
 practice/webapp/node_modules
 classroom/service/node_modules/
+=======
+practice/webapp/node_modules/
+classroom/service/node_modules/
+
+classroom/project/service/node_modules
+>>>>>>> origin/khushi-gahlot
