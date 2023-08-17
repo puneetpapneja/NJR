@@ -1,31 +1,85 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import './Login.css';
-function BasicExample() {
-  return (
-    <>
-     <h1>Login Page</h1>
-    <Form className="form">
-       
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control className="input" type="email" placeholder="Enter email" />
-        
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control className="input" type="password" placeholder="Password" />
-      </Form.Group>
-      <div>
-      <a href='/'>Don't have a account?Register Now</a>
-      </div>
-      <Button className="btn" variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
-    </>
-  );
+import {Form,Button,Container,Row, Alert} from 'react-bootstrap';
+import { setKey, setSession } from '../utils';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+export default function Login(){
+    const [email,setEmail]=useState("");
+    const [password , setPassword] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [emailError,setEmailError]=useState("");
+    const navigate = useNavigate();
+    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const Handleclick = (event) =>{
+        if(!email || !emailRegExp.test(email))
+        {
+            event.preventDefault();
+            setEmailError("*invalid email format");
+            return;
+        }
+        if(!password || !passwordRegExp.test(password)){
+            event.preventDefault();
+            setPasswordError("Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
+            return;
+        }
+        else{
+            setSession("logged in");
+            navigate("/");
+        }
+    }
+    const SwitchTo = () =>{
+        setSession("");
+        setKey("register");
+        navigate("/Registeration");
+    }
+    return(
+        <Container>
+            <Form>
+                <Row>
+                    <h1 className='text-center my-5'>Login</h1>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Email Address</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text' 
+                            value={email}
+                            onChange={(e)=>{
+                                                setEmail(e.target.value);
+                                                setEmailError("");
+                                            }
+                                    }
+                            className='mb-3'
+                        />
+                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Password</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text'
+                            value={password} 
+                            onChange={(e)=>{
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                        }
+                            }
+                        />
+                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Container className='float-start mb-5 mt-3'>
+                    <Button variant='link' href='/Registeration' onClick={SwitchTo}>Don't have an account? Register Now</Button>
+                    </Container>
+                </Row>
+                <Row>
+                    <Button type='submit' variant='dark' onClick={Handleclick}>Login</Button>
+                </Row>
+            </Form>
+        </Container>
+    )
 }
-
-export default BasicExample;
