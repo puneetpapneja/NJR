@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-function Resgister() {
+function Register() {
   return (
     <div>
     <Container>
@@ -18,7 +18,7 @@ function Resgister() {
                 <div className="mb-3">
                   <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Label className="text-center">
+                      <Form.Label className="text-center" >
                         Email address
                       </Form.Label>
                       <Form.Control type="email" placeholder="Enter email" />
@@ -68,4 +68,4 @@ function Resgister() {
   );
 }
 
-export default Resgister;
+export default Register;

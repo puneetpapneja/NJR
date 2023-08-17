@@ -13,14 +13,14 @@ function Dashboard() {
     <div className='Dashboard'>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">login</Navbar.Brand>
+        <Navbar.Brand href="#" style={{marginLeft : "300px"}}>login</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll
-          >
+          ><div style={{marginLeft : "100px",display:"flex"}}>
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="#action2">Post A Job</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
@@ -39,41 +39,47 @@ function Dashboard() {
             <Nav.Link href="#">
               Posted Job
             </Nav.Link>
+            </div>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex"  style={{marginRight:"50px",width:"300px"}}>
             <Form.Control
+            style={{border:"solid 1px"}}
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
           </Form>
+          <svg style={{marginRight:"100px"}} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+</svg>
         </Navbar.Collapse>
       </Container>
     </Navbar>
     <Container fluid>
-    <h2>Dashboard</h2>
+    <h2 style={{marginLeft: "130px",marginTop: "50px",fontSize:"50px"}}>Dashboard</h2>
     <Row>
         <Col>
-          <div className='bg-danger w-30'>
-            <h3 className='d-flex justify-content-between w-50  m-auto'>7</h3> 
+            <div className='bg-danger w-30' style={{width : "200px", height:"150px",margin: "150px"}}>
+            <h3 className='d-flex justify-content-between w-50  m-auto' style={{padding: "20px"}}>7</h3> 
             <p className='d-flex justify-content-between w-50 m-auto'>Applied Jobs</p>
             </div>
             </Col>
             <Col>
-          <div className='bg-success w-30'>
-            <h3  className='d-flex justify-content-between w-50 m-auto'>40</h3>
+          <div className='bg-success w-30' style={{width : "200px", height:"150px",margin: "150px"}}>
+            <h3  className='d-flex justify-content-between w-50 m-auto' style={{padding: "20px"}}>40</h3>
             <p  className='d-flex justify-content-between w-50 m-auto'>Total post</p>
             </div>
             </Col>
             <Col>
-          <div className='bg-primary w-30'>
-            <h3  className='d-flex justify-content-between w-50 m-auto'>2</h3>
+          <div className='bg-primary w-30' style={{width : "200px", height:"150px",margin: "150px"}}>
+            <h3  className='d-flex justify-content-between w-50 m-auto' style={{padding: "20px"}}>2</h3>
             <p  className='d-flex justify-content-between w-50 m-auto'>Today's post</p>
             </div>
             </Col>
             </Row>
+            <footer style={{backgroundColor:"black",height:"30px",marginTop:"100px"}}><p style={{color: "white",padding:"10px",textAlign:"center"}}>TM 2023 Techno India NJR Institute Of Technology-All Rights Reserved</p></footer>
     </Container>
     </div>
   );

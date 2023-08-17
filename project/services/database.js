@@ -1,0 +1,4 @@
+const mongoose
+
+mongoose.connect("");
+
