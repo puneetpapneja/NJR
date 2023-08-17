@@ -1,6 +1,6 @@
 {
   "name": "services",
-  "version": "1.0.0",
+  "version": "1.0.0", 
   "description": "\"WebAPIs\"",
   "main": "index.js",
   "scripts": {
