@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom"; // Make sure to import Link
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom"; 
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [jobSeeker, setJobSeeker] = useState(true);
-  const [company, setCompany] = useState(""); // State for company/organization name
+  const [company, setCompany] = useState(""); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,7 +97,7 @@ const Register = () => {
                 placeholder="Company/Organization"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
-                required={!jobSeeker} // Make this field mandatory for job recruiters
+                required={!jobSeeker} 
               />
             </Col>
           </Row>
@@ -110,7 +109,7 @@ const Register = () => {
         </Row>
       </Form>
       <p className="text-center">
-        Already have an account? <Link to="./components/loginpage">Login</Link>
+        Already have an account? <Link to="/Login">Login</Link>
       </p>
     </Container>
   );

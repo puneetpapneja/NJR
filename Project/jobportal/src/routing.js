@@ -7,9 +7,14 @@ import PostjobPage from './pages/postjobpage';
 import PageLayout from './components/page-layout'
 export const routing = [
   {
-      path: "/Login",
+      path: "/",
       element:  <LoginPage/>
   },
+  {
+    path: "/Login",
+    element:  <LoginPage/>
+  },
+
   {
       path: "/Register",
       element:  <RegisterPage />

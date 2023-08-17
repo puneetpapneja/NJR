@@ -4,15 +4,12 @@ import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 const AppliedJobs = () => {
   return (
     <Container fluid>
-
       <h2 className="mt-4 mb-3">Jobs</h2>
-
       <Form>
         <Form.Group controlId="jobSearch">
           <Form.Control type="text" placeholder="Search jobs" />
         </Form.Group>
       </Form>
-
       <Row>
         <Col md={6}>
           {/* Card 1 */}
@@ -34,8 +31,7 @@ const AppliedJobs = () => {
               <Button variant="primary">Apply</Button>
             </Card.Body>
           </Card>
-        </Col>
-        <Col md={6}>
+          
           {/* Card 2 */}
           <Card className="mb-3">
             <Card.Header>
@@ -57,9 +53,8 @@ const AppliedJobs = () => {
           </Card>
         </Col>
       </Row>
-
     </Container>
   );
 };
 
-export default AppliedJobs; 
+export default AppliedJobs;
