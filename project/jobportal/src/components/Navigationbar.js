@@ -1,22 +1,43 @@
-import React from "react";
-import { Navbar,Nav,Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Container } from "react-bootstrap";
-export default function Navigationbar(){
-    return(
-        <Container fluid className="px-0">
-        <Navbar expand="md" className="bg-body-tertiary px-0">
-            <Navbar.Brand as={Link} to="/" className="me-5 ms-3">LOGO</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav.Link as={Link} to="/" className="me-5">Home</Nav.Link>
-            <Nav.Link as={Link} to="/PostJob" className="me-5">Post A Job</Nav.Link>
-            <Nav.Link as={Link} to="/AppliedJob" className="me-5">Applied Job</Nav.Link>
-            <Nav.Link as={Link} to="/" className="me-5">Posted Job</Nav.Link>
-            <Nav.Link className="me-5"><Form.Control type="text" placeholder="Search" /></Nav.Link>
-            </Navbar.Collapse>
-            <i class="bi bi-person-circle"></i>
-        </Navbar>
-        </Container>
-    );
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+function NavScrollExample() {
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container fluid>
+        <Navbar.Brand href="#">LOGO</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/Postajob">Post A Job</Nav.Link>
+            <Nav.Link href="/AppliedJob" >
+              Applied Job
+            </Nav.Link>
+            <Nav.Link href="/" >
+              Posted Job
+            </Nav.Link>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 }
+
+export default NavScrollExample;

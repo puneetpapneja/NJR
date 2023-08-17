@@ -17,7 +17,6 @@ export default function Register(){
             return;
         }
         if(!password || !isValidPassword(password)){
-            event.preventDefault();
             setError("*Password must contain one capital,one special symbol");
             return;
         }

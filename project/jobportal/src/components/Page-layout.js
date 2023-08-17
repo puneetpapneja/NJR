@@ -2,7 +2,7 @@ import Navigationbar from "./Navigationbar";
 import React from "react";
 import { Container } from "react-bootstrap";
 import { Outlet } from "react-router";
-import Footer from "./footerbody";
+import Footer from "./footer";
 import { getKey, getSession } from "../utils";
 import LoginPage from '../pages/Loginpage';
 import RegisterPage from "../pages/registerpage";
