@@ -1,12 +1,15 @@
 const express = require("express");
-const PORT = require('\.config')
+const { port } = require('./config');
+
 const app = express();
+
+const db = require('./database')
 
 app.use(express.json());
 // const port = 5000;
 
 app.get("/health",(req,res)=>{
-    res.send
+    res.send({status: "OK"});
 })
 
-app.listen, (port,() => console.log("Service started.",port));
+app.listen(port,() => console.log("Service started.",port));
