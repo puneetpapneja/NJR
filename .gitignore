@@ -1,4 +1,5 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 
 practice/webapp/node_modules/
 classroom/service/node_modules/
@@ -7,3 +8,6 @@ classroom/service/node_modules/
 
 
 
+=======
+classroom/project/service
+>>>>>>> 855fe37afbc811488c9291816311208ca8e35229
