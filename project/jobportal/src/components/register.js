@@ -1,6 +1,6 @@
 import { Button, Container, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-export default function Login(){
+export default function Register(){
     
     //    function FormExample() {
     //         const [validated, setValidated] = useState(false);
@@ -11,24 +11,25 @@ export default function Login(){
     //             event.preventDefault();
     //             event.stopPropagation();
     //           }
+          
     //           setValidated(true);
     //         };
     return (
        
     <Container>
        <Row>
-       <h1 className='text-center'>Login <i class="bi bi-person-circle"></i></h1>
+       <h1 className='text-center'>Register</h1>
        </Row>
        {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
        <Form>
        <Row>
-        <Form.Group controlId='formEmail'>
+        <Form.Group controlId='Email Address'>
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" />
         </Form.Group>
         </Row>
         <Row>
-        <Form.Group controlId='formPassword'>
+        <Form.Group controlId='Password'>
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" />
         </Form.Group>
@@ -36,16 +37,16 @@ export default function Login(){
         <br/>
         <Row>
         <Container className="float-start">
-      
-        <Button variant='link' as={Link} to={"/register"}>Register</Button  >Dont have an account?Register Now
+        <Button variant="link" as = {Link} to={"/login"}> Already have an Account ? Login in Now</Button>
         </Container>
+    
         </Row><br/>
         <Container className='text-center'>
-        <Button type="submit" variant='dark'>Login</Button>
+        <Button type="submit" variant='dark'>Register</Button>
         </Container>
        </Form>
     </Container>
  
  )
-    // }
+// }
 }
