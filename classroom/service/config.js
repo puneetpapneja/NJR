@@ -1,4 +1,2 @@
  const PORT = 5000;
-module.exports  = {
-    port: PORT
-}
+export const port = PORT;
