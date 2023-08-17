@@ -1,7 +1,6 @@
 const express = require("express");
 const { port } = require("./config");
 const db=require('./database');
-const userRoute=require('../controller/userController');
 
 const app= express();
 

@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb");
+mongoose.connect("mongodb://127.0.0.1:27017/");
 const con=mongoose.connection;
 con.on('connected',()=>{
     console.log("database connected");
@@ -12,3 +12,5 @@ con.on('disconnected',()=>{
 con.on('error',()=>{
     console.log("ERROR: database connection error");
 })
+
+module.exports=con;
