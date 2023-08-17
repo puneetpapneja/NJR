@@ -7,30 +7,32 @@ import LoginPage from "./pages/loginPage";
 import Jobspage from "./pages/Jobspage";
 export const routing = [
     {
-        path: "/dashboard",
+        path: "/",
         element :<Content/>
     },
     {
-        path: "/dashboard/post_a_job",
+        path: "/post_a_job",
         element:<Postpage/>
     },
     {
-        path: "/dashboard/jobs",
+        path: "/jobs",
         element:<Jobspage/>
-    }
-]
-export const routes=[
+    },
     {
-        path: "/",
+        path: "/login",
         element :<LoginPage/>
     },
     {
-    path:"/dashboard",
-    element:<Pagelayout/>,
-    children:routing
-},
-{
     path: "/register",
     element :<Registerpage/>
 },
+]
+export const routes=[
+    
+    {
+    path:"/",
+    element:<Pagelayout/>,
+    children:routing
+},
+
 ]

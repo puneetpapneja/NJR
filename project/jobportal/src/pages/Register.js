@@ -21,6 +21,7 @@ export default function Register(){
     }
     const onclick=()=>{
         setSession("");
+        setKey("Login");
         navigate("/login");
       }
     
@@ -74,7 +75,7 @@ export default function Register(){
             <Form.Control.Feedback type='invalid'>please enter a company name</Form.Control.Feedback>
         </Form.Group>}
         </Row>
-        <Button variant="link" onClick={onclick} >Have an account? Login Now</Button>
+        <Button variant="link" onClick={onclick}>Have an account? Login Now</Button>
         <br/>
         <Container className='text-center'>
         <Button type="submit" variant='dark'>Register</Button>

@@ -1,6 +1,8 @@
 import {Button, Form,Container,Row} from 'react-bootstrap';
 import {useState} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
+import { setKey, setSession } from '../utils';
+import Registerpage from '../pages/Registerpage';
 
 export default function Login(){
 
@@ -14,8 +16,16 @@ export default function Login(){
         }
         setValidated(true);
         if(validated===true){
-        navigate("/dashboard");}
+        setSession("Sign in");
+        navigate("/");}
     
+    }
+    const onclick=()=>{
+      setSession("Register");
+      navigate("/register");
+      // return(
+      //   <Registerpage/>
+      // )
     }
     
     return (
@@ -45,11 +55,11 @@ export default function Login(){
         </Row>
         
         
-        <Button variant="link" as={Link} to="/register" className='p-0 mb-3'>Dont have a account? Register Now</Button>
+        <Button variant="link" onClick={onclick}  className='p-0 mb-3'>Dont have a account? Register Now</Button>
         {/* <Link to="">Dont have a account? Register Now</Link> */}
         <br/>
         <Container className='text-center'>
-        <Button type="submit" variant='dark' >Login</Button>
+        <Button type="submit" variant='dark'>Login</Button>
         </Container>
        </Form>
     </Container>
