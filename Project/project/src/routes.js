@@ -7,9 +7,10 @@ import Dashboard from './dashboard';
 const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Loginpg />} />
             <Route path="/login" element={<Loginpg />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/dashboard" element={<Dashboard/>} />
             
         </Routes>
     );

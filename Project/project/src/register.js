@@ -1,7 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 const Register=()=>{
     return(
-        <div className="container mt-5" style={ {backgroundColor: 'lightgreen'} }>
+        <div className="container mt-5" style={ {backgroundColor: 'grey'} }>
             <h1 className="mb-4">Registor</h1>
 
             <form>
@@ -15,10 +16,10 @@ const Register=()=>{
                     <input type="password" className="form-control" id="password" placeholder="Password" />
                 </div>
 
-                <button style={{backgroundColor: 'blueviolet' } } type="submit" className="btn btn-primary mt-3">Sign-Up</button>
+                <button style={{backgroundColor: 'orange' } } type="submit" className="btn btn-primary mt-3">Sign-Up</button>
             </form>
             <div className="mt-3">
-                <a href="#">Have an account? Login Now!!</a>
+                <Link to="/login">Have an account? Login Now!</Link>
             </div>
             <br></br>
         </div>

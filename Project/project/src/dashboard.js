@@ -1,6 +1,10 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import NavbarComponent from "./navbar";
 const Dashboard = () => {
     return (
+        <>
+        < NavbarComponent/>
         <div className="container mt-5">
             <h2>Dashboard</h2>
 
@@ -31,6 +35,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
