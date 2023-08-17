@@ -1,6 +1,7 @@
 classroom/react/node_modules/
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 project/jobportal/node_modules/
 NJR/service/node_modules/
 =======
@@ -10,3 +11,9 @@ classroom/project/service
 classroom/service/node_modules/
 
 >>>>>>> 0b9e28a6cc847e2441e3304926b8441701ca273b
+=======
+practice/webapp/node_modules/
+classroom/service/node_modules/
+
+classroom/project/service/node_modules
+>>>>>>> e338fd461e2fd88111df0019f13cda04d5bf7850
