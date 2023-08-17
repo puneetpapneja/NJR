@@ -1,6 +1,3 @@
-import './App.css';
-//import Loginpage from './pages/Loginpage';
-//import Registerpage from './pages/Registerpage';
 import Registerpage from './pages/Registerpage';
 import './App.css';
 import Loginpage from './pages/Loginpage';
@@ -13,12 +10,12 @@ import React from 'react';
 import Footer from './components/Footer';
 import Content from './components/Content';
 
-
 function App() {
   return (
+    
    <RouterProvider router={createBrowserRouter(routes)}>
    </RouterProvider>
-  
+   
    )
 }
 
