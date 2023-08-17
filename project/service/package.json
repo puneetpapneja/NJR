@@ -4,7 +4,7 @@
   "description": "WebAPIs",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "start": "nodemon index.js"
   },
   "author": "mansi",
   "license": "ISC",

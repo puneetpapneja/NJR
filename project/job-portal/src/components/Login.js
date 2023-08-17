@@ -2,9 +2,15 @@ import React from "react";
 import { Form, Button, Card } from "react-bootstrap";
 // import { LinkContainer } from "react-router-bootstrap";
 // import { Nav } from "react-bootstrap/Nav";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { setSession } from "../utils";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const handleClick=()=>{
+    setSession("mansiiii");
+    navigate("/");
+  }
 
   const labelStyle = {
     fontWeight: "bold",
@@ -48,6 +54,7 @@ export default function Login() {
             className="mt-3"
             type="submit"
             block
+            onClick={handleClick}
           >
             
             Login
