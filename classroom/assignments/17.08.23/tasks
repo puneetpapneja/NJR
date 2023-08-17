@@ -1,0 +1,10 @@
+create new API for post a job.
+fields
+1. Job title
+2. description
+3. max salary
+4. company name
+5. recuriterDtl 
+    name
+    emailId
+    contactNo
