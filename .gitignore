@@ -1,14 +1,5 @@
 classroom/react/node_modules/
-<<<<<<< HEAD
-<<<<<<< HEAD
+classroom/service/node_modules/
 practice/first_project/node_modules/
-=======
-<<<<<<< HEAD
-practice/first_project/node_modules/
-=======
 practise/project/node_modules/ 
->>>>>>> 36e25cf585b9863941c259d8e234ca66345d912e
->>>>>>> d3939a1e23572cb9243b00089b31d17e594bc053
-=======
-
->>>>>>> 6395c4d550681654f5f8983eefd3f07e2c91d07b
+project/service/node_modules/
