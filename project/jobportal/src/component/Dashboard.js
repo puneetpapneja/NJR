@@ -1,14 +1,11 @@
-import Menubar from "./Menubar";
-import Footer from "./Footer";
 import Dashbody from "./Dashbody";
+import Container from 'react-bootstrap/Container';
 function Dashboard(){
     return (
-        <>
-            <Menubar/>
+        < Container className="dashBoard">
             <Dashbody/>
-            <Footer/>
-
-        </>
+</Container>
+        
     );
 }
 

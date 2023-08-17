@@ -1,15 +1,21 @@
+import Card from 'react-bootstrap/Card';
 function Box(props){
-    return (
-        <>
-        <div className="boxes"  style={{
-        backgroundColor: props.backgroundColor, // Use the value passed via props
-        
-      }}>
-        
-        <h1>{props.title}</h1>
-         <h3> {props.content}</h3>
-        </div>
-        </>
-    )  ;
+    return( 
+    <>      
+      <Card className='m-5 '  style={{ width: '13rem'  , height :"10rem" , backgroundColor: props.backgroundColor }}>
+      <Card.Body>
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Text>
+        {props.content}
+        </Card.Text>
+      </Card.Body>
+      </Card>
+      </>
+
+    );
+ 
+ 
 }
 export default Box;
+
+

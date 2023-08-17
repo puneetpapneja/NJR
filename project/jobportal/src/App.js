@@ -1,10 +1,16 @@
-import Dashboard from './component/Dashboard';
-import Login from './component/Login';
+import './App.css';
+import {routes} from './routing';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <Login/>
-   
+    
+ <>
+     <RouterProvider router={createBrowserRouter(routes)}>
+    </RouterProvider> 
+    
+ </>
+
   );
 }
 

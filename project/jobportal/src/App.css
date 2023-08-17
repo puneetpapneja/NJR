@@ -1,41 +1,28 @@
-#search{
-  width: 440px;
-}
-
-
-.bg-body-tertiary{
-  margin: 0 60px 0 60px;
-  
-}
-
-.footer{
+._footer{
   background-color: black;
   color: white;
-  height: 55px;
-  position:relative;
-  top: 10vh;
-  margin: 0 60px 0 60px;
+  height: 50px;
   text-align: center;
-   line-height: 3;
+  line-height: 3;
+  /* position:relative;
+ top: 20%; */
+  border-radius: 10px;
+  margin: 0 2% 0 2%;
+
+
+}
+.login_page{
+  margin: 5%;
+  top: 25vh;
+
 }
 
-.boxes{
-  height: 200px;
-  width: 250px;
-  margin: 10px;
-}
-.boxes , .h1 {
- 
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+
+.dashbody_css{
+  margin-top: 8%;
 }
 
-.dash_box{
-  
-  display: flex;
-  align-items:center;
-  justify-content: space-between;
-  margin: 120px 180px 120px 180px;
+.dashbody_css h1{
+  margin-left: 3rem;
 }

@@ -1,4 +1,9 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 practice/my-app/node_modules/
 /assignments/07.08.23/todo-app/node_modules/
 node_modules
+=======
+classroom/service/node_modules/
+
+>>>>>>> 0b9e28a6cc847e2441e3304926b8441701ca273b

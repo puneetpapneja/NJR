@@ -4,23 +4,22 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useState } from "react";
-import {useHistory} from "react-router-dom";
-import Dashboard from "./Dashboard";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 function Login() {
-  const history=useHistory();
-  const [login,setlogin]=useState("false");
-  function handleclick(){
-    setlogin(!login);
-    history.push("/Dashboard");
-
-  }
-
+  const Navigate=useNavigate();
+function handleclick(){
+  Navigate("/Dashboard"); 
+} 
+  
   return (
-    <Container>
+    
+    <Container className="login_page">
       <Row className="justify-content-center">
-        <Col xs={12} md={6}>
+        <Col xs={12} md={5}>
           <Card>
             <Card.Body>
               <Card.Title>Login</Card.Title>
@@ -40,6 +39,8 @@ function Login() {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+             <a href="/register">Don't have a account? register now</a>  <br/><br/>
+
                 <Button variant="primary" type="submit" onClick={handleclick}>
                   Submit
                 </Button>
@@ -49,6 +50,7 @@ function Login() {
         </Col>
       </Row>
     </Container>
+  
   );
 }
 
