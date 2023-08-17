@@ -1,8 +1,9 @@
 import React from 'react';
+import PostaJob from '../components/postaJob';
 
 const PostJob=()=>{
     return(
-    <div>post component</div>
+    <PostaJob></PostaJob>
     );
 }
 

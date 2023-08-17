@@ -1,69 +1,54 @@
-import {Form,Button,Container,Row, Alert} from 'react-bootstrap';
-// import { setKey, setSession } from '../utils';
-// import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import {Button, Form,Container,Row} from 'react-bootstrap';
+import {useState} from 'react';
+import { setKey, setSession } from "../utils";
+import { useNavigate } from "react-router-dom";
+// import {Link} from 'react-router-dom';
+
 export default function Login(){
-    const [email,setEmail]=useState("");
-    const [password , setPassword] = useState("");
-    const [passwordError, setPasswordError] = useState("");
-    const [emailError,setEmailError]=useState("");
-    // const navigate = useNavigate();
-    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    const Handleclick = (event) =>{
-        if(!email || !emailRegExp.test(email))
-        {
-            event.preventDefault();
-            setEmailError("*invalid email format");
-            return;
+  
+    const [validated, setValidated] = useState(false)
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
         }
-        if(!password || !passwordRegExp.test(password)){
-            event.preventDefault();
-            setPasswordError("Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
-            return;
-        }
-        // else{
-        //     setSession("logged in");
-        //     navigate("/");
-        // }
+        setValidated(true);
     }
-    return(
-        <Container className='d-flex justify-content-center'>
-            <Form>
-                <Row>
-                    <h1 className='text-center my-5'>Login</h1>
-                </Row>
-                <Row>
-                    <Form.Group>
-                        <Form.Label className='my-3'>Email Address</Form.Label>
-                        <br />
-                        <Form.Control type='text' className='mb-3' onChange={(e)=>{
-                                                setEmail(e.target.value);
-                                                setEmailError("");
-                                            }
-                                    } />
-                    </Form.Group>
-                </Row>
-                <Row>
-                    <Form.Group>
-                        <Form.Label className='my-3'>Password</Form.Label>
-                        <br />
-                        <Form.Control type='text' onChange={(e)=>{
-                                    setPassword(e.target.value);
-                                    setPasswordError("");
-                                        }
-                            }/>
-                    </Form.Group>
-                </Row>
-                <Row>
-                    <Container className='float-start mb-4 mt-3'>
-                    <Button variant='link' href='/Registeration' >Don't have an account? Register Now</Button>
-                    </Container>
-                </Row>
-                <Row>
-                    <Button type='submit' variant='dark' onClick={Handleclick}>Login</Button>
-                </Row>
-            </Form>
+    const SwitchTo = () =>{
+        setSession("");
+        setKey("Regsitered");
+        navigate("/Register");
+    }
+    return (
+       
+    <Container className='media-container ' style={{width:"400px"}} >
+       <Row>
+       <h1 className='text-center'>Login</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row className='mt-4'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" />
+        </Form.Group>
+        </Row>
+        <Row className='mt-4'>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" />
+        </Form.Group>
+        </Row>
+        <Row className='mt-4'>
+        <Button variant="link" href="/Register" onClick={SwitchTo}>Dont have a account? Register Now</Button>
+        </Row>
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Login</Button>
         </Container>
-    )
+       </Form>
+    </Container>
+ 
+ )
+    // }
 }

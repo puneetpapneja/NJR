@@ -1,33 +1,36 @@
-import React from 'react';
-import Home from './pages/Home';
-import Postss from './pages/Postss';
-import PageLayout from './pages/Pagelayout';
-import AppliedJob from './pages/AppliedJob';
-import PostJob from './pages/PostJob';
-// import { Route, Routes, Outlet } from "react-router";
-export const routing=[
+import React from "react";
+import Dashboard from "./pages/Dashboardpage"
+import LoginPage from "./pages/Loginpage";
+import RegisterPage from "./pages/registerpage";
+import Pagelayout from "./components/Page-layout";
+import Post from "./pages/Post";
+import Applied from './pages/Appliedajob';
+export const routes=[
     {
         path:"/",
-        element:<Home/>
+        element: <Dashboard />        
     },
     {
-        path:"/postss",
-        element:<Postss/>
+        path:"/login",
+        element: <loginPage/>
     },
     {
-        path:"/AppliedJob",
-        element:<AppliedJob/>
+        path:"/Register",
+        element: <registerPage/>
     },
     {
         path:"/PostJob",
-        element:<PostJob/>
-    }
-
-]
-export const routes=[
+        element: <Post />
+    },
     {
-        path: "/",
-        element:<PageLayout/>,
-        children: routing
+        path:"/AppliedJob",
+        element: <Applied />
+    }
+]
+export const routing =[
+    {
+        path:"/",
+        element:<Pagelayout />,
+        children: routes
     }
 ]
