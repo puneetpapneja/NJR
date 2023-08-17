@@ -1,51 +1,85 @@
-import {Button, Form,Container,Row} from 'react-bootstrap';
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Form,Button,Container,Row, Alert} from 'react-bootstrap';
+import { setKey, setSession } from '../utils';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 export default function Login(){
-    
-    //    function FormExample() {
-    //         const [validated, setValidated] = useState(false);
-          
-    //         const handleSubmit = (event) => {
-    //           const form = event.currentTarget;
-    //           if (form.checkValidity() === false) {
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //           }
-          
-    //           setValidated(true);
-    //         };
-    return (
-       
-    <Container>
-       <Row>
-       <h1 className='text-center'>Login</h1>
-       </Row>
-       {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
-       <Form>
-       <Row>
-        <Form.Group controlId='formEmail'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" width="40px"/>
-        </Form.Group>
-        </Row>
-        <Row>
-        <Form.Group controlId='formPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" />
-        </Form.Group>
-        </Row>
-        <br/>
-        <Row>
-        {/* <Link to="">Dont have a account? Register Now</Link> */}
-        <a href="">Dont have a account? Register Now</a>
-        </Row><br/>
-        <Container className='text-center' id="blk1">
-        <Button type="submit" variant='dark' id="bt1" >Login</Button>
+    const [email,setEmail]=useState("");
+    const [password , setPassword] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+    const [emailError,setEmailError]=useState("");
+    const navigate = useNavigate();
+    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const Handleclick = (event) =>{
+        if(!email || !emailRegExp.test(email))
+        {
+            event.preventDefault();
+            setEmailError("*invalid email format");
+            return;
+        }
+        if(!password || !passwordRegExp.test(password)){
+            event.preventDefault();
+            setPasswordError("Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
+            return;
+        }
+        else{
+            setSession("logged in");
+            navigate("/");
+        }
+    }
+    const SwitchTo = () =>{
+        setSession("");
+        setKey("register");
+        navigate("/Registeration");
+    }
+    return(
+        <Container>
+            <Form>
+                <Row>
+                    <h1 className='text-center my-5'>Login</h1>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Email Address</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text' 
+                            value={email}
+                            onChange={(e)=>{
+                                                setEmail(e.target.value);
+                                                setEmailError("");
+                                            }
+                                    }
+                            className='mb-3'
+                        />
+                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Password</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text'
+                            value={password} 
+                            onChange={(e)=>{
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                        }
+                            }
+                        />
+                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Container className='float-start mb-5 mt-3'>
+                    <Button variant='link' href='/Registeration' onClick={SwitchTo}>Don't have an account? Register Now</Button>
+                    </Container>
+                </Row>
+                <Row>
+                    <Button type='submit' variant='dark' onClick={Handleclick}>Login</Button>
+                </Row>
+            </Form>
         </Container>
-       </Form>
-    </Container>
- 
- )
-    // }
+    )
 }

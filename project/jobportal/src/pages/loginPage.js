@@ -1,6 +1,4 @@
-import Login from "../components/Login";
-
-const LoginPage=()=>{
-    return <Login/>
+import Login from "../components/Login.js"
+export default function LoginPage(){
+    return(<Login />)
 }
-export default LoginPage;
