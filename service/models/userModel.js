@@ -15,5 +15,11 @@ module.exports = {
     create: (fields, res)=>{
         const user = new userCollection(fields);
         return user.save()
+        .then((data)=>{
+            return res.send({status: "ok", msg:"User created changes"});
+        })
+        .catch((err)=>{
+            return res.send({status: "fail", error: err});
+        })
     }
 }

@@ -8,7 +8,7 @@ const db = require('./database')
 app.use(express.json());
 // const port = 5000;
 
-app.get("/health",(req,res)=>{
+app.get("/health",(req, res)=>{
     res.send({status: "OK"});
 })
 
