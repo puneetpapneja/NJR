@@ -1,3 +1,8 @@
 classroom/react/node_modules/
+<<<<<<< HEAD
 project/jobportal/node_modules/
 NJR/service/node_modules/
+=======
+classroom/service/node_modules/
+
+>>>>>>> 0b9e28a6cc847e2441e3304926b8441701ca273b
