@@ -1,8 +1,7 @@
 import {Button, Form,Container,Row} from 'react-bootstrap';
 import {useState} from 'react';
-import {Link,useNavigate} from 'react-router-dom';
-import { setKey, setSession } from '../utils';
-import Registerpage from '../pages/Registerpage';
+import {useNavigate} from 'react-router-dom';
+import { setSession } from '../utils';
 
 export default function Login(){
 
@@ -14,14 +13,13 @@ export default function Login(){
           event.preventDefault();
           event.stopPropagation();
         }
-        setValidated(true);
-        if(validated===true){
-        setSession("Sign in");
-        navigate("/");}
-    
+        else {
+          setValidated(true);
+          setSession("1234");
+          navigate("/");
+        }
     }
     const onclick=()=>{
-      setSession("Register");
       navigate("/register");
       // return(
       //   <Registerpage/>

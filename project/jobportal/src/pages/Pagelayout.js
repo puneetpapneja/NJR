@@ -1,29 +1,27 @@
 import { Container } from "react-bootstrap";
 import NavBar from "../components/Navbar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import {  getSession } from "../utils";
-import LoginPage from "./loginPage";
-import Registerpage from "./Registerpage";
+import { useEffect } from "react";
+
 export default function Pagelayout(){
+    const navigate = useNavigate();
     
+    useEffect(()=> {
     if(!getSession())
-    {
-        // console.log(getSession());
-        return(<LoginPage/>);
-    }
-    else if(getSession()==="Register"){
-        console.log(getSession());
-        return(<Registerpage/>);
-    }
-    else{
-        // console.log(getSession());
+       {
+        console.log("test",getSession());
+        navigate("/login");
+       }
+    },[navigate])
+   
     return( <Container fluid>
-                <NavBar/>
+               {getSession() ? <NavBar/> : null} 
                 <Outlet />
-                <Footer />
+               {getSession() ? <Footer/> : null} 
     </Container>)
-    }
+    
 }
 
 
