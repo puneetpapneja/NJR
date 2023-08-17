@@ -10,23 +10,21 @@ const LoginPage = () => {
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" placeholder="Enter email" required />
           </Form.Group>
-          <br/>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-            <br/>
+            <Form.Control type="password" placeholder="Password" minLength="8" required />
+            <Form.Text muted>
+              Password must be at least 8 characters long.
+            </Form.Text>
           </Form.Group>
 
-          <Button variant="dark" type="submit" className="w-100"><Link to="/Dashboard">
-          Login in</Link>
+          <Button variant="dark" type="submit" className="w-100">
+            <Link to="/Dashboard">Login</Link>
           </Button>
-          
-          
         </Form>
-        
 
         <p className="mt-3 text-center">
           Don't have an account? <Link to="/RegisterPage">Sign up</Link>

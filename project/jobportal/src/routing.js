@@ -2,7 +2,10 @@ import React from 'react';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
-import Appliedjob from './pages/Appliedjob';
+import Jobs from './pages/Jobs';
+import NavBarComponent from './components/navbar';
+import PostJob from './pages/Postjob';
+import PageLayout from './components/pagelayout';
 
 export const routing = [
     {
@@ -22,15 +25,20 @@ export const routing = [
         element:  <Dashboard />
     },
     {
-        path: "/Appliedjob",
-        element:  < Appliedjob />
+        path: "/Jobs",
+        element:  < Jobs />
+    },
+    {
+        path: "/Postjob",
+        element:  < PostJob />
     }
    
 ]
 
 export const routes = [
     {
-      
+        path: "/",
+        element:  <PageLayout/>,
         children: routing
     }
 ]
