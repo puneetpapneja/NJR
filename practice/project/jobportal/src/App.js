@@ -4,6 +4,7 @@ import Login from "./components/Login.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Register from "./components/Register";
+import Job from "./components/job";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/job" element={<Job />} />
           </Routes>
         </div>
       </BrowserRouter>
