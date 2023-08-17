@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
+  const [selectedRole, setSelectedRole] = useState(''); 
+  const [showCompany, setShowCompany] = useState(false);
+
+  const handleRoleChange = (event) => {
+    const role = event.target.value;
+    setSelectedRole(role);
+    setShowCompany(role === 'Job Recruiter');
+  };
+
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
       <div className="login-box p-4">
@@ -11,43 +21,45 @@ const RegisterPage = () => {
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
           </Form.Group>
-          <br/>
+          <br />
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" />
-            <br/>
+            <br />
           </Form.Group>
-          {['radio'].map((type) => (
-        <div key={`inline-${type}`} className="mb-3">
-          <Form.Check
-            inline
-            label="Job Seeker"
-            name="Job Seeker"
-            type={type}
-            id={`inline-${type}-1`}
-          />
-          <Form.Check
-            inline
-            label="Job Recruiter"
-            name="Job recruiter"
-            type={type}
-            id={`inline-${type}-2`}
-          />
-         
-        </div>
-      ))}
 
-          <Button variant="dark" type="submit" className="w-100">
-            Signup
-          </Button>
           
+          {['Job Seeker', 'Job Recruiter'].map((role) => (
+            <Form.Check
+              key={role}
+              inline
+              label={role}
+              name="role"
+              type="radio"
+              value={role}
+              id={`inline-role-${role}`}
+              onChange={handleRoleChange}
+              checked={selectedRole === role}
+            />
+          ))}
+          {showCompany && (
+            <Form.Group controlId="formBasicCompany">
+              <Form.Label>Company name</Form.Label>
+              <Form.Control type="text" placeholder="Enter Company Name" />
+            </Form.Group>
+          )}
+          <br></br>
+          <Button variant="link">
+            Have an account? <Link to="/LoginPage">Log in</Link>
+          </Button>
+          <Button variant="dark" type="submit" className="w-100">
+            <Link to="/LoginPage">Register</Link>
+          </Button>
         </Form>
-        
-        <Button variant="link">Have an account? Login In</Button>
       </div>
     </Container>
   );
-}
+};
 
 export default RegisterPage;
