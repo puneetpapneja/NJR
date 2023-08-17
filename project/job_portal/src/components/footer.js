@@ -1,22 +1,13 @@
-import Container from 'react-bootstrap/Container';
-//import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-//import Form from 'react-bootstrap/Form';
+import { Col, Container ,Row} from "react-bootstrap";
 
-
-function footer() {
-    return (
-      <>
-
-
-      <Navbar fixed="bottom" bg="dark" variant="dark" className='d-flex' style={{ marginBottom: "1rem" }}>
-        <Container>
-          <Navbar.Text>
-          TM @ 2023-Techno India NJR Institute of Technology - All Rights Reserved
-          </Navbar.Text>
-        </Container>
-      </Navbar>
-    </>
-  );
+export default function Footer(){
+  return (
+    <Container fluid className="fixed-bottom">
+        <Row className="text-center text-white bg-dark align-middle justify-content-bottom my-0" style={{ marginBottom: "1rem" }}>
+          <Col lg="12" sm="12" md="12">
+            <p className=" py-0 my-0">TM@2023-Techno India NJR Institute of Technology-All Rights Reserved</p>
+          </Col>
+        </Row>
+    </Container>
+  )
 }
-export default footer;
