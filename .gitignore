@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 practice/webapp/node_modules
 practice/08.08.23/webapp02/node_modules
 practice/webapp/node_modules
 classroom/react/node_modules
 project/jobportal/node_modules
 project/service/node_modules
+=======
+classroom/react/node_modules/
+classroom/service/node_modules/
+
+>>>>>>> 0b9e28a6cc847e2441e3304926b8441701ca273b
