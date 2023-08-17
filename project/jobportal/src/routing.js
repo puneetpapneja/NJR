@@ -2,6 +2,8 @@ import Content from "./components/Content";
 import Pagelayout from "./pages/Pagelayout";
 import Registerpage from "./pages/Registerpage";
 import Loginpage from "./pages/Loginpage";
+import PostJob from "./pages/post";
+import Apply from "./pages/apply";
 
 export const routing = [
     {
@@ -22,4 +24,16 @@ export const routes=[{
 {
     path: "/login",
     element :<Loginpage/>
-}]
+},
+{
+    path: "/postjob",
+    element: <PostJob />,
+  },
+
+  {
+    path: "/appliedjob",
+    element: <Apply />,
+  },
+
+  
+]
