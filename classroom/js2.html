@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>JS</title>
+        <script>
+            const validateEmail = () =>{
+                const email = document.getElementById("email");
+                const REGEX_EMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+                if(REGEX_EMAIL.test(email.value)){
+                    alert("Valid email");
+                }
+                else{
+                    alert("invalid email");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" id="email" />
+        <input type="button" value="validate" onclick="validateEmail()" />
+    </body>
+</html>

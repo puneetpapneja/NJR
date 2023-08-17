@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <title>Form</title>
+    <style>
+        #error {
+            color: red;
+        }
+    </style>
+    <script>
+        const handleSubmit = () => {
+            const nameElement = document.getElementById('txt_name');
+            const errorMsg = document.getElementById('error');
+            if (txt_name.value === "") {
+                errorMsg.innerText = "<b>please enter your name</b>";
+                return false;
+            }
+
+            errorMsg.innerHTML = "";
+            return true;
+        }
+
+        const getHTML = () => {
+            const body = document.getElementById("body");
+            alert(body.innerHTML);
+        }
+
+        const getText = () => {
+            const body = document.getElementById("body");
+            alert(body.innerText);
+        }
+    </script>
+
+</head>
+
+<body id="body">
+    hello
+    <form>
+        <select>
+            <option value="">select Year</option>
+            <script type="text/javascript">
+                for(let i=1950; i< 2023; i++){
+                    document.write("<option value="+i+">"+i+"</option>")
+                }
+            </script>
+        </select>
+        <input type="text" oncut="return false" oncopy="return false" onpaste="return false" id="txt_name" name="txt_name" />
+        <span id="error"></span>
+        <input type="submit"  onclick="return handleSubmit()" />
+        <input type="button" value="getHTML" onclick="getHTML()" />
+        <input type="button" value="getText" onclick="getText()" />
+    </form>
+</body>
+
+</html>
