@@ -9,11 +9,13 @@ const Callback = () =>{
     const handleDecrement = useCallback(() => setCount(count - 1),[count]);
     const incrementNumber = useCallback(() => setNumber(number +1),[number]);
     useEffect(()=> {
+    
         arr.add(handleIncrement);
         arr.add(handleDecrement);
         arr.add(incrementNumber);
         console.log("arr", arr);
     })
+    
     
     //alert("Size of array is " + arr.size);
     return (
@@ -27,13 +29,13 @@ const Callback = () =>{
         </Row>     
         <Row>
             <Col xs={4}>
-            <Button variant="primary" onClick={handleIncrement}>Increament</Button>
+            <Button variant="primary" onClick={handleIncrement}> Increment </Button>
             </Col>
             <Col xs={4}>
-            <Button variant="primary" onClick={handleDecrement} >Decrement</Button>
+            <Button variant="primary" onClick={handleDecrement} > Decrement </Button>
             </Col>
             <Col xs={4}>
-            <Button variant="primary" onClick={incrementNumber} >Increment Number</Button>
+            <Button variant="primary" onClick={incrementNumber} >Increment number</Button>
             </Col>
         </Row>
     </Container>

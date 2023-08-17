@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    const handleclick = () => {
+      //document.write("you clicked");
+      const textelement = document.getElementById("item").value;
+      //document.write("you click and the value are " + textelement.value);
+      if (textelement.length == 0) {
+        document.write("Please enter the value");
+      } else if (textelement % 2 == 0) {
+        document.write("the number is even " + textelement);
+      } else {
+        document.write("the number is odd " + textelement);
+      }
+    };
+    const clickhandler = (callback) => {
+      callback();
+    };
+  </script>
+  <body>
+    <input type="text" id="item" />
+    <button onclick="clickhandler(handleclick)">click</button>
+  </body>
+</html>
