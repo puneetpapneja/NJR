@@ -8,6 +8,7 @@ import Memo from './components/Memo';
 import Item from './components/Item';
 import Callback from './components/Callback';
 import Ref from './components/Ref';
+import Dashboard from '../../../project/jobportal/src/components/dashboard';
 export const routing = [
     {
         path: "/",
@@ -32,6 +33,10 @@ export const routing = [
     {
         path: "/ref",
         element:  <Ref />
+    },
+    {
+        path: "/dashboard",
+        element:  <Dashboard />
     },
     {
         path: "/item",
