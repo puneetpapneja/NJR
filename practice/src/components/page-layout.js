@@ -11,4 +11,4 @@ const PageLayout = ()=>{
     )
 }
 
-export default PageLayout;
+export default page-layout;
