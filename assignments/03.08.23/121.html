@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const obj ={
+            name: "jitesh",
+            email: "jitesh.goyal@gmail.com",
+            contact: 9876783894 ,
+            address:{
+                primary:"primary address",
+                secondary:"secondary address"
+            }
+           
+        }
+       // const{ name, email, contact, address ={
+     //     primary: "",
+    //        secondary: ""
+      //  }} = obj;
+     /*  const{address , ...restfields} = obj;
+        restfields.name="testing";
+        console.log(restfields, "OBJ", obj); */
+       
+        const arr = [1,2,3,4,5];
+        const [a,...restEle] = arr;
+        const newArr = [...restEle];
+        console.log(newArr)
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
