@@ -1,6 +1,0 @@
-const Pagelayeout=()=>{
-    return (
-    
-         <Pagelayeout/>
-    )
-}
