@@ -5,4 +5,7 @@ module.exports={
         // Logics aree written here
         return userModel.create(req.body,res);
     }
+    
 }
+
+

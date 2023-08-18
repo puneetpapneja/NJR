@@ -1,6 +1,6 @@
-const mongoose=require("mongoose");
+const mongoose = require("mongoose");
 
-const userSchema=mongoose.Schema({
+const userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     emailId: String,
@@ -9,24 +9,21 @@ const userSchema=mongoose.Schema({
     companyName: String,
 });
 
+const userCollection = mongoose.model("users", userSchema);
 
-const userCollection=mongoose.model("users",userSchema);
-
-module.exports={
-    create: (fields,res)=>{
-        const user=new userCollection(fields);
-        // return status of execution
+module.exports = {
+    create: (fields, res)=>{
+        const user = new userCollection(fields);
         return user.save()
-
-        // if success
-        .then((data)=>{
-        return res.send({status: "ok",msg:"user created"});
+        .then((data) => {
+            return res.send({status: "ok", msg:"User created successfully."})
         })
-
-        // if fails
         .catch((err)=>{
-            return res.send({status: "fail",error: err});
-            })
-
+            return res.send({status: "fail", error: err});
+        })
     }
+
+    // getAll:()=>{
+    //     const user =new userCollection(fields)
+    // }
 }
