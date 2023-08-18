@@ -1,18 +1,13 @@
 import './App.css';
-import { Container } from 'react-bootstrap';
-import Dashboard from './components/Dashboard';
 import React from 'react';
-import Menu from './components/Menu';
-import Login from './components/Login';
-import Register from './components/Register';
-import Postjob from './components/Postjob';
-import Appliedjobs from './components/Appliedjobs';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { routes } from './routing';
 
 
 function App() {
   return (
-   <Appliedjobs/>
-   );
+    <RouterProvider router={createBrowserRouter(routes)}>
+    </RouterProvider>);
 }
 
 export default App;
