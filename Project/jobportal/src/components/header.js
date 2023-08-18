@@ -2,7 +2,11 @@ import React from "react";
 import NavScrollExample from "./NavBar";
 
 function Header() {
-  return <div>NavScrollExample</div>;
+  return (
+    <div>
+      <NavScrollExample />
+    </div>
+  );
 }
 
-export default NavScrollExample;
+export default Header;

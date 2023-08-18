@@ -4,9 +4,9 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import PostAJob from "./components/postjob";
 import AppliedJob from "./components/AppliedJob";
+import PageLayout from "./components/Pagelayout";
 
-const routing = [
-  //   { path: "/", element: <Home /> },
+export const routing = [
   { path: "/dashboard", element: <Dashbody /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
