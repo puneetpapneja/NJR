@@ -1,10 +1,11 @@
 const express = require("express");
 const { port } = require("./config");
+const cors = require('cors');
 const db = require('./database');
 const userRoute = require('./routes/userRoute');
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 app.use("/user",userRoute);
 app.get("/health",(req, res)=>{
