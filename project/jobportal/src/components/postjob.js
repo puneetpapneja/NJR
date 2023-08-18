@@ -1,36 +1,39 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import {Link} from 'react-router-dom';
+import { Container, Row, Form, Button, Alert } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
-const Login = ()=>{
+const Postjob = () => {
 
-return (
-<div className="form-container">
-<Form className="form">
-<div className="form-content">
-  <h1>Post Job</h1>
-  <Form.Group className="mb-3" controlId="formBasicjobtitle">
-    <Form.Label>Job Title</Form.Label>
-    <Form.Control type="text" placeholder="Enter job" />
-  </Form.Group>
+  return (
+    <Container className="d-flex justify-content-sm-center">
+      <Form className="w-25 p-1" >
+        <div className="shadow-sm p-3 mb-5 bg-white rounded">
+          <h1 className="d-flex justify-content-center">Post Job</h1>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Job Description</Form.Label>
-    <Form.Control type="text" placeholder="Enter job description" />
-  </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicjobtitle">
+            <Form.Label>Job Title</Form.Label>
+            <Form.Control type="text" />
+          </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Max Salary</Form.Label>
-    <Form.Control type="number" placeholder="Enter salary" />
-  </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicdescription">
+            <Form.Label>Job Description</Form.Label>
+            <Form.Control type="text" />
+          </Form.Group>
 
+          <Form.Group className="mb-3" controlId="formBasicsalary">
+            <Form.Label>Max Salary</Form.Label>
+            <Form.Control type="number" />
+          </Form.Group>
 
-  <Button variant="dark" type="submit" className="btn" as={Link} to="#">
-    POST
-  </Button>
-  </div>
-</Form>
-</div>
-)
+          <div class=" mx-auto">
+            <Button variant="dark" type="submit" class="btn btn-dark" as={Link} to="#">
+              POST
+            </Button>
+          </div>
+        </div>
+      </Form>
+    </Container>
+  )
 }
-export default Login;
+export default Postjob;

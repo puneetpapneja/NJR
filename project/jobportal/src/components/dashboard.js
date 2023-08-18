@@ -9,7 +9,8 @@ import "../App.css";
 function Boxcomponent() {
        return (
        <CardGroup className='container'>
-        <div className='box1'>
+
+       <div className='box1'>
         <h1 align="center">7</h1>
            <p align="center">Applied Jobs</p>
         </div>

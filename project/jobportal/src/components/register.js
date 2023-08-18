@@ -1,15 +1,16 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { Container, Row, Form, Button, Alert } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import {Link} from 'react-router-dom';
+import React from 'react';
 
 const Register = ()=>{
 
 return (
-<div className="form-container">
-<Form className="form">
-<div className="form-content">
-  <h1 className="form-title">Register</h1>
+<Container className="d-flex justify-content-sm-center">
+<Form className="w-25 p-1" >
+<div className="shadow-sm p-3 mb-5 bg-white rounded">
+  <h1 className="d-flex justify-content-center">Register</h1>
+
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
@@ -18,9 +19,9 @@ return (
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" />
-    </Form.Group>
+  </Form.Group>
 
-    <Form.Group controlId="formBasicRadio">
+  <Form.Group controlId="formBasicRadio">
     {['radio'].map((type) => (
         <div key={`inline-${type}`} className="mb-3">
           <Form.Check
@@ -42,17 +43,21 @@ return (
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicCheckbox">
-  <Form.Text className="text-muted">
-  <Card.Link as={Link} to="/">Have a account?Login Now</Card.Link>
-        </Form.Text>
+     <Form.Text className="text-muted">
+        <Card.Link as={Link} to="/">Have a account?Login Now</Card.Link>
+     </Form.Text>
   </Form.Group>
 
-  <Button variant="dark" type="submit" className="btn">
+  <div class=" mx-auto">
+  <Button variant="dark" type="submit" class="btn btn-dark">
     Register
   </Button>
   </div>
+  </div>
 </Form>
-</div>
+</Container>
 )
 }
+
+
 export default Register;
