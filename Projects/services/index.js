@@ -1,16 +1,14 @@
 const express = require("express");
+const { port } = require("./config");
+const db = require('./database');
+const userRoute = require('./routes/userRoute');
 
-const { PORT, port } = require("./config");
-
-const db= require('./database');
-
-const app=express();
+const app = express();
 
 app.use(express.json());
+app.use("/user",userRoute);
+app.get("/health",(req, res)=>{
+res.send({status: "OK"});
+});
 
-app.get("/health", (req, res)=>{
-    res.send({status:"OK"});
-})
-
-app.listen(port, ()=> console.log("services started", port));
-
+app.listen(port,() => console.log("service started on port: ", port));
