@@ -17,3 +17,19 @@
   justify-content: space-between;
   margin: 120px 180px 120px 180px;
 }
+.footer{
+  background-color: black;
+  height: 50px;
+  width: 60%;
+  align-items: center;
+  margin-left: 20%;
+  border-radius: 10px;
+  line-height: 3;
+  margin-top: 20%;
+
+}
+.footer p{
+  color: white;
+  text-align: center;
+  justify-content: center;
+}

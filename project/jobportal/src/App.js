@@ -8,7 +8,7 @@ import PostAJob from './components/Postajob';
 import Dashbody from './components/Dashboard';
 import Box from './components/box';
 import Footer from './components/footer';
-
+import Appliedjob from './components/AppliedJob';
 
 
 
@@ -18,11 +18,11 @@ function App() {
   return (
     <div >
       <NavBar />
-     <Dashbody />
-     <Box />
-    <Footer />
+     {/* <Dashbody />
+     <Box /> */}
 
-     
+     <Appliedjob />
+    <Footer />
     </div>
     
   ); 

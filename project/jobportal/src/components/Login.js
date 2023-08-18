@@ -1,7 +1,15 @@
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom"
 
 
  function Login() {
+  const navigate = useNavigate();
+  const gotoRegister = () => {
+    navigate("/Register");
+  };
+  const gotoDashboard = () => {
+    navigate("/Dashboard");
+  };
   return (
     <div>
       <Container>

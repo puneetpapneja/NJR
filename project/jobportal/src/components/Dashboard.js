@@ -1,6 +1,6 @@
 import Box from "./box";
 
-function Dashbody(){
+function Dashboard(){
   return(
     <>
     <h1 style={{textAlign:"center"}}>Dashboard</h1>
@@ -13,4 +13,4 @@ function Dashbody(){
     </>
   );
 }
-export  default Dashbody;
+export  default Dashboard;
