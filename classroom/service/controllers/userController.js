@@ -3,9 +3,6 @@ const userModel = require('../models/userModel');
 module.exports = {
     create: (req, res) => {
         //logic/data validation code write here
-<<<<<<< HEAD
-        return userModel.create(req.body, res);
-=======
         return userModel.create(req.body)
         .then((data) => {
             return res.send({status: "ok", msg:"User created successfully.", data: data})
@@ -28,6 +25,5 @@ module.exports = {
         return userModel.update(req.body.id, req.body.fields)
         .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
         .catch((err)=> res.send({status:"fail", errro: err}));
->>>>>>> f6fdee607ee834fb54767274235141ee37b3db11
     }
 }
