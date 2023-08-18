@@ -1,26 +1,31 @@
 import {Button, Form,Container,Row, Col} from 'react-bootstrap';
-import {useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom'
-import { setKey, setSession } from '../utils';
+import {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom'
+import { getSession } from '../utils';
 
 
 export default function Register(){
     const navigate=useNavigate();
     const [validated, setValidated] = useState(false);
+    useEffect(()=> {
+        console.log("dbfnmmbf");
+        if(getSession()){
+            navigate("/");
+        }
+    },[]);
+
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
         }
+        else{
         setValidated(true);
-        if(validated===true){
-            setSession("");
-            navigate("/login");
+        navigate("/login");
         }
     }
     const onclick=()=>{
-        setSession("");
         navigate("/login");
       }
     
@@ -74,7 +79,7 @@ export default function Register(){
             <Form.Control.Feedback type='invalid'>please enter a company name</Form.Control.Feedback>
         </Form.Group>}
         </Row>
-        <Button variant="link" onClick={onclick} >Have an account? Login Now</Button>
+        <Button variant="link" onClick={onclick}>Have an account? Login Now</Button>
         <br/>
         <Container className='text-center'>
         <Button type="submit" variant='dark'>Register</Button>

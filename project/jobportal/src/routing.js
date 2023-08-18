@@ -1,27 +1,37 @@
-import LoginPage from "./Page/LoginPage"
-import Content from "./components/Content"
-import Registerpage from "./Page/RegisterPage"
-import Pagelayout from "../../../project/jobportal/src/components/Pagelayout"
+import Content from "./components/Content";
+import Pagelayout from "./pages/Pagelayout";
+import Postpage from "./pages/Postjobpage";
+import Registerpage from "./pages/Registerpage";
+import LoginPage from "./pages/loginPage";
+import Jobspage from "./pages/Jobspage";
 export const routing = [
     {
-        path: "/Login",
-        element:  <LoginPage />
-    },
-    {
-        path: "/Content",
+        path: "/",
         element :<Content/>
     },
     {
-        path: "/register",
-        element :<Registerpage/>
+        path: "/post_a_job",
+        element:<Postpage/>
     },
-    
-]
-
-export const routes = [
     {
-        path: "/",
-        element: <Pagelayout />,
-        children: routing
-    }
+        path: "/jobs",
+        element:<Jobspage/>
+    },
+    {
+        path: "/login",
+        element :<LoginPage/>
+    },
+    {
+    path: "/register",
+    element :<Registerpage/>
+},
+]
+export const routes=[
+    
+    {
+    path:"/",
+    element:<Pagelayout/>,
+    children:routing
+},
+
 ]
