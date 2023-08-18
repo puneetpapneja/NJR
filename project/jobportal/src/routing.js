@@ -11,7 +11,7 @@ export const routing = [
         element:  <Loginpage />
     },
     {
-        path: "/register",
+        path: "/registerpage",
         element:  <Registerpage />
     },
     {
