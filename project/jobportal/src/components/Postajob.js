@@ -11,27 +11,30 @@ const PostAJob = () => {
   return (
     <>
       <Container>
-        <h1>Post A Job</h1>
         <Row className="justify-content-center" id="Postajob">
           <Col xs={12} md={6}>
+        <h1>Post A Job</h1>
             <Card.Title></Card.Title>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Label>Job Title</Form.Label>
+                <Form.Control type="email" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Label>Job Description</Form.Label>
+                <Form.Control type="password"  />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <label>Don't have account? Register now</label>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Max Salary</Form.Label>
+                <Form.Control type="password"  />
               </Form.Group>
-
-              <Button variant="primary" type="submit">
-                Login
+              
+              <center>
+              <Button variant="dark" >
+                POST
               </Button>
+              </center>
             </Form>
           </Col>
         </Row>

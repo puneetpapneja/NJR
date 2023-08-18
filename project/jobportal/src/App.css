@@ -33,3 +33,7 @@
   text-align: center;
   justify-content: center;
 }
+.fordisplay{
+  display: flex;
+  justify-content: space-between;
+}

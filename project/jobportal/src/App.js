@@ -24,6 +24,7 @@ function App() {
     <Routes>
       <Route path='/' element={<NavBar/>} >
       <Route index element={<Login/>}/>
+      <Route path='/Dashboard' element={<Dashboard/>}/>
       <Route path='/Register' element={<Register/>}/>
       <Route path='/Postajob' element={<PostAJob/>}/>
       <Route path='/Dashboard' element={<Dashboard/>} />
