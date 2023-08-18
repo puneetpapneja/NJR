@@ -4,21 +4,15 @@
   height: 50px;
   text-align: center;
   line-height: 3;
-  /* position:relative;
- top: 20%; */
   border-radius: 10px;
   margin: 0 2% 0 2%;
-
-
 }
+
 .login_page{
   margin: 5%;
   top: 25vh;
 
 }
-
-
-
 .dashbody_css{
   margin-top: 8%;
 }

@@ -6,7 +6,9 @@ const userRoute = require('./routes/userRoute');
 const app = express();
 
 app.use(express.json());
+
 app.use("/user",userRoute);
+
 app.get("/health",(req, res)=>{
 res.send({status: "OK"});
 });

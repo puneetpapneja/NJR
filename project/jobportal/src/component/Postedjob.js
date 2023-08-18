@@ -6,4 +6,4 @@ function Postedjob(){
     ) ;
 }
 
-export default Postedjob;
+export default Postedjob
