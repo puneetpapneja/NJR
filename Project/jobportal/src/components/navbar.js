@@ -19,21 +19,20 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="#" className="nav-link">Home</Nav.Link>
+            <Nav.Link as={Link} to="/Dashboard" className="nav-link">Home</Nav.Link>
             <Nav.Link as={Link} to="/PostJob" className="nav-link">Post a Job</Nav.Link>
             <Nav.Link as={Link} to="/AppliedJobs" className="nav-link">Applied Jobs</Nav.Link>
             <Nav.Link as={Link} to="#posted-jobs" className="nav-link">Posted Jobs</Nav.Link>
           </Nav>
-          <Form inline>
-            <div className="d-flex">
-              <Nav>
-                <Nav.Link as={Link} to="#profile" className="nav-link">
-                  <i className="bi bi-person-circle" style={{ fontSize: '24px' }}></i>
-                </Nav.Link>
-              </Nav>
-              <FormControl type="text" placeholder="Search" className="ml-2 form-control" />
-            </div>
+          <Form inline className="d-flex"> {/* Added d-flex class */}
+            <FormControl type="text" placeholder="Search" className="ml-2 form-control" />
+            {/* Moved the FormControl to the right using "ml-auto" class */}
           </Form>
+          <Nav className="ml-2"> {/* Added ml-2 class */}
+            <Nav.Link as={Link} to="#profile" className="nav-link">
+              <i className="bi bi-person-circle" style={{ fontSize: '24px' }}></i>
+            </Nav.Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

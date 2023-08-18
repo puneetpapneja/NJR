@@ -1,0 +1,46 @@
+/* PostJob.css */
+.post-job-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .post-job-box {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: -10rem;
+  }
+  
+  .post-job-heading {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+  
+  .form-control {
+    font-size: 1.25rem;
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+
+  }
+
+  .label-left{
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .Form-group {
+    margin-bottom: 1.5rem; /* Adjust the margin value as needed */
+  }

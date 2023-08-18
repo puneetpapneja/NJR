@@ -14,4 +14,4 @@ con.on('error', ()=>{
     console.log("ERROR! database connection error" );
 })
 
-module.exports = con
+module.exports = con;

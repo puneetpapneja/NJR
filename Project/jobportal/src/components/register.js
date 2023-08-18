@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./register.css"; // Import your custom CSS file
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [jobSeeker, setJobSeeker] = useState(true);
-  const [company, setCompany] = useState(""); 
+  const [company, setCompany] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,13 +34,13 @@ const Register = () => {
       alert("Please enter your company/organization name.");
       return;
     }
-
   };
 
   return (
-    <Container>
-      <h1 className="text-center">Register</h1>
-      <Form onSubmit={handleSubmit}>
+    <Container className="register-container">
+      <div className="register-box">
+        <h1 className="register-heading">Register</h1>
+        <Form onSubmit={handleSubmit}>
         <Row className="mb-3">
           <Col>
             <Form.Control
@@ -108,9 +110,10 @@ const Register = () => {
           </Col>
         </Row>
       </Form>
-      <p className="text-center">
-        Already have an account? <Link to="/Login">Login</Link>
-      </p>
+        <p className="register-text">
+          Already have an account? <Link to="/Login">Login</Link>
+        </p>
+      </div>
     </Container>
   );
 };
