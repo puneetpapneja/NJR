@@ -2,8 +2,18 @@ import logo from './logo.svg';
 import './App.css';
 import Item, { Shubham } from "./components/Item"
 import Card from './components/Card';
+
 import FormGroupExample from './login';
+
 import RegestrationForm from './components/regestration';
+
+import Dashbord from './components/navbar';
+import BodyBash from './components/bodybash';
+import FooterBash from './components/footer';
+
+import NavbarJob from './components/navbarjob';
+import BodyPost from './components/bodypost';
+import FooterPost from './components/footerpost';
 
 
 // const body = document.getElementById("body");
@@ -60,10 +70,23 @@ function App() {
   return (
     <>
     {/* <Card/> */}
+
       {/* <LoginPage/>
       <FormTextExampl/> */}
-      {/* <FormGroupExample/> */}
-      <RegestrationForm />
+
+       <FormGroupExample/>  
+
+       {/* <RegestrationForm/>   */}
+      
+      {/* <Dashbord/> 
+       <BodyBash/> 
+       <FooterBash/>  */}
+
+{/*      
+       <BodyPost/>
+       <FooterPost/>   */}
+
+
     </>
      
   );
