@@ -76,7 +76,11 @@ margin-right: 3%;
 .whole{
   margin-bottom:200px ;
 }
-.profile{    
+/* .profile{    
   height: 42px;
   width: 28px;
+} */
+
+.profile{
+  margin-left: 30px;
 }
