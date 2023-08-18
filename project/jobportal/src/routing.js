@@ -3,6 +3,8 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import Pagelayout from './components/pagelayout';
+import Jobs from './pages/Jobs';
+import PostJob from './pages/Postjob';
 
 
 export const routing = [
@@ -21,6 +23,14 @@ export const routing = [
     {
         path: "/Dashboard",
         element:  <Dashboard />
+    },
+    {
+        path: "/Jobs",
+        element:  < Jobs />
+    },
+    {
+        path: "/Postjob",
+        element:  < PostJob />
     }
     
    
