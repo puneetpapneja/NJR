@@ -9,6 +9,9 @@ import Dashbody from './components/Dashboard';
 import Box from './components/box';
 import Footer from './components/footer';
 import Appliedjob from './components/AppliedJob';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
+import Dashboard from './components/Dashboard';
 
 
 
@@ -16,15 +19,21 @@ import Appliedjob from './components/AppliedJob';
 
 function App() {
   return (
-    <div >
-      <NavBar />
-     {/* <Dashbody />
-     <Box /> */}
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<NavBar/>} >
+      <Route index element={<Login/>}/>
+      <Route path='/Register' element={<Register/>}/>
+      <Route path='/Postajob' element={<PostAJob/>}/>
+      <Route path='/Dashboard' element={<Dashboard/>} />
+      <Route path='/AppliedJob' element={<Appliedjob/>}/>
+        </Route>
 
-     <Appliedjob />
-    <Footer />
-    </div>
-    
+    </Routes>
+    </BrowserRouter>
+    <Footer/>
+    </>
   ); 
 }
 

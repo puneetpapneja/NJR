@@ -3,11 +3,12 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import {Link,Outlet} from 'react-router-dom';
 
-function NavScrollExample() {
+function NavBar() {
   return (
+    <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand href="#">Logo</Navbar.Brand>
@@ -18,23 +19,10 @@ function NavScrollExample() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Post A Job</Nav.Link>
-            <Nav.Link href="#action2">Applied Job</Nav.Link>
-            <Nav.Link href="#action2">Posted Job</Nav.Link>
-            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown> */}
-            {/* <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link> */}
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/Postajob">Post A Job</Nav.Link>
+            <Nav.Link as={Link} to="/AppliedJob">Applied Job</Nav.Link>
+            <Nav.Link as={Link} to="/PostedJob">Posted Job</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <svg
@@ -67,12 +55,13 @@ function NavScrollExample() {
                 d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
               />
             </svg>
-            {/* <Button variant="outline-success">Search</Button> */}
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    <Outlet/>
+    </>
   );
 }
 
-export default NavScrollExample;
+export default NavBar;

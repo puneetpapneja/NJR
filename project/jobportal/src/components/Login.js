@@ -43,26 +43,15 @@ import { useNavigate } from "react-router-dom"
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
-                          <a className="text-primary" href="#!">
+                          <a className="text-primary" href="#!" onClick={gotoRegister} >
                             Don't have a account? Register Now
                           </a>
                         </p>
                       </Form.Group>
-                      {/* <div className="d-grid" >
-                        <Button variant="primary" type="submit">
-                          Login
-                        </Button>
-                      </div> */}
-                      <Button variant="dark">Login</Button>
+                  
+                      <Button variant="dark" onClick={gotoDashboard} >Login</Button>
                     </Form>
-                    {/* <div className="mt-3">
-                      <p className="mb-0  text-center">
-                        Don't have an account?{" "}
-                        <a href="{''}" className="text-primary fw-bold">
-                          Sign Up
-                        </a>
-                      </p>
-                    </div> */}
+                
                   </div>
                 </div>
               </Card.Body>

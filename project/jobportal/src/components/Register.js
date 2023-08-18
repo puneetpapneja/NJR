@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const navigate = useNavigate();
   const gotoRegister = () => {
-    navigate("/");
+    navigate("/Register");
   };
 
   const gotoDashboard = () => {
@@ -67,26 +67,15 @@ function Register() {
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
-                          <a className="text-primary" href="#!">
+                          <a className="text-primary" href="#!"onClick={gotoRegister }>
                             Have a account ? Login Now
                           </a>
                         </p>
                       </Form.Group>
-                      {/* <div className="d-grid" >
-                        <Button variant="primary" type="submit">
-                          Login
-                        </Button>
-                      </div> */}
-                      <Button variant="dark">Register</Button>
+                    
+                      <Button variant="dark" onClick={gotoDashboard} >Register</Button>
                     </Form>
-                    {/* <div className="mt-3">
-                      <p className="mb-0  text-center">
-                        Don't have an account?{" "}
-                        <a href="{''}" className="text-primary fw-bold">
-                          Sign Up
-                        </a>
-                      </p>
-                    </div> */}
+                  
                   </div>
                 </div>
               </Card.Body>

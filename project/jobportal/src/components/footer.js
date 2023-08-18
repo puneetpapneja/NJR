@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { Outlet } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -8,6 +9,7 @@ const Footer = () => {
       
         <p>TM@2023-Techno India NJR Institute of Technology-All Rights Reserved</p>
       </Container>
+      <Outlet/>
     </footer>
   );
 };
