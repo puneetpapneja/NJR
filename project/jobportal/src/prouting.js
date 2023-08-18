@@ -14,6 +14,7 @@ const prouting = [
     path: "/reg",
     element: <Register />,
   },
+
   {
     path: "/dash",
     element: <Yash />,
