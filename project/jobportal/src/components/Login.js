@@ -9,6 +9,10 @@ export default function Register(){
   const [userType, setUserType] = useState('jobSeeker');
   const [companyName, setCompanyName] = useState('');
   const [error, setError] = useState('');
+   const SwitchTo = () =>{
+        sessionStorage.setItem('alreadyAccount', true);
+        navigate("/");
+    }
       const Handelclick= (event) =>{
         if(!email || !isValidEmail(email))
         {
@@ -26,11 +30,7 @@ export default function Register(){
             navigate("/");
         }
     }
-    const SwitchTo = () =>{
-        setSession("");
-        setKey("Regsitered");
-        navigate("/Register");
-    }
+
     const isValidEmail = (email) => {
     return email.includes('@gmail.com');
   };
@@ -67,7 +67,7 @@ export default function Register(){
           {error && <Alert variant="danger">{error}</Alert>}
           <Row style={{width:"400px",marginLeft:"50px"}}>
           <Col>
-          <Button variant="link" href="/Register" onClick={SwitchTo}>Already have an account? Login Now</Button>
+          <Button variant="link"  onClick={SwitchTo}>Already have an account? Login Now</Button>
           </Col>
           </Row>
           <Row  style={{marginLeft:"70px",marginTop:"10px"}}>
