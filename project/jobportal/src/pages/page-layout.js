@@ -1,13 +1,20 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import Header from "./header"
 import Footer from "./footer";
-import React from 'react';
-import Boxcomponent from "../components/boxcomponent";
+import React, { useEffect } from 'react';
+import { getSession } from "../utils/util";
+
 
 const PageLayout = ()=>{
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(!getSession()){
+            navigate("/");
+        }
+    },[]);
     return (
         <React.Fragment>
-            <Header />
+           {getSession() ? <Header /> : null } 
             <Outlet />
             <Footer />
         </React.Fragment>

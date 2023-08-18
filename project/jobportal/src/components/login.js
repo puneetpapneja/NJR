@@ -1,10 +1,10 @@
-import { Container, Row, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import React from 'react';
-
+import  { setSession } from '../utils/util';
 const Login = () => {
-
+  
   return (
     <Container className="d-flex justify-content-sm-center">
       <Form className="w-25 p-1" >
@@ -26,8 +26,8 @@ const Login = () => {
             </Form.Text>
           </Form.Group>
 
-          <div class=" mx-auto">
-            <Button variant="dark" type="submit" class="btn btn-dark" as={Link} to="/dashboard">
+          <div className=" mx-auto">
+            <Button variant="dark" type="submit" className="btn btn-dark" onClick={() => setSession("authenticate")} as={Link} to="/dashboard">
               Login
             </Button>
           </div>
