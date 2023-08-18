@@ -6,9 +6,9 @@ import PostJob from './components/Postjob.js';
 import Navbar1 from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import React from 'react';
-import Register from './components/Register.js';
 import Dashboardpage from './pages/Dashboardpage.js';
-import appliedjob from './components/appliedjob.js';
+import Job from './components/appliedjob.js';
+
 
 function App() {
   return (  
@@ -21,7 +21,7 @@ function App() {
         <Route exact path='/register' element={<RegisterPage/>}></Route>
         <Route exact path='/dashboard' element={<Dashboardpage/>}></Route>
         <Route exact path='/postjob' element={<PostJob/>}></Route>
-        <Route exact path='/appliedjob' element={<appliedjob/>}></Route>
+        <Route exact path='/appliedjob' element={<Job/>}></Route>
       </Routes>
       <Footer/>
       

@@ -22,8 +22,8 @@ function Navbar1() {
 
             <Nav.Link as={Link} to ={"/dashboard"}>Home</Nav.Link>
               <Nav.Link as={Link} to={"/postjob"}>Postjob</Nav.Link>
-              <Nav.Link href="#applied-jobs">Applied Jobs</Nav.Link>
-              <Nav.Link href="#posted-jobs">Posted Jobs</Nav.Link>
+              <Nav.Link to={"/appliedjob"}>Applied Jobs</Nav.Link>
+              <Nav.Link to={"/appliedjob"}>Posted Jobs</Nav.Link>
              
             </Nav>
             <Form className="d-flex">
