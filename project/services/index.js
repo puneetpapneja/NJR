@@ -1,7 +1,14 @@
 const express = require("express");
+const { port } = require("./config");
+const db = require("./database");
+const userRoute = require("./routes/userRoutes");
 
 const app = express();
 
 app.use(express.json());
-const port = 5000;
-app.listen(() => console.log("hello", port));
+app.use("/user", userRoute);
+app.get("/health", (req, res) => {
+  res.send({ status: "OK" });
+});
+
+app.listen(port, () => console.log("service started on port: ", port));
