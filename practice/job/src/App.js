@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.js';
 import Register from "./components/Register.js";
 import Cards from "./components/cards";
 import Footer from './components/footer';
+import Job from "./components/job";
 import Login from "./components/login.js";
 import PostJob from './components/postjob';
 
@@ -17,6 +18,7 @@ function App() {
        <Route path='/Login' element={<Login />} />
        <Route path='/Register' element={<Register />} />
        <Route exact path='/postjob' element={<PostJob/>}></Route>
+       <Route exact path='/job' element={<Job/>}></Route>
      </Routes>
    </div>
    <Footer />
