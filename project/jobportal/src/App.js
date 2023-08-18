@@ -1,21 +1,23 @@
-// import RegisterPage from './pages/registerpage.js';
-// import LoginPage from './pages/loginpage.js';
-// import Content from './components/Content.js';
-// import Footer from './components/Footer.js';
-// import Navigationbar from "./components/Navigationbar";
+import Registerpage from './pages/Registerpage';
+import './App.css';
+import LoginPage from './pages/loginPage';
+import { Container } from 'react-bootstrap';
+import NavBar from './components/Navbar';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { routes } from './routing';
+import Dashboard from './pages/Pagelayout';
+import React from 'react';
+import Footer from './components/Footer';
+import Content from './components/Content';
 
-import { RouterProvider } from "react-router";
-import { createBrowserRouter } from "react-router-dom";
-import { routing } from "./routes";
 
 function App() {
   return (
-    // <LoginPage/>
-    // <RegisterPage />
-    // <Content/>
-    // <Footer />
-    // <Navigationbar />
-    <RouterProvider router={createBrowserRouter(routing)}></RouterProvider>
-  );
+    
+   <RouterProvider router={createBrowserRouter(routes)}>
+   </RouterProvider>
+   
+   )
 }
+
 export default App;
