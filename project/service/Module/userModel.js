@@ -12,18 +12,13 @@ const userSchema = mongoose.Schema({
 const userCollection = mongoose.model('user', userSchema);
 
 module.exports = {
-    create: (fields, res)=>{
+    create: (fields)=>{
         const user = new userCollection(fields)
-
         return user.save()
+    },
 
-        .then((data) => {
-            return res.send({status: "ok", msg:"User created successfully."})
-        })
-
-        .catch((err) => {
-            return res.send({status: "fail", error: err});
-        })
-    }
+    getALL: () =>  userCollection.find(),
+    deleteById: (Id) => userCollection.deleteOne({_id:Id}),
+    updateUser: (Id,fields) => userCollection.updateOne({_id:Id},fields)
 }
 
