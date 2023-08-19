@@ -16,12 +16,10 @@ const JobCollection = mongoose.model("Job", JobSchema);
 module.exports = {
     create: (fields, res)=>{
         const Job = new JobCollection(fields);
-        return Job.save()
-        .then((data) => {
-            return res.send({status: "ok", msg:"Job created successfully."})
-        })
-        .catch((err)=>{
-            return res.send({status: "fail", error: err});
-        })
+        return Job.save();
+    },
+
+        getAll: ()=> JobCollection.find(),
+       deleteById: (id) => JobCollection.deleteOne({_id: id}),
+    update: (id, fields) => JobCollection.updateOne({_id: id}, fields)
     }
-}
