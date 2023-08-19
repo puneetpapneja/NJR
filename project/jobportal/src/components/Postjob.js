@@ -65,12 +65,12 @@ function Postjob() {
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Job Description</Form.Label>
-                  <Form.Control type="password" placeholder="" />
+                  <Form.Control type="text" placeholder="" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Max Salary</Form.Label>
-                  <Form.Control type="password" placeholder="" />
+                  <Form.Control type="number" placeholder="" />
                 </Form.Group>
 
                 <Button  style={{marginLeft:"250px"}} variant="dark" type="submit">
