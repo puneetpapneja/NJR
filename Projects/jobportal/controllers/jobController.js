@@ -10,9 +10,8 @@ module.exports={
         .catch((err)=>{
             return res.send({status:"fail", error:err});
         });
-    }
-},
-
+    },
+    
 getAll: (req, res)=>{
     return JobModel.getAll()
     .then((allUsers)=> res.send(allUsers))
@@ -30,3 +29,4 @@ update:(req, res)=>{
     .then((updateJob)=> res.send({status:"ok", msg:"job updates successfully", updateJob:updateJob}))
     .catch((err)=> res.send({status:"fail", error:err, code:500}));
 }
+};
