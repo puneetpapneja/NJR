@@ -7,7 +7,7 @@ const formStyle = {
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: "3%",
+    marginTop: "4%",
 };
 
 
@@ -26,7 +26,7 @@ export default function PostJob() {
 
             <Form.Group className="mb-3 col-md-4" controlId="jobDescription">
                 <Form.Label>Job Description</Form.Label>
-                <Form.Control as="textarea" placeholder="Enter job description" rows={4} />
+                <Form.Control as="textarea" placeholder="Enter job description" rows={3} />
             </Form.Group>
 
             <Form.Group className="mb-3 col-md-4" controlId="maxSalary">

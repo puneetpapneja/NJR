@@ -4,15 +4,23 @@ import SignUp from "./components/SignUp";
 import Dashboard from "./pages/dashboard";
 import PostJob from "./pages/post";
 import Apply from "./pages/apply";
+// import Home from "./pages/loginpage"
+import Login from "./components/Login";
 export const routing = [
-  {
-    path: "/signup",
-    element: <SignUp />,
-  },
 
   {
     path: "/",
     element: <Dashboard />,
+  },
+
+{
+  path:"/login",
+  element:<Login />
+},
+
+  {
+    path: "/signup",
+    element: <SignUp />,
   },
 
   {

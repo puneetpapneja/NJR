@@ -16,7 +16,7 @@ export default function AppliedJob() {
     ];
 
     return (
-        <Container className="mt-5" style={{ width:'55vw'}}>
+        <Container className="mt-3" style={{ width:'55vw'}}>
             <h1 className="mb-4">Jobs</h1>
             <Form>
                 <Form.Group controlId="search">
