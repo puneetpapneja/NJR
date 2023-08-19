@@ -1,7 +1,2 @@
 classroom/react/node_modules/
-<<<<<<< HEAD
-classroom/project/service
-=======
-classroom/service/node_modules/
-
->>>>>>> 0b9e28a6cc847e2441e3304926b8441701ca273b
+classroom/project/service/node_modules
