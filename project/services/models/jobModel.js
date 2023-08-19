@@ -17,11 +17,8 @@ module.exports = {
     create: (field,res)=>{
         const job = new jobCollection(field);
         return job.save()
-        .then((data)=>{
-            return res.send({status: "ok", msg:"Job added successfully"})
-        })
-        .catch((err)=>{
-            return res.send({Status: "fail" ,ERROR: err})
-        })
-    }
+    },
+    getall:()=>jobCollection.find(),
+    deleteById:(id)=>jobCollection.deleteOne({_id:id}),
+    update:(id,field)=>jobCollection.updateOne({_id:id,field})
 }
