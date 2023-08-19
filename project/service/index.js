@@ -1,4 +1,3 @@
-// index.js
 const express = require("express");
 const { port } = require("./config");
 const db = require("./database");
