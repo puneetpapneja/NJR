@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Container, Form, FormControl } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllJobs } from '../store/reducers/jobSlice';
+import { getAllJobs, reset } from '../store/reducers/jobSlice';
 
 function Appliedjob() {
   const jobs = useSelector(state => state?.job?.jobs);
@@ -12,6 +12,12 @@ function Appliedjob() {
   useEffect(()=> {
     dispatch(getAllJobs());
   },[])
+
+  useEffect(()=> {
+    return ()=> {
+      dispatch(reset())
+    }
+  })
 
   const renderJobs = () => {
     return jobs.map(job => {
