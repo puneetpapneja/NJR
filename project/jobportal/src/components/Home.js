@@ -1,6 +1,6 @@
 import Dashboard from "./Dashboard";
 
-const Header = () => {
+const Home = () => {
     return (
         <Dashboard />
     )

@@ -14,7 +14,7 @@ function Menu()
     <div className='Menu'>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#" style={{marginLeft : "300px"}}>login</Navbar.Brand>
+        <Navbar.Brand href="#" style={{marginLeft : "300px"}}>logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -23,7 +23,7 @@ function Menu()
             navbarScroll
           ><div style={{marginLeft : "100px",display:"flex"}}>
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Post A Job</Nav.Link>
+            <Nav.Link href="#action2">Post Job</Nav.Link>
            
             <Nav.Link href="#">
               Applied Job

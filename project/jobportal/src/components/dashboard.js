@@ -13,7 +13,7 @@ function Dashboard() {
     <div className='Dashboard'>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#" style={{marginLeft : "300px"}}>login</Navbar.Brand>
+        <Navbar.Brand href="#" style={{marginLeft : "300px"}}>logo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -22,17 +22,7 @@ function Dashboard() {
             navbarScroll
           ><div style={{marginLeft : "100px",display:"flex"}}>
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Post A Job</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="#action2">Post Job</Nav.Link>
             <Nav.Link href="#">
               Applied Job
             </Nav.Link>
