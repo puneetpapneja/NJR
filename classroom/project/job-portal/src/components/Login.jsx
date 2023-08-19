@@ -1,14 +1,20 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-// import { LinkContainer } from "react-router-bootstrap";
-// import { Nav } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { setSession } from "../utils/utils";
+import { setSession, setKey } from "../utils/utils";
+
 export default function Login() {
   const navigate = useNavigate();
+
   const handleClick = () => {
     setSession("bheru");
     navigate("/");
+  };
+
+  const SwitchTo = () => {
+    setSession("");
+    setKey("register");
+    navigate("/Registeration");
   };
 
   return (
@@ -22,7 +28,6 @@ export default function Login() {
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
-
         <Form.Group
           className="mb-4 mx-auto text-center col-md-4"
           controlId="formBasicPassword"
@@ -30,12 +35,7 @@ export default function Login() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        {/* <LinkContainer className="text-center"> */}
-        <Link as={Link} to="/signup">
-          Don't Have An Account? Register Now
-        </Link>
-        {/* </LinkContainer> */}
-
+        Don't Have An Account? <Link onClick={SwitchTo}>Register Now</Link>
         <Form.Group className="text-center">
           <Button
             style={{ backgroundColor: "black", border: "none" }}

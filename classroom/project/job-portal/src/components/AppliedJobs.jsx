@@ -5,13 +5,14 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import jobData from "./resources/jobDetailData.json";
 import CardHeader from "react-bootstrap/esm/CardHeader";
+import InputGroup from "react-bootstrap/InputGroup";
+
 export default function AppliedJobs() {
   return (
     <Form>
       <CardHeader style={{ fontSize: "50px", marginLeft: "8vw" }}>
         Jobs
-      </CardHeader>
-      {/* <SearchBar nameClass="col-md-5" /> */}
+      </CardHeader>{" "}
       {jobData.map((items) => (
         <Card className="col-md-10 mt-5 m-auto">
           <Card.Header

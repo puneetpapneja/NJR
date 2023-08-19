@@ -2,12 +2,17 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
-import { setSession } from "../utils/utils";
+import { setSession, setKey } from "../utils/utils";
 export default function SignUp() {
   const navigate = useNavigate();
   const handleClick = () => {
     setSession("bheru");
     navigate("/");
+  };
+  const SwitchTo = () => {
+    setSession("");
+    setKey("login");
+    navigate("/Login");
   };
   return (
     <div style={{ marginTop: "18vh" }}>
@@ -51,7 +56,7 @@ export default function SignUp() {
               />
             </div>
           ))}
-          <Link as={Link} to="/">
+          <Link as={Link} to="/login" onClick={SwitchTo}>
             Don't Have An Account? Register Now
           </Link>
         </Form.Group>

@@ -2,12 +2,15 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Navigation from "./Navigation";
 import { Col, Container, Row } from "react-bootstrap";
-import { getSession } from "../utils/utils";
+import { getSession, getKey } from "../utils/utils";
 import Login from "./Login";
 import Footer from "./Footer";
+import SignUp from "./SignUp";
+// import SignUp from "./SignUp";
 const PageLayout = () => {
   if (!getSession()) {
-    return <Login />;
+    if (getKey() === "register") return <SignUp />;
+    else return <Login />;
   }
 
   return (
