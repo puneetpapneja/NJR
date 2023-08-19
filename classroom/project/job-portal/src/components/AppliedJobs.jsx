@@ -1,11 +1,11 @@
 import React from "react";
 import { Form } from "react-router-dom";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import jobData from "./resources/jobDetailData.json";
 import CardHeader from "react-bootstrap/esm/CardHeader";
-import InputGroup from "react-bootstrap/InputGroup";
+// import InputGroup from "react-bootstrap/InputGroup";
 
 export default function AppliedJobs() {
   return (

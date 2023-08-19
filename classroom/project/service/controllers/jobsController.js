@@ -1,20 +1,18 @@
 const jobModel = require("../models/jobsModel");
+// const { validationResult } = require('express-validator');
 
 module.exports = {
-  create: (req, res) => {
-    //logic/data validation code write here
-    return jobModel
-      .create(req.body)
-      .then((data) => {
-        return res.send({
-          status: "ok",
-          msg: "job created successfully.",
-          data: data,
-        });
-      })
-      .catch((err) => {
-        return res.send({ status: "fail", error: err });
+  create: async (req, res) => {
+    try {
+      const createdJob = await jobModel.create(req.body);
+      return res.status(201).send({
+        status: "ok",
+        msg: "Job created successfully.",
+        data: createdJob,
       });
+    } catch (error) {
+      return res.status(500).send({ status: "fail", error: error.message });
+    }
   },
   getAll: (req, res) => {
     return jobModel

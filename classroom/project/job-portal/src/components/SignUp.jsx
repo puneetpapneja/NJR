@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
-import { setSession, setKey } from "../utils/utils";
+import { setSession } from "../utils/utils";
 export default function SignUp() {
   const navigate = useNavigate();
   const handleClick = () => {
@@ -10,9 +10,9 @@ export default function SignUp() {
     navigate("/");
   };
   const SwitchTo = () => {
-    setSession("");
-    setKey("login");
-    navigate("/Login");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("key");
+    navigate("/");
   };
   return (
     <div style={{ marginTop: "18vh" }}>

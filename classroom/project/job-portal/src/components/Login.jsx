@@ -12,9 +12,9 @@ export default function Login() {
   };
 
   const SwitchTo = () => {
-    setSession("");
+    sessionStorage.removeItem("token");
     setKey("register");
-    navigate("/Registeration");
+    navigate("/signup");
   };
 
   return (

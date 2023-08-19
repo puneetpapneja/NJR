@@ -9,10 +9,9 @@ import SignUp from "./SignUp";
 // import SignUp from "./SignUp";
 const PageLayout = () => {
   if (!getSession()) {
-    if (getKey() === "register") return <SignUp />;
-    else return <Login />;
+    if (!getKey()) return <Login />;
+    else return <SignUp />;
   }
-
   return (
     <Container fluid>
       <Row>

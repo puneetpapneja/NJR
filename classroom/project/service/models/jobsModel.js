@@ -12,9 +12,14 @@ const jobSchema = mongoose.Schema({
 const jobCollection = mongoose.model("jobs", jobSchema);
 
 module.exports = {
-  create: (fields) => {
-    const job = new jobCollection(fields);
-    return job.save();
+  create: async (fields) => {
+    try {
+      const job = new jobCollection(fields);
+      const createdJob = await job.save();
+      return createdJob;
+    } catch (error) {
+      throw error; // Rethrow the error for higher-level error handling
+    }
   },
   getAll: () => jobCollection.find(),
   deleteById: (id) => jobCollection.deleteOne({ _id: id }),

@@ -16,9 +16,7 @@ module.exports = {
     const user = new userCollection(fields);
     return user.save();
   },
-  getAll: () => {
-    return userCollection.find();
-  },
+  getAll: () => userCollection.find(),
   deleteById: (id) => userCollection.deleteOne({ _id: id }),
   update: (id, fields) => userCollection.updateOne({ _id: id }, fields),
 };

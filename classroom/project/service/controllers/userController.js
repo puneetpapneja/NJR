@@ -2,13 +2,12 @@ const userModel = require("../models/userModel");
 
 module.exports = {
   create: (req, res) => {
-    //logic/data validation code write here
     return userModel
       .create(req.body)
       .then((data) => {
         return res.send({
           status: "ok",
-          msg: "user created successfully.",
+          msg: "User created successfully.",
           data: data,
         });
       })
