@@ -7,11 +7,11 @@ const jobSchema = mongoose.Schema
     description: String,
     maxSalary: String,
     companyName: String,
-    recruiterdtls:[{
+    recruiterDtls:{
         name: String,
         emailId: String,
         contactNo: String
-    }]
+    }
    
     }
 );
