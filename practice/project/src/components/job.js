@@ -1,4 +1,4 @@
-import { Container, Form, InputGroup, Row } from "react-bootstrap"
+import { Container, Form, Row } from "react-bootstrap"
 import { BoxDEs } from "./card"
 const Job = () => {
     return (
