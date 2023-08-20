@@ -22,19 +22,19 @@ function NavScrollExample() {
             {/* <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link> */}
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/log">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/log">
+            <Nav.Link as={Link} to="/postjob">
               Post A Job
             </Nav.Link>
             <Nav.Link as={Link} to="/dash">
               dashboard
             </Nav.Link>
-            <Nav.Link as={Link} to="/action2">
+            <Nav.Link as={Link} to="/appliedjob">
               Applied Job
             </Nav.Link>
-            <Nav.Link as={Link} to="/action2">
+            <Nav.Link as={Link} to="/">
               Posted Job
             </Nav.Link>
           </Nav>

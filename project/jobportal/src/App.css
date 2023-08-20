@@ -20,3 +20,22 @@
     justify-content: space-between;
     margin: 120px 180px 120px 180px;
 }
+
+._footer {
+    background-color: black;
+    color: white;
+    height: 50px;
+    text-align: center;
+    line-height: 3;
+    border-radius: 10px;
+    margin: 0 2% 0 2%;
+}
+
+.dashbody_css {
+    margin-top: 8%;
+}
+
+.dashbody_css h1 {
+    margin-left: 3rem;
+    margin-bottom: 3rem;
+}

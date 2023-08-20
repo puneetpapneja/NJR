@@ -59,7 +59,7 @@ function Register() {
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
-                          <Link className="text-primary" to="/">
+                          <Link className="text-primary" to="/log">
                             Have a account ? Login Now
                           </Link>
                         </p>
@@ -69,6 +69,7 @@ function Register() {
                           Login
                         </Button>
                       </div> */}
+                      <Form></Form>
                       <Button variant="dark">Register</Button>
                     </Form>
                     {/* <div className="mt-3">
