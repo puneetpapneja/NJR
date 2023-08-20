@@ -9,18 +9,22 @@ const jobSchema=mongoose.Schema({
         emailId:String,
         contactNo: String
       }
-})
+});
 
 const jobCollection = mongoose.model("jobs",jobSchema);
 module.exports={
-    create: (fields,res)=>{
+    create: (fields)=>{
           const job = new jobCollection(fields);
           return job.save()
-          .then((data)=>{
-              return res.send({status: "ok", msg: "job posted successfully"})
-          })
-          .catch((err)=>{
-              return res.send({status:"fail", error:err})
-          })
+    },
+    getAll: ()=> jobCollection.find(),
+    deleteById: (id)=>{
+        jobCollection.deleteOne({_id:id});
+    },
+    update: (id,fields)=>{
+        jobCollection.updateOne({_id:id},fields);
+    },
+    getSpecified: (title)=>{
+        return jobCollection.find({job_title:title});
     }
-}
+    }
