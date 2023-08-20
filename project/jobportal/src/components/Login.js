@@ -1,4 +1,4 @@
-import {Form,Button,Container,Row, Alert} from 'react-bootstrap';
+import {Form,Button,Container,Row, Alert, Col} from 'react-bootstrap';
 import { setSession } from '../utils';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -29,7 +29,7 @@ export default function Login(){
     }
     return(
         <Container>
-            <Form>
+            <Form as={Col} sm="12" md="5" className='mx-auto'>
                 <Row>
                     <h1 className='text-center my-5'>Login</h1>
                 </Row>

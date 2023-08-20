@@ -47,7 +47,7 @@ export default function Register(){
     }
     return(
         <Container>
-            <Form>
+            <Form as={Col} md="5" sm="12" className="mx-auto">
                 <Row>
                     <h1 className="text-center my-5">Register</h1>
                 </Row>
