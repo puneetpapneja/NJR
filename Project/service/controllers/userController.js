@@ -41,7 +41,7 @@ module.exports = {
           msg: "User updated successfully.",
           updatedUser: updatedUser,
         })
-      );
-      .catch((err)=> res.send({status:"fail", error: err}));
+      )
+      .catch((err) => res.send({ status: "fail", error: err }));
   },
 };
