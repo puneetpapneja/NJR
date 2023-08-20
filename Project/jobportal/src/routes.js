@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/register";
 import Postjob from "./components/postjob";
 import Navbar from "./components/navbar";
+import Appliedjob from "./components/appliedjob"
 
 export const routes=[
     {
@@ -22,6 +23,10 @@ export const routes=[
     {
         path:"/postjob",
         element: <Postjob/>
+    },
+    {
+        path:"/appliedjob",
+        element: <Appliedjob/>
     }
     
 ]

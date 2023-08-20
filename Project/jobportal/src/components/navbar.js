@@ -25,7 +25,7 @@ function navbar() {
             <Nav.Link href="/">Dashboard</Nav.Link>
             <Nav.Link href="Login">Login</Nav.Link>
             <Nav.Link href="postjob">Post A Job</Nav.Link>
-            <Nav.Link href="#" >
+            <Nav.Link href="appliedjob" >
               Applied job
             </Nav.Link>
             <Nav.Link href="#" >
