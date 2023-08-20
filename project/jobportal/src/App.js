@@ -3,6 +3,8 @@
 // import Content from './components/Content.js';
 // import Footer from './components/Footer.js';
 // import Navigationbar from "./components/Navigationbar";
+// import JobDescStruct from "./components/JobDescriptionStructure";
+// import Jobs from "./components/Jobs";
 
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
@@ -15,6 +17,7 @@ function App() {
     // <Content/>
     // <Footer />
     // <Navigationbar />
+    // <Jobs/>
     <RouterProvider router={createBrowserRouter(routing)}></RouterProvider>
   );
 }

@@ -5,6 +5,7 @@ import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/PageLayout";
 import Post from "./pages/Post";
 import { getSession } from "./utils";
+import Jobs from "./pages/Jobspage";
 export const routes=[
     {
         path:"/",
@@ -13,6 +14,10 @@ export const routes=[
     {
         path:"/postjob",
         element: <Post />
+    },
+    {
+        path:"/applyjob",
+        element: <Jobs />
     }
 ]
 export const route = [
