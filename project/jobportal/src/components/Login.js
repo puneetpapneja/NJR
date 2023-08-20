@@ -1,13 +1,12 @@
 import {Form,Button,Container,Row, Alert, Col} from 'react-bootstrap';
 import { setSession } from '../utils';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 export default function Login(){
     const [email,setEmail]=useState("");
     const [password , setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [emailError,setEmailError]=useState("");
-    const navigate = useNavigate();
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const Handleclick = (event) =>{
@@ -24,7 +23,6 @@ export default function Login(){
         }
         else{
             setSession("logged in");
-            navigate("/");
         }
     }
     return(
@@ -72,7 +70,7 @@ export default function Login(){
                     </Container>
                 </Row>
                 <Row>
-                    <Button type='submit' variant='dark' onClick={Handleclick}>Login</Button>
+                    <Button type='submit' variant='dark' onClick={Handleclick} href='/' >Login</Button>
                 </Row>
             </Form>
         </Container>

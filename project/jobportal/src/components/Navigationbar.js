@@ -10,6 +10,7 @@ export default function Navigationbar(){
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav.Link as={Link} to="/" className="me-5">Home</Nav.Link>
+            {/* <Nav.Link as={Link} to="/applyjob" className="me-5">Job</Nav.Link> */}
             <Nav.Link as={Link} to="/postjob" className="me-5">Post A Job</Nav.Link>
             <Nav.Link as={Link} to="/" className="me-5">Applied Job</Nav.Link>
             <Nav.Link as={Link} to="/" className="me-5">Posted Job</Nav.Link>

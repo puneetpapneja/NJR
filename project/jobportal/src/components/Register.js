@@ -1,5 +1,4 @@
 import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setSession } from "../utils";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function Register(){
@@ -41,8 +40,7 @@ export default function Register(){
         }
         else
         {
-            setSession("Registered");
-            navigate("/Login");
+            navigate("/");
         }
     }
     return(
