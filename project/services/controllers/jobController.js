@@ -1,46 +1,45 @@
-const jobModels = require("../models/jobModels");
-
+const jobModel = require("../models/jobModel");
 module.exports = {
   create: (req, res) => {
-    return jobModels
-      .create(req.body)
-      .then((data) => {
-        return res.send({
+    //logic for validation
+    return jobModel.create(req.body).then((data) => {
+      return res
+        .send({
           status: "ok",
-          msg: "job created successfully.",
+          msg: "Job created successfully.",
           data: data,
+        })
+        .catch((err) => {
+          return res.send({ status: "fail", error: err });
         });
-      })
-      .catch((err) => {
-        return res.send({ status: "fail", error: err });
-      });
+    });
   },
   getAll: (req, res) => {
-    return jobModels
-      .getAll(req.body)
-      .then((alljobs) => res.send(alljobs))
+    return jobModel
+      .getAll()
+      .then((allJobs) => res.send(allJobs))
       .catch((err) => res.send({ status: "fail", error: err, code: 500 }));
   },
   deleteById: (req, res) => {
-    return jobModels
+    return jobModel
       .deleteById(req.body.id)
-      .then((deletedjob) =>
+      .then((deletedJob) =>
         res.send({
           status: "OK",
-          msg: "job deleted successfully.",
-          deletedjob: deletedjob,
+          msg: "Job deleted successfully.",
+          deletedJob: deletedJob,
         })
       )
       .catch((err) => res.send({ status: "fail", errro: err }));
   },
   update: (req, res) => {
-    return userModel
+    return jobModel
       .update(req.body.id, req.body.fields)
-      .then((updatedjob) =>
+      .then((updatedJob) =>
         res.send({
           status: "OK",
-          msg: "jobs updated successfully.",
-          updatedjob: updatedjob,
+          msg: "Job updated successfully.",
+          updatedJob: updatedJob,
         })
       )
       .catch((err) => res.send({ status: "fail", errro: err }));
