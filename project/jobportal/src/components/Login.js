@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 function Login() {
   return (
     <div>
@@ -51,9 +52,7 @@ function Login() {
                   <div className="mt-3">
                     <p className="mb-0  text-center">
                       Don't have an account?{" "}
-                      <a href="{''}" className="text-primary fw-bold">
-                        Sign Up
-                      </a>
+                      <Link to="/Register">Sign up</Link>
                     </p>
                   </div>
                 </div>

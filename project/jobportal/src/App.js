@@ -1,16 +1,31 @@
-import { Routes,Route, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import logo from './logo.svg';
+import { BrowserRouter , Routes,Route } from 'react-router-dom';
+import { React } from 'react';
 import './App.css';
 import Login from './components/Login';
 import Resgister from './components/Register';
 import Dashboard from './components/Dashboard';
 import AppliedJob from './components/AppliedJob';
-// import PostJob from './components/PostJob';
-
+import Register from './components/Register';
+import NavBarcomponent from './components/NavBarcomponent';
+import Footer from './components/Footer';
+import PostJob from './components/PostJob';
 
 function App() {
   return (
-    <Dashboard />
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<NavBarcomponent />} >
+      <Route path='/login' element={<Login/>}/>
+      <Route path='/Dashboard' element={<Dashboard/>}/>
+      <Route path='/Register' element={<Register/>}/>
+      <Route path='/Dashboard' element={<Dashboard/>} />
+      <Route path='/appliedjob' element={<AppliedJob/>}/>
+      <Route path='/postjob' element={<PostJob/>}/>
+      </Route>
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
