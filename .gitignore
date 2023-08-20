@@ -3,5 +3,15 @@ classroom/react/node_modules/
 classroom/service/node_modules/
 
 =======
+<<<<<<< HEAD
 practice/node_modules/
 >>>>>>> f761b275 (	modified:   .gitignore)
+=======
+project/jobportal/node_modules/ 
+practice/node_modules/
+<<<<<<< HEAD
+>>>>>>> 61f5fa105 (	modified:   .gitignore)
+=======
+project/service/node_modules
+>>>>>>> 315606d3e (	modified:   .gitignore)
+>>>>>>> 16ccba55 (	new file:   .DS_Store)
