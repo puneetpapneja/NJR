@@ -1,6 +1,6 @@
-import Jobs from '../components/Jobs'
+import AppliedJob from '../components/AppliedJob'
 export default function Jobspage(){
     return(
-        <Jobs/>
+        <AppliedJob/>
     )
 }

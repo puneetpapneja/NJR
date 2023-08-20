@@ -1,36 +1,36 @@
 import Content from "./components/Content";
-import Pagelayout from "./pages/Pagelayout";
-import Postpage from "./pages/Postjobpage";
-import Registerpage from "./pages/Registerpage";
-import LoginPage from "./pages/loginPage";
-import Jobspage from "./pages/Jobspage";
+import DashBoardPage from "./Page/DashBoardPage";
+import Postjobpage from "./Page/Postjobpage";
+import RegisterPage from "./Page/RegisterPage";
+import LoginPage from "./Page/LoginPage";
+import Jobspage from "./Page/Jobspage";
 export const routing = [
     {
         path: "/",
         element :<Content/>
     },
     {
-        path: "/post_a_job",
-        element:<Postpage/>
+        path: "/Postjobpage",
+        element:<Postjobpage/>
     },
     {
-        path: "/jobs",
+        path: "/jobspage",
         element:<Jobspage/>
     },
     {
-        path: "/login",
+        path: "/LoginPage",
         element :<LoginPage/>
     },
     {
     path: "/register",
-    element :<Registerpage/>
+    element :<RegisterPage/>
 },
 ]
 export const routes=[
     
     {
     path:"/",
-    element:<Pagelayout/>,
+    element:<DashBoardPage/>,
     children:routing
 },
 

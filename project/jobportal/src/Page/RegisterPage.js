@@ -1,6 +1,6 @@
 import Register from "../components/Register";
 
 
-export default function Registerpage(){
+export default function RegisterPage(){
     return <Register/>
 }

@@ -1,6 +1,6 @@
 import {Container,Row,Form,Button} from "react-bootstrap";
 import { useState } from "react";
-export default function Post(){
+export default function PostJob(){
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event) => {
         const form = event.currentTarget;

@@ -1,12 +1,12 @@
 
-import Registerpage from './pages/Registerpage';
+import RegisterPage from './Page/RegisterPage';
 import './App.css';
-import LoginPage from './pages/loginPage';
+import LoginPage from './Page/LoginPage';
 import { Container } from 'react-bootstrap';
-import NavBar from './components/Navbar';
+import NavBar from './components/NavBar';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './routing';
-import Dashboard from './pages/Pagelayout';
+import DashBoardPage from './Page/DashBoardPage';
 import React from 'react';
 import Footer from './components/Footer';
 import Content from './components/Content';
