@@ -24,7 +24,7 @@ module.exports = {
       .getALL()
 
       .then((users) => {
-        return res.send({ status: "ok" }, users);
+        return res.send(users);
       })
 
       .catch((err) => {
