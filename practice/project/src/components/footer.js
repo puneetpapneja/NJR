@@ -4,12 +4,15 @@ import "../index.css";
 
 function Footer() {
     return (
-        <footer>
-            <div className='footer'>
-                <div className='footertext'>TM-Techno India NJR Institite of Techology -All Rights Reserved</div>
+        <>
+            <div className="foot">
+                <footer>
+                    <div className='footer'>
+                        <div className='footertext'>TM-Techno India NJR Institite of Techology -All Rights Reserved</div>
+                    </div>
+                </footer>
             </div>
-        </footer>
-
+        </>
     );
 }
 
