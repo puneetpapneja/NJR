@@ -5,33 +5,18 @@ import RegisterPage from "./Page/RegisterPage";
 import LoginPage from "./Page/LoginPage";
 import Jobspage from "./Page/Jobspage";
 export const routing = [
-    {
-        path: "/",
-        element :<Content/>
-    },
-    {
-        path: "/Postjobpage",
-        element:<Postjobpage/>
-    },
-    {
-        path: "/jobspage",
-        element:<Jobspage/>
-    },
-    {
-        path: "/LoginPage",
-        element :<LoginPage/>
-    },
-    {
-    path: "/register",
-    element :<RegisterPage/>
-},
-]
+    { path: "/", element: <Content /> },
+    { path: "/login", element: <LoginPage /> },
+    { path: "/Register", element: <RegisterPage /> },
+    { path: "/Postjob", element: <Postjobpage /> },
+    { path: "/AppliedJob", element: <Jobspage /> },
+  ];
 export const routes=[
     
     {
-    path:"/",
-    element:<DashBoardPage/>,
-    children:routing
+    path: "/",
+    element: <DashBoardPage/>,
+    children: routing
 },
 
-]
+];
