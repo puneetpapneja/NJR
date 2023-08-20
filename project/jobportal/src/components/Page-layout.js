@@ -3,17 +3,18 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Outlet } from "react-router";
 import Footer from "./footer";
-import { getKey, getSession } from "../utils";
+import { getKey, getSession } from "../utils/utils";
 import LoginPage from '../pages/Loginpage';
 import RegisterPage from "../pages/registerpage";
 export default function Pagelayout(){
+    //console.log(getSession());
     if(!getSession())
     {
-        if(getKey()=="login")
-        return(<LoginPage />);
+        if(!getKey())
+        return(<LoginPage/>);
         else
-        return(<RegisterPage />);
-    }
+        return(<RegisterPage/>);
+}
     else
     {
              return(
