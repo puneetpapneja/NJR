@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 app.use("/user",userRoute);
-app.use("/job",jobRoute);
+app.use("/job",jobRoute)
 app.get("/health",(req, res)=>{
 res.send({status: "OK"});
 });
