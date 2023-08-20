@@ -1,6 +1,6 @@
 import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setKey, setSession } from "../utils";
-import { useNavigate } from "react-router-dom";
+import { setSession } from "../utils";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function Register(){
     const navigate = useNavigate();
@@ -44,11 +44,6 @@ export default function Register(){
             setSession("Registered");
             navigate("/Login");
         }
-    }
-    const SwitchTo = () =>{
-        setSession("");
-        setKey("login");
-        navigate("/Login");
     }
     return(
         <Container>
@@ -147,7 +142,7 @@ export default function Register(){
                 </Row>
                 <Row>
                     <Container className="float-start mb-5 mt-3">
-                        <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
+                        <Button variant="link"as={Link} to="/">Already have an account? Login Now</Button>
                     </Container>
                 </Row>
                 <Row>

@@ -3,16 +3,13 @@ import { Container } from "react-bootstrap";
 import Navigationbar from "./Navigationbar";
 import { Outlet } from "react-router";
 import Footer from "./Footer";
-import { getKey, getSession } from "../utils";
-import LoginPage from "../pages/loginpage";
-import RegisterPage from "../pages/registerpage";
+import { getSession } from "../utils";
 export default function Pagelayout(){
     if(!getSession())
     {
-        if(getKey()==="register")
-        return(<RegisterPage />);
-        else
-        return(<LoginPage />);
+        return(
+            <Outlet/>
+        );
     }
     else
     {
