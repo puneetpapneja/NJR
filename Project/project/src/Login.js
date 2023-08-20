@@ -5,9 +5,8 @@ const Loginpg = () => {
     const navigate = useNavigate();
 
     const handleLogin = (event) => {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
-        // ... your login logic ...
 
         navigate("/dashboard");
     }

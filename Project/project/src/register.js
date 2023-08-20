@@ -1,11 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, Navigate, useNavigate } from "react-router-dom";
 const Register=()=>{
+    const navigate = useNavigate();
+    const handlereg=()=>{
+        navigate("/dashboard");  
+    }
     return(
         <div className="container mt-5" style={ {backgroundColor: 'grey'} }>
             <h1 className="mb-4">Registor</h1>
 
-            <form>
+            <form onSubmit={handlereg}>
                 <div className="form-group">
                     <label htmlFor="email">Email Address</label>
                     <input type="email" className="form-control" id="email" placeholder="Enter email" />
