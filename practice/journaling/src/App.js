@@ -11,9 +11,10 @@ import Dashbord from './components/navbar';
 import BodyBash from './components/bodybash';
 import FooterBash from './components/footer';
 
-import NavbarJob from './components/navbarjob';
 import BodyPost from './components/bodypost';
 import FooterPost from './components/footerpost';
+
+import Jobs from './components/jobsbody';
 
 
 // const body = document.getElementById("body");
@@ -74,17 +75,19 @@ function App() {
       {/* <LoginPage/>
       <FormTextExampl/> */}
 
-       <FormGroupExample/>  
+       {/* <FormGroupExample/>   */}
 
        {/* <RegestrationForm/>   */}
-      
-      {/* <Dashbord/> 
+{/*       
+      <Dashbord/> 
        <BodyBash/> 
        <FooterBash/>  */}
 
-{/*      
-       <BodyPost/>
-       <FooterPost/>   */}
+      {/* <Dashbord/> 
+      <BodyPost/>
+      <FooterPost/>   */}
+
+      <Jobs/> 
 
 
     </>

@@ -29,7 +29,7 @@ function BodyPost () {
                 </Row>
                 <Row className='text-center '>
                     <Form.Group className="mb-3">
-                        <Button variant="dark" type="submit" size="lg">Login</Button>
+                        <Button variant="dark" type="submit" size="lg">Post</Button>
                     </Form.Group>
                 </Row>
             </Form>

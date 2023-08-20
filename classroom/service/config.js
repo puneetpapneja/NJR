@@ -1,5 +1,6 @@
 const PORT = 5000;
-
-module.export = {
-    port: PORT
-}
+module.exports = {
+    // const PORT = 5000;
+    module.exports  = {
+        port: PORT
+}}
