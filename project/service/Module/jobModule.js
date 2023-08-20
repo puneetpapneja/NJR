@@ -14,6 +14,8 @@ const jobSchema = mongoose.Schema({
 
 const jobCollection = mongoose.model("jobs",jobSchema)
 
+
+// check
 module.exports = {
     create:(fields, res) => {
         const job = new jobCollection(fields)
