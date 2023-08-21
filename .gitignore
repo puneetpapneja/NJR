@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 classroom/react/node_modules/
 practice/job/node_modules/
 NJR/service/node_modules/
 jobportal/node_modules/
 project/jobportal/node_modules
 project/service/node_modules
+=======
+<<<<<<< HEAD
+classroom/react/node_modules/git 
+practice/reactapp/node_modules/
+project/jobportale/node_modules/
+project/service/node_modules/
+=======
+classroom/react/node_modules/
+classroom/service/node_modules/
+
+
+>>>>>>> 082d8a31e5f9aef9abb19d82b130755110c8d40b

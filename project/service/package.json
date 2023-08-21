@@ -4,11 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2"
+=======
+    "start": "nodemon index.js"
+  },
+  "author": "shoaib",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3",
+    "nodemon": "^3.0.1"
+>>>>>>> 082d8a31e5f9aef9abb19d82b130755110c8d40b
   }
 }

@@ -1,0 +1,39 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-image: linear-gradient(45deg,#000000ae 40%,rgba(8, 7, 7, 0.625));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main{
+    height: 85%;
+    width: 90%;
+    box-shadow: 1px 2px 9px;
+    border-color: aqua;
+    background-image: linear-gradient(45deg,grey,lightgrey);
+    overflow: hidden;
+    display: flex;
+}
+.imagecontainer {
+    animation: move 5s none 10s infinite ;
+}
+.imagecontainer img{
+    height: 100%;
+}
+@keyframes move {
+    0%{
+        margin-left: 0%;
+    }
+    100%{
+        margin-left: 100%;
+    }
+    
+}
