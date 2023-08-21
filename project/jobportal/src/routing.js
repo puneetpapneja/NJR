@@ -6,6 +6,9 @@ import Jobs from './pages/Jobs';
 import NavBarComponent from './components/navbar';
 import PostJob from './pages/Postjob';
 import PageLayout from './components/pagelayout';
+import AppliedJobsPage from './pages/AppliedJobsPage';
+import ProfilePage from './pages/ProfilePage';
+import PostedJobsPage from './pages/PostedJobsPage';
 
 export const routing = [
     {
@@ -26,13 +29,24 @@ export const routing = [
     },
     {
         path: "/Jobs",
-        element:  < Jobs />
+        element:  <Jobs />
     },
     {
         path: "/Postjob",
-        element:  < PostJob />
+        element:  <PostJob />
+    },
+    {
+        path: "/AppliedJobsPage",
+        element:  <AppliedJobsPage />
+    },
+    {
+        path: "/ProfilePage",
+        element:  <ProfilePage />
+    },
+    {
+        path: "/PostedJobsPage",
+        element:  <PostedJobsPage />
     }
-   
 ]
 
 export const routes = [
@@ -42,5 +56,3 @@ export const routes = [
         children: routing
     }
 ]
-
-
