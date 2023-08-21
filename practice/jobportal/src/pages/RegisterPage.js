@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button,Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const RegisterPage = () => {
-  const [selectedRole, setSelectedRole] = useState(''); 
+  const [selectedRole, setSelectedRole] = useState('');
   const [showCompany, setShowCompany] = useState(false);
 
   const handleRoleChange = (event) => {
@@ -29,7 +29,7 @@ const RegisterPage = () => {
             <br />
           </Form.Group>
 
-          
+
           {['Job Seeker', 'Job Recruiter'].map((role) => (
             <Form.Check
               key={role}
@@ -51,10 +51,10 @@ const RegisterPage = () => {
           )}
           <br></br>
           <Button variant="link">
-            Have an account? <Link to="/LoginPage">Log in</Link>
+          <Link to="/LoginPage">Have an account?Log in</Link>
           </Button>
           <Button variant="dark" type="submit" className="w-100">
-            <Link to="/LoginPage">Register</Link>
+            <Nav.Link as={Link} to="/LoginPage">Register</Nav.Link>
           </Button>
         </Form>
       </div>

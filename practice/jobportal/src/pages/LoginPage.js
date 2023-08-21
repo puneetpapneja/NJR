@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button,Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom'; 
 
 const LoginPage = () => {
@@ -22,7 +22,7 @@ const LoginPage = () => {
           </Form.Group>
 
           <Button variant="dark" type="submit" className="w-100">
-            <Link to="/Dashboard">Login</Link>
+            <Nav.Link as={Link} to="/Dashboard">Login</Nav.Link>
           </Button>
         </Form>
 
