@@ -6,6 +6,8 @@ import Pagelayout from "./components/PageLayout";
 import Post from "./pages/Post";
 import { getSession } from "./utils";
 import Jobs from "./pages/Jobspage";
+import PostedJobs from "./pages/Postedpage";
+import Appliedjob from "./pages/Appliedjobspage";
 export const routes=[
     {
         path:"/",
@@ -18,6 +20,14 @@ export const routes=[
     {
         path:"/applyjob",
         element: <Jobs />
+    },
+    {
+        path:"/postedjob",
+        element:<PostedJobs/>
+    },
+    {
+        path:"/appliedjob",
+        element:<Appliedjob/>
     }
 ]
 export const route = [

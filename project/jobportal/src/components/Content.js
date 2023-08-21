@@ -5,9 +5,8 @@ export default function Content(){
     return(
         <Container>
             <Row>
-                <Col md="2"></Col>
-                <Col xs="12"md="8">
-                    <h1 style={{fontSize:"4em"}}>Dashboard</h1>
+                <Col xs="12"md="8" className="my-3 ms-5">
+                    <h1 style={{fontSize:"3em"}}>Dashboard</h1>
                 </Col>
             </Row>
             <Row>

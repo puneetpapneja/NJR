@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 export default function JobDescStruct (props){
     return(
         <Container as={Col} xs="10" md="8" className="bg-tertiary border pb-2">
-            <Row className="bg-secondary">
+            <Row className="bg-secondary-subtle">
                 <Col className="fs-4">{props.title}</Col>
                 <Col className="float-end me-5" md="2">
                     <Row>

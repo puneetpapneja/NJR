@@ -5,6 +5,8 @@
 // import Navigationbar from "./components/Navigationbar";
 // import JobDescStruct from "./components/JobDescriptionStructure";
 // import Jobs from "./components/Jobs";
+// import PostedJobs from "./pages/Postedpage";
+// import Appliedjobs from "./components/Appliedjobs";
 
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
@@ -18,6 +20,8 @@ function App() {
     // <Footer />
     // <Navigationbar />
     // <Jobs/>
+    // <PostedJobs />
+    // <Appliedjobs/>
     <RouterProvider router={createBrowserRouter(routing)}></RouterProvider>
   );
 }

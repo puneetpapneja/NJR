@@ -5,7 +5,7 @@ export default  function Jobs(){
     return(
       <Container className="my-3">
             <Row className="ms-5">
-                <h1 style={{fontSize:"4em"}}>Jobs</h1>
+                <h1 style={{fontSize:"3em"}}>Jobs</h1>
             </Row>
             <Row className="mt-3">
                 <JobDescStruct title="Software engineer" description="lorem ipsum set amet dolores" salary="12,12,123" />
