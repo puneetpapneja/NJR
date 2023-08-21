@@ -1,14 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './Register.css';
-import Navbar3 from "./navbar";
+
 
 function Register() {
   return (
     <>
-    <div>
-      <Navbar3 />
-    </div>
+    
     <Form className="form">
      <h1>Register Page</h1>
       <Form.Group className="mb-3" controlId="formBasicEmail">

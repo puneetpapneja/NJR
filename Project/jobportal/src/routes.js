@@ -4,8 +4,10 @@ import Dashboard from "./components/dashboard"
 import Login from "./components/Login";
 import Register from "./components/register";
 import Postjob from "./components/postjob";
-import Navbar from "./components/navbar";
-import Appliedjob from "./components/appliedjob"
+
+import Appliedjob from "./components/appliedjob";
+import Pagelayout from "./components/pagelayout";
+import Postedjob from './components/postedjob';
 
 export const routes=[
     {
@@ -27,15 +29,19 @@ export const routes=[
     {
         path:"/appliedjob",
         element: <Appliedjob/>
+    },
+    {
+        path: "/postedjob",
+        element: <Postedjob/>
     }
     
 ]
 
 
-export const routing =[
+export const routing = [
     {
         path:"/",
-        element:<Navbar />,
+        element:<Pagelayout/>,
         children: routes
     }
 ]

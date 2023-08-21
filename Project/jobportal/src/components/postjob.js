@@ -2,13 +2,13 @@ import { Container, Row, Form, Button, Alert, Navbar } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import React from 'react';
-import Navbar2 from "./navbar";
+
 
 const Postjob = () => {
 
   return (
     <div className='navbar'>  
-    <Navbar2 />
+    
     <Container className="d-flex justify-content-sm-center">
       <Form className="w-25 p-1" >
         <div className="shadow-sm p-3 mb-5 bg-white rounded">

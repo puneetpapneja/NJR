@@ -28,7 +28,7 @@ function navbar() {
             <Nav.Link href="appliedjob" >
               Applied job
             </Nav.Link>
-            <Nav.Link href="#" >
+            <Nav.Link href="postedjob" >
               Posted job
             </Nav.Link>
           </Nav>

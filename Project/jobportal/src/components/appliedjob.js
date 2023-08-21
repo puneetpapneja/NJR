@@ -1,7 +1,7 @@
 import React from "react";
 import { Container,Row, Col } from "react-bootstrap";
 import { Form, Button, Card } from "react-bootstrap";
-import Navbar4 from "./navbar";
+
 
 function Jobs () {
     return(
@@ -9,7 +9,7 @@ function Jobs () {
 
         
         <Container>
-        <Navbar4 />
+       
             <Row>
                 <h1>Jobs</h1>
             </Row> 
