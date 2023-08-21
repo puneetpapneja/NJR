@@ -1,0 +1,12 @@
+div > h1{
+    margin: 0 20%;
+    text-align: start;
+}
+#searchbar{
+    display: flex;
+    align-items: center;
+    margin: 0 20%;
+    border: 2px solid gray;
+    padding: 0 0 0 10px;
+    border-radius: 10px;
+}
