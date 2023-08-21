@@ -17,11 +17,11 @@ export default function Pagelayout(){
     else
     {
              return(
-                <Container fluid className="px-0 mx-0">
+            <Container fluid className="px-0 mx-0">
                 <Navigationbar />
                 <Outlet />
                 <Footer />
-            </Container> 
+            </Container>
         );
     }
 }

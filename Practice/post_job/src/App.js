@@ -1,4 +1,4 @@
-// import RegisterPage from './pages/registerpage.js';
+ import RegisterPage from './pages/registerpage.js';
 // import LoginPage from './pages/loginpage.js';
 // import Content from './components/Content.js';
 // import Footer from './components/Footer.js';
