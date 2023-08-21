@@ -1,9 +1,9 @@
 import React from 'react';
-import PostaJob from '../components/postaJob';
+import postaJob from '../components/postaJob';
 
 const PostJob=()=>{
     return(
-    <PostaJob></PostaJob>
+    <postaJob></postaJob>
     );
 }
 

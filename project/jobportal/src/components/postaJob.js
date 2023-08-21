@@ -1,13 +1,31 @@
 import React, { useState } from 'react';
 import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
-export default function PostaJob(){
+export default function PostJob(){
+    const [JobTitle,setJobTitle]=useState("");
+    const [JobTitleError,setJobTitleError]=useState("");
+    const [JobDescription,setJobDescription]=useState("");
+    const [JobDescriptionError,setJobDescriptionError]=useState("");
+    const Handleclick = (event)=>{
+        if(!JobTitle)
+        {
+            event.preventDefault();
+            setJobTitleError("*required");
+            return;
+        }
+        if(!JobDescription)
+        {
+            event.preventDefault();
+            setJobDescriptionError("*required");
+            return;
+        }
+    }
     return(
         <Container fluid>
             <Form>
                 <Row>
                     <Col lg="1"></Col>
-                    <Col lg="3">
-                        <h1 className='my-3'>Post Job</h1>
+                    <Col lg="10">
+                        <h1 style={{textAlign:"center"}}>Post Job</h1>
                     </Col>
                 </Row>
                 <Row>
@@ -17,9 +35,15 @@ export default function PostaJob(){
                             <Form.Label className='my-3' >Job Title</Form.Label>
                             <Form.Control 
                                 type='text'
-                                
+                                value={JobTitle}
+                                onChange={
+                                    (e)=>{
+                                        setJobTitle(e.target.value);
+                                        setJobTitleError("");
+                                    }
+                                } 
                             />
-                           
+                            {JobTitleError && <Alert variant='danger'>{JobTitleError}</Alert>}
                         </Form.Group>
                     </Col>
                 </Row>
@@ -31,9 +55,15 @@ export default function PostaJob(){
                         <Form.Control 
                             as='textarea'
                             rows={2}
-                            
+                            value={JobDescription}
+                            onChange={
+                                (e)=>{
+                                    setJobDescription(e.target.value);
+                                    setJobDescriptionError("");
+                                }
+                            } 
                         />
-                       
+                        {JobDescriptionError && <Alert variant='danger'>{JobDescriptionError}</Alert>}
                     </Form.Group>
                     </Col>
                 </Row>
@@ -49,7 +79,7 @@ export default function PostaJob(){
                 <Row className='mb-5'>
                     <Col lg="5"></Col>
                     <Col>
-                        <Button variant='dark' type='Submit' className='my-5 px-5 fs-5' >Post</Button>
+                        <Button variant='dark' type='Submit' className='my-5 px-5 fs-5' onClick={Handleclick}>Post</Button>
                     </Col>
                 </Row>
             </Form>
