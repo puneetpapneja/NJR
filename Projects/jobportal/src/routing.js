@@ -16,12 +16,16 @@ export const routing = [
     {
         path: "/Postedjobs",
         element:  <Postedjobs />
+    },
+    {
+        path: "/",
+        element:  <Login />
     }
 ]
 
 export const routes = [
     {
-        path: "/login",
+        path: "/",
         element: <PageLayout />,
         children: routing
     }
