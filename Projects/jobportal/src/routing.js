@@ -4,18 +4,25 @@ import LoginPage from "./pages/loginpage";
 import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/Page-layout";
 import Post from "./pages/Post";
-import Applied from "./components/Appliedjob";
+import Applied from './pages/Appliedjob';
+import Appliedjob from './pages/Appliedjob2';
+import Posted from './pages/Postedajob';
+import Profile from './pages/Profile';
 export const routes=[
     {
         path:"/",
         element: <Dashboard />        
     },
     {
-        path:"/Login",
+        path:"/login",
         element: <LoginPage />
     },
     {
-        path:"/Registeration",
+        path:"/Job",
+        element: <Applied />
+    },
+    {
+        path:"/register",
         element: <RegisterPage />
     },
     {
@@ -24,7 +31,15 @@ export const routes=[
     },
     {
         path:"/AppliedJob",
-        element: <Applied />
+        element: <Appliedjob/>
+    },
+    {
+        path:"/Posted",
+        element: <Posted/>
+    },
+    {
+        path:"/Profile",
+        element: <Profile/>
     }
 ]
 export const routing =[
