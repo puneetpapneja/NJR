@@ -1,6 +1,4 @@
 import { Container } from "react-bootstrap";
-import Accordion from "react-bootstrap/Accordion";
-import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Row, Col } from "react-bootstrap";
 export default function AppliedJob() {
