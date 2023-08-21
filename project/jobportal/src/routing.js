@@ -4,6 +4,10 @@ import Registerpage from './pages/registerpage';
 import PageLayout from './pages/page-layout';
 import Boxcomponent from "./components/boxcomponent";
 import Postpage from './pages/postpage';
+import Appliedjob from './pages/appliedjobpage'
+import Profile from './pages/profilepage';
+import Postedjobpage from './pages/postedjobpage';
+import Joblistpage from './pages/joblistpage';
 
 export const routing = [
     {
@@ -21,7 +25,24 @@ export const routing = [
     {
         path: "/postjob",
         element: <Postpage />,
+    },
+    {
+        path: "/appliedjob",
+        element:<Appliedjob />
+    },
+    {
+        path:"/profile",
+        element:<Profile />
+    },
+    {
+        path:"/postedjob",
+        element:<Postedjobpage />
+    },
+    {
+        path:"/joblist",
+        element:<Joblistpage />
     }
+
 
 ]
 
