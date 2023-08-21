@@ -3,18 +3,14 @@ import { Outlet } from "react-router-dom";
 import Navigation from "./navbar";
 import { Col, Container, Row } from "react-bootstrap";
 import { getSession } from "../utils";
-import Login from "./Login";
-import Footer from "./footer";
-// import SignUp from "./SignUp";
-
 // import Login from "./Login";
-// import Everything from "./Everything";
+import Footer from "./footer";
+import LoginPage from "../pages/loginpage";
 
 const PageLayout = () => {
-  if(!getSession())
-  if (!getSession()) {
-    return <Login />;
-  }
+  // if (!getSession()) {
+  //   return <LoginPage />;
+  // }
 
   return (
     <Container fluid>

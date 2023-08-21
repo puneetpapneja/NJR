@@ -1,14 +1,22 @@
 // import Button from 'react-bootstrap/Button';
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Dropdown from 'react-bootstrap/Dropdown'
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Navigation() {
+    // const [setLoggedOut] = useState(false); // State to track login status
+
+    // const handleLogout = () => {
+    // Implement your logout logic here
+    // For example, clear any user session, update state, etc.
+    //     setLoggedOut(false);
+    // };
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -20,10 +28,12 @@ function Navigation() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link to="/dashboard" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link>
+                        <Link to="/" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link>
+                        <Link to="/jobs" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Jobs</Link>
                         <Link to="/postjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Post a Job</Link>
                         <Link to="/appliedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Applied Job</Link>
-                        <Link to="/" className="me-4" style={{ color: 'black', textDecoration: 'none' }}> Posted Job</Link>
+                        <Link to="/postedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Posted Job</Link>
+                        <Link to="/developers" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Developers</Link>
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
@@ -31,9 +41,31 @@ function Navigation() {
                             placeholder="Search"
                             className=" me-3 "
                             aria-label="Search"
+
                         />
+
                     </Form>
-                    <i class="bi bi-person-circle" style={{ fontSize: '27px', marginTop: 'auto', marginBottom: 'auto' }}></i>
+                    {/* <Link to='/profile'>
+                        <i className='bi bi-person-circle' style={{ fontSize: '27px', marginTop: 'auto', marginBottom: 'auto' , color:'black'}}></i>
+                    </Link> */}
+                    <Dropdown>
+                        <Dropdown.Toggle variant='primary' id='dropdown-icon' style={{ border: 'none', backgroundColor: 'transparent', color: 'black' }}>
+                            <i className='bi bi-person-circle' style={{ fontSize: '27px', color: 'black' }}></i>
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu align='end'>
+                            <Dropdown.Item>
+                                <Link to='/profile' style={{ color: 'black', textDecoration: 'none'}}>
+                                    <i className='bi bi-person-plus'></i> Profile
+                                </Link>
+                            </Dropdown.Item>
+                            {/* <Dropdown.Divider /> */}
+                            <Dropdown.Item>
+                                <i className='bi bi-box-arrow-right'></i> Logout
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
                 </Navbar.Collapse>
 
             </Container>

@@ -4,17 +4,20 @@ import SignUp from "./components/SignUp";
 import Dashboard from "./pages/dashboard";
 import PostJob from "./pages/post";
 import Apply from "./pages/apply";
-// import Home from "./pages/loginpage"
 import Login from "./components/Login";
+import DeveloperPage from "./pages/developerpage";
+import ProfilePage from "./pages/profilepage";
+import Posted from "./pages/posted";
+import JobPage from "./pages/jobpage";
 export const routing = [
 
   {
-    path: "/",
+    path: "/dashboard",
     element: <Dashboard />,
   },
 
 {
-  path:"/login",
+  path:"/",
   element:<Login />
 },
 
@@ -31,6 +34,26 @@ export const routing = [
   {
     path: "/appliedjob",
     element: <Apply />,
+  },
+
+  {
+    path: "/jobs",
+    element: <JobPage />,
+  },
+
+  {
+    path: "/postedjob",
+    element: <Posted />,
+  },
+
+  {
+    path:"/developers",
+    element: <DeveloperPage />,
+  },
+
+  {
+    path:"/profile",
+    element: <ProfilePage />,
   },
 ];
 
