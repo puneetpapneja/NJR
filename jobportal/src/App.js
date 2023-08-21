@@ -8,6 +8,7 @@ import Footer from './components/Footer.js';
 import React from 'react';
 import Register from './components/Register.js';
 import Dashboardpage from './pages/Dashboardpage.js';
+import JobApplication from './components/AppliedJobs.js';
 function App() {
   return (  
 <React.Fragment>
@@ -19,7 +20,7 @@ function App() {
         <Route exact path='/register' element={<RegisterPage/>}></Route>
         <Route exact path='/dashboard' element={<Dashboardpage/>}></Route>
         <Route exact path='/postjob' element={<PostJob/>}></Route>
-
+        <Route exact path='/JobApplication' element={<JobApplication/>}></Route>
       </Routes>
       <Footer/>
       

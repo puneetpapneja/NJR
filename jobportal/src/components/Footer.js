@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 function Footer() {
   return (
     <div className='footer'>
-    <div className='footertext'>TM-Techno India NJR Institite of Techology-Arvind Suthar</div>
+    <div className='footertext'>TM-Techno India NJR Institite of Techology-Chinmay Menaria</div>
   </div>
   );
 }

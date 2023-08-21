@@ -22,7 +22,7 @@ function Navbar1() {
 
             <Nav.Link as={Link} to ={"/dashboard"}>Home</Nav.Link>
               <Nav.Link as={Link} to={"/postjob"}>Postjob</Nav.Link>
-              <Nav.Link href="#applied-jobs">Applied Jobs</Nav.Link>
+              <Nav.Link as={Link} to={"/JobApplication"}>Applied Jobs</Nav.Link>
               <Nav.Link href="#posted-jobs">Posted Jobs</Nav.Link>
              
             </Nav>
