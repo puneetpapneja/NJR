@@ -12,12 +12,14 @@ import Appliedjob from './components/AppliedJob';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 import Dashboard from './components/Dashboard';
+import PostedJob from './components/PostedJob';
+import Profile from './components/Profile';
+import Jobs from './components/Jobs';
+import Developers from './components/Developers';
 
 
 
-
-
-function App() {
+function App() { 
   return (
     <>
     <BrowserRouter>
@@ -29,10 +31,16 @@ function App() {
       <Route path='/Postajob' element={<PostAJob/>}/>
       <Route path='/Dashboard' element={<Dashboard/>} />
       <Route path='/AppliedJob' element={<Appliedjob/>}/>
-        </Route>
-
+      <Route path='/PostedJob' element={<PostedJob/>}/>
+       <Route path='/Profile' element={<Profile/>}/>
+       <Route path='/Jobs' element={<Jobs/>}/>
+       <Route path='/Developers' element={<Developers/>}/>
+    </Route>
     </Routes>
     </BrowserRouter>
+    
+    {/* <Developers/> */}
+    
     <Footer/>
     </>
   ); 

@@ -13,26 +13,30 @@ const PostAJob = () => {
       <Container>
         <Row className="justify-content-center" id="Postajob">
           <Col xs={12} md={6}>
-        <h1>Post A Job</h1>
+        <h1>Profile</h1>
             <Card.Title></Card.Title>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Job Title</Form.Label>
-                <Form.Control type="email" />
+                <Form.Label>First Name</Form.Label>
+                <Form.Control type="text" />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Job Description</Form.Label>
+                <Form.Label>Last Name</Form.Label>
                 <Form.Control type="text"  />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Max Salary</Form.Label>
-                <Form.Control type="text"  />
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email"  />
               </Form.Group>
+              <Form.Group controlId="formFile" className="mb-3">
+             <Form.Label>Resume(CV)</Form.Label>
+             <Form.Control type="file" />
+            </Form.Group>
               
               <center>
               <Button variant="dark" >
-                POST
+                Submit
               </Button>
               </center>
             </Form>

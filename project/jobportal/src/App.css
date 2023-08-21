@@ -37,3 +37,7 @@
   display: flex;
   justify-content: space-between;
 }
+.sameline{
+  display: flex;
+  justify-content: space-between;
+}

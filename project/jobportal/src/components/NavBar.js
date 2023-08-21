@@ -1,12 +1,30 @@
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import {Link,Outlet} from 'react-router-dom';
+import {Link,Outlet,} from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import { Image, ListGroup, OverlayTrigger, Popover } from 'react-bootstrap';
+import React, { useState } from 'react';
 
 function NavBar() {
+  
+    const [showDropdown, setShowDropdown] = useState(false);
+  
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+  const popover = (
+    <Popover id="profile-dropdown">
+      <ListGroup variant="flush">
+        <ListGroup.Item as={Link} to="/Profile">Profile</ListGroup.Item>
+        <ListGroup.Item href="#logout">Logout</ListGroup.Item>
+      </ListGroup>
+    </Popover>
+  );
   return (
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -20,41 +38,31 @@ function NavBar() {
             navbarScroll
           >
             <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/Jobs">Jobs</Nav.Link>
             <Nav.Link as={Link} to="/Postajob">Post A Job</Nav.Link>
             <Nav.Link as={Link} to="/AppliedJob">Applied Job</Nav.Link>
             <Nav.Link as={Link} to="/PostedJob">Posted Job</Nav.Link>
           </Nav>
           <Form className="d-flex">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="35"
-              height="35"
-              fill="currentColor"
-              class="bi bi-search"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-            </svg>
+          <i style={{ fontSize: "25px" }} class="bi bi-search"></i>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
             />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              fill="currentColor"
-              class="bi bi-person-circle"
-              viewBox="0 0 16 16"
+           
+           <OverlayTrigger
+            trigger="click"
+            placement="bottom"
+            show={showDropdown}
+            onToggle={toggleDropdown}
+            overlay={popover}
             >
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-              <path
-                fill-rule="evenodd"
-                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-              />
-            </svg>
+        <i style={{fontSize:'25px'}} class="bi bi-person-circle"></i>
+    </OverlayTrigger>
+            
+          
           </Form>
         </Navbar.Collapse>
       </Container>

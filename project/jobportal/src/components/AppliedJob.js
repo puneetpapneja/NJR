@@ -1,48 +1,88 @@
+import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
-import { Form, FormControl, Button } from 'react-bootstrap';
-
-const appliedjob = () => {
+import { Row, Col } from "react-bootstrap";
+export default function AppliedJob() {
   return (
-    <>
-    
-    <div className="container">
-    <h1>Jobs</h1>
-    <Form inline className="" style={{width:"70 rem"}}>
-      <FormControl type="text" placeholder="Search"  />
-      {/* <Button variant="outline-success">Search</Button> */}
-    </Form>
-    
-    <br />
-      <Card border="secondary" style={{ width: "81rem" }}>
-        <Card.Header><div className="fordisplay">Senior Software Developer<div className="fordisplay">Company Name <br/>Kp Developers</div></div></Card.Header>
+    <Container>
+      <Row>
+        <Col lg="1"></Col>
+        <Col lg="10">
+          <h1 style={{ textAlign: "center" }}>Applied Jobs</h1>
+        </Col>
+      </Row>
+      <Card style={{ backgroundColor: "rgb(52, 131, 250)" }}>
         <Card.Body>
-          <Card.Title>Description</Card.Title>
+          <Card.Title
+            className="d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            Senior Developer(5676)<Card.Title>3 days ago</Card.Title>
+          </Card.Title>
           <Card.Text>
-            <div className="fordisplay">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-            <div className="fordislpay"><b>Max Salary</b> <br/>20-40k Month</div></div>
+            <Card.Text>Aman@gmail.com</Card.Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia
+            expedita perferendis, incidunt officia modi fugiat obcaecati eius
+            quo aliquam, quasi error ipsam maiores nostrum! Consequatur,
+            perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Soluta eum doloremque harum
+            maxime repellendus aperiam laborum iure placeat blanditiis rem,
+            excepturi dolor minus non earum ullam hic quod molestias fugiat
+            cupiditate itaque ad dignissimos! Perspiciatis illum adipisci
+            aspernatur voluptatum sit!
           </Card.Text>
-          <Button variant="dark">Apply</Button>
+          <Card.Text style={{ display:'flex', justifyContent:'end'}}>Applied</Card.Text>
         </Card.Body>
       </Card>
-      <br />
-      <Card border="secondary" style={{ width: "81rem" }}>
-      <Card.Header><div className="fordisplay">Car Driver<div className="fordisplay">Company Name <br/>Celebal technology</div></div></Card.Header>
+      <Card style={{ backgroundColor: "rgb(201, 201, 201)" }}>
         <Card.Body>
-          <Card.Title>Success Card Title</Card.Title>
+          <Card.Title
+            className="d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            Full Stack Developer(5675)<Card.Title>1 days ago</Card.Title>
+          </Card.Title>
+          <Card.Title></Card.Title>
           <Card.Text>
-          <div className="fordisplay">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-            <div className="fordislpay"><b>Max Salary</b> <br/>12-20k Month</div></div>
+            <Card.Text>Aman@gmail.com</Card.Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia
+            expedita perferendis, incidunt officia modi fugiat obcaecati eius
+            quo aliquam, quasi error ipsam maiores nostrum! Consequatur,
+            perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Soluta eum doloremque harum
+            maxime repellendus aperiam laborum iure placeat blanditiis rem,
+            excepturi dolor minus non earum ullam hic quod molestias fugiat
+            cupiditate itaque ad dignissimos! Perspiciatis illum adipisci
+            aspernatur voluptatum sit!
           </Card.Text>
-          <Button variant="dark">Apply</Button>
+          <Card.Text style={{ display:'flex', justifyContent:'end'}}>Applied</Card.Text>
         </Card.Body>
       </Card>
-      </div>
-     
-    </>
+      <Card>
+        <Card.Body>
+          <Card.Title
+            className="d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            Car Driver(5679)<Card.Title>1 days ago</Card.Title>
+          </Card.Title>
+          <Card.Text>
+            <Card.Text>Aman@gmail.com</Card.Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia
+            expedita perferendis, incidunt officia modi fugiat obcaecati eius
+            quo aliquam, quasi error ipsam maiores nostrum! Consequatur,
+            perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Soluta eum doloremque harum
+            maxime repellendus aperiam laborum iure placeat blanditiis rem,
+            excepturi dolor minus non earum ullam hic quod molestias fugiat
+            cupiditate itaque ad dignissimos! Perspiciatis illum adipisci
+            aspernatur voluptatum sit!
+          </Card.Text>
+          <Card.Text style={{ display:'flex', justifyContent:'end'}}>Applied</Card.Text>
+        </Card.Body>
+      </Card>
+    </Container>
   );
-};
-export default appliedjob;
+}
