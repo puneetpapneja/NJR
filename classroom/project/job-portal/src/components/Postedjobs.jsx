@@ -1,19 +1,22 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
+import eyeIcon from "./resources/eye-icon.svg";
 import CardHeader from "react-bootstrap/esm/CardHeader";
 import data from "./resources/postedjobsdetails.json";
-
-export default function AppliedJobs() {
+import trashIcon from "./resources/trash-icon.svg";
+import editIcon from "./resources/pencil-square-icon.svg";
+export default function Postedjobs() {
   return (
     <Container>
       <CardHeader style={{ fontSize: "3rem" }}>
-        <b>Applied Jobs</b>
+        <b>Posted Jobs</b>
       </CardHeader>
       <div
+        className="flex-wrap"
         style={{
           display: "flex",
-          flexDirection: "column",
+          flexDirection: "row",
           justifyContent: "normal",
         }}
       >
@@ -21,7 +24,8 @@ export default function AppliedJobs() {
           <Card
             className="d-flex flex-direction-column justify-content-between"
             style={{
-              width: "100%",
+              width: "25vw",
+              margin: "1vw 1.5vw 1.5vw 1.5vw",
             }}
           >
             <Card.Body>
@@ -32,14 +36,30 @@ export default function AppliedJobs() {
                     {data.company}
                   </Card.Subtitle>
                 </Container>
-                <span>{data.views}</span>
+                {data.views}
+                <span>
+                  <Card.Img
+                    style={{
+                      // marginLeft: "",
+                      width: "120%",
+                      height: "auto",
+                      fill: "currentColor",
+                    }}
+                    src={eyeIcon}
+                  />
+                </span>
               </Container>
               <Card.Text>{data.description}</Card.Text>
               <Container
                 className="d-flex"
-                style={{ justifyContent: "flex-end" }}
+                style={{ justifyContent: "space-between" }}
               >
-                Applied
+                <Card.Link href="#">
+                  <Card.Img src={trashIcon} />
+                </Card.Link>
+                <Card.Link href="#">
+                  <Card.Img src={editIcon} />
+                </Card.Link>
               </Container>
             </Card.Body>
           </Card>

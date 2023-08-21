@@ -25,6 +25,9 @@ export default function Navigation() {
             <Link className="nav-link" to="/">
               Home
             </Link>
+            <Link className="nav-link" to="/job">
+              Jobs
+            </Link>
             <Link className="nav-link" to="/post-a-job">
               Post A Job
             </Link>

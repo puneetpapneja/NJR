@@ -57,7 +57,7 @@ export default function SignUp() {
             </div>
           ))}
           <Link as={Link} to="/login" onClick={SwitchTo}>
-            Don't Have An Account? Register Now
+            Already Have An Account? Login Here
           </Link>
         </Form.Group>
 
