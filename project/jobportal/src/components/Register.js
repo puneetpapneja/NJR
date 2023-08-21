@@ -1,132 +1,91 @@
-import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setKey, setSession } from "../utils";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-export default function Register(){
-    const navigate = useNavigate();
-    const [email,setEmail]=useState("");
-    const [emailError,setEmailError] = useState("");
-    const [password,setPassword]=useState("");
-    const [passwordError,setPasswordError]=useState("");
-    const [role,setRole]=useState("");
-    const [roleError,setRoleError]=useState("");
-    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    const Handelclick= (event) =>{
-        if(!email || !emailRegExp.test(email))
-        {
-            event.preventDefault();
-            setEmailError("*invalid email format");
-            return;
-        }
-        if(!password || !passwordRegExp.test(password)){
-            event.preventDefault();
-            setPasswordError("*Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
-            return;
-        }
-        if(!role)
-        {
-            event.preventDefault();
-            setRoleError("*select a role");
-            return;
-        }
-        else
-        {
-            setSession("Registered");
-            navigate("/");
-        }
-    }
-    const SwitchTo = () =>{
-        setSession("");
-        setKey("login");
-        navigate("/Login");
-    }
-    return(
-        <Container className="d-flex justify-content-center">
-            <Form>
-                <Row>
-                    <h1 className="text-center my-5 text-danger">Register</h1>
-                </Row>
-                <Row>
-                    <Form.Group>
-                        <Form.Label className="my-3">Email Address</Form.Label>
-                        <br />
-                        <Form.Control 
-                            type="text"
-                            value={email}
-                            onChange={(e)=>{
-                                    setEmail(e.target.value);
-                                    setEmailError("");
-                                }
-                            }
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+
+function Register() {
+  return (
+    <div>
+      <Container>
+        <Row className=" d-flex justify-content-center align-items-center">
+          <Col md={8} lg={6} xs={12}>
+            {/* <div className="border border-3 border-primary"></div> */}
+            <Card className="shadow">
+              <Card.Body>
+                <div className="mb-3 mt-md-4">
+                  <h2 className="fw-bold mb-2">Register</h2>
+
+                  <div className="mb-3">
+                    <Form>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        {/* <Form.Label className="text-center">
+                          Email address
+                        </Form.Label> */}
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" />
+                      </Form.Group>
+
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" />
+                      </Form.Group>
+                      <div class="form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault1"
                         />
-                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
-                    </Form.Group>
-                </Row>
-                <Row>
-                    <Form.Group>
-                        <Form.Label className="my-3">Password</Form.Label>
-                        <br />
-                        <Form.Control 
-                            type="text"
-                            value={password}
-                            onChange={
-                                (e)=>{
-                                    setPassword(e.target.value);
-                                    setPasswordError("");
-                                }
-                            }
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Job Seeker
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="flexRadioDefault"
+                          id="flexRadioDefault2"
+                          checked
                         />
-                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
-                    </Form.Group>
-                </Row>
-                <Row>
-                <br />
-                </Row>
-                <Row>
-                        <Col>
-                            <Form.Check 
-                                type="radio" 
-                                label="Job Seeker" 
-                                name ="role" 
-                                id='Job-Seeker' 
-                                value="Job Seeker" 
-                                checked={role === "Job Seeker"}
-                                onChange={
-                                    (e)=>{
-                                        setRole(e.target.value);
-                                        setRoleError("");
-                                    }
-                                }
-                            />
-                        </Col>
-                        <Col>
-                            <Form.Check 
-                                type="radio" 
-                                label="Job Recruiter" 
-                                name ="role" 
-                                id='Job-Recruiter' 
-                                value="Job Recruiter" 
-                                checked={role === "Job Recruiter"}
-                                onChange={
-                                    (e)=>{
-                                        setRole(e.target.value);
-                                        setRoleError("");
-                                    }
-                                }
-                            />
-                        </Col>
-                        {roleError && <Alert variant="danger">{roleError}</Alert>}
-                </Row>
-                <Row>
-                    <Container className="float-start mb-5 mt-3">
-                        <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
-                    </Container>
-                </Row>
-                <Row>
-                    <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
-                </Row>
-            </Form>
-        </Container>
-    );
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Job Recruiter
+                        </label>
+                      </div>
+
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicCheckbox"
+                      >
+                        <p className="small">
+                          <a className="text-primary" href="#!">
+                            Have a account ? Login Now
+                          </a>
+                        </p>
+                      </Form.Group>
+                      {/* <div className="d-grid" >
+                        <Button variant="primary" type="submit">
+                          Login
+                        </Button>
+                      </div> */}
+                      <Button variant="dark">Register</Button>
+                    </Form>
+                    {/* <div className="mt-3">
+                      <p className="mb-0  text-center">
+                        Don't have an account?{" "}
+                        <a href="{''}" className="text-primary fw-bold">
+                          Sign Up
+                        </a>
+                      </p>
+                    </div> */}
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
 }
+export default Register;
