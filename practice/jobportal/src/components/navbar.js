@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, Form, FormControl} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-
+// import LoginPage from '../pages/LoginPage';
 const NavBarComponent = () => {
   return (
     <Navbar bg="light" expand="lg">
@@ -21,8 +21,8 @@ const NavBarComponent = () => {
         <Form inline>
           <FormControl type="search" placeholder="Search" className="mr-sm-2" />
         </Form>
-        <Nav.Link as={Link} to="/LoginPage.js" className="col-xl-5 d-flex justify-content-end">
-          <i style={{ fontSize: "40px" }} className="bi bi-person-circle" as={Link} to="/LoginPage.js"></i>
+        <Nav.Link as={Link} to="/LoginPage" className="col-xl-5 d-flex justify-content-end">
+          <i style={{ fontSize: "40px" }} className="bi bi-person-circle"></i>
         </Nav.Link>
       </Navbar.Collapse>
     </Navbar>
