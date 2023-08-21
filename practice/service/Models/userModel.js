@@ -14,7 +14,7 @@ const userCollection = mongoose.model("users", userSchema);
 module.exports = {
     create: (fields, res)=>{
         const user = new userCollection(fields);
-        return user.save()      
+        return user.save()
         .then((data) => {
             return res.send({status: "ok", msg:"User created successfully."})
         })
