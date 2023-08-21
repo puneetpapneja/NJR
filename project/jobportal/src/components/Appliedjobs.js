@@ -7,6 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Card from 'react-bootstrap/Card';
+import React from 'react';
 
 function Appliedjobs() 
 {
@@ -107,6 +108,7 @@ function Appliedjobs()
         
       </Card.Body>
     </Card>
+    <footer style={{backgroundColor:"black",height:"30px",marginTop:"200px"}}><p style={{color: "white",paddingBottom:"8px",textAlign:"center"}}>TM 2023 Techno India NJR Institute Of Technology-All Rights Reserved</p></footer>
      </div>
     </Container>
   );
