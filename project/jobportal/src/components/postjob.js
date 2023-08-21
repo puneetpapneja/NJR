@@ -1,18 +1,20 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
+
 const formStyle = {
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
-    marginTop: "6%",
+    marginTop: "4%",
 };
 
 
 
 export default function PostJob() {
     return (
+
         <Form style={formStyle}>
 
             <h1 className="mb-4" >Post Job</h1>
@@ -24,7 +26,7 @@ export default function PostJob() {
 
             <Form.Group className="mb-3 col-md-4" controlId="jobDescription">
                 <Form.Label>Job Description</Form.Label>
-                <Form.Control as="textarea" placeholder="Enter job description" rows={4} />
+                <Form.Control as="textarea" placeholder="Enter job description" rows={3} />
             </Form.Group>
 
             <Form.Group className="mb-3 col-md-4" controlId="maxSalary">
@@ -36,5 +38,7 @@ export default function PostJob() {
                 Post
             </Button>
         </Form>
+
+
     );
 }
