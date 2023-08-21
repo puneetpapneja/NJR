@@ -13,14 +13,24 @@ export default function AppliedJob() {
             salary: '€80,000',
             description: 'We are seeking a talented Backend Engineer to work on the server-side logic...',
         },
+        {
+            position: 'Frontend Developer',
+            salary: '€70,000',
+            description: 'We are looking for a skilled Frontend Developer to join our team...',
+        },
+        {
+            position: 'Backend Engineer',
+            salary: '€80,000',
+            description: 'We are seeking a talented Backend Engineer to work on the server-side logic...',
+        }
     ];
 
     return (
-        <Container className="mt-5" style={{ width:'55vw'}}>
+        <Container className="mt-3" style={{ width:'55vw'}}>
             <h1 className="mb-4">Jobs</h1>
             <Form>
                 <Form.Group controlId="search">
-                    <Form.Control type="text" className='mb-5 rounded-4 border-dark' style={{height:'6vh' , width:'55vw'}} placeholder="Search jobs" />
+                    <Form.Control type="text" className='mb-5 rounded-4 border-dark' style={{height:'6vh' , width:'54vw'}} placeholder="Search jobs" />
                 </Form.Group>
             </Form>
             {jobData.map((job, index) => (
