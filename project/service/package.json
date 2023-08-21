@@ -1,10 +1,10 @@
 {
   "name": "service",
   "version": "1.0.0",
-  "description": "webAPIs",
+  "description": "WebAPIs",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js" 
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
