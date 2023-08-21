@@ -10,10 +10,12 @@ const NavBar = () =>{
         <Navbar.Collapse id="basic-navbar-nav" className="ms-3">
           <Nav className="ms-3">
             <Nav.Link as={Link} to="/" className="me-3">Home</Nav.Link>
-            <Nav.Link as={Link} to="/AppliedJob" className="me-3">Jobs</Nav.Link>
+            <Nav.Link as={Link} to="/Jobs" className="me-3">Jobs</Nav.Link>
             <Nav.Link as={Link} to="/Postjob">Post A Job</Nav.Link>
-            <Nav.Link href="" className="me-3">Applied job</Nav.Link>
-            <Nav.Link href="" className="me-3">Posted job</Nav.Link>
+            <Nav.Link as={Link} to="/appliedjob">Applied Job</Nav.Link>
+            <Nav.Link as={Link} to="/Postedjob">Posted Job</Nav.Link>
+            <Nav.Link as={Link} to="/Developers">Developers</Nav.Link>
+  
             <Nav.Link href="" className="me-3"><Form ><Form.Control type="text" placeholder="🔍search" /></Form></Nav.Link>
           </Nav>
           </Navbar.Collapse>
