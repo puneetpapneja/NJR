@@ -1,43 +1,66 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Button, Form,Container,Row} from 'react-bootstrap';
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { setSession } from '../Utils';
 
-function Login() {
-  return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title>
-                <h1 className="text-center">Login</h1>
-              </Card.Title>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
+export default function Login(){
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                        <Button variant="link">Dont have an account? Register Now</Button>
-                    
-                <Container className='text-center'>
+    const [validated, setValidated] = useState(false);
+    const navigate=useNavigate();
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        else {
+          setValidated(true);
+          setSession("1234");
+          navigate("/");
+        }
+    }
+    const onclick=()=>{
+      navigate("/Register");
+      // return(
+      //   <Registerpage/>
+      // )
+    }
+    
+    return (
+       
+    <Container  >
+       <Row>
+       <h1 className='text-center mt-5 mb-3'>Login</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" required />
+            <Form.Control.Feedback type="invalid">
+              Please set a password.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        
+        
+        <Button variant="link" onClick={onclick}  className='p-0 mb-3'>Dont have a account? Register Now</Button>
+        {/* <Link to="">Dont have a account? Register Now</Link> */}
+        <br/>
+        <Container className='text-center'>
         <Button type="submit" variant='dark'>Login</Button>
-                </Container>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+        </Container>
+       </Form>
     </Container>
-  );
+ )
+    // }
 }
-
-export default Login;

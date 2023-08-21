@@ -6,5 +6,5 @@ router.post('/create',jobController.create);
 router.get('/getAll', jobController.getAll);
 router.delete('/deleteById', jobController.deleteById);
 router.put('/update', jobController.update);
-
+router.get('/findspecified',jobController.getSpecified);
 module.exports = router;

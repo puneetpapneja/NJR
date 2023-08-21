@@ -1,5 +1,5 @@
-import Post from "../components/Postjob"
+import Postjob from "../components/Postjob"
 
-export default function Postpage(){
-    return <Post/>
+export default function Postjobpage(){
+    return <Postjob/>
 }

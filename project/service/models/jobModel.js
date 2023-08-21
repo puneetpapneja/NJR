@@ -19,5 +19,8 @@ module.exports={
 },
 getAll: ()=> jobCollection.find(),
 deleteById: (id) => jobCollection.deleteOne({_id: id}),
-update: (id, fields) => jobCollection.updateOne({_id: id}, fields)
+update: (id, fields) => jobCollection.updateOne({_id: id}, fields),
+getSpecified: (title)=>{
+  return jobCollection.find({job_title:title});
+}
 }

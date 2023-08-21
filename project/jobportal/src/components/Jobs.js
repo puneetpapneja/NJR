@@ -1,5 +1,5 @@
 import {Form, Row, Container} from 'react-bootstrap'
-import WithHeaderStyledExample from '../card'
+import WithHeaderStyledExample from './Card'
 export default function Jobs(){
     return(
           <Container className='w-75 mt-5'>

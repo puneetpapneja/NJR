@@ -25,5 +25,12 @@ module.exports = {
         return jobModel.update(req.body.id, req.body.fields)
         .then((updatedjob) =>  res.send({status: "OK", msg: "job updated successfully.", updatedjob: updatedjob}))
         .catch((err)=> res.send({status:"fail", errro: err}));
-    }
+    },
+    getSpecified: (req,res)=>{
+        console.log(req.body.title);
+        console.log(jobModel.getSpecified(req.body.title));
+        return jobModel.getSpecified(req.body.title)
+        .then((matchedJobs)=>res.send(matchedJobs))
+        .catch((err)=>res.send({status:"fail",err:(err)}))
+}
 }

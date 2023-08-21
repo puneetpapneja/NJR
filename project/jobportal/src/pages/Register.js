@@ -1,7 +1,7 @@
 import {Button, Form,Container,Row, Col} from 'react-bootstrap';
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
-import { getSession } from '../utils';
+import { getSession } from '../Utils';
 
 
 export default function Register(){
@@ -22,11 +22,11 @@ export default function Register(){
         }
         else{
         setValidated(true);
-        navigate("/login");
+        navigate("/Login");
         }
     }
     const onclick=()=>{
-        navigate("/login");
+        navigate("/Login");
       }
     
       const [checkradio, setcheckradio]=useState(false);
