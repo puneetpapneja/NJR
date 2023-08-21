@@ -1,21 +1,23 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Container } from 'react-bootstrap';
-function Postajob(){
+function Profile(){
     return ( <Container className='postdiv'>     
-       <h1>Post a job</h1>
+       <h1>Profile</h1>
     <Form className='my-3 '>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Job title</Form.Label>
+        <Form.Label>First Name</Form.Label>
         <Form.Control type="text"  />
-        <Form.Label>Job description</Form.Label>
+        <Form.Label>Last Name</Form.Label>
         <Form.Control type="text"  />
-        <Form.Label>Max salary</Form.Label>
-        <Form.Control type="text"  />
+        <Form.Label>Email id</Form.Label>
+        <Form.Control type="email"  />
+        <Form.Label>Resume(CV)</Form.Label>
+        <Form.Control type="file"  />
         
         
       </Form.Group>
-      <Button  variant="dark" type="submit">
+      <Button  variant="dark" type="submit" >
         Submit
       </Button>
     </Form>
@@ -26,4 +28,4 @@ function Postajob(){
 
 
 
-export default Postajob;
+export default Profile;

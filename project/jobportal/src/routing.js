@@ -5,11 +5,17 @@ import Postedjob  from "./component/Postedjob";
 import Postajob from "./component/Postajob";
 import Appliedjob from "./component/Appliedjob";
 import Payload from "./component/Payload";
+import Jobs from "./component/Jobs";
+import Profile from "./component/Profile";
 
     export const routing = [
       {
           path: "/Dashboard",
           element:<Dashboard/>
+      },
+      {
+          path: "/job",
+          element:<Jobs/>
       },
       {
           path: "/",
@@ -18,6 +24,10 @@ import Payload from "./component/Payload";
       {
         path: "/postajob",
         element:  <Postajob />
+    },
+      {
+        path: "/profile",
+        element:  <Profile />
     },
       {
         path: "/register",

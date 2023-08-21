@@ -20,3 +20,26 @@
 .dashbody_css h1{
   margin-left: 3rem;
 }
+
+.postedbox{
+
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+.postdiv{
+  width: 30rem;
+  margin: auto;
+}
+
+.postjobbox{
+  max-width: 270px;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.stack{
+  justify-content: space-between;
+}
