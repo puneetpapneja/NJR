@@ -5,14 +5,16 @@ import Dashboard from "./pages/dashboard";
 import PostJob from "./pages/post";
 import Apply from "./pages/apply";
 // import Home from "./pages/loginpage"
+
 import Login from "./components/Login";
 import DeveloperPage from "./pages/developerpage";
 import ProfilePage from "./pages/profilepage";
 import Posted from "./pages/posted";
+import Jobpage from "./pages/jobpage";
 export const routing = [
 
   {
-    path: "/",
+    path: "/dashboard",
     element: <Dashboard />,
   },
 
@@ -49,6 +51,10 @@ export const routing = [
   {
     path:"/profile",
     element: <ProfilePage />,
+  },
+  {
+    path:"/jobs",
+    element: <Jobpage/>
   },
 ];
 

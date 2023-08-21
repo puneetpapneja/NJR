@@ -1,15 +1,23 @@
 // import Button from 'react-bootstrap/Button';
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Dropdown from "react-bootstrap/Dropdown";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Navigation() {
+  const [ setLoggedOut] = useState(false); // State to track login status
+
+  const handleLogout = () => {
+    // Implement your logout logic here
+    // For example, clear any user session, update state, etc.
+    setLoggedOut(false);
+  };
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -31,7 +39,7 @@ function Navigation() {
               Home
             </Link>
             <Link
-              to="/developers"
+              to="/jobs"
               className="me-4"
               style={{ color: "black", textDecoration: "none" }}
             >
@@ -59,6 +67,14 @@ function Navigation() {
               {" "}
               Posted Job
             </Link>
+            <Link
+              to="/developers"
+              className="me-4"
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              {" "}
+              Developers
+            </Link>
           </Nav>
           <Form className="d-flex">
               <Form.Control
@@ -68,13 +84,32 @@ function Navigation() {
                 aria-label="Search"
               />
               <Button variant="outline-success">🔍</Button>
-              <Link to='/profile'>
+              {/* <Link to='/profile'>
               <button className="btn btn-primary">
                 <i className="fas fa-user"></i>
               </button>
-              </Link>
+              </Link> */}
+            
+
+
+
+
+
               
             </Form>
+            <Dropdown>
+            <Dropdown.Toggle variant="link" id="dropdown-basic">
+              <i className="fas fa-user"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu align='end'>
+              <Dropdown.Item as={Link} to="/profile">
+              <i class="bi bi-person-add"></i>  Profile
+              </Dropdown.Item>
+
+              <Dropdown.Item onClick={handleLogout}><i class="bi bi-box-arrow-right"></i> Logout</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
           
           
         </Navbar.Collapse>
