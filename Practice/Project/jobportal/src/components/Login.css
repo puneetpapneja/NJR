@@ -1,0 +1,35 @@
+h1{
+    color:black;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 1px 1px grey;
+}
+.input{
+    width: 400px !important;
+}
+.form{
+    width: 403px;
+    margin-left: 400px;
+    margin-top: 40px;
+    border: 2px solid black;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.btn{
+    margin-top: 9px ;
+}
+
+.mb-3  label{
+    text-align: start;
+    padding-left: 10px;
+}
+.arun{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.arun button{
+    width: 155px;
+}
