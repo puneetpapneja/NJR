@@ -1,6 +1,6 @@
 const express = require("express");
 const { port } = require("./config");
-const db = require(".database");
+const db = require("./database");
 const userRoute = require("./routes/userRoutes");
 const jobRoutes = require("./routes/jobRoutes");
 
