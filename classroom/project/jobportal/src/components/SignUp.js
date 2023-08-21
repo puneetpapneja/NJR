@@ -1,9 +1,14 @@
 import React from "react";
 import { Form, Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./signup.css";
-
+import {setSession} from "../utils"
 export default function SignUp() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    setSession("Registered");
+    navigate("/login");
+  }
   const labelStyle = {
     fontWeight: "bold",
     marginTop: "1rem",
@@ -67,6 +72,7 @@ export default function SignUp() {
             className="mt-3"
             type="submit"
             block
+            onClick={handleClick}
           >
             Register
           </Button>

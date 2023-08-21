@@ -31,6 +31,13 @@ function Navigation() {
               Home
             </Link>
             <Link
+              to="/developers"
+              className="me-4"
+              style={{ color: "black", textDecoration: "none" }}
+            >
+              Jobs
+            </Link>
+            <Link
               to="/postjob"
               className="me-4"
               style={{ color: "black", textDecoration: "none" }}
@@ -45,7 +52,7 @@ function Navigation() {
               Applied Job
             </Link>
             <Link
-              to="/"
+              to="/postedjob"
               className="me-4"
               style={{ color: "black", textDecoration: "none" }}
             >
@@ -61,9 +68,12 @@ function Navigation() {
                 aria-label="Search"
               />
               <Button variant="outline-success">🔍</Button>
+              <Link to='/profile'>
               <button className="btn btn-primary">
                 <i className="fas fa-user"></i>
               </button>
+              </Link>
+              
             </Form>
           
           

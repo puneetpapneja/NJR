@@ -1,7 +1,6 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import Footer from "../components/footer";
-import Navigation from "../components/navbar";
+
 
 const formStyle = {
   display: "flex",
@@ -14,7 +13,7 @@ const formStyle = {
 export default function PostJob() {
   return (
     <>
-      <Navigation/>
+     
       <Form style={formStyle}>
         <h1 className="mb-4">Post Job</h1>
 
@@ -44,7 +43,7 @@ export default function PostJob() {
           Post
         </Button>
       </Form>
-      <Footer/>
+      
       
     </>
   );
