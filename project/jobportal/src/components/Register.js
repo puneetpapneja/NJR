@@ -1,42 +1,27 @@
-import {Button, Form,Container,Row,Col} from 'react-bootstrap';
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import { Form,Button,Container,Row, Col } from "react-bootstrap";
+import { Link } from 'react-router-dom';
+
 export default function Register(){
-    
-    //    function FormExample() {
-    //         const [validated, setValidated] = useState(false);
-          
-    //         const handleSubmit = (event) => {
-    //           const form = event.currentTarget;
-    //           if (form.checkValidity() === false) {
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //           }
-          
-    //           setValidated(true);
-    //         };
-    return (
-       
-    <Container>
-       <Row>
-       <h1 className='text-center'>Register</h1>
-       </Row>
-       {/* <Form noValidate validated={validated} onSubmit={handleSubmit}> */}
-       <Form>
-       <Row>
-        <Form.Group controlId='formEmail'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" />
-        </Form.Group>
-        </Row>
-        <Row>
-        <Form.Group controlId='formPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" />
-        </Form.Group>
-        </Row>
-        <br/>
-        <Row>
+    return(
+        <Container>
+            <Row>
+                <h1 className="text-center">Register</h1>
+            </Row>
+            <Row>
+                <Form.Group>
+                    <Form.Label>Email Address</Form.Label>
+                    <br />
+                    <Form.Control type="text"></Form.Control>
+                </Form.Group>
+            </Row>
+            <Row>
+                <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <br />
+                    <Form.Control type="text"/>
+                </Form.Group>
+            </Row>
+            <Row>
             <Col>
                     <Form.Check type="radio" label="Job Seeker" name ="role" id='Job-Seeker'/>
             </Col>
@@ -44,18 +29,15 @@ export default function Register(){
                     <Form.Check type="radio" label="Job Recruiter" name ="role" id='Job-Recruiter'/>
             </Col>
             </Row>
-        <Row>
-            {/* <Link to="">Dont have a account? Register Now</Link> */}
-            <Container className="flow-start">
-            <Button variant='link' as={Link} to={"/login"}>Already have an account? Login Now</Button> 
-            </Container>
-        </Row><br/>
-        <Container className='text-center'>
-        <Button type="submit" variant='dark'>Register</Button>
+            <Row>
+                <Container className="float-start">
+                    <Button variant="link" as ={Link} to={"/login "}>Already have an account? Login Now</Button>
+                    
+                </Container>
+            </Row>
+            <Row>
+                <Button type="Submit" variant="dark">Register</Button>
+            </Row>
         </Container>
-       </Form>
-    </Container>
- 
- )
-    // }
+    );
 }
