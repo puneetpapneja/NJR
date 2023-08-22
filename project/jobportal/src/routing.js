@@ -5,6 +5,9 @@ import Dashboard from './pages/Dashbord';
 import Jobs from './pages/Jobs';
 import PostJob from './pages/PostJob';
 import PageLayout from './components/pagelayout';
+import AppliedJobsPage from './pages/AppliedJobPage';
+import ProfilePage from './pages/ProfilePage';
+import PostedJobsPage from './pages/PostedJobPage';
 
 export const routing = [
     {
@@ -25,13 +28,24 @@ export const routing = [
     },
     {
         path: "/Jobs",
-        element:  < Jobs />
+        element:  <Jobs />
     },
     {
         path: "/Postjob",
-        element:  < PostJob />
+        element:  <PostJob />
+    },
+    {
+        path: "/AppliedJobsPage",
+        element:  <AppliedJobsPage />
+    },
+    {
+        path: "/ProfilePage",
+        element:  <ProfilePage />
+    },
+    {
+        path: "/PostedJobsPage",
+        element:  <PostedJobsPage />
     }
-   
 ]
 
 export const routes = [
