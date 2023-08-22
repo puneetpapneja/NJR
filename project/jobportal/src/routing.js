@@ -13,12 +13,12 @@ import JobPage from "./pages/jobpage";
 export const routing = [
 
   {
-    path: "/",
+    path: "/dashboard",
     element: <Dashboard />,
   },
 
 {
-  path:"/login",
+  path:"/",
   element:<Login />
 },
 

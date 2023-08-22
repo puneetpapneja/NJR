@@ -11,10 +11,10 @@ import Footer from "./footer";
 // import Everything from "./Everything";
 
 const PageLayout = () => {
-  if(!getSession())
-  if (!getSession()) {
-    return <Login />;
-  }
+ // if(!getSession())
+  //if (!getSession()) {
+  //  return <Login />;
+ // }
 
   return (
     <Container fluid>
