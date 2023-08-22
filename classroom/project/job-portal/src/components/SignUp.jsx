@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./signup.css";
-import { setSession } from "../utils/utils";
+// import { postNewUser } from "./userRegistrationSlice";
+import { setSessionStorageItem } from "../utils/utils";
+import { postNewUser } from "../store/reducers/userRegisterSlice";
 export default function SignUp() {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    setSession("bheru");
-    navigate("/");
-  };
-  const SwitchTo = () => {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("key");
-    navigate("/");
+  const [checkEmail, setCheckEmail] = useState("");
+  const [selectedRole, setSelectedRole] = useState("jobSeeker"); // Default selected role
+  const [error, setError] = useState("");
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+  const dispatch = useDispatch();
+  const postingStatus = useSelector(
+    (state) => state.userRegistration.postingStatus
+  );
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    if (!emailPattern.test(checkEmail)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    dispatch(postNewUser({ email: checkEmail, role: selectedRole }));
   };
   return (
     <div style={{ marginTop: "18vh" }}>
@@ -23,7 +35,13 @@ export default function SignUp() {
           controlId="formBasicEmail"
         >
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control
+            type="email"
+            placeholder="Enter email"
+            value={checkEmail}
+            onChange={(e) => setCheckEmail(e.target.value)}
+          />
+          {error && <p style={{ color: "red" }}>{error}</p>}
         </Form.Group>
 
         <Form.Group
@@ -31,7 +49,12 @@ export default function SignUp() {
           controlId="formBasicPassword"
         >
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            // value={password}
+            // onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Group>
 
         <Form.Group
@@ -43,20 +66,30 @@ export default function SignUp() {
               <Form.Check
                 inline
                 label="Job Seeker"
-                name="group1"
                 type={type}
+                name="role"
+                value="jobSeeker"
+                checked={selectedRole === "jobSeeker"}
+                onChange={() => setSelectedRole("jobSeeker")}
                 id={`inline-${type}-1`}
               />
               <Form.Check
                 inline
                 label="Job Recruiter"
-                name="group1"
                 type={type}
+                name="role"
+                value="jobRecruiter"
+                checked={selectedRole === "jobRecruiter"}
+                onChange={() => setSelectedRole("jobRecruiter")}
                 id={`inline-${type}-2`}
               />
             </div>
           ))}
-          <Link as={Link} to="/login" onClick={SwitchTo}>
+          <Link
+            as={Link}
+            to="/login"
+            // onClick={SwitchTo}
+          >
             Already Have An Account? Login Here
           </Link>
         </Form.Group>
@@ -66,12 +99,16 @@ export default function SignUp() {
             style={{ backgroundColor: "black", border: "none" }}
             className="mx-auto col-md-2"
             type="submit"
-            onClick={handleClick}
+            onClick={handleLogin}
+            disabled={postingStatus === "loading"}
           >
-            Submit
+            {postingStatus === "loading" ? "Registering..." : "Submit"}
           </Button>
         </Form.Group>
       </Form>
+      <Link as={Link} to="/login">
+        Already Have An Account? Login Here
+      </Link>
     </div>
   );
 }

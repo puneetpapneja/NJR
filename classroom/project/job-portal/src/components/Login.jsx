@@ -1,20 +1,12 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { setSession, setKey } from "../utils/utils";
+import { setSessionStorageItem } from "../utils/utils";
 
 export default function Login() {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    setSession("bheru");
-    navigate("/");
-  };
-
-  const SwitchTo = () => {
-    sessionStorage.removeItem("token");
-    setKey("register");
-    navigate("/signup");
+  const nav = useNavigate();
+  const handleLogin = (event) => {
+    setSessionStorageItem("isLoggedIn", true);
   };
 
   return (
@@ -35,13 +27,13 @@ export default function Login() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        Don't Have An Account? <Link onClick={SwitchTo}>Register Now</Link>
+        Don't Have An Account? <Link>Register Now</Link>
         <Form.Group className="text-center">
           <Button
             style={{ backgroundColor: "black", border: "none" }}
             className="mt-3 mx-auto col-md-2"
             type="submit"
-            onClick={handleClick}
+            onClick={handleLogin}
           >
             Submit
           </Button>

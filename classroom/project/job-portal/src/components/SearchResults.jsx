@@ -34,13 +34,85 @@ function SearchResults() {
       appliedDate: "2023-08-16",
       resumeType: "PDF",
     },
+    {
+      id: 1,
+      candidate: "John Doe",
+      email: "john@example.com",
+      contactNumber: "123-456-7890",
+      appliedDate: "2023-08-18",
+      resumeType: "PDF",
+    },
+    {
+      id: 2,
+      candidate: "Jane Smith",
+      email: "jane@example.com",
+      contactNumber: "987-654-3210",
+      appliedDate: "2023-08-17",
+      resumeType: "Word",
+    },
+    {
+      id: 3,
+      candidate: "Alice Johnson",
+      email: "alice@example.com",
+      contactNumber: "555-555-5555",
+      appliedDate: "2023-08-16",
+      resumeType: "PDF",
+    },
+    {
+      id: 1,
+      candidate: "John Doe",
+      email: "john@example.com",
+      contactNumber: "123-456-7890",
+      appliedDate: "2023-08-18",
+      resumeType: "PDF",
+    },
+    {
+      id: 2,
+      candidate: "Jane Smith",
+      email: "jane@example.com",
+      contactNumber: "987-654-3210",
+      appliedDate: "2023-08-17",
+      resumeType: "Word",
+    },
+    {
+      id: 3,
+      candidate: "Alice Johnson",
+      email: "alice@example.com",
+      contactNumber: "555-555-5555",
+      appliedDate: "2023-08-16",
+      resumeType: "PDF",
+    },
+    {
+      id: 1,
+      candidate: "John Doe",
+      email: "john@example.com",
+      contactNumber: "123-456-7890",
+      appliedDate: "2023-08-18",
+      resumeType: "PDF",
+    },
+    {
+      id: 2,
+      candidate: "Jane Smith",
+      email: "jane@example.com",
+      contactNumber: "987-654-3210",
+      appliedDate: "2023-08-17",
+      resumeType: "Word",
+    },
+    {
+      id: 3,
+      candidate: "Alice Johnson",
+      email: "alice@example.com",
+      contactNumber: "555-555-5555",
+      appliedDate: "2023-08-16",
+      resumeType: "PDF",
+    },
   ];
   return (
     <Container>
       <h6 style={{ fontSize: "3rem", marginBottom: "4%" }}>
         <b>Software Engineering</b>
       </h6>
-      <Table responsive>
+      <Table striped responsive>
         <thead>
           <tr>
             {headings.map((header, index) => (
@@ -52,10 +124,7 @@ function SearchResults() {
         </thead>
         <tbody>
           {candidateData.map((candidate) => (
-            <tr
-              key={candidate.id}
-              //   style={{ backgroundColor: index % 2 === 0 ? "#FFF" : "#FAFAFA" }}
-            >
+            <tr key={candidate.id}>
               <td className="p-4">{candidate.candidate}</td>
               <td className="p-4">{candidate.email}</td>
               <td className="p-4">{candidate.contactNumber}</td>

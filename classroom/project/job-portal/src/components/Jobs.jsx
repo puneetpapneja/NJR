@@ -18,7 +18,7 @@ export default function Jobs() {
     return () => {
       dispatch(reset());
     };
-  });
+  }, []);
 
   const renderJobs = () => {
     return jobs.map((items) => (
