@@ -6,7 +6,7 @@ import PostJob from "./components/postjob";
 import PageLayout from "./components/Pagelayout";
 import Job from "./components/job";
 import Profile from "./components/profile";
-import AppliedJob from "./components/appliedJob";
+import AppliedJob from "./components/Appliedjob";
 import PostedJob from "./components/postedJob";
 
 export const routing = [

@@ -5,6 +5,7 @@ import { routes } from "./routing";
 
 function App() {
   return <RouterProvider router={createBrowserRouter(routes)}></RouterProvider>;
+  
 }
 
 export default App;
