@@ -8,7 +8,9 @@ const app = express();
 app.use(express.json());
 // const port = 5000;
 app.use("/user", userRoutes);
-
+app.get("/health",(req, res)=>{
+    res.send({status: "OK"});
+});
 
 
 app.listen(port,() => console.log("Service started on port:",port));
