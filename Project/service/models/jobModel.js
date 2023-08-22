@@ -16,8 +16,8 @@ const jobCollection = mongoose.model("jobs",jobSchema);
 
 module.exports = {
     create: (fields)=>{
-        const user = new jobCollection(fields);
-        return user.save();       
+        const job = new jobCollection(fields);
+        return job.save();       
     },
     getAll: ()=> jobCollection.find(),
     deleteById: (id) => jobCollection.deleteOne({_id: id}),
