@@ -1,58 +1,54 @@
 import React from 'react';
-import RegisterPage from './pages/RegisterPage';
-import LoginPage from './pages/LoginPage';
-import Dashboard from './pages/Dashboard';
-import Jobs from './pages/Jobs';
-import NavBarComponent from './components/navbar';
-import PostJob from './pages/Postjob';
-import PageLayout from './components/pagelayout';
-import AppliedJobsPage from './pages/AppliedJobsPage';
-import ProfilePage from './pages/ProfilePage';
-import PostedJobsPage from './pages/PostedJobsPage';
+import Loginpage from './pages/loginpage';
+import Registerpage from './pages/registerpage';
+import PageLayout from './pages/page-layout';
+import Dashboard from './components/dashboard';
+import Postpage from './pages/postpage';
+import Appliedjob from './pages/appliedjobpage';
+import Profile from './pages/profilepage';
+import Postedjobpage from './pages/postedjobpage';
+import Joblistpage from './pages/joblistpage';
 
 export const routing = [
     {
         path: "/",
-        element:  <LoginPage />
+        element:  <Loginpage />
     },
     {
-        path: "/LoginPage",
-        element:  <LoginPage />
+        path: "/register",
+        element:  <Registerpage />
     },
     {
-        path: "/RegisterPage",
-        element:  <RegisterPage />
+        path: "/dashboard",
+        element: <Dashboard />,
     },
     {
-        path: "/Dashboard",
-        element:  <Dashboard />
+        path: "/postjob",
+        element: <Postpage />,
     },
     {
-        path: "/Jobs",
-        element:  <Jobs />
+        path: "/appliedjob",
+        element:<Appliedjob />
     },
     {
-        path: "/Postjob",
-        element:  <PostJob />
+        path:"/profile",
+        element:<Profile />
     },
     {
-        path: "/AppliedJobsPage",
-        element:  <AppliedJobsPage />
+        path:"/postedjob",
+        element:<Postedjobpage />
     },
     {
-        path: "/ProfilePage",
-        element:  <ProfilePage />
-    },
-    {
-        path: "/PostedJobsPage",
-        element:  <PostedJobsPage />
+        path:"/joblist",
+        element:<Joblistpage />
     }
+
 ]
 
 export const routes = [
     {
         path: "/",
-        element:  <PageLayout/>,
+        element: <PageLayout />,
         children: routing
     }
 ]
