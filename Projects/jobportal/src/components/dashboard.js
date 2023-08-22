@@ -1,29 +1,30 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-
-function BasicExample() {
-  return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-       Login
-      </Button>
-    </Form>
-  );
+import React from "react";
+import ContentStructure from "./ContentStructure";
+import { Container,Col, Row } from "react-bootstrap";
+export default function Content(){
+    return(
+        <Container>
+            <Row>
+                <Col md="2"></Col>
+                <Col xs="12"md="8">
+                    <h1 style={{fontSize:"4em"}}>Dashboard</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col md="2"></Col>
+                <Col className="bg-info" xs="12" md="2">
+                    <ContentStructure title="7" subtitle="Applied Jobs" />
+                </Col>
+                <Col xs="12" md="1"></Col>
+                <Col className="bg-danger" xs="12" md="2">
+                    <ContentStructure title="40" subtitle="Total Post" />
+                </Col>
+                <Col xs="12" md="1"></Col>
+                <Col className="bg-primary" xs="12" md="2">
+                    <ContentStructure title="2" subtitle="Today's Posts" />
+                </Col>
+                <Col md="2"></Col>
+            </Row>
+        </Container>
+    );
 }
-
-export default BasicExample;

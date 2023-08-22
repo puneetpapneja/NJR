@@ -10,12 +10,13 @@ export default function Navigationbar(){
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav.Link as={Link} to="/" className="me-5">Home</Nav.Link>
-            <Nav.Link as={Link} to="/PostJob" className="me-5">Post A Job</Nav.Link>
-            <Nav.Link as={Link} to="/AppliedJob" className="me-5">Applied Job</Nav.Link>
-            <Nav.Link as={Link} to="/" className="me-5">Posted Job</Nav.Link>
+            <Nav.Link as={Link} to="/applyjob" className="me-5">Jobs</Nav.Link>
+            <Nav.Link as={Link} to="/postjob" className="me-5">Post A Job</Nav.Link>
+            <Nav.Link as={Link} to="/appliedjob" className="me-5">Applied Job</Nav.Link>
+            <Nav.Link as={Link} to="/postedjob" className="me-5">Posted Job</Nav.Link>
             <Nav.Link className="me-5"><Form.Control type="text" placeholder="Search" /></Nav.Link>
             </Navbar.Collapse>
-            <i class="bi bi-person-circle"></i>
+            <i class="bi bi-person-circle px-4 fs-1"></i>
         </Navbar>
         </Container>
     );

@@ -3,12 +3,12 @@ import './App.css';
 
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { routes } from './routing';
+import { routing} from './routing';
 function App() {
   return (
     
 
-    <RouterProvider router={createBrowserRouter(routes)}>
+    <RouterProvider router={createBrowserRouter(routing)}>
     </RouterProvider>
 
 
