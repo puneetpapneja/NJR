@@ -18,7 +18,7 @@ ReactDOM.render(
 // ReactDOM.render(
 //     <React.StrictMode>
 //       <test />
-//     </React.StrictMode,
+//     </React.StrictMode>,
 //     document.getElementById('root')
 //   );
   
