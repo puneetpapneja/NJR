@@ -3,7 +3,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import { Outlet } from "react-router";
 import Footer from "./footerbody";
-import { getKey, getSession } from "../utils";
+import { getKey, getSession } from "../utils/utils";
 import LoginPage from '../pages/loginpage';
 import RegisterPage from "../pages/registerpage";
 export default function Pagelayout(){

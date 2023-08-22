@@ -1,5 +1,5 @@
 import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setKey, setSession } from "../utils";
+import { setKey, setSession } from "../utils/utils";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function Register(){
