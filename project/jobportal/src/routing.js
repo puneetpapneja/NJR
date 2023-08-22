@@ -1,34 +1,58 @@
 import React from 'react';
-import Loginpage from './pages/loginpage';
-import Registerpage from './pages/registerpage';
-import PageLayout from './pages/page-layout';
-import Dashboard from './components/dashboard';
-import Postpage from './pages/postpage';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard';
+import Jobs from './pages/Jobs';
+import NavBarComponent from './components/navbar';
+import PostJob from './pages/Postjob';
+import PageLayout from './components/pagelayout';
+import AppliedJobsPage from './pages/AppliedJobsPage';
+import ProfilePage from './pages/ProfilePage';
+import PostedJobsPage from './pages/PostedJobsPage';
 
 export const routing = [
     {
         path: "/",
-        element:  <Loginpage />
+        element:  <LoginPage />
     },
     {
-        path: "/registerpage",
-        element:  <Registerpage />
+        path: "/LoginPage",
+        element:  <LoginPage />
     },
     {
-        path: "/dashboard",
-        element: <Dashboard />,
+        path: "/RegisterPage",
+        element:  <RegisterPage />
     },
     {
-        path: "/postjob",
-        element: <Postpage />,
+        path: "/Dashboard",
+        element:  <Dashboard />
+    },
+    {
+        path: "/Jobs",
+        element:  <Jobs />
+    },
+    {
+        path: "/Postjob",
+        element:  <PostJob />
+    },
+    {
+        path: "/AppliedJobsPage",
+        element:  <AppliedJobsPage />
+    },
+    {
+        path: "/ProfilePage",
+        element:  <ProfilePage />
+    },
+    {
+        path: "/PostedJobsPage",
+        element:  <PostedJobsPage />
     }
-
 ]
 
 export const routes = [
     {
         path: "/",
-        element: <PageLayout />,
+        element:  <PageLayout/>,
         children: routing
     }
 ]

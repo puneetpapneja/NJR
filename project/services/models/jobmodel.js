@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 
-const jobSchema = mongoose.Schema({
+const JobSchema = mongoose.Schema({
      Jobtitle: String,
      description: String,
      maxsalary: Number,
-    recuriterDtl : {
+     recuriterDtl:{
     name: String,
     emailId: String,
     contactNo: Number
      }
 });
 
-const jobCollection = mongoose.model("jobs", jobSchema);
+const jobCollection = mongoose.model("jobs",JobSchema);
 
 module.exports = {
-    create: (fields)=>{
+    create: (fields,res)=>{
         const job = new jobCollection(fields);
         return job.save();       
     },

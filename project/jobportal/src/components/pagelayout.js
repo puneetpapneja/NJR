@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom"
-import Header from "./header"
-import Footer from "./footer";
 import React from 'react';
+import NavBarComponent from "./navbar";
+import Footercomponent from "./footer.js";
 
 const PageLayout = ()=>{
     return (
         <React.Fragment>
-            <Header />
+            <NavBarComponent />
             <Outlet />
-            <Footer />
+            <Footercomponent />
         </React.Fragment>
     )
 }
