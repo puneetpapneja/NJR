@@ -31,7 +31,7 @@ export default function Login() {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         {/* <LinkContainer className="text-center"> */}
-        <Link as={Link} to="/signup">
+        <Link as={Link} to="/SignUp">
           Don't Have An Account? Register Now
         </Link>
         {/* </LinkContainer> */}
