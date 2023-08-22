@@ -1,5 +1,7 @@
 import { Container, Nav, Navbar,Form } from "react-bootstrap";
 import {Link} from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
+//import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const NavBar = () =>{
     return (
@@ -12,10 +14,26 @@ const NavBar = () =>{
             <Nav.Link as={Link} to="/" className="me-3">Home</Nav.Link>
             <Nav.Link as={Link} to="/AppliedJob" className="me-3">Jobs</Nav.Link>
             <Nav.Link as={Link} to="/Postjob">Post A Job</Nav.Link>
-            <Nav.Link href="" className="me-3">Applied job</Nav.Link>
-            <Nav.Link as={Link} to="/PostedJob" className="me-3">Posted job</Nav.Link>
+            <Nav.Link as={Link} to="/AppliedJobDitails">Applied Job</Nav.Link>
+            <Nav.Link as={Link} to="/PostedJob">Posted Job</Nav.Link>
             <Nav.Link href="" className="me-3"><Form ><Form.Control type="text" placeholder="🔍search" /></Form></Nav.Link>
           </Nav>
+          <Dropdown>
+                        <Dropdown.Toggle variant='primary' id='dropdown-icon' style={{ border: 'none', backgroundColor: 'transparent', color: 'black' }}>
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu align='end'>
+                            <Dropdown.Item>
+                                <Link to='/Profile' style={{ color: 'black', textDecoration: 'none'}}>
+                                    <i className='bi bi-person-plus'></i> Profile
+                                </Link>
+                            </Dropdown.Item>
+                            {/* <Dropdown.Divider /> */}
+                            <Dropdown.Item>
+                                <i className='bi bi-box-arrow-right'></i> Logout
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
           </Navbar.Collapse>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end me-3">
             <Nav>

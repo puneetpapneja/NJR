@@ -1,52 +1,37 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React from 'react';
+import { Container, Form, Button } from 'react-bootstrap';
 
-function Profile() {
-  return (
-    <Container>
-    <h1 style={{marginTop:"30px"}}>Profile</h1>
-      <Row className="justify-content-center" style={{marginTop:"30px"}}>
-        <Col>
-          
-             
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>FirstName</Form.Label>
-                  <Form.Control style={{width:"500px"}} type="text" placeholder="" />
+export default function Profile() {
+    return (
+        <Container className='mt-4'>
+            <h1 className=' mb-4' style={{marginLeft:'17vw'}}>Profile</h1> 
+            <Form className='mx-auto'  style={{ width: '40%'}}>
+                <Form.Group controlId='firstName' className='mb-3'>
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control type='text' placeholder='Enter your first name' />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>LastName</Form.Label>
-                  <Form.Control style={{width:"500px"}} type="text" placeholder="" />
+                <Form.Group controlId='lastName' className='mb-3'>
+                    <Form.Label>Last Name</Form.Label>
+                    <Form.Control type='text' placeholder='Enter your last name' />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control  style={{width:"500px"}} type="email" placeholder="mayankkaneriya3@gmail.com" />
+                <Form.Group controlId='email' className='mb-3'>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type='email' placeholder='Enter your email' />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Resume(Cv)</Form.Label>
-                  <Form.Control  style={{width:"500px"}} type="file" placeholder="" />
+                <Form.Group controlId='resume' className='mb-3'>
+                    <Form.Label>Resume (CV)</Form.Label>
+                    <Form.Control type='file' />
                 </Form.Group>
 
-
-               
-
-             
-              
-              </Form>
-        
-        </Col>
-      </Row>
-    </Container>
-    
-  );
+                <div className='d-flex justify-content-center'>
+                    <Button type='submit' style={{backgroundColor:'black', border:'none'}}>
+                        Submit
+                    </Button>
+                </div>
+            </Form>
+        </Container>
+    );
 }
-
-export default Profile
