@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.box{
+  background: rgb(251, 249, 249);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.con{
+  background: #cfd2d3;
+  padding: 5%;
+  height: 70vh;
+  border-radius: 20px;
+  box-shadow: 0 0 20px black;
+}

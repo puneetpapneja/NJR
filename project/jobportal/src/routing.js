@@ -2,6 +2,8 @@ import { Registration } from "./components/Registration";
 import { Login } from "./components/login";
 import Dashboard from "./components/dashboard";
 import PageLayout from "./components/pagelayout";
+import Home from "./components/home";
+import PostJob from "./components/PostedJob"
 
 export const routing = [
     {
@@ -13,10 +15,20 @@ export const routing = [
         element: <Registration/>
     },
     {
-        path: "/Dashboard",
+        path: "/home",
+        element: <Home/>
+    },
+    {
+        path: "/home/dashboard",
         element: <Dashboard/>
-    }
+    },
+    {
+        path: "/postjob",
+        element: <PostJob/>
+    },
+
 ]
+
 
 export const routes = [
     {

@@ -1,11 +1,12 @@
-
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import React from 'react'
+// import { Route, Router, Routes } from 'react-router'
 import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { Link } from 'react-router-dom';
+// import Dashboard from './dashboard'
 
-
-function Header() {
+const Home = () => {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
           <Navbar.Brand href="#">Logo</Navbar.Brand>
@@ -37,7 +38,7 @@ function Header() {
           alt="user-male-circle--v1"
         />
       </Navbar>
-  );
+  )
 }
 
-export default Header;
+export default Home
