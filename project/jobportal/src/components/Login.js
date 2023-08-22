@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -31,9 +32,9 @@ function Login() {
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
-                          <a className="text-primary" href="#!">
+                          <Link  as={Link} to="/Register">
                             Dont have a account?Register Now
-                          </a>
+                          </Link>
                         </p>
                 </Form.Group>
                 <Button variant="dark" type="submit">

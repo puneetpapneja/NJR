@@ -6,7 +6,32 @@ import Col from 'react-bootstrap/Col';
 import { AiFillDelete } from "react-icons/ai";
 import {BiMessageAltEdit} from "react-icons/bi";
 
+
 function Postedjob() {
+  const postedJobs = [
+    {
+      title: 'Senior Developer',
+      views: 125,
+      company: 'Kp Developers',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+    },
+    {
+      title: 'Full Stack Developer',
+      views: 98,
+      company: 'Tech Innovators',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+    },
+    {
+      title: 'UI/UX Designer',
+      views: 75,
+      company: 'Creative Designs Inc.',
+      description:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+    },
+    // Add more posted job entries here
+  ];
   return (
     <Container>
     <h1>Posted Job</h1>

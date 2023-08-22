@@ -6,6 +6,10 @@ import Header from './components/Header';
 import PageLayout from './components/Pagelayout';
 import Menu from './components/Menu';
 import Postedjob from './components/Postedjob';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import Register from './components/Register';
+
 
 export const routing = [
     {
@@ -23,6 +27,18 @@ export const routing = [
     {
         path: "/PostedJob",
         element:  <Postedjob />
+    },
+    {
+        path: "/Login",
+        element:  <Login />
+    },
+    {
+        path: "/Profile",
+        element:  <Profile />
+    },
+    {
+        path: "/Register",
+        element:  <Register />
     },
     
 ]

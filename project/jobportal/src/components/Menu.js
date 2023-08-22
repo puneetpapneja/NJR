@@ -11,6 +11,9 @@ import { Link } from 'react-router-dom';
 import { BsFillEmojiSmileFill } from "react-icons/bs";
 function Menu() 
 {
+
+
+  
   return (
     <div className='Menu'>
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -37,7 +40,18 @@ function Menu()
               className="me-2"
               aria-label="Search"
             />
-            <BsFillEmojiSmileFill style={{height:"40px",width:"50px",marginRight:"10px"}}/>
+            
+            
+          <div className="dropdown">
+            <i className="bi bi-person-fill profile-icon" ></i>
+            <div className="dropdown-content">
+              <Link as={Link} to="/Login">Login</Link>
+              <Link  as={Link} to="/Profile">Profile</Link>
+             
+              </div>
+          </div>
+          
+            
           </Form>
           
         </Navbar.Collapse>

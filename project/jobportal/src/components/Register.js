@@ -4,9 +4,40 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from "react";
+import { registerUser, selectRegistrationStatus, selectRegistrationError } from '../store/reducers/userSlice';
+
 
 function Register() {
+  const [selectedRole, setSelectedRole] = useState('');
+  const [showCompany, setShowCompany] = useState(false);
+  const dispatch = useDispatch();
+
+  const registrationStatus = useSelector(selectRegistrationStatus);
+  const registrationError = useSelector(selectRegistrationError);
+
+  const handleRoleChange = (event) => {
+    const role = event.target.value;
+    setSelectedRole(role);
+    setShowCompany(role === 'Job Recruiter');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const userData = {
+      email: "arjunpuri991@gmail.com",
+      password: "arjun", 
+      role: selectedRole,
+      companyName: showCompany 
+    };
+
+    dispatch(registerUser(userData));
+  };
   return (
+   
     <Container>
       <Row className="justify-content-center">
         <Col xs={12} md={6}>
@@ -52,14 +83,12 @@ function Register() {
                         controlId="formBasicCheckbox"
                       >
                         <p className="small">
-                          <a className="text-primary" href="#!">
+                          <Link className="text-primary" as={Link} to="/Login">
                             Have an account ? Login Now
-                          </a>
+                          </Link>
                         </p>
               </Form.Group>
-              <Button variant="dark" type="submit">
-                  Register
-              </Button>
+              <Button variant="dark" type="submit"> Register</Button>
               </Form>
             </Card.Body>
           </Card>
