@@ -5,8 +5,19 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
-
+import { useState, useRef } from "react";
+import Overlay from "react-bootstrap/Overlay";
+import Tooltip from "react-bootstrap/Tooltip";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 const Menu = () => {
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
+  const Navigate = useNavigate();
+  function handleclick() {
+    Navigate("/profile");
+  }
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary" id="nav">
@@ -28,21 +39,24 @@ const Menu = () => {
         </Navbar.Collapse>
         <Form className="d-flex  searchbtn">
           <Form.Control type="search" placeholder="Search" className="mb-3" />
-          <svg
-            className="profile"
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            fill="currentColor"
+          <i
             class="bi bi-person-circle"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-            <path
-              fill-rule="evenodd"
-              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-            />
-          </svg>
+            ref={target}
+            onClick={() => setShow(!show)}
+          ></i>
+
+          <Overlay target={target.current} show={show} placement="bottom">
+            {(props) => (
+              <Tooltip id="overlay-example" {...props}>
+                <Nav.Link as={Link} to="/profile">
+                  profile
+                </Nav.Link>
+                <Nav.Link as={Link} to="/logout">
+                  logout
+                </Nav.Link>
+              </Tooltip>
+            )}
+          </Overlay>
         </Form>
       </Navbar>
 

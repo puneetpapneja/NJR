@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <p>
-        TM @2023-Tecno India NJR Institute of TEchnology - All Rights Reserved
+        TM @2023-Techno India NJR Institute of TEchnology - All Rights Reserved
       </p>
     </div>
   );
