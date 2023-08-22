@@ -14,7 +14,6 @@ const userCollection = mongoose.model("users",userSchema);
 module.exports = {
     create: (fields)=>{
         const user = new userCollection(fields);
-<<<<<<< HEAD:service/models/userModel.js
         return user.save()
         .then((data)=>{
             return res.send({status: "ok", msg:"User created changes"});
@@ -22,13 +21,10 @@ module.exports = {
         .catch((err)=>{
             return res.send({status: "fail", error: err});
         })
-    }
-}
-=======
-        return user.save();       
+    
     },
-    getAll: ()=> userCollection.find(),
-    deleteById: (id) => userCollection.deleteOne({_id: id}),
-    update: (id, fields) => userCollection.updateOne({_id: id}, fields)
-}
->>>>>>> 86708f3314dc81e5c0f0471ebadb140c641993ba:classroom/service/models/userModel.js
+    getAll: () => userCollection.find(),
+    deleteById: (id) => userCollection.deleteOne({ _id: id }),
+    update: (id, fields) => userCollection.updateOne({ _id: id }, fields),
+    
+};

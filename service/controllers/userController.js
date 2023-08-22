@@ -16,16 +16,22 @@ module.exports = {
         .then((allUsers)=> res.send(allUsers))
         .catch((err) => res.send({status: "fail", error: err, code: 500}));
     },
-    deleteById: (req,res) => {
+    deleteById: (req, res) => {
         return userModel.deleteById(req.body.id)
         .then((deletedUser) => res.send({status: "OK", msg: "User deleted successfully.", deletedUser: deletedUser}))
         .catch((err)=> res.send({status:"fail", errro: err}));
     },
-    update: (req,res)=> {
+    _update: (req, res) => {
         return userModel.update(req.body.id, req.body.fields)
-        .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
-        .catch((err)=> res.send({status:"fail", errro: err}));
-    }
+            .then((updatedUser) => res.send({ status: "OK", msg: "User updated successfully.", updatedUser: updatedUser }))
+            .catch((err) => res.send({ status: "fail", errro: err }));
+    },
+    get update() {
+        return this._update;
+    },
+    set update(value) {
+        this._update = value;
+    },
 
 
 }
