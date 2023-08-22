@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import jobData from "./resources/jobDetailData.json";
 import CardHeader from "react-bootstrap/esm/CardHeader";
-export default function AppliedJobs() {
+export default function Jobs() {
   return (
     <Form>
       <CardHeader style={{ fontSize: "50px", marginLeft: "8vw" }}>

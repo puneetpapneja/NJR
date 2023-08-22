@@ -2,7 +2,8 @@ import PageLayout from "./components/PageLayout";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
 import PostJob from "./components/PostJob";
-import AppliedJobs from "./components/AppliedJobs";
+import Jobs from "./components/Jobs";
+import AppliedJobs from "./components/AppliesJobs";
 export const routing = [
   {
     path: "/signup",
@@ -17,9 +18,18 @@ export const routing = [
     element: <PostJob />,
   },
   {
-    path: "/applied-job",
-    element: <AppliedJobs />,
+    path: "/jobs",
+    element: <Jobs />,
   },
+  {
+    path:"/applied-jobs",
+    element:<AppliedJobs />,
+  },
+  // {
+  //   path:"/posted-jobs",
+  //   element: <PostedJobs />,
+
+  // },
 ];
 
 export const routes = [

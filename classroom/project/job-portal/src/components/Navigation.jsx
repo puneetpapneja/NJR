@@ -28,7 +28,11 @@ export default function Navigation() {
             <Link className="nav-link" to="/post-a-job">
               Post A Job
             </Link>
-            <Link className="nav-link" to="/applied-job">
+            <Link className="nav-link" to="/jobs">
+              Jobs
+            </Link >
+                       
+            <Link className="nav-link" to="/applied-jobs">
               Applied Job
             </Link>
             <Link className="nav-link" to="/posted-job">
