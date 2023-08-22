@@ -4,25 +4,25 @@ import { Container, Card } from 'react-bootstrap';
 export default function AppliedJob() {
     const jobData = [
         {
-            position: 'Frontend Developer',
-            vacancies: 2,
+            position: 'Senior Developer',
+            vacancies: 5676,
             recruiterEmail: 'recruiter@example.com',
             daysAgo: 3,
-            details: 'We are looking for a skilled Frontend Developer...',
+            details: 'We are looking for a skilled Senior Developer...',
         },
         {
-            position: 'Backend Engineer',
-            vacancies: 1,
+            position: 'Full Stack Developer',
+            vacancies: 5675,
             recruiterEmail: 'hr@example.com',
             daysAgo: 5,
-            details: 'We are seeking a talented Backend Engineer...',
+            details: 'We are seeking a talented Full Stack Engineer...',
         },
         {
-            position: 'UI/UX Designer',
-            vacancies: 3,
+            position: 'Car Driver',
+            vacancies: 5679,
             recruiterEmail: 'designer@example.com',
             daysAgo: 2,
-            details: 'Join our team as a UI/UX Designer...',
+            details: 'Join our team as a Car Driver...',
         },
     ];
 

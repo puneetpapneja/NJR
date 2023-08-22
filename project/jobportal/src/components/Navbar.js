@@ -1,6 +1,6 @@
 import { Container, Nav, Navbar,Form } from "react-bootstrap";
 import {Link} from 'react-router-dom';
-
+import Dropdown from 'react-bootstrap/Dropdown';
 const NavBar = () =>{
     return (
     <Navbar expand="lg" className="bg-body-tertiary fixed-top">
@@ -14,7 +14,7 @@ const NavBar = () =>{
             <Nav.Link as={Link} to="/Postjob">Post A Job</Nav.Link>
             <Nav.Link as={Link} to="/appliedjob">Applied Job</Nav.Link>
             <Nav.Link as={Link} to="/Postedjob">Posted Job</Nav.Link>
-            <Nav.Link as={Link} to="/Developers">Developers</Nav.Link>
+          
   
             <Nav.Link href="" className="me-3"><Form ><Form.Control type="text" placeholder="🔍search" /></Form></Nav.Link>
           </Nav>
@@ -23,6 +23,24 @@ const NavBar = () =>{
             <Nav>
             <Nav.Link href=""><i class="bi bi-person-circle fs-3"></i></Nav.Link>
           </Nav>
+          <Dropdown>
+                        <Dropdown.Toggle variant='primary' id='dropdown-icon' style={{ border: 'none', backgroundColor: 'transparent', color: 'black' }}>
+                            
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu align='end'>
+                            <Dropdown.Item>
+                                <Link to='/profile' style={{ color: 'black', textDecoration: 'none'}}>
+                                    <i className='bi bi-person-plus'></i> Profile
+                                </Link>
+                            </Dropdown.Item>
+                            {/* <Dropdown.Divider /> */}
+                            <Dropdown.Item>
+                                <i className='bi bi-box-arrow-right'></i> Logout
+                            </Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
