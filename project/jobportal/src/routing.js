@@ -9,6 +9,7 @@ import Login from "./components/login";
 import DeveloperPage from "./pages/developerpage";
 import ProfilePage from "./pages/profilepage";
 import Posted from "./pages/posted";
+import JobPage from "./pages/jobpage";
 export const routing = [
 
   {
@@ -29,6 +30,11 @@ export const routing = [
   {
     path: "/postjob",
     element: <PostJob />,
+  },
+
+  {
+    path: "Jobs",
+    element: <JobPage />,
   },
 
   {
