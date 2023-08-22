@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Nav, Navbar, Form, FormControl, Image, Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { BsPerson, BsBoxArrowRight } from 'react-icons/bs';
+// import { BsPerson, BsBoxArrowRight } from 'react-icons/bs';
 
 const NavBarComponent = () => {
   return (
@@ -29,10 +29,10 @@ const NavBarComponent = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to="/ProfilePage">
-                <BsPerson className="mr-2" /> Profile
+                {/* <BsPerson className="mr-2" /> Profile */}
               </Dropdown.Item>
               <Dropdown.Item as={Link} to="/LoginPage">
-                <BsBoxArrowRight className="mr-2" /> Logout
+                {/* <BsBoxArrowRight className="mr-2" /> Logout */}
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
