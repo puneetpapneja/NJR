@@ -1,12 +1,16 @@
 import {Form,Button,Container,Row, Alert, Col} from 'react-bootstrap';
-import { setSession } from '../utils';
+import { setSession } from '../utils/utils';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginValidation } from '../store/reducers/userSlice';
 export default function Login(){
     const [email,setEmail]=useState("");
     const [password , setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [emailError,setEmailError]=useState("");
+    const err = useSelector(state=>state?.user?.Error);
+    const dispatch = useDispatch();
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
     const Handleclick = (event) =>{
@@ -21,7 +25,13 @@ export default function Login(){
             setPasswordError("Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
             return;
         }
+        dispatch(loginValidation({emailId:email,password:password}))
+        if(err)
+        {
+            event.preventDefault();
+        }
         else{
+            console.log("error:",err);
             setSession("logged in");
         }
     }
@@ -70,6 +80,7 @@ export default function Login(){
                     </Container>
                 </Row>
                 <Row>
+                    {err && <Alert variant='danger'>{err.msg}</Alert>}
                     <Button type='submit' variant='dark' onClick={Handleclick} href='/' >Login</Button>
                 </Row>
             </Form>

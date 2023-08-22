@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Navigationbar from "./Navigationbar";
 import { Outlet } from "react-router";
 import Footer from "./Footer";
-import { getSession } from "../utils";
+import { getSession } from "../utils/utils";
 export default function Pagelayout(){
     if(!getSession())
     {

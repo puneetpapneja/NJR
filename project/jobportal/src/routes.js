@@ -4,7 +4,7 @@ import LoginPage from "./pages/loginpage";
 import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/PageLayout";
 import Post from "./pages/Post";
-import { getSession } from "./utils";
+import { getSession } from "./utils/utils";
 import Jobs from "./pages/Jobspage";
 import PostedJobs from "./pages/Postedpage";
 import Appliedjob from "./pages/Appliedjobspage";

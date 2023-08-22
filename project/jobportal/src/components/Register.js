@@ -1,8 +1,12 @@
 import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../store/reducers/userSlice";
 export default function Register(){
     const navigate = useNavigate();
+    const err = useSelector(state=>state?.user?.Error);
+    const dispatch = useDispatch();
     const [email,setEmail]=useState("");
     const [emailError,setEmailError] = useState("");
     const [password,setPassword]=useState("");
@@ -38,8 +42,10 @@ export default function Register(){
             setCompError("*required");
             return;
         }
-        else
-        {
+        const data = {emailId:email,password:password,type:role,companyName:company};
+        console.log(data);
+        dispatch(registerUser(data));
+        if(err!==""){
             navigate("/");
         }
     }
@@ -144,6 +150,7 @@ export default function Register(){
                     </Container>
                 </Row>
                 <Row>
+                    {err && <Alert variant="danger">{err.msg}</Alert>}
                     <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
                 </Row>
             </Form>

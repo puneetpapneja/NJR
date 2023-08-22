@@ -11,7 +11,8 @@
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import { routing } from "./routes";
-
+import { Provider } from "react-redux";
+import store from "./store/index"
 function App() {
   return (
     // <LoginPage/>
@@ -22,7 +23,9 @@ function App() {
     // <Jobs/>
     // <PostedJobs />
     // <Appliedjobs/>
+    <Provider store={store}>
     <RouterProvider router={createBrowserRouter(routing)}></RouterProvider>
+    </Provider>
   );
 }
 export default App;

@@ -22,5 +22,18 @@ module.exports = {
         return userModels.update(req.body.id,req.body.fields)
         .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
         .catch((err)=>res.send({status:"fail",error:err}))
+    },
+    loginValidation:(req,res)=>{
+        userModels.getByEmail(req.body.email).then((userData)=>{
+            let flag=0;
+            userData.map((userdata)=>{
+            if(req.body.password===userdata.password){
+                flag=1;
+                return res.send({status:"Ok",msg:"login successfull"});}
+            })
+            if (!flag) res.send({status:"fail",msg:"invalid password"})
+        })
+
+            .catch((err)=>res.send({status:"fail",error:err,msg:"invalid email"}))
     }
 }
