@@ -12,6 +12,7 @@ export default function Register(){
     const [roleError,setRoleError]=useState("");
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        
     const Handelclick= (event) =>{
         if(!email || !emailRegExp.test(email))
         {
@@ -41,6 +42,11 @@ export default function Register(){
         setKey("login");
         navigate("/Login");
     }
+    let email1=email;
+    window.localStorage.setItem("email", email1);
+
+    let passwrd=password;
+    window.localStorage.setItem("password", passwrd);
     return(
         <Container className="d-flex justify-content-center">
             <Form>

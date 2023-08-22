@@ -8,6 +8,7 @@ import Applied from './pages/Appliedjob';
 import Appliedjob from './pages/Appliedjob2';
 import Posted from './pages/Postedajob';
 import Profile from './pages/Profile';
+import Developer from "./pages/Developers";
 export const routes=[
     {
         path:"/",
@@ -40,6 +41,10 @@ export const routes=[
     {
         path:"/Profile",
         element: <Profile/>
+    },
+    {
+        path:"/Developer",
+        element: <Developer/>
     }
 ]
 export const routing =[

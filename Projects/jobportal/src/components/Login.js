@@ -32,6 +32,8 @@ export default function Login(){
         setKey("register");
         navigate("/Registeration");
     }
+    window.localStorage.getItem(email);
+    window.localStorage.getItem(password);
     return(
         <Container>
             <Form>
