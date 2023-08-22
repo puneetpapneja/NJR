@@ -10,7 +10,7 @@ export const routing = [
     { path: "/Register", element: <RegisterPage /> },
     { path: "/Postjob", element: <Postjobpage /> },
     { path: "/AppliedJob", element: <Jobspage /> },
-  ];
+   ];
 export const routes=[
     
     {
