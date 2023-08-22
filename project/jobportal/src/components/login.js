@@ -6,8 +6,8 @@ import { setSession } from "../utils";
 export default function Login() {
   const navigate = useNavigate();
   const handleClick = () => {
-    setSession("mansi");
-    navigate("/");
+    setSession("neelam");
+    navigate("/dashboard");
   }
 
   const labelStyle = {
@@ -46,7 +46,7 @@ export default function Login() {
           </Link>
 
 
-          <Link to="/dashboard">
+          <Link>
             <Button
               style={{ backgroundColor: "black", border: "none" }}
               className="mt-3"
