@@ -1,47 +1,42 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Card } from 'react-bootstrap';
 
 const Dashboard = () => {
   return (
-    <Container className="mt-4">
-      <Row>
-        <Col md={3} className="text-center">
-          <h2>Dashboard</h2>
-        </Col>
-      </Row>
-      <Row className="mt-4">
-        <Col>
-          <Card className="text-center bg-primary">
-            <Card.Body>
-              <Card.Title>Applied Jobs</Card.Title>
-              <Card.Text>
-                7
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="text-center bg-success">
-            <Card.Body>
-              <Card.Title>Total Posts</Card.Title>
-              <Card.Text>
-                40
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card className="text-center bg-info">
-            <Card.Body>
-              <Card.Title>Today's Posts</Card.Title>
-              <Card.Text>
-                2
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <div className="wrapper">
+      <Container className="mt-4">
+        <h1 className="text-center mb-4">Dashboard</h1>
+        <div className="row justify-content-center">
+          <div className="col-md-4">
+            <Card className="bg-info text-white text-center p-4">
+              <Card.Body>
+                <Card.Title>Applied Jobs</Card.Title>
+                <Card.Text className="h4 mb-0">7 jobs</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="col-md-4">
+            <Card className="bg-primary text-white text-center p-4">
+              <Card.Body>
+                <Card.Title>Total Posts</Card.Title>
+                <Card.Text className="h4 mb-0">40 posts</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+          <div className="col-md-4">
+            <Card className="bg-success text-white text-center p-4">
+              <Card.Body>
+                <Card.Title>Today's Posts</Card.Title>
+                <Card.Text className="h4 mb-0">2 posts</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
+        </div>
+        <div style={{ height: '350px' }}></div> 
+      </Container>
+     
+    </div>
   );
 };
 
