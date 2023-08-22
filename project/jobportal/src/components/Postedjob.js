@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Card } from 'react-bootstrap';
-//import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default function PostedJob() {
     const jobData = [
@@ -39,7 +39,7 @@ export default function PostedJob() {
                         <Card.Header className='d-flex justify-content-between'>
                             <span>{job.position}</span>
                             <span>
-                                {/* <i className='bi bi-eye'></i> {job.interestedCandidates} */}
+                                <i className='bi bi-eye'></i> {job.interestedCandidates}
                             </span>
                         </Card.Header>
                         <Card.Body>
@@ -47,8 +47,8 @@ export default function PostedJob() {
                             <p className='mb-0'>{job.details}</p>
                         </Card.Body>
                         <Card.Footer className='d-flex justify-content-between'>
-                            {/* <i className='bi bi-trash'></i> */}
-                            {/* <i className='bi bi-pencil-square'></i> */}
+                            <i className='bi bi-trash'></i>
+                            <i className='bi bi-pencil-square'></i>
                         </Card.Footer>
                     </Card>
                 ))}
