@@ -1,55 +1,88 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NavbarComponent from "./navbar";
-
+import { useDispatch } from "react-redux";
+import { addJob } from "./actions/jobActions";
 const Postajob = () => {
-    const [jobTitle, setJobTitle] = useState("");
-    const [jobDescription, setJobDescription] = useState("");
-    const [maxSalary, setMaxSalary] = useState("");
+    const [form,setform]= useState({});
+    const dispatch = useDispatch();
+    
+
+    const handleFunc = (e) => {
+        setform({
+            ...form,
+            [e.target.name]: e.target.value,
+        });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle posting the job data to your backend or perform other actions
-        console.log("Job Posted:", jobTitle, jobDescription, maxSalary);
-    };
+        dispatch(addJob(form));
+    }
+
+
+
+
+    const handlefunc=(e)=>{
+        setform({
+            ...form,
+            [e.target.name] : e.target.value,
+        })
+    }
+    const handlesubmit = async(e)=>{
+        e.preventDefault();
+        const response = await fetch('http://localhost:8080/demo',{
+            method: 'POST',
+            body:JSON.stringify(form),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        const data = await response.json();
+        console.log(data)
+    }
 
     return (
         <>
             <NavbarComponent />
-
+            
+            
             <div className="container mt-5">
                 <h1>Post a Job</h1>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handlesubmit}>
                     <div className="mb-3">
                         <label htmlFor="jobTitle" className="form-label">Job Title</label>
                         <input
                             type="text"
+                            name="jobtitle"
                             className="form-control"
                             id="jobTitle"
-                            value={jobTitle}
-                            onChange={(e) => setJobTitle(e.target.value)}
+                            onChange={handlefunc}
+                            
                         />
                     </div>
 
                     <div className="mb-3">
                         <label htmlFor="jobDescription" className="form-label">Job Description</label>
-                        <textarea
+                        <input
+                            name="jobdesc"
                             className="form-control"
                             id="jobDescription"
-                            value={jobDescription}
-                            onChange={(e) => setJobDescription(e.target.value)}
+                            onChange={handlefunc}
+                            
                         />
                     </div>
 
                     <div className="mb-3">
                         <label htmlFor="maxSalary" className="form-label">Max Salary</label>
                         <input
-                            type="text"
+                            name="jobsal"
+                            type="number"
                             className="form-control"
                             id="maxSalary"
-                            value={maxSalary}
-                            onChange={(e) => setMaxSalary(e.target.value)}
+                            onChange={handlefunc}
+                            
                         />
                     </div>
 

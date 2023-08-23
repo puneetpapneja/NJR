@@ -6,6 +6,7 @@ import Dashboard from './dashboard';
 import Applyjob from './appliedjob';
 import Postajob from './postajob';
 import Postedjob from './postedjob';
+import Jobs from './jobs';
 const AppRoutes = () => {
     return (
         <Routes>
@@ -16,6 +17,7 @@ const AppRoutes = () => {
             <Route path="/appliedjob" element={<Applyjob/>} />
             <Route path="/postajob" element={<Postajob/>} />
             <Route path="/postedjob" element={<Postedjob/>} />
+            <Route path="/jobs" element={<Jobs/>} />
         </Routes>
     );
 }
