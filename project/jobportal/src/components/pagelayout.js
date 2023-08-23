@@ -17,7 +17,7 @@ const PageLayout = ()=>{
     
     return (
         <React.Fragment>
-            <NavBarComponent />
+            {isValidUser ? <NavBarComponent /> : null}
             <Outlet />
             <Footercomponent />
         </React.Fragment>
