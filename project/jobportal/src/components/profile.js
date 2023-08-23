@@ -24,7 +24,7 @@ export default function Profile(){
     
     return (
        
-    <Container  >
+    <Container className='mt-5' >
        <Row>
        <h1 className='text-center mt-5 mb-3'>Profile</h1>
        </Row>

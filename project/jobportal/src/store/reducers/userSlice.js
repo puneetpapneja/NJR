@@ -1,9 +1,10 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
-import { API_URL } from "../../utils/constants"
+import { API_URL, JOB_RECRUITER } from "../../utils/constants"
 
 const initialState={
-    token:"",
+    isValidUser: false,
+  hasRecruiter: false,
     loading: false,
     error:""
 }
@@ -11,9 +12,18 @@ const initialState={
 export const registerUser= createAsyncThunk("/user/create",async(params,thunkAPI)=>{
     return axios.post(`${API_URL}/user/create`,params);
 })
-export const userLogin= createAsyncThunk("/user/find",async(params,thunkAPI)=>{
-    return axios.post(`${API_URL}/user/find`,params);
-})
+// export const userLogin= createAsyncThunk("/user/find",async(params,thunkAPI)=>{
+//     return axios.post(`${API_URL}/user/find`,params);
+// })
+export const validateUser = createAsyncThunk("/user/validateUser", async (params, thunkAPI) => {
+    try {
+      const response = await axios.post(`${API_URL}/user/validateUser`, params);
+      console.log(response.data);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data);
+    }
+  });
 
 const userSlice = createSlice({
     name : "user",
@@ -32,27 +42,21 @@ const userSlice = createSlice({
         })
         .addCase(registerUser.fulfilled, (state,action)=>{
             state.loading = false;
-            state.token="succeed";
         })
-        .addCase(userLogin.pending,(state,action)=>{
+        .addCase(validateUser.pending,(state,action)=>{
             state.loading= true;
             state.error="";
         })
-        .addCase(userLogin.rejected, (state,action)=> {
+        .addCase(validateUser.rejected, (state,action)=> {
             state.loading = false;
             state.error=action.payload;
-            state.token="";
         })
-        .addCase(userLogin.fulfilled, (state,action)=>{
-        if(action.payload.data.status==="fail"){
+        .addCase(validateUser.fulfilled, (state,{payload})=>{
             state.loading = false;
-            state.error="invalid user";
-            state.token="";}
-        else{
-            state.loading = false;
-            state.error="";
-            state.token="succeed";}
-        }
+            console.log(payload.status);
+            state.isValidUser = payload?.status === "valid" ? true : false;        
+            state.hasRecruiter = payload?.type === JOB_RECRUITER ? true : false;
+        } 
         )
     }
 })

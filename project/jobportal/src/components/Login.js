@@ -1,17 +1,25 @@
 import {Button, Form,Container,Row} from 'react-bootstrap';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { setSession } from '../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { reset, userLogin } from '../store/reducers/userSlice';
+import { reset, userLogin, validateUser } from '../store/reducers/userSlice';
 
 export default function Login(){
 
     const [validated, setValidated] = useState(false);
     const navigate=useNavigate();
     const dispatch= useDispatch();
-    const error=useSelector(state=>state?.user?.error);
-    console.log(error);
+    const isValidUser = useSelector(state => state?.user?.isValidUser);
+    console.log(isValidUser);
+    useEffect(()=> {
+      if(isValidUser){
+       
+        setSession("isValidUser");
+         navigate("/")
+      }
+  },[isValidUser])
+    // console.log(error);
     const [email,setEmail]= useState('');
     const [password, setPassword]= useState('');
     const data={
@@ -30,15 +38,15 @@ export default function Login(){
         else{
         // if(validated===true){
           // console.log("DF");
-        dispatch(userLogin(data));
-        if(error===""){
-          console.log(error);
-            setSession("1234");
-            navigate("/");
-        }
-        else{
-            dispatch(reset());
-        }
+        dispatch(validateUser(data));
+        // if(error===""){
+        //   console.log(error);
+        //     setSession("1234");
+        //     navigate("/");
+        // }
+        // else{
+        //     dispatch(reset());
+        // }
         }
     }
     const onclick=()=>{

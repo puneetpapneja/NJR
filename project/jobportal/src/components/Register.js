@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import { getSession } from '../utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser, reset } from '../store/reducers/userSlice';
+import { JOB_RECRUITER, JOB_SEEKER } from '../utils/constants';
 
 
 export default function Register(){
@@ -53,7 +54,7 @@ export default function Register(){
     const handleradio=(event)=>{
         const form =event.currentTarget;
         setType(form.value);
-        if(form.value==="J-r"){
+        if(form.value===JOB_RECRUITER){
            setcheckradio(true);
         }
         else{
@@ -84,10 +85,10 @@ export default function Register(){
         <br/>
         <Row>
             <Col xs='6'>
-                <Form.Check type='radio' label='Job Seeker' name="role" value="J-s" onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
+                <Form.Check type='radio' label='Job Seeker' name="role" value={JOB_SEEKER} onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
             </Col>
             <Col xs='6'>
-                <Form.Check type='radio' label='Job Recruiter' value="J-r" name='role' onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
+                <Form.Check type='radio' label='Job Recruiter' value={JOB_RECRUITER} name='role' onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
             </Col>
         </Row>
         <br/>
