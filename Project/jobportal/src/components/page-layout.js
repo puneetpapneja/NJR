@@ -1,13 +1,17 @@
 import React from "react";
-import Footer from "./footer";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import CustomNavbar from "./navbar";
-export default function PageLayout(){
-    return(
+import Footer from "./footer";
+
+export default function PageLayout() {
+    const isAuthenticated = useSelector(state => state?.user?.isValidUser);
+
+    return (
         <>
-            <CustomNavbar/>
-            <Outlet/>
-            <Footer/>
+            {isAuthenticated && <CustomNavbar />}
+            <Outlet />
+            {isAuthenticated && <Footer />}
         </>
-    )
+    );
 }

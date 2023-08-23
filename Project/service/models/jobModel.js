@@ -3,24 +3,24 @@ const mongoose = require("mongoose");
 const jobSchema = mongoose.Schema({
     jobTitle: String,
     jobDesc: String,
-    maxSalary: Number,
+    maxSalary: String,
     companyName: String,
     recruiterDtl: {
         name: String,
         emailId: String,
-        contactNo: Number
+        contactNo: String
     }
 });
 
-const jobCollection = mongoose.model("job", jobSchema);
+const jobCollection = mongoose.model("jobs", jobSchema);
 
 module.exports = {
-    create: (fields)=>{
+    create: (fields)=> {
         const job = new jobCollection(fields);
         return job.save();
     },
-    getAll: ()=> jobCollection.find(),
+    getAll: () => jobCollection.find(),
     deleteById: (id) => jobCollection.deleteOne({_id: id}),
-    update: (id, fields) => jobCollection.update({_id: id},fields),
+    update: (id, fields) => jobCollection.update({_id: id},fields)
 
-}
+};

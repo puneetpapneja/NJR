@@ -3,113 +3,137 @@ import { Button, Form, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./register.css"; // Import your custom CSS file
+import { useDispatch, useSelector } from 'react-redux';
+import { createuser } from '../store/reducers/userSlice'; // Update the import path as needed
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [jobSeeker, setJobSeeker] = useState(true);
-  const [company, setCompany] = useState("");
+  const [formData, setFormData] = useState({});
+  const [validated, setValidated] = useState(false);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state?.user?.isLoading);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleRoleChange = (event) => {
+    const role = event.target.value;
+    setFormData({
+      ...formData,
+      type: role
+    });
+  };
 
-    if (email === "" || password === "" || confirmPassword === "") {
-      alert("Please enter all of the required fields.");
+  const handleEmailChange = (event) => {
+    const email = event.target.value;
+    setFormData({
+      ...formData,
+      emailId: email
+    });
+  }
+
+  const handlePwdChange = (event) => {
+    const pwd = event.target.value;
+    setFormData({
+      ...formData,
+      password: pwd
+    });
+  }
+
+  const handleCompanyName = (event) => {
+    const companyName = event.target.value;
+    setFormData({
+      ...formData,
+      companyName: companyName
+    });
+  }
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    event.stopPropagation();
+    
+    if (form.checkValidity() === false) {
+      setValidated(true);
       return;
     }
 
-    if (password !== confirmPassword) {
-      alert("The passwords do not match.");
-      return;
-    }
-
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    if (!emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
-
-    if (!jobSeeker && company === "") {
-      alert("Please enter your company/organization name.");
-      return;
-    }
+    dispatch(createuser(formData));
   };
 
   return (
     <Container className="register-container">
       <div className="register-box">
         <h1 className="register-heading">Register</h1>
-        <Form onSubmit={handleSubmit}>
-        <Row className="mb-3">
-          <Col>
-            <Form.Control
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Control
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Control
-              type="password"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </Col>
-        </Row>
-        <Row className="mb-3">
-          <Col>
-            <Form.Check
-              type="radio"
-              label="Job Seeker"
-              name="jobRole"
-              checked={jobSeeker}
-              onChange={() => setJobSeeker(true)}
-            />
-          </Col>
-          <Col>
-            <Form.Check
-              type="radio"
-              label="Job Recruiter"
-              name="jobRole"
-              checked={!jobSeeker}
-              onChange={() => setJobSeeker(false)}
-            />
-          </Col>
-        </Row>
-        {jobSeeker ? null : (
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3">
             <Col>
               <Form.Control
-                type="text"
-                placeholder="Company/Organization"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                required={!jobSeeker} 
+                type="email"
+                placeholder="Email"
+                onChange={handleEmailChange}
+                required
               />
             </Col>
           </Row>
-        )}
-        <Row className="mb-3">
-          <Col>
-            <Button type="submit">Register</Button>
-          </Col>
-        </Row>
-      </Form>
+          <Row className="mb-3">
+            <Col>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={handlePwdChange}
+                required
+              />
+            </Col>
+          </Row>
+          <Row className="mb-3">
+            <Col>
+              <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                onChange={handlePwdChange}
+                required
+              />
+            </Col>
+          </Row>
+          <Row className="mb-3">
+            <Col>
+              <Form.Check
+                type="radio"
+                label="Job Seeker"
+                name="jobRole"
+                value="Job Seeker"
+                checked={formData?.type === "Job Seeker"}
+                onChange={handleRoleChange}
+                required
+              />
+            </Col>
+            <Col>
+              <Form.Check
+                type="radio"
+                label="Job Recruiter"
+                name="jobRole"
+                value="Job Recruiter"
+                checked={formData?.type === "Job Recruiter"}
+                onChange={handleRoleChange}
+                required
+              />
+            </Col>
+          </Row>
+          {formData?.type === "Job Recruiter" && (
+            <Row className="mb-3">
+              <Col>
+                <Form.Control
+                  type="text"
+                  placeholder="Company/Organization"
+                  onChange={handleCompanyName}
+                  required={!formData?.type === "Job Seeker"}
+                />
+              </Col>
+            </Row>
+          )}
+          <Row className="mb-3">
+            <Col>
+              <Button type="submit">Register</Button>
+            </Col>
+          </Row>
+        </Form>
         <p className="register-text">
           Already have an account? <Link to="/Login">Login</Link>
         </p>

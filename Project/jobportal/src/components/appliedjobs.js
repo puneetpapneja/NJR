@@ -1,58 +1,53 @@
-import React from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Card } from 'react-bootstrap';
 
 const AppliedJobs = () => {
+  const appliedJobs = [
+    {
+      id: 1,
+      jobTitle: 'Senior Developer',
+      emailId: 'seniordev@example.com',
+      jobDesc: 'Join our team as a Senior Developer!',
+      daysAgo: 3,
+    },
+    {
+      id: 2,
+      jobTitle: 'UI/UX Designer',
+      emailId: 'designer@example.com',
+      jobDesc: 'Exciting UI/UX Designer position available.',
+      daysAgo: 1,
+    },
+  ];
+
+  const [selectedJobId, setSelectedJobId] = useState(null);
+
+  const handleCardClick = (jobId) => {
+    setSelectedJobId(jobId);
+  };
+
   return (
-    <Container fluid>
-      <h2 className="mt-4 mb-3">Jobs</h2>
-      <Form>
-        <Form.Group controlId="jobSearch">
-          <Form.Control type="text" placeholder="Search jobs" />
-        </Form.Group>
-      </Form>
-      <Row>
-        <Col md={6}>
-          {/* Card 1 */}
-          <Card className="mb-3">
-            <Card.Header>
-              <Row>
-                <Col xs={6}>
-                  <h6>Job Title</h6>
-                </Col>
-                <Col xs={6} className="text-right">
-                  <h6>Max Salary</h6>
-                </Col>
-              </Row>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Job description goes here...
-              </Card.Text>
-              <Button variant="primary">Apply</Button>
-            </Card.Body>
-          </Card>
-          
-          {/* Card 2 */}
-          <Card className="mb-3">
-            <Card.Header>
-              <Row>
-                <Col xs={6}>
-                  <h6>Job Title</h6>
-                </Col>
-                <Col xs={6} className="text-right">
-                  <h6>Max Salary</h6>
-                </Col>
-              </Row>
-            </Card.Header>
-            <Card.Body>
-              <Card.Text>
-                Job description goes here...
-              </Card.Text>
-              <Button variant="primary">Apply</Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+    <Container>
+      <h2 className="mt-4 mb-3">Applied Jobs</h2>
+      {appliedJobs.map((job) => (
+        <Card
+          key={job.id}
+          className={`mb-3 ${selectedJobId === job.id ? 'bg-primary text-white' : ''}`}
+          onClick={() => handleCardClick(job.id)}
+        >
+          <Card.Body className="d-flex justify-content-between">
+            <div>
+              <h4>{job.jobTitle} ({job.id})</h4>
+              <p>Email: {job.emailId}</p>
+            </div>
+            <div className="text-right">
+              <p className="mb-0">{job.daysAgo} days ago</p>
+              <p className="mb-0">Applied</p>
+            </div>
+          </Card.Body>
+          <Card.Text className="p-3">{job.jobDesc}</Card.Text>
+        </Card>
+      ))}
+      
     </Container>
   );
 };

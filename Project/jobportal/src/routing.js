@@ -2,9 +2,12 @@ import React from 'react';
 import LoginPage from './pages/loginpage';
 import RegisterPage from './pages/registerpage';
 import DashboardPage from './pages/dashboardpage';
-import AppliedjobsPage from './pages/appliedjobspage';
+import JobsPage from './pages/jobspage';
 import PostjobPage from './pages/postjobpage';
 import PageLayout from './components/page-layout'
+import JobsappliedPage from './pages/jobsappliedpage';
+import PostedJobsPage from './components/postedjobs';
+import ProfilePage from './pages/profilepage';
 export const routing = [
   {
       path: "/",
@@ -14,7 +17,6 @@ export const routing = [
     path: "/Login",
     element:  <LoginPage/>
   },
-
   {
       path: "/Register",
       element:  <RegisterPage />
@@ -24,13 +26,25 @@ export const routing = [
       element:  <DashboardPage />
   },
   {
-    path: "/AppliedJobs",
-    element:  <AppliedjobsPage />
+    path: "/JobsApplied",
+    element:  <JobsappliedPage />
   },
   {
     path: "/PostJob",
     element:  <PostjobPage />
   },
+  {
+    path: "/Profile",
+    element: <ProfilePage/>
+  },
+  {
+    path:"/Jobs",
+    element: <JobsPage/>
+  },
+  {
+    path:"/PostedJobs",
+    element: <PostedJobsPage/>
+  }
 
 ]
 
