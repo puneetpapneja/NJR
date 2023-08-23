@@ -1,15 +1,16 @@
 import React from 'react';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
-import Dashboard from './pages/Dashbord';
+import Dashboard from './pages/Dashboard';
 import Jobs from './pages/Jobs';
+import NavBarComponent from './components/navbar';
 import PostJob from './pages/PostJob';
 import PageLayout from './components/pagelayout';
 import AppliedJobsPage from './pages/AppliedJobPage';
 import ProfilePage from './pages/ProfilePage';
 import PostedJobsPage from './pages/PostedJobPage';
 
-export const routing = [
+const COMMON_ROUTES = [
     {
         path: "/",
         element:  <LoginPage />
@@ -27,20 +28,26 @@ export const routing = [
         element:  <Dashboard />
     },
     {
+        path: "/ProfilePage",
+        element:  <ProfilePage />
+    }
+]
+const SEEKER_ROUTES = [   
+    ...COMMON_ROUTES,
+    {
         path: "/Jobs",
         element:  <Jobs />
     },
     {
-        path: "/Postjob",
-        element:  <PostJob />
-    },
-    {
         path: "/AppliedJobsPage",
         element:  <AppliedJobsPage />
-    },
+    }    
+]
+export const RECURITER_ROUTES = [ 
+    ...COMMON_ROUTES,   
     {
-        path: "/ProfilePage",
-        element:  <ProfilePage />
+        path: "/Postjob",
+        element:  <PostJob />
     },
     {
         path: "/PostedJobsPage",
@@ -48,10 +55,10 @@ export const routing = [
     }
 ]
 
-export const routes = [
+export const getRoutes =(hasRecuriter)=> [
     {
         path: "/",
         element:  <PageLayout/>,
-        children: routing
+        children: hasRecuriter ? RECURITER_ROUTES : SEEKER_ROUTES 
     }
 ]
