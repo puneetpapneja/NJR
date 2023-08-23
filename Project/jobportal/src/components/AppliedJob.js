@@ -10,7 +10,7 @@ export default function AppliedJob() {
           <h1 style={{ textAlign: "center" }}>Applied Jobs</h1>
         </Col>
       </Row>
-      <Card style={{ background: "pink" }}>
+      <Card>
         <Card.Body>
           <Card.Title
             className="d-flex"
@@ -33,7 +33,7 @@ export default function AppliedJob() {
           </Card.Text>
         </Card.Body>
       </Card>
-      <Card style={{ background: "grey" }}>
+      <Card>
         <Card.Body>
           <Card.Title
             className="d-flex"

@@ -1,6 +1,7 @@
 import { Container } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-export default function deveoper() {
+import Row from "react-bootstrap";
+export default function developer() {
   return (
     <Container>
       <Row>
