@@ -2,8 +2,9 @@ import { Registration } from "./components/Registration";
 import { Login } from "./components/login";
 import Dashboard from "./components/dashboard";
 import PageLayout from "./components/pagelayout";
-import Home from "./components/home";
-import PostJob from "./components/PostedJob"
+// import Home from "./components/home";
+import PostJob from "./components/PostJob"
+import Appliedjobs from "./components/AppliedJob";
 
 export const routing = [
     {
@@ -15,17 +16,17 @@ export const routing = [
         element: <Registration/>
     },
     {
-        path: "/home",
-        element: <Home/>
-    },
-    {
-        path: "/home/dashboard",
+        path: "/dashboard",
         element: <Dashboard/>
     },
     {
         path: "/postjob",
         element: <PostJob/>
     },
+    {
+        path: "/appliedjobs",
+        element: <Appliedjobs/>
+    }
 
 ]
 

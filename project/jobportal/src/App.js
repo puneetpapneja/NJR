@@ -1,17 +1,16 @@
-import './App.css';
-// import Button from 'react-bootstrap/esm/Button';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { routes } from './routing';
+import { RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
+// import { routing } from "./routes";
+import { Provider } from "react-redux";
+import store from "./store/index";
+import './App.css'
 
-
-
+import { routes } from "./routing";
 function App() {
   return (
-    <div className="App">
-     {/* <Button variant="secondary">Secondary</Button>{' '} */}
-     <RouterProvider router={createBrowserRouter(routes)}></RouterProvider>
-    </div>
+    <Provider store={store}>
+    <RouterProvider router={createBrowserRouter(routes)}></RouterProvider>
+    </Provider>
   );
 }
-
 export default App;

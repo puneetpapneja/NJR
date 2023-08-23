@@ -19,6 +19,7 @@ module.exports = {
 
     getALL: () =>  userCollection.find(),
     deleteById: (Id) => userCollection.deleteOne({_id:Id}),
-    updateUser: (Id,fields) => userCollection.updateOne({_id:Id},fields)
+    updateUser: (Id,fields) => userCollection.updateOne({_id:Id},fields),
+    getuser: (emailId) => userCollection.findOne({emailId:emailId})
 }
 

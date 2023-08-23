@@ -57,4 +57,21 @@ module.exports = {
         return res.send({ status: "failed", error: err });
       });
   },
+
+  loginuser: (req, res) => {
+    return userModel.getuser(req.body.emailId)
+
+    .then((userData) => {
+      console.log("Controller");
+      if(userData){
+        if(userData.password === req.body.password) return res.send({status:"ok", msg:"Login successful"})
+        else return res.send({status:"fail", msg:"Incorrect Password", error:"Login fail"})
+      }
+      else res.send({status:"fail", msg:"user not exist", error:"Login fail"})
+    })
+
+    // .catch((err) => {
+    //   return res.send({ status: "failed", error: err });
+    // })
+  }
 };

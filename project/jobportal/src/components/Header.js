@@ -16,10 +16,10 @@ function Header() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link as={Link} to='/home/dashboard'>Home</Nav.Link>
-              <Nav.Link href="#action2">Post A Job</Nav.Link>
-              <Nav.Link href="#">Applied job</Nav.Link>
-              <Nav.Link href="#">Posted job</Nav.Link>
+              <Nav.Link as={Link} to='/dashboard'>Home</Nav.Link>
+              <Nav.Link as={Link} to='/postjob'>Post A Job</Nav.Link>
+              <Nav.Link as={Link} to='/appliedjobs'>Applied job</Nav.Link>
+              <Nav.Link as={Link} to='/postjob'>Posted job</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control

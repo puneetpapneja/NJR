@@ -1,14 +1,18 @@
 import React, { useState} from "react";
 import { Button, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 // import Button from 'react-bootstrap/Button';
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
+import { registerUser } from "../store/reducers/userSlice";
 
 export const Registration = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const err = useSelector(state=>state?.user?.Error);
   const [firstName, setFname] = useState("");
   const [lastName, setLname] = useState("");
   const [emailId, setEmail] = useState("");
@@ -16,27 +20,36 @@ export const Registration = () => {
   const [companyName, setCname] = useState("");
   const [type, settype] = useState("Job-seeker");
 
-  const postData = async (e) => {
-    e.preventDefault();
-    // console.log(Fname, Lname, Email, Password, Cname, type);
-    var item = {firstName, lastName, emailId, password, type, companyName};
+  // const postData = async (e) => {
+  //   e.preventDefault();
+  //   // console.log(Fname, Lname, Email, Password, Cname, type);
+  //   var item = {firstName, lastName, emailId, password, type, companyName};
 
-    const res = await fetch("/user/create", {
-      method: "POST",
-      headers: {
-        'Content-Type' : 'application/json'
-      },
-      body: JSON.stringify(item)
-    })
+  //   const res = await fetch("/user/create", {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type' : 'application/json'
+  //     },
+  //     body: JSON.stringify(item)
+  //   })
 
-    const data = await res.json();
+  //   const data = await res.json();
 
-    if(!data){window.alert("Registration fail")}
+  //   if(!data){window.alert("Registration fail")}
 
-    else{window.alert("Registration successful")
-    navigate('/')
-  }
+  //   else{window.alert("Registration successful")
+  //   navigate('/')
+  // }
 
+  // }
+
+  const postData = (event) => {
+    const item = {firstName:firstName, lastName:lastName, emailId:emailId, password:password, type:type, companyName:companyName};
+    console.log(item);
+    dispatch(registerUser(item))
+    if(err!==""){
+      navigate('/')
+    }
   }
   return (
     <>
@@ -99,7 +112,7 @@ export const Registration = () => {
             </Button>
           </Form>
 
-          <Button as={Link} to={"/home"}>
+          <Button as={Link} to={"/dashboard"}>
             Dashboard
           </Button>
         </Container>
