@@ -1,52 +1,77 @@
-import React from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Container, Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setSession } from "../utils/utils";
+import { validateUser } from "../store/reducers/userLoginSlice";
+import * as formik from "formik";
+import * as yup from "yup";
 
 export default function Login() {
-  const nav = useNavigate();
-  const handleLogin = (event) => {
-    setSession("isLoggedIn", true);
-  };
-
+  const { Formik } = formik;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isValidUser = useSelector((state) => state?.user?.isValidUser);
+  useEffect(() => {
+    if (isValidUser) {
+      navigate("/dashboard");
+    }
+  }, [isValidUser]);
   return (
-    <div style={{ marginTop: "18vh" }}>
-      <h1 className="text-center">Login</h1>
-      <Form className="text-center" style={{ marginTop: "8vh" }}>
-        <Form.Group
-          className="mb-4 mx-auto text-center col-md-4"
-          controlId="formBasicEmail"
+    <Container className="d-flex justify-content-center align-items-center vh-100">
+      <div className="login-box p-4">
+        <h2 className="mb-10 text-md-center">Login</h2>
+        <Formik
+          initialValues={{ email: "", pwd: "" }}
+          onSubmit={(values, { setSubmitting }) => {
+            dispatch(
+              validateUser({ emailId: values.email, password: values.pwd })
+            );
+          }}
         >
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-        <Form.Group
-          className="mb-4 mx-auto text-center col-md-4"
-          controlId="formBasicPassword"
-        >
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Text className="text-muted">
-            <Card.Link as={Link} to="/register">
-              Don't have a account?Register Now
-            </Card.Link>
-          </Form.Text>
-        </Form.Group>
-        <Form.Group className="text-center">
-          <Button
-            variant="dark"
-            type="submit"
-            className="btn btn-dark"
-            onClick={() => setSession("authenticate")}
-            as={Link}
-            to="/dashboard"
-          >
-            Login
-          </Button>
-        </Form.Group>
-      </Form>
-    </div>
+          {({
+            handleSubmit,
+            handleChange,
+            handleBlur,
+            values,
+            touched,
+            errors,
+          }) => (
+            <Form noValidate onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  name="pwd"
+                  placeholder="Password"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.pwd}
+                />
+              </Form.Group>
+
+              <Button variant="dark" type="submit" className="col-md-12 mt-4">
+                Login
+              </Button>
+            </Form>
+          )}
+        </Formik>
+
+        <p className="mt-3 text-center">
+          <Link to="/register">Don't have an account? Sign up</Link>
+        </p>
+      </div>
+    </Container>
   );
 }

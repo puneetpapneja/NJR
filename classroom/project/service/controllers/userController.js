@@ -45,4 +45,14 @@ module.exports = {
       )
       .catch((err) => res.send({ status: "fail", errro: err }));
   },
+  hasValidUser: (req, res) => {
+    const { emailId, password } = req.body;
+    return userModel.hasValidUser(emailId, password).then((data) => {
+      if (data.length === 1) {
+        res.send({ status: "valid", type: data?.[0].type });
+      } else {
+        res.send({ status: "invalid" });
+      }
+    });
+  },
 };
