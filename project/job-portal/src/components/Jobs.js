@@ -8,6 +8,7 @@ import { getAllJobs, reset } from "../store/reducers/jobSlice";
 
 export default function Jobs() {
   const jobs = useSelector((state) => state?.job?.jobs);
+  console.log(jobs);
   const dispatch = useDispatch();
   console.log(jobs);
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Jobs() {
     return () => {
       dispatch(reset());
     };
-  });
+  }, []);
 
   const renderJobs = () => {
     return jobs.map((items) => (

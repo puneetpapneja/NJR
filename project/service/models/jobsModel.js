@@ -1,12 +1,9 @@
 const mongoose = require("mongoose");
 
 const jobSchema = mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  emailId: String,
-  password: String,
-  type: String,
-  companyName: String,
+  title: String,
+  description: String,
+  maxSalary: String,
 });
 
 const jobCollection = mongoose.model("jobs", jobSchema);

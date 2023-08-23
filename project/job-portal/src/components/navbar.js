@@ -33,7 +33,7 @@ function Navigation() {
                         <Link to="/postjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Post a Job</Link>
                         <Link to="/appliedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Applied Job</Link>
                         <Link to="/postedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Posted Job</Link>
-                        <Link to="/developers" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Developers</Link>
+                        {/* <Link to="/developers" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Developers</Link> */}
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
