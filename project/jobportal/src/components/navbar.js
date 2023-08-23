@@ -1,3 +1,4 @@
+
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -6,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Navbarbody() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" justify-content="center">
       <Container fluid>
         <Navbar.Brand>Logo</Navbar.Brand>
           <Nav className="me-auto my-2 my-lg-0"
@@ -15,16 +16,18 @@ function Navbarbody() {
             <Nav.Link as={Link} to="/dashboard">Home</Nav.Link>
             <Nav.Link as={Link} to="/postjob">Post a Job</Nav.Link>
             <Nav.Link as={Link} to="/appliedjob">Applied Job</Nav.Link>
-            <Nav.Link as={Link} to="/postedjob">Postes Job</Nav.Link>
+            <Nav.Link as={Link} to="/postedjob">Posted Job</Nav.Link>
             
          
-          <Form className="d-flex">
+          <Form className="d-flex ms-auto">
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              style={{width:'400px'}}
             />
+
           </Form>
           <div className="mb-2">
           <i class="bi bi-person-circle"></i>
