@@ -5,10 +5,20 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 
 
  const Login = () => {
+    const[email,setemail]=useState()
+    const[pwd,setPwd]=useState()
+    const userDtl=useSelector(state =>state.getuser.user)
+    const {emailID}=userDtl
+    const handleClick=()=>{
+        console.log(emailID)
+    }
+   
     return (
         <Container className='w-25'>
             <Row>
@@ -17,11 +27,12 @@ import { Link } from 'react-router-dom';
             <Row>
                 <Col md="12">
                     <InputGroup className="mb-3">
-                        <InputGroup.Text id="basic-addon1">Name</InputGroup.Text>
+                        <InputGroup.Text id="basic-addon1">email</InputGroup.Text>
                         <Form.Control
                             placeholder="Username"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
+                            onChange={(event)=>setemail(event.target.value)}
                         />
                     </InputGroup>
                 </Col>
@@ -33,6 +44,7 @@ import { Link } from 'react-router-dom';
                         type="password"
                         id="inputPassword5"
                         aria-describedby="passwordHelpBlock"
+                        onChange={(event)=>setPwd(event.target.value)}
                     />
                     <Form.Text id="passwordHelpBlock" muted>
                         Your password must be 8-20 characters long, contain letters and numbers,
@@ -45,7 +57,7 @@ import { Link } from 'react-router-dom';
             </Row>
             <Row >
                 <Col className='text-center'> 
-                    <Button variant="outline-success">Submit</Button>
+                    <Button variant="outline-success" onClick={handleClick}>Submit</Button>
                 </Col>
             </Row>
         </Container>

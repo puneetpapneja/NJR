@@ -18,7 +18,7 @@ const Register=()=>{
             emailId: emailId,
             password: password
         };
-
+        dispatch(createReg(params))
     };
 
     return (

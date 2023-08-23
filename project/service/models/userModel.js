@@ -14,7 +14,8 @@ const userCollection = mongoose.model("users", userSchema);
 module.exports = {
     create: (fields)=>{
         const user = new userCollection(fields);
-        return user.save();       
+        return user.save()  
+        console.log(user)    
     },
     getAll: ()=> userCollection.find(),
     deleteById: (id) => userCollection.deleteOne({_id: id}),
