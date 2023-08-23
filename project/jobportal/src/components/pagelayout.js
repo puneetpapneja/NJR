@@ -1,15 +1,16 @@
 import { Outlet } from "react-router-dom"
 import React from 'react';
-import NavBarcomponent from "./NavBarComponent";
+import NavBarComponent from "./navbar";
 import Footercomponent from "./footer.js";
 
-const Pagelayout = ()=>{
+const PageLayout = ()=>{
     return (
         <React.Fragment>
-            <NavBarcomponent />
+            <NavBarComponent />
             <Outlet />
             <Footercomponent />
         </React.Fragment>
     )
 }
-export default Pagelayout;
+
+export default PageLayout;
