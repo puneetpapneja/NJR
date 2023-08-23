@@ -28,9 +28,10 @@ module.exports={
     },
     getSpecified: (req,res)=>{
         console.log(req.body.title);
-        console.log(jobModel.getSpecified(req.body.title));
+        // console.log(jobModel.getSpecified(req.body.title));
         return jobModel.getSpecified(req.body.title)
-        .then((matchedJobs)=>res.send(matchedJobs))
+        .then((matchedJobs)=>{res.send(matchedJobs);
+        console.log(matchedJobs);})
         .catch((err)=>res.send({status:"fail",err:(err)}))
     }
 }

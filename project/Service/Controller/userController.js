@@ -25,5 +25,19 @@ module.exports = {
         return userModel.update(req.body.id, req.body.fields)
         .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
         .catch((err)=> res.send({status:"fail", errro: err}));
+    },
+    loginValidation:(req,res)=>{
+        console.log(req.body.password);
+        return userModel.findSpecified(req.body.email)
+        .then((userData)=>{
+            let validUser=0;
+            console.log(userData);
+            if(req.body.password==userData[0].password){
+                validUser=1;
+                res.send({status:"Ok",msg:"login successfull"});}
+            else{res.send({status:"fail",msg:"invalid password"})}
+        })
+
+            .catch((err)=>res.send({status:"fail",error:err,msg:"invalid email"}))
     }
 }
