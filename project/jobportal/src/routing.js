@@ -10,7 +10,7 @@ import AppliedJobsPage from './pages/AppliedJobsPage';
 import ProfilePage from './pages/ProfilePage';
 import PostedJobsPage from './pages/PostedJobsPage';
 
-export const routing = [
+const COMMON_ROUTES = [
     {
         path: "/",
         element:  <LoginPage />
@@ -28,20 +28,26 @@ export const routing = [
         element:  <Dashboard />
     },
     {
+        path: "/ProfilePage",
+        element:  <ProfilePage />
+    }
+]
+const SEEKER_ROUTES = [   
+    ...COMMON_ROUTES,
+    {
         path: "/Jobs",
         element:  <Jobs />
     },
     {
-        path: "/Postjob",
-        element:  <PostJob />
-    },
-    {
         path: "/AppliedJobsPage",
         element:  <AppliedJobsPage />
-    },
+    }    
+]
+export const RECURITER_ROUTES = [ 
+    ...COMMON_ROUTES,   
     {
-        path: "/ProfilePage",
-        element:  <ProfilePage />
+        path: "/Postjob",
+        element:  <PostJob />
     },
     {
         path: "/PostedJobsPage",
@@ -49,10 +55,10 @@ export const routing = [
     }
 ]
 
-export const routes = [
+export const getRoutes =(hasRecuriter)=> [
     {
         path: "/",
         element:  <PageLayout/>,
-        children: routing
+        children: hasRecuriter ? RECURITER_ROUTES : SEEKER_ROUTES 
     }
 ]

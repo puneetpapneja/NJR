@@ -3,6 +3,7 @@ import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser, selectRegistrationStatus, selectRegistrationError, createuser } from '../store/reducers/userSlice';
+import { JOB_RECURITER, JOB_SEEKER } from '../utils/constants';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({});
@@ -38,10 +39,10 @@ const RegisterPage = () => {
   }
 
   const handleCompanyName = (event) => {
-    const compnayName = event.target.value;
+    const companyName = event.target.value;
     setFormData({
       ...formData,
-     compnayName: compnayName
+      companyName: companyName
     }); 
   }
   const handleSubmit = (event) => {
@@ -72,7 +73,7 @@ const RegisterPage = () => {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" onChange={handlePwdChange} />
           </Form.Group>
-          {['Job Seeker', 'Job Recruiter'].map((role) => (
+          {[JOB_SEEKER, JOB_RECURITER].map((role) => (
             <Form.Check
               key={role}
               inline
