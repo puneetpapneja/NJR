@@ -10,7 +10,7 @@ import Card from 'react-bootstrap/Card';
 
 function Dashboard() {
   return (
-    <div className='Dashboard'>
+    <div className='Dashboard' style={{marginBottom : "150px"}}>
     <Container fluid>
     <h2 style={{marginLeft: "130px",marginTop: "50px",fontSize:"50px"}}>Dashboard</h2>
     <Row>

@@ -9,6 +9,7 @@ import Register from './components/Register';
 import NavBarcomponent from './components/NavBarcomponent';
 import Footer from './components/Footer';
 import PostJob from './components/PostJob';
+import Posted_a_job from './components/Posted_a_job';
 
 function App() {
   return (
@@ -16,15 +17,18 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<NavBarcomponent />} >
-      <Route path='/login' element={<Login/>}/>
+      <Route index element={<Login/>}/>
+      <Route path='/login' element={<Login/>} />
       <Route path='/Dashboard' element={<Dashboard/>}/>
       <Route path='/Register' element={<Register/>}/>
       <Route path='/Dashboard' element={<Dashboard/>} />
       <Route path='/appliedjob' element={<AppliedJob/>}/>
       <Route path='/postjob' element={<PostJob/>}/>
+      <Route path='/postedjob' element={<posted_a_job/>} />
       </Route>
     </Routes>
     </BrowserRouter>
+    <Footer />
     </>
   );
 }
