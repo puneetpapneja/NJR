@@ -5,11 +5,18 @@ import Navbar from "react-bootstrap/Navbar";
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function NavScrollExample() {
+  const navigate = useNavigate();
+
   const [showOptions, setShowOptions] = useState(false);
 
   const handleProfileLogoClick = () => {
     setShowOptions(!showOptions);
+  };
+  const gotoProfile = () => {
+    navigate("/profile");
   };
   return (
     <Container>
@@ -69,9 +76,7 @@ function NavScrollExample() {
                 </svg>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item as={Link} to="/profile">
-                  Profile
-                </Dropdown.Item>
+                <Dropdown.Item onClick={gotoProfile}>Profile</Dropdown.Item>
                 <Dropdown.Item as={Link} to="/login">
                   Logout
                 </Dropdown.Item>
