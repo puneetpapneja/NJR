@@ -4,6 +4,7 @@ import Dashboard from "./components/Dashboard";
 import PostJob from "./components/PostJob";
 import Jobs from "./components/Jobs";
 import AppliedJobs from "./components/AppliesJobs";
+import Register from "./components/Register";
 export const routing = [
   {
     path: "/signup",
@@ -20,6 +21,10 @@ export const routing = [
   {
     path: "/jobs",
     element: <Jobs />,
+  },
+  {
+    path:"/register",
+    element:<Register />,
   },
   {
     path:"/applied-jobs",

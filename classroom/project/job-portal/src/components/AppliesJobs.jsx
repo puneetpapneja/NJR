@@ -6,18 +6,20 @@ export default function AppliedJobs() {
   return (
     <container>
     <Form>
-      <Card.Title style={{ fontSize: "50px", marginLeft: "5vw" }}>
+      <Card.Title style={{ fontSize: "50px", marginLeft: "10vw", marginBottom:"25px" }}>
         Applied Job
       </Card.Title>
       {appliedJobs.map((items)=>(
-        <Card classname="col-md-10 mt-5 m-auto">
+        <Card classname="col-md-10 mt-5 m-auto" style={{marginLeft:"10vw", marginRight:"10vw"}}>
         <Card.Title
               as="h5"
               className="d-flex justify-content-between"
               inline
+              style={{marginLeft:"1vw", marginRight:"1vw", marginTop:"1vw"}}
           >
             <span>{items.title}</span>
             <>{items["days"]}</>
+           
         </Card.Title>
         <Card.Body>
            {<Card.Subtitle><>{items["email"]}</></Card.Subtitle>}

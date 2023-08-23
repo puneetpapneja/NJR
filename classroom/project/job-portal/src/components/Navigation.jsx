@@ -31,6 +31,7 @@ export default function Navigation() {
             <Link className="nav-link" to="/jobs">
               Jobs
             </Link >
+            <Link className="nav-link" to="/register">Register</Link>
                        
             <Link className="nav-link" to="/applied-jobs">
               Applied Job
