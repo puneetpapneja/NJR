@@ -1,12 +1,12 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import { setSessionStorageItem } from "../utils/utils";
+import { setSession } from "../utils/utils";
 
 export default function Login() {
   const nav = useNavigate();
   const handleLogin = (event) => {
-    setSessionStorageItem("isLoggedIn", true);
+    setSession("isLoggedIn", true);
   };
 
   return (
@@ -27,15 +27,23 @@ export default function Login() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
-        Don't Have An Account? <Link>Register Now</Link>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Text className="text-muted">
+            <Card.Link as={Link} to="/register">
+              Don't have a account?Register Now
+            </Card.Link>
+          </Form.Text>
+        </Form.Group>
         <Form.Group className="text-center">
           <Button
-            style={{ backgroundColor: "black", border: "none" }}
-            className="mt-3 mx-auto col-md-2"
+            variant="dark"
             type="submit"
-            onClick={handleLogin}
+            className="btn btn-dark"
+            onClick={() => setSession("authenticate")}
+            as={Link}
+            to="/dashboard"
           >
-            Submit
+            Login
           </Button>
         </Form.Group>
       </Form>

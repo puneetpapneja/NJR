@@ -1,30 +1,35 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signup.css";
 // import { postNewUser } from "./userRegistrationSlice";
-import { setSessionStorageItem } from "../utils/utils";
+import { setSession, setSessionStorageItem } from "../utils/utils";
 import { postNewUser } from "../store/reducers/userRegisterSlice";
 export default function SignUp() {
   const [checkEmail, setCheckEmail] = useState("");
   const [selectedRole, setSelectedRole] = useState("jobSeeker"); // Default selected role
   const [error, setError] = useState("");
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const postingStatus = useSelector(
     (state) => state.userRegistration.postingStatus
   );
 
-  const handleLogin = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (!emailPattern.test(checkEmail)) {
       setError("Please enter a valid email address.");
       return;
     }
 
-    dispatch(postNewUser({ email: checkEmail, role: selectedRole }));
+    dispatch(postNewUser({ emailId: checkEmail, type: selectedRole }));
+
+    // if (postingStatus === "succeeded") {
+    //   setSession("isLoggedIn", true);
+    //   navigate("/dashboard");
+    // }
   };
   return (
     <div style={{ marginTop: "18vh" }}>
@@ -85,13 +90,13 @@ export default function SignUp() {
               />
             </div>
           ))}
-          <Link
-            as={Link}
-            to="/login"
-            // onClick={SwitchTo}
-          >
-            Already Have An Account? Login Here
-          </Link>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Text className="text-muted">
+              <Card.Link as={Link} to="/">
+                Have a account?Login Now
+              </Card.Link>
+            </Form.Text>
+          </Form.Group>
         </Form.Group>
 
         <Form.Group className="text-center">
@@ -99,16 +104,13 @@ export default function SignUp() {
             style={{ backgroundColor: "black", border: "none" }}
             className="mx-auto col-md-2"
             type="submit"
-            onClick={handleLogin}
+            onClick={handleSubmit}
             disabled={postingStatus === "loading"}
           >
             {postingStatus === "loading" ? "Registering..." : "Submit"}
           </Button>
         </Form.Group>
       </Form>
-      <Link as={Link} to="/login">
-        Already Have An Account? Login Here
-      </Link>
     </div>
   );
 }

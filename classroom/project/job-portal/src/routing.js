@@ -5,9 +5,19 @@ import AppliedJobs from "./components/AppliedJobs";
 import Jobs from "./components/Jobs";
 import Postedjobs from "./components/Postedjobs";
 import SearchResults from "./components/SearchResults";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 export const routing = [
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <SignUp />,
+  },
+  {
+    path: "/dashboard",
     element: <Dashboard />,
   },
   {
