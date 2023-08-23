@@ -4,9 +4,26 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Container } from "react-bootstrap";
+// import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { setSession } from "../utils/utils";
 
 
 function RegestrationForm () {
+
+    // const navigate = useNavigate();
+
+    // const handleClick = () => {
+    //     setSession("shubham");
+    //     navigate("/");
+    //   };
+
+    //   const SwitchTo = () => {
+    //     sessionStorage.removeItem("token");
+    //     sessionStorage.removeItem("key");
+    //     navigate("/");
+    //   };
+
     return(
         <Container className=" justify-content-between align-items-center border border-black shadow-lg p-5 mb-4 bg-body-tertiary rounded w-25 bg-dark-subtle text-emphasis-dark h-25" >
             <Form >
@@ -61,9 +78,9 @@ function RegestrationForm () {
 
                 <Row>
                     <Form.Group>
-                    <Col xs="auto" className="my-1 ">
-                        <a href="#">Have a account? Login Now</a>
-                    </Col>
+                    <Link as={Link} to="/login">
+                        Don't Have An Account? Login Now
+                    </Link>
                     </Form.Group>
                 </Row>
             

@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import { Form, Button } from "react-bootstrap";
 
-function BodyPost () {
+function PostAJob () {
     return(
         <Container>
             <Row>
@@ -37,4 +37,4 @@ function BodyPost () {
     )
 }
 
-export default BodyPost;
+export default PostAJob;
