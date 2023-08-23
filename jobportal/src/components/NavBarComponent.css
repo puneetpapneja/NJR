@@ -1,0 +1,33 @@
+.user-icon {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .user-icon {
+        margin-top: 10px;
+    }
+}
+
+.search-button {
+    margin-left: 10px;
+}
+
+.brand-name {
+    font-family: 'YourDesiredFont', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+    
+}
+
+.brand-wave {
+    font-family: 'YourOtherFont', sans-serif;
+    font-weight: normal;
+    font-size: 28px;
+    color: #007bff;
+}
+.font{
+    font-family:"Signika";
+    font-size: 20px;
+}
