@@ -1,6 +1,33 @@
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 
+import { useState } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { Link, useNavigate } from "react-router-dom";
+
+import { createuser } from "../store/reducers/userSlice";
+
 function Register() {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const err = useSelector(state=>state?.user?.Error);
+  const [firstName, setFname] = useState("");
+  const [lastName, setLname] = useState("");
+  const [emailId, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [companyName, setCname] = useState("");
+  const [type, settype] = useState("Job-seeker");
+
+  const postData = (event) => {
+    const item = {firstName:firstName, lastName:lastName, emailId:emailId, password:password, type:type, companyName:companyName};
+    console.log(item);
+    dispatch(createuser(item))
+    if(err!==""){
+      navigate('/')
+    }
+  }
   return (
     <div>
       <Container>
@@ -14,12 +41,27 @@ function Register() {
 
                   <div className="mb-3">
                     <Form>
+                    <Form.Group as={Col} controlId="formGridName">
+                <Form.Control
+                  type="text"
+                  placeholder="Enter FirstName"
+                  onChange={(e) => setFname(e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group as={Col} controlId="formGridlastname">
+                <Form.Control
+                  type="text"
+                  placeholder="Enter LastName"
+                  onChange={(e) => setLname(e.target.value)}
+                />
+              </Form.Group>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         {/* <Form.Label className="text-center">
                           Email address
                         </Form.Label> */}
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" />
+                        <Form.Control type="email" onChange={(e)=> setEmail(e.target.value)}/>
                       </Form.Group>
 
                       <Form.Group
@@ -27,31 +69,20 @@ function Register() {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" />
+                        <Form.Control type="password" onChange={(e)=> setPassword(e.target.value)}/>
                       </Form.Group>
-                      <div class="form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="flexRadioDefault"
-                          id="flexRadioDefault1"
-                        />
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Job Seeker
-                        </label>
-                      </div>
-                      <div class="form-check-inline">
-                        <input
-                          class="form-check-input"
-                          type="radio"
-                          name="flexRadioDefault"
-                          id="flexRadioDefault2"
-                          checked
-                        />
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Job Recruiter
-                        </label>
-                      </div>
+                      <Form.Group as={Col} controlId="formGridState">
+              <Form.Select
+                defaultValue="Job-seeker"
+                onChange={(e) => settype(e.target.value)}
+              >
+                <option>Job-seeker</option>
+                <option>Job-recruiter</option>
+              </Form.Select>
+            </Form.Group>
+
+                      <Form.Label>Company name</Form.Label>
+                        <Form.Control type="text" onChange={(e)=> setCname(e.target.value)}/>
 
                       <Form.Group
                         className="mb-3"
@@ -68,7 +99,7 @@ function Register() {
                           Login
                         </Button>
                       </div> */}
-                      <Button variant="dark">Register</Button>
+                      <Button variant="dark" onClick={postData}>Register</Button>
                     </Form>
                     {/* <div className="mt-3">
                       <p className="mb-0  text-center">

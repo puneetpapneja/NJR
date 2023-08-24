@@ -12,7 +12,7 @@ import developer from "./components/developers";
 
 export const routing = [
   { path: "/dashboard", element: <Dashbody /> },
-  { path: "/login", element: <Login /> },
+  { path: "/", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/postjob", element: <PostJob /> },
   { path: "/job", element: <Job /> },

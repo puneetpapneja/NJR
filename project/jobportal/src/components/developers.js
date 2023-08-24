@@ -1,4 +1,4 @@
-import { Container } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 export default function deveoper() {
   return (
