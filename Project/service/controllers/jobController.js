@@ -2,6 +2,7 @@ const jobModel = require('../models/jobModel');
 
 module.exports = {
     create: (req, res) => {
+
         //logic/data validation code write here
         return jobModel.create(req.body)
         .then((data) => {
@@ -11,6 +12,7 @@ module.exports = {
             return res.send({status: "fail", error: err});
         });
     },
+
     getAll: (req, res) => {
         return jobModel.getAll()
         .then((alljobs)=> res.send(alljobs))
