@@ -4,7 +4,7 @@
 // import Nav from "react-bootstrap/Nav";
 // import Navbar from "react-bootstrap/Navbar";
 // import Dropdown from "react-bootstrap/NavDropdown";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import Login from "./Login";
 // import React, { useState } from "react";
 
@@ -111,11 +111,21 @@ function NavScrollExample() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/dash">Dashboard</Nav.Link>
-              <Nav.Link href="/job">Jobs</Nav.Link>
-              <Nav.Link href="/postjob">Post A Job</Nav.Link>
-              <Nav.Link href="/appliedjob">Applied Job</Nav.Link>
-              <Nav.Link href="/postedjob">Posted Job</Nav.Link>
+              <Nav.Link as={Link} to="/dash">
+                Dashboard
+              </Nav.Link>
+              <Nav.Link as={Link} to="/job">
+                Jobs
+              </Nav.Link>
+              <Nav.Link as={Link} to="/postjob">
+                Post A Job
+              </Nav.Link>
+              <Nav.Link as={Link} to="/appliedjob">
+                Applied Job
+              </Nav.Link>
+              <Nav.Link as={Link} to="/postedjob">
+                Posted Job
+              </Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -147,8 +157,12 @@ function NavScrollExample() {
                 </svg>
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                <Dropdown.Item>Logout</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/profile">
+                  Profile
+                </Dropdown.Item>
+                <Dropdown.Item as={Link} to="/log">
+                  Logout
+                </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Navbar.Collapse>

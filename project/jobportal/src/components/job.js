@@ -1,62 +1,113 @@
-import React from "react";
-import { Container, Form, Card, Button } from "react-bootstrap";
+// import React, { useEffect } from "react";
+// import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+// import { Container, Form, FormControl } from "react-bootstrap";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getAllJobs, reset } from "../store/reducers/jobSlice";
 
-export default function Job() {
-  const jobData = [
-    {
-      position: "Frontend Developer",
-      salary: "€70,000",
-      description:
-        "We are looking for a skilled Frontend Developer to join our team...",
-    },
-    {
-      position: "Backend Engineer",
-      salary: "€80,000",
-      description:
-        "We are seeking a talented Backend Engineer to work on the server-side logic...",
-    },
-  ];
+// function Appliedjob() {
+//   const jobs = useSelector((state) => state?.job?.jobs);
+//   const dispatch = useDispatch();
+
+//   useEffect(() => {
+//     dispatch(getAllJobs());
+//   }, []);
+
+//   useEffect(() => {
+//     return () => {
+//       dispatch(reset());
+//     };
+//   }, []);
+//   console.log(jobs);
+//   const renderJobs = () => {
+//     return jobs.map((job) => {
+//       const { jobTitle, maxSalary, jobDescription } = job;
+//       return (
+//         <div className="d-flex justify-content-center">
+//           <Card>
+//             <Card.Header className="d-flex justify-content-between align-items-center">
+//               <span>{jobTitle}</span>
+//               <span>MAX Salary {maxSalary}</span>
+//             </Card.Header>
+//             <Card.Body>
+//               <Card.Title>Description</Card.Title>
+//               <Card.Text>{jobDescription}</Card.Text>
+//               <Button variant="primary">Apply</Button>
+//             </Card.Body>
+//           </Card>
+//         </div>
+//       );
+//     });
+//   };
+//   return (
+//     <div className="wrapper">
+//       <Container className="vh-100">
+//         <h2 className="text-left mt-3 mb-4">Jobs</h2>
+//         <Form inline className="justify-content-center mb-3">
+//           <FormControl type="search" placeholder="Search" />
+//         </Form>
+//         {renderJobs()}
+//       </Container>
+//     </div>
+//   );
+// }
+
+// export default Appliedjob;
+
+import React, { useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import { Container, Form, FormControl, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllJobs, reset } from "../store/reducers/jobSlice";
+
+function Appliedjob() {
+  const jobs = useSelector((state) => state?.job?.jobs);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllJobs());
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      dispatch(reset());
+    };
+  }, []);
+
+  const renderJobs = () => {
+    return jobs.map((job, index) => {
+      // Add a unique key to each mapped element
+      const { jobTitle, maxSalary, jobDescription } = job;
+      return (
+        <Col xs={12} md={6} lg={4} key={index}>
+          <Card className="mb-4">
+            <Card.Header className="d-flex justify-content-between align-items-center">
+              <span>{jobTitle}</span>
+              <span>MAX Salary {maxSalary}</span>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>Description</Card.Title>
+              <Card.Text>{jobDescription}</Card.Text>
+              <Button variant="primary">Apply</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      );
+    });
+  };
 
   return (
-    <Container className="mt-5" style={{ width: "55vw" }}>
-      <h1 className="mb-4">Jobs</h1>
-      <Form>
-        <Form.Group controlId="search">
-          <Form.Control
-            type="text"
-            className="mb-5 rounded-4 border-dark"
-            style={{ height: "6vh", width: "55vw" }}
-            placeholder="Search jobs"
-          />
-        </Form.Group>
-      </Form>
-      {jobData.map((job, index) => (
-        <Card key={index} className="mb-3">
-          <Card.Body>
-            <div
-              className="d-flex justify-content-between align-items-center p-1"
-              style={{ backgroundColor: "#E0E0E0" }}
-            >
-              <h5>{job.position}</h5>
-              <div>
-                <h6>Max Salary</h6>
-                <p className="text-muted">{job.salary}</p>
-              </div>
-            </div>
-            <h6 className="mt-2">Description</h6>
-            <p>{job.description}</p>
-            <Button
-              style={{
-                backgroundColor: "black",
-                borderStyle: "none",
-                width: "7vw",
-              }}
-            >
-              Apply
-            </Button>
-          </Card.Body>
-        </Card>
-      ))}
-    </Container>
+    <div className="wrapper">
+      <Container fluid className="vh-100">
+        <h2 className="text-left mt-3 mb-4">Jobs</h2>
+        <Form inline className="justify-content-center mb-3">
+          <FormControl type="search" placeholder="Search" />
+        </Form>
+        <Row>{renderJobs()}</Row> {/* Wrap the jobs in a Row */}
+      </Container>
+    </div>
   );
 }
+
+export default Appliedjob;

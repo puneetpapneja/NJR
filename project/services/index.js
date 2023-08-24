@@ -3,9 +3,9 @@ const { port } = require("./config");
 const db = require("./database");
 const userRoute = require("./routes/userRoutes");
 const jobRoutes = require("./routes/jobRoutes");
-
+const cors = require("cors");
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 app.use("/user", userRoute);
 app.use("/job", jobRoutes);
