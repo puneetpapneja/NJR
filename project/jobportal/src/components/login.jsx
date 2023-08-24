@@ -18,7 +18,8 @@ export const Login = () => {
 
   useEffect(()=> {
     if(isValidUser){
-      console.log(isValidUser)
+      // console.log(isValidUser)
+      setsession(emailId," LoggedIn")
       navigate("/dashboard")
     }
   },[isValidUser])

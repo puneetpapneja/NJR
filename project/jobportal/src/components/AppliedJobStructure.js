@@ -17,7 +17,7 @@ export default function AppliedJobStructure(props){
                         <Col>{props.description}</Col>
                     </Row>
                     <Row>
-                        <Col className="float-end fs-6">applied</Col>
+                        <Col sm="12" lg="12" className="text-end">applied</Col>
                     </Row>
                 </Card.Text>
             </Card.Body>

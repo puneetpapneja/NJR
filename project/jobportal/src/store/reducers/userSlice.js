@@ -45,11 +45,11 @@ export const userSlice = createSlice({
             state.isLoading = false;
         })
         .addCase(loginValidation.fulfilled, (state, {payload})=>{
-            console.log("payload",payload);
+            // console.log("payload",payload);
             state.Error = "";
             state.isLoading = false;
             state.isValidUser = payload?.data?.status === 'ok' ? true : false;    
-            console.log(state.isValidUser);
+            // console.log(state.isValidUser);
         })
     }
 })

@@ -62,9 +62,9 @@ module.exports = {
     return userModel.getuser(req.body.emailId)
 
     .then((userData) => {
-      console.log("Controller");
+      // console.log("Controller");
       if(userData){
-        console.log(userData)
+        // console.log(userData)
         if(userData.password === req.body.password) return res.send({status:"ok", msg:"Login successful"})
         else return res.send({status:"fail", msg:"Incorrect Password", error:"Login fail"})
       }
