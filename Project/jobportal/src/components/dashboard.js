@@ -1,46 +1,41 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const Dashboard = () => {
-  const squareBoxStyle = {
-    width: '100%',
-    paddingBottom: '100%',
-  };
+  // Sample data (you can replace this with real data)
+  const appliedJobsCount = 15;
+  const totalPosts = 50;
+  const todaysPosts = 5;
 
   return (
-    <Container style={{ marginTop: '5rem' }}>
-      <h1 className="dashboard-heading mb-4">Dashboard</h1> {/* Added margin-bottom to the heading */}
-      <Row className="dashboard-boxes justify-content-center align-items-center">
-        <Col md={4} className="mb-20">
-          <div
-            className="dashboard-box bg-primary text-white text-center p-4"
-            style={squareBoxStyle}
-          >
-            <h3>25</h3>
-            <p>Applied Jobs</p>
-          </div>
+    <Container className="mt-5">
+      <h1 className="mb-4">Dashboard</h1>
+      <Row>
+        <Col md={4} className="mb-4">
+          <Card bg="primary" text="white" className="text-center">
+            <Card.Body>
+              <Card.Text className="display-4 mb-0">{appliedJobsCount}</Card.Text>
+              <Card.Title className="mt-3">Applied Jobs</Card.Title>
+            </Card.Body>
+          </Card>
         </Col>
-        <Col md={4} className="mb-20">
-          <div
-            className="dashboard-box bg-success text-white text-center p-4"
-            style={squareBoxStyle}
-          >
-            <h3>15</h3>
-            <p>Total Post</p>
-          </div>
+        <Col md={4} className="mb-4">
+          <Card bg="success" text="white" className="text-center">
+            <Card.Body>
+              <Card.Text className="display-4 mb-0">{totalPosts}</Card.Text>
+              <Card.Title className="mt-3">Total Posts</Card.Title>
+            </Card.Body>
+          </Card>
         </Col>
-        <Col md={4} className="mb-20">
-          <div
-            className="dashboard-box bg-danger text-white text-center p-4"
-            style={squareBoxStyle}
-          >
-            <h3>10</h3>
-            <p>Today's Posts</p>
-          </div>
+        <Col md={4} className="mb-4">
+          <Card bg="info" text="white" className="text-center">
+            <Card.Body>
+              <Card.Text className="display-4 mb-0">{todaysPosts}</Card.Text>
+              <Card.Title className="mt-3">Today's Posts</Card.Title>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
-      
     </Container>
   );
 };

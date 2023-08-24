@@ -16,7 +16,8 @@ module.exports = {
             .catch((err) => res.send({ status: "fail", error: err, code: 500 }));
     },
     deleteById: (req, res) => {
-        return jobModel.deleteById(req.body._id)
+        const jobId = req.params.jobId; // Read job ID from URL parameter
+        return jobModel.deleteById(jobId)
             .then((deletedJob) => res.send({ status: "OK", msg: "Job deleted successfully.", deletedJob: deletedJob }))
             .catch((err) => res.send({ status: "fail", error: err }));
     },

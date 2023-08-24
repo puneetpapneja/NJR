@@ -90,6 +90,8 @@ function Jobs() {
     };
   }, [dispatch]);
 
+
+  
   console.log(jobs);
 
   const renderJobs = () => {

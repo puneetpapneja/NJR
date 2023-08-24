@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Card } from 'react-bootstrap';
 
 const AppliedJobs = () => {
+  
   const appliedJobs = [
     {
       id: 1,
@@ -31,12 +32,12 @@ const AppliedJobs = () => {
       {appliedJobs.map((job) => (
         <Card
           key={job.id}
-          className={`mb-3 ${selectedJobId === job.id ? 'bg-primary text-white' : ''}`}
-          onClick={() => handleCardClick(job.id)}
+          className={`mb-3 ${selectedJobId === job._id ? 'bg-primary text-white' : ''}`}
+          onClick={() => handleCardClick(job._id)}
         >
           <Card.Body className="d-flex justify-content-between">
             <div>
-              <h4>{job.jobTitle} ({job.id})</h4>
+              <h4>{job.jobTitle} ({job._id})</h4>
               <p>Email: {job.emailId}</p>
             </div>
             <div className="text-right">

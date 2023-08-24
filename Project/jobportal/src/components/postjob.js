@@ -1,32 +1,58 @@
 import React, { useState } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios'; // Import axios or another HTTP client library
+import { useDispatch, useSelector } from 'react-redux';
+import { postJob } from '../store/reducers/jobSlice';
 
 const PostJob = () => {
-  const [jobTitle, setJobTitle] = useState('');
-  const [jobDesc, setJobDesc] = useState('');
-  const [maxSalary, setMaxSalary] = useState('');
+  const [formData, setFormData] = useState({});
+  const [validated, setValidated] = useState(false);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(state => state?.job?.isLoading);
 
-  const handlePostJob = async (e) => {
-    e.preventDefault();
+  const handleTitleChange = (event) => {
+    const title = event.target.value;
+    setFormData({
+      ...formData,
+      jobTitle: title
+    });
+  };
+
+  const handleDescChange = (event) => {
+    const desc = event.target.value;
+    setFormData({
+      ...formData,
+      jobDesc: desc
+    });
+  };
+
+  const handleSalaryChange = (event) => {
+    const salary = event.target.value;
+    setFormData({
+      ...formData,
+      maxSalary: salary
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    event.stopPropagation();
+
+    if (form.checkValidity() === false) {
+      setValidated(true);
+      return;
+    }
 
     try {
-      const response = await axios.post('/api/post-job', {
-        jobTitle,
-        jobDesc,
-        maxSalary,
-      });
-
-      // Handle the response as needed
-      console.log(response.data.message);
-
+      await dispatch(postJob(formData));
       // Clear the form inputs
-      setJobTitle('');
-      setJobDesc('');
-      setMaxSalary('');
+      setFormData({});
+      // You can show a success message to the user if needed
+      alert('Job posted successfully!');
     } catch (error) {
       console.error('Error posting job:', error);
+      // You can show an error message to the user if needed
+      alert('Error posting job. Please try again later.');
     }
   };
 
@@ -35,14 +61,14 @@ const PostJob = () => {
       <h2 className="mb-4">Post a Job</h2>
       <Card>
         <Card.Body>
-          <Form onSubmit={handlePostJob}>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
             <Form.Group controlId="jobTitle" className="mb-4">
               <Form.Label>Job Title</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter job title"
-                value={jobTitle}
-                onChange={(e) => setJobTitle(e.target.value)}
+                onChange={handleTitleChange}
+                required
               />
             </Form.Group>
             <Form.Group controlId="jobDesc" className="mb-4">
@@ -51,8 +77,8 @@ const PostJob = () => {
                 as="textarea"
                 rows={4}
                 placeholder="Enter job description"
-                value={jobDesc}
-                onChange={(e) => setJobDesc(e.target.value)}
+                onChange={handleDescChange}
+                required
               />
             </Form.Group>
             <Form.Group controlId="maxSalary" className="mb-4">
@@ -60,12 +86,12 @@ const PostJob = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter salary"
-                value={maxSalary}
-                onChange={(e) => setMaxSalary(e.target.value)}
+                onChange={handleSalaryChange}
+                required
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
-              Post
+            <Button variant="primary" type="submit" disabled={isLoading}>
+              {isLoading ? 'Posting...' : 'Post'}
             </Button>
           </Form>
         </Card.Body>

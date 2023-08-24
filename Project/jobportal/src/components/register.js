@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Button, Form, Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./register.css"; // Import your custom CSS file
+import "./register.css"; 
 import { useDispatch, useSelector } from 'react-redux';
-import { createuser } from '../store/reducers/userSlice'; // Update the import path as needed
+import { createuser } from '../store/reducers/userSlice'; 
 
 const Register = () => {
   const [formData, setFormData] = useState({});
