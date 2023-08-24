@@ -7,8 +7,8 @@ const initialState ={
     isLoading:false
 }
 
-export const getAllJobs = createAsyncThunk("job/getAll",async(params, thunkAPI)=>{
-    return axios.get(`${API_URL}job/getAll`)
+export const getAllJobs = createAsyncThunk("jobs/getAll",async(params, thunkAPI)=>{
+    return axios.get(`${API_URL}Job/getAll`)
 })
 
 export const jobSlice = createSlice({

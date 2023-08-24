@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(" mongodb://127.0.0.1:27017/");
+mongoose.connect("mongodb://127.0.0.1:27017/practice");
 
 const con= mongoose.connection;
 
@@ -12,8 +12,5 @@ con.on('disconnected', ()=> {
     console.log("database disconnected");
 })
 
-con.on('connected', ()=> {
-    console.log("ERROR!database connection error");
-})
 
 module.exports=con;

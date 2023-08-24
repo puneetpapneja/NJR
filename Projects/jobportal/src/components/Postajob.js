@@ -24,8 +24,8 @@ export default function PostJob(){
             <Form>
                 <Row>
                     <Col lg="1"></Col>
-                    <Col lg="3">
-                        <h1 className='my-3'>Post Job</h1>
+                    <Col lg="10">
+                        <h1 style={{textAlign:"center"}}>Post Job</h1>
                     </Col>
                 </Row>
                 <Row>

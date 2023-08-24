@@ -1,9 +1,7 @@
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import { routing } from './routes';
+import { routing } from './routing';
 import React from 'react';
-import { Provider } from "react-redux";
-import store from './store/index';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
