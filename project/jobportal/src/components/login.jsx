@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./login.css";
@@ -11,24 +11,24 @@ export const Login = () => {
 
   const [emailId,setemail] = useState("");
   const [password,setpassword] = useState("");
-  const err = useSelector(state=>state?.user?.Error);
+  const isValidUser = useSelector(state => state?.user?.isValidUser)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const loginvalidation = (event) => {
+
+  useEffect(()=> {
+    if(isValidUser){
+      console.log(isValidUser)
+      navigate("/dashboard")
+    }
+  },[isValidUser])
+
+
+  const loginvalidation = () => {
     
     const credentials = {emailId,password}
-    console.log(credentials);
+    console.log("credentials",credentials);
     dispatch(loginValidation(credentials))
-    if(err)
-        {
-            event.preventDefault();
-        }
-        else{
-            console.log("error:",err);
-            setsession("logged in");
-            navigate('/dashboard')
-        }
   }
   
   return (

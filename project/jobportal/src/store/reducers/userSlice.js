@@ -5,7 +5,8 @@ import { API_URL } from "../../utils/constants";
 const initialState = {
     Status:"",
     Error:"",
-    isLoading:false
+    isLoading:false,
+    isValidUser:false,
 }
 
 export const registerUser = createAsyncThunk("user/create", async(userData,ThunkAPI)=>{
@@ -13,7 +14,9 @@ export const registerUser = createAsyncThunk("user/create", async(userData,Thunk
 })
 
 export const loginValidation = createAsyncThunk("user/login",async (loginData,ThunkAPI)=>{
-    return axios.get(`${API_URL}user/login`,loginData);
+    return axios.post(`${API_URL}user/login`,loginData); 
+    // console.log("response", response)
+
 })
 
 export const userSlice = createSlice({
@@ -31,25 +34,22 @@ export const userSlice = createSlice({
             state.Error = action.payload;
             state.isLoading = false;
         })
-        .addCase(registerUser.fulfilled, (state,action)=>{
-            state.Status = action.payload;
-            state.Error = "";
+        .addCase(registerUser.fulfilled, (state,{payload})=>{
+            console.log("payload", payload)
             state.isLoading = false;
         })
         .addCase(loginValidation.pending,(state)=>{
             state.isLoading = true;
-            console.log("pending");
         })
-        .addCase(loginValidation.rejected, (state,action)=> {
-            state.Error = action.payload;
+        .addCase(loginValidation.rejected, (state)=> {
             state.isLoading = false;
-            console.log("rejected");
         })
-        .addCase(loginValidation.fulfilled, (state,action)=>{
-            state.Status = action.payload;
+        .addCase(loginValidation.fulfilled, (state, {payload})=>{
+            console.log("payload",payload);
             state.Error = "";
             state.isLoading = false;
-            console.log("fulfilled");
+            state.isValidUser = payload?.data?.status === 'ok' ? true : false;    
+            console.log(state.isValidUser);
         })
     }
 })

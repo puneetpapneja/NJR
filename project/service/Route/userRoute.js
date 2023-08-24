@@ -8,6 +8,6 @@ routes.post('/create',userController.create);
 routes.get('/getall',userController.getAll);
 routes.delete('/deleteById',userController.deleteById);
 routes.put('/update',userController.updateUser);
-routes.get('/login',userController.loginuser);
+routes.post('/login',userController.loginuser);
 
 module.exports = routes
