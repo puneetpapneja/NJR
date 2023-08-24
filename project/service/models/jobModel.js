@@ -11,7 +11,7 @@ const JobSchema = mongoose.Schema({
      }
 });
 
-const JobCollection = mongoose.model("Job", JobSchema);
+const JobCollection = mongoose.model("Jobs", JobSchema);
 
 module.exports = {
     create: (fields, res)=>{

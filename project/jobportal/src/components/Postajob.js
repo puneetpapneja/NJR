@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
+
 export default function PostJob(){
     const [JobTitle,setJobTitle]=useState("");
     const [JobTitleError,setJobTitleError]=useState("");

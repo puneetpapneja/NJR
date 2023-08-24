@@ -1,28 +1,24 @@
-import Navigationbar from "./Navigationbar";
-import React from "react";
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { Outlet } from "react-router";
+import Navigationbar from "./Navigationbar";
+import { Outlet, useNavigate } from "react-router";
 import Footer from "./footer";
-import { getKey, getSession } from "../utils/utils";
-import LoginPage from '../pages/Loginpage';
-import RegisterPage from "../pages/registerpage";
+import { getSession } from "../utils/utils";
 export default function Pagelayout(){
-    //console.log(getSession());
+    const navigate = useNavigate();
+    useEffect(()=>{
     if(!getSession())
     {
-        if(!getKey())
-        return(<LoginPage/>);
-        else
-        return(<RegisterPage/>);
-}
-    else
-    {
+        return(
+
+            navigate("/login")
+        );
+    }},[navigate])
              return(
                 <Container fluid className="px-0 mx-0">
-                <Navigationbar />
+                {getSession()?<Navigationbar />:null}
                 <Outlet />
-                <Footer />
+                {getSession()?<Footer />:null}
             </Container> 
         );
-    }
 }
