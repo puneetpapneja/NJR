@@ -23,7 +23,7 @@ export default function Jobs() {
 
   const renderJobs = () => {
     return jobs.map((items) => (
-      <Card className="col-md-10 mt-5 m-auto">
+      <Card className="col-md-10 mt-4 m-auto">
         <Card.Header as="h5" className="d-flex justify-content-between" inline>
           <span>{items.title}</span>
           <>{items.maxSalary}</>
