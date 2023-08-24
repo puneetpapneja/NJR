@@ -1,7 +1,7 @@
 import {Form,Button,Container,Row, Alert, Col} from 'react-bootstrap';
 import { setSession } from '../utils/utils';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginValidation } from '../store/reducers/userSlice';
 export default function Login(){
@@ -9,7 +9,15 @@ export default function Login(){
     const [password , setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [emailError,setEmailError]=useState("");
-    const err = useSelector(state=>state?.user?.Error);
+    const [validError,setValidError]=useState("");
+    const status = useSelector(state=>state?.user?.isvalidUser);
+    useEffect(()=>{
+        if(status){
+            setSession("isvaliduser");
+            navigate("/");
+        }
+    },[status])
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -26,13 +34,16 @@ export default function Login(){
             return;
         }
         dispatch(loginValidation({emailId:email,password:password}))
-        if(err)
+        if(!status)
         {
+            // console.log("status:",status);
             event.preventDefault();
+            setValidError("*in valid user details");
         }
         else{
-            console.log("error:",err);
+            setValidError("");
             setSession("logged in");
+            navigate("/");
         }
     }
     return(
@@ -80,8 +91,8 @@ export default function Login(){
                     </Container>
                 </Row>
                 <Row>
-                    {err && <Alert variant='danger'>{err.msg}</Alert>}
-                    <Button type='submit' variant='dark' onClick={Handleclick} href='/' >Login</Button>
+                    {validError && <Alert variant='danger'>{validError}</Alert>}
+                    <Button type='submit' variant='dark' onClick={Handleclick}>Login</Button>
                 </Row>
             </Form>
         </Container>

@@ -10,10 +10,11 @@
 
 import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
-import { routing } from "./routes";
-import { Provider } from "react-redux";
-import store from "./store/index"
+import { getRoutes } from "./routes";
+import { useSelector } from "react-redux";
+
 function App() {
+  const hasRecruiter = useSelector(state => state?.user?.hasRecruiter);
   return (
     // <LoginPage/>
     // <RegisterPage />
@@ -23,9 +24,9 @@ function App() {
     // <Jobs/>
     // <PostedJobs />
     // <Appliedjobs/>
-    <Provider store={store}>
-    <RouterProvider router={createBrowserRouter(routing)}></RouterProvider>
-    </Provider>
+   
+    <RouterProvider router={createBrowserRouter(getRoutes(hasRecruiter))}></RouterProvider>
+   
   );
 }
 export default App;

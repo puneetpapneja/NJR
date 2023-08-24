@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { createJob } from '../store/reducers/jobSlice';
+
 export default function PostJob(){
+    const navigate = useNavigate();
     const [JobTitle,setJobTitle]=useState("");
     const [JobTitleError,setJobTitleError]=useState("");
     const [JobDescription,setJobDescription]=useState("");
     const [JobDescriptionError,setJobDescriptionError]=useState("");
+    const [maxSalary,setMaxSalary]= useState("");
+    const [maxSalaryError,setMaxSalaryError]=useState("");
+    const companyName = useSelector(state=>state?.user?.companyName)
+    const status = useSelector(state=>state?.user?.status)
+    const firstName = useSelector(state=>state?.user?.firstName)
+    const lastName = useSelector(state=>state?.user?.lastName)
+    const emailId = useSelector(state=>state?.user?.emailId)
+    const _id = useSelector(state=>state?.user?._id)
+    const dispatch = useDispatch();
     const Handleclick = (event)=>{
         if(!JobTitle)
         {
@@ -18,6 +32,27 @@ export default function PostJob(){
             setJobDescriptionError("*required");
             return;
         }
+        if(!maxSalary)
+        {
+            event.preventDefault();
+            setMaxSalaryError("*required");
+            return;
+        }
+        const data = {
+            title:JobTitle,
+            description:JobDescription,
+            maxSalary:maxSalary,
+            companyName: companyName,
+            recruiterDetails:{
+                _id:_id,
+                firstName:firstName,
+                lastName:lastName,
+                emailId:emailId
+            }
+        }
+        dispatch(createJob(data));
+        // console.log("sent: ",data)
+            navigate("/");
     }
     return(
         <Container fluid>
@@ -72,8 +107,18 @@ export default function PostJob(){
                     <Col lg="8">
                     <Form.Group>
                         <Form.Label className='my-3'>Max Salary</Form.Label>
-                        <Form.Control type='text' />
+                        <Form.Control 
+                        type='text'
+                        value={maxSalary}
+                        onChange={
+                            (e)=>{
+                                setMaxSalary(e.target.value);
+                                setMaxSalaryError("");
+                            }
+                        }
+                        />
                     </Form.Group>
+                    {maxSalaryError && <Alert variant='danger'>{maxSalaryError}</Alert>}
                     </Col>
                 </Row>
                 <Row className='mb-5'>

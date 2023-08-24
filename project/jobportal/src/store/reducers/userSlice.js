@@ -5,6 +5,8 @@ import { API_URL } from "../../utils/constants";
 const initialState = {
     Status:"",
     Error:"",
+    isvalidUser:false,
+    hasRecruiter:false,
     isLoading:false
 }
 
@@ -13,7 +15,13 @@ export const registerUser = createAsyncThunk("user/create", async(userData,Thunk
 })
 
 export const loginValidation = createAsyncThunk("user/loginValidation",async (loginData,ThunkAPI)=>{
-    return axios.post(`${API_URL}user/loginValidation`,loginData);
+    try{
+        return axios.post(`${API_URL}user/loginValidation`,loginData);
+      
+    }
+    catch(error){
+        return ThunkAPI.rejectWithValue(error.response.data)
+    }
 })
 export const userSlice = createSlice({
     name:"user",
@@ -27,29 +35,35 @@ export const userSlice = createSlice({
             state.isLoading = true;
         })
         .addCase(registerUser.rejected, (state,action)=> {
-            state.Error = action.payload;
+            state.Error = action.payload.data.error;
+            state.Status = action.payload.data.status;
             state.isLoading = false;
         })
         .addCase(registerUser.fulfilled, (state,action)=>{
-            state.Status = action.payload;
+            state.Status = action.payload.data.status;
             state.Error = "";
             state.isLoading = false;
         })
         .addCase(loginValidation.pending,(state)=>{
             state.isLoading = true;
         })
-        .addCase(loginValidation.rejected, (state,action)=> {
-            state.Error = action.payload;
+        .addCase(loginValidation.rejected, (state)=> {
             state.isLoading = false;
         })
-        .addCase(loginValidation.fulfilled, (state,action)=>{
-            state.Status = action.payload;
-            state.Error = "";
+        .addCase(loginValidation.fulfilled, (state,{payload})=>{
+            // console.log(payload);
+            state.isvalidUser = payload?.data?.status === "valid"? true:false;
+            state.firstName = payload?.data?.firstName;
+            state.lastName = payload?.data?.lastName;
+            state.emailId = payload?.data?.emailId;
+            state._id = payload?.data?._id;
+            state.companyName = payload?.data?.companyName;
+            state.hasRecruiter = payload?.data?.type === "Job Recruiter"?true:false;
             state.isLoading = false;
         })
     }
-})
+});
 
 
 export const {reset} = userSlice.actions;
-export default userSlice.reducers;
+export default userSlice.reducer;

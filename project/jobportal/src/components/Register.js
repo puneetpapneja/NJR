@@ -45,8 +45,9 @@ export default function Register(){
         const data = {emailId:email,password:password,type:role,companyName:company};
         console.log(data);
         dispatch(registerUser(data));
-        if(err!==""){
-            navigate("/");
+        if(!err){
+            // console.log("error is",err)
+            navigate("/login");
         }
     }
     return(
@@ -146,11 +147,11 @@ export default function Register(){
                 </Row>
                 <Row>
                     <Container className="float-start mb-5 mt-3">
-                        <Button variant="link"as={Link} to="/">Already have an account? Login Now</Button>
+                        <Button variant="link"as={Link} to="/login">Already have an account? Login Now</Button>
                     </Container>
                 </Row>
                 <Row>
-                    {err && <Alert variant="danger">{err.msg}</Alert>}
+                    {err && <Alert variant="danger">{err}</Alert>}
                     <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
                 </Row>
             </Form>

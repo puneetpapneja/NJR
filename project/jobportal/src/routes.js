@@ -4,62 +4,51 @@ import LoginPage from "./pages/loginpage";
 import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/PageLayout";
 import Post from "./pages/Post";
-import { getSession } from "./utils/utils";
 import Jobs from "./pages/Jobspage";
 import PostedJobs from "./pages/Postedpage";
 import Appliedjob from "./pages/Appliedjobspage";
-export const routes=[
+export const commonRoutes = [
     {
         path:"/",
         element: <Dashboard />        
     },
     {
+        path:"/login",
+        element: <LoginPage />
+    },
+    {
+        path:"/register",
+        element: <RegisterPage />
+    }
+]
+export const recruiterRoutes=[
+    ...commonRoutes,
+    {
         path:"/postjob",
         element: <Post />
     },
     {
-        path:"/applyjob",
-        element: <Jobs />
-    },
-    {
         path:"/postedjob",
         element:<PostedJobs/>
+    }
+]
+export const seekerRoutes =[
+    ...commonRoutes,
+    {
+        path:"/applyjob",
+        element: <Jobs />
     },
     {
         path:"/appliedjob",
         element:<Appliedjob/>
     }
 ]
-export const route = [
-    {
-    path:"/",
-    element: <LoginPage />
-},
-{
-    path:"/register",
-    element: <RegisterPage />
-}
-]
-let routing =[];
-if(getSession())
-{
 
-    routing =[
-        {
-            path:"/",
-            element:<Pagelayout />,
-            children: routes
-        }
-    ]
-}
-else
-{
-    routing = [
-        {
-            path:"/",
-            element:<Pagelayout />,
-            children: route
-        }
-    ]
-}
-export {routing};
+const getRoutes =(hasRecruiter)=>[
+    {
+        path:"/",
+        element:<Pagelayout />,
+        children: hasRecruiter?recruiterRoutes:seekerRoutes
+    }
+]
+export {getRoutes};
