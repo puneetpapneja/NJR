@@ -14,6 +14,7 @@ function Navbarbody() {
             style={{ maxHeight: '100px' }}
           >
             <Nav.Link as={Link} to="/dashboard">Home</Nav.Link>
+            <Nav.Link as={Link} to="/joblist">Jobs</Nav.Link>
             <Nav.Link as={Link} to="/postjob">Post a Job</Nav.Link>
             <Nav.Link as={Link} to="/appliedjob">Applied Job</Nav.Link>
             <Nav.Link as={Link} to="/postedjob">Posted Job</Nav.Link>

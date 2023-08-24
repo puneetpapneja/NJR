@@ -1,6 +1,6 @@
 import { Container, Form,Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import React from 'react';
+import React,{useEffect} from 'react';
 //import Col from 'react-bootstrap/Col';
 //import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
@@ -9,11 +9,11 @@ import {getAllJobs, reset} from '../store/reducers/jobSlice';
 
 
 
-const postedjob = () => {
-   const jobs = useSelector(state =>state?.job?.jobs);
+const Postedjob = () => {
+   const jobs = useSelector(state => state?.job?.jobs);
    const dispatch = useDispatch();
 
-   useEffect(() =>{
+   useEffect(() => {
     dispatch(getAllJobs());
    },[])
 
@@ -62,8 +62,8 @@ const postedjob = () => {
 
       </Container>
     );
-
-    export default postedjob;
+    }
+    export default Postedjob;
 //     return (
 //         <Container>
 //             <Form className="w-100 p-10" >
