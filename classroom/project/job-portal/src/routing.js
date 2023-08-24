@@ -7,6 +7,7 @@ import Postedjobs from "./components/Postedjobs";
 import SearchResults from "./components/SearchResults";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Profile from "./components/Profile";
 export const routing = [
   {
     path: "/",
@@ -39,6 +40,10 @@ export const routing = [
   {
     path: "/search-result",
     element: <SearchResults />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ];
 

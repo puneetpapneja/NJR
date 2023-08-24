@@ -4,6 +4,7 @@ import Navigation from "./Navigation";
 import { Col, Container, Row } from "react-bootstrap";
 import { getSession } from "../utils/utils";
 import Footer from "./Footer";
+import { useSelector } from "react-redux";
 
 const PageLayout = () => {
   const navigate = useNavigate();
