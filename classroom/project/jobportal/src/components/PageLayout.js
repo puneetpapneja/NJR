@@ -1,39 +1,37 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navigation from "./navbar";
 import { Col, Container, Row } from "react-bootstrap";
 import { getSession } from "../utils";
-import Login from "./Login";
 import Footer from "./footer";
+// import LoginPage from "../pages/loginpage";
 // import SignUp from "./SignUp";
 
-// import Login from "./Login";
-// import Everything from "./Everything";
-
 const PageLayout = () => {
-  // if(!getSession())
-  // if (!getSession()) {
-  //   return <Login />;
-  // }
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!getSession()) {
+      navigate("/");
+    }
+  }, []);
 
   return (
-    <Container fluid>
-      <Row>
-        <Col>
-          <Navigation />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Outlet />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Footer />
-        </Col>
-      </Row>
-    </Container>
+    <React.Fragment>
+      <Container fluid>
+        <Row>
+          <Col>{getSession() ? <Navigation /> : null}</Col>
+        </Row>
+        <Row>
+          <Col>
+            <Outlet />
+          </Col>
+        </Row>
+        <Row>
+          <Col>{getSession() ? <Footer /> : null}</Col>
+        </Row>
+      </Container>
+    </React.Fragment>
   );
 };
 
