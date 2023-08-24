@@ -10,18 +10,17 @@ import Login from "./components/Login";
 import DeveloperPage from "./pages/developerpage";
 import ProfilePage from "./pages/profilepage";
 import Posted from "./pages/posted";
-import Jobpage from "./pages/jobpage";
+import Jobpage from "./pages/Jobpage";
 export const routing = [
-
   {
     path: "/dashboard",
     element: <Dashboard />,
   },
 
-{
-  path:"/login",
-  element:<Login />
-},
+  {
+    path: "/",
+    element: <Login />,
+  },
 
   {
     path: "/signup",
@@ -44,17 +43,17 @@ export const routing = [
   },
 
   {
-    path:"/developers",
+    path: "/developers",
     element: <DeveloperPage />,
   },
 
   {
-    path:"/profile",
+    path: "/profile",
     element: <ProfilePage />,
   },
   {
-    path:"/jobs",
-    element: <Jobpage/>
+    path: "/jobs",
+    element: <Jobpage />,
   },
 ];
 
