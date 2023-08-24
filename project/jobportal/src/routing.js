@@ -33,6 +33,10 @@ import Profile from "./component/Profile";
         path: "/register",
         element:  <Register />
     },
+      {
+        path: "/logout",
+        element: <Dashboard/>
+    },
     {
         path: "/appliedjob",
         element:  <Appliedjob />

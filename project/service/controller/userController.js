@@ -34,5 +34,18 @@ module.exports={
 return userModel.update(req.body.id,req.body.field)
 .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
 .catch((err)=> res.send({status:"fail", errro: err}));
+    },
+
+    hasValidUser: (req, res) => {
+      const { email, pwd} = req.body;
+      return userModel.hasValidUser(email,pwd)
+      .then((data)=> {
+        if(data.length === 1){
+          res.send({status: "valid", type: data?.[0]?.type});
+        }
+        else{
+          res.send({status: "invalid"});
+        }
+      })
     }
 }

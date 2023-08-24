@@ -1,4 +1,3 @@
-// import Jobbox from "./jobcomponent/Jobbox";
 import {Card } from "react-bootstrap";
 import   {useEffect}  from 'react';
 import Button from 'react-bootstrap/Button';
@@ -8,6 +7,9 @@ import { getAllJobs, reset } from '../store/reducers/jobSlice';
 
 
 function Jobs(){
+
+  
+
   const jobs = useSelector(state => state?.job?.jobs);            // access the state which is in store
   const dispatch = useDispatch();               // we want to perform change in state which is in store
   console.log("jobs", jobs)
@@ -20,15 +22,15 @@ function Jobs(){
       dispatch(reset())
     }
   },[])
-  
-  const renderJobs = () => {
+ console.log(jobs);
+   const renderJobs = () => {
     return jobs.map(job => {
-      const {title, maxSalary, description} = job;
+      const {JobTitle, maxSalary, description} = job;
       return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center m-4">
         <Card>
           <Card.Header className="d-flex justify-content-between align-items-center">
-            <span>{title}</span>
+            <span>{JobTitle}</span>
             <span>MAX Salary {maxSalary}</span>
           </Card.Header>
           <Card.Body>
@@ -45,8 +47,8 @@ function Jobs(){
     })
   }
   return (
-    <div className="wrapper">
-      <Container className="vh-100">
+    <div className="wrapper ">
+      <Container className>
         <h2 className="text-left mt-3 mb-4">Jobs</h2>
         <Form inline className="justify-content-center mb-3">
           <FormControl type="search" placeholder="Search" />

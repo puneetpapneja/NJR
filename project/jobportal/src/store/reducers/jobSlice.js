@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { API_URL } from "../../utils/constants.js";
-
 const initialState = {
     jobs: [
     ],
@@ -11,7 +10,9 @@ const initialState = {
 export const getAllJobs = createAsyncThunk("jobs/getAll",async(params, thunkAPI)=>{
     return axios.get(`${API_URL}job/getAll`)
     //axios.post("",params);
+    
 })
+
 
 export const jobSlice = createSlice({
     name: "job",

@@ -1,70 +1,88 @@
+import { Row, Col } from "react-bootstrap";
+ import {Card } from "react-bootstrap";
+import { Container} from 'react-bootstrap';
 
-import {Card } from "react-bootstrap";
-// import  { useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
-import { Container, Form } from 'react-bootstrap';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getAllJobs, reset } from '../store/reducers/jobSlice';
+   
 export default function AppliedJob() {
-  const jobData = [
-    {
-      position: "Frontend Developer",
-      salary: "€70,000",
-      description:
-        "We are looking for a skilled Frontend Developer to join our team...",
-    },
-    {
-      position: "Backend Engineer",
-      salary: "€80,000",
-      description:
-        "We are seeking a talented Backend Engineer to work on the server-side logic...",
-    },
-  ];
-
   return (
-    <Container className="mt-5" style={{ width: "55vw" }}>
-      <h1 className="mb-4">Jobs</h1>
-      <Form>
-        <Form.Group controlId="search">
-          <Form.Control
-            type="text"
-            className="mb-5 rounded-4 border-dark"
-            style={{ height: "6vh", width: "55vw" }}
-            placeholder="Search jobs"
-          />
-        </Form.Group>
-      </Form>
-      {jobData.map((job, index) => (
-        <Card key={index} className="mb-3">
-          <Card.Body>
-            <div
-              className="d-flex justify-content-between align-items-center p-1"
-              style={{ backgroundColor: "#E0E0E0" }}
-            >
-              <h5>{job.position}</h5>
-              <div>
-                <h6>Max Salary</h6>
-                <p className="text-muted">{job.salary}</p>
-              </div>
-            </div>
-            <h6 className="mt-2">Description</h6>
-            <p>{job.description}</p>
-            <Button
-              style={{
-                backgroundColor: "black",
-                borderStyle: "none",
-                width: "7vw",
-              }}
-            >
-              Apply
-            </Button>
-          </Card.Body>
-        </Card>
-      ))}
+    <Container>
+      <Row>
+        <Col lg="1"></Col>
+        <Col lg="10">
+          <h1 style={{ textAlign: "center" }}>Applied Jobs</h1>
+        </Col>
+      </Row>
+      <Card style={{ background: "pink" }}>
+        <Card.Body>
+          <Card.Title
+            className="d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            Senio Developer<Card.Title>3 days ago</Card.Title>
+          </Card.Title>
+          <Card.Text>
+            <Card.Text>Aman@gmail.com</Card.Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia
+            expedita perferendis, incidunt officia modi fugiat obcaecati eius
+            quo aliquam, quasi error ipsam maiores nostrum! Consequatur,
+            perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Soluta eum doloremque harum
+            maxime repellendus aperiam laborum iure placeat blanditiis rem,
+            excepturi dolor minus non earum ullam hic quod molestias fugiat
+            cupiditate itaque ad dignissimos! Perspiciatis illum adipisci
+            aspernatur voluptatum sit!
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <Card style={{ background: "grey" }}>
+        <Card.Body>
+          <Card.Title
+            className="d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            Senio Developer<Card.Title>3 days ago</Card.Title>
+          </Card.Title>
+          <Card.Title></Card.Title>
+          <Card.Text>
+            <Card.Text>Aman@gmail.com</Card.Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia
+            expedita perferendis, incidunt officia modi fugiat obcaecati eius
+            quo aliquam, quasi error ipsam maiores nostrum! Consequatur,
+            perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Soluta eum doloremque harum
+            maxime repellendus aperiam laborum iure placeat blanditiis rem,
+            excepturi dolor minus non earum ullam hic quod molestias fugiat
+            cupiditate itaque ad dignissimos! Perspiciatis illum adipisci
+            aspernatur voluptatum sit!
+          </Card.Text>
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Card.Title
+            className="d-flex"
+            style={{ justifyContent: "space-between" }}
+          >
+            Senio Developer<Card.Title>3 days ago</Card.Title>
+          </Card.Title>
+          <Card.Text>
+            <Card.Text>Aman@gmail.com</Card.Text>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis,
+            numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia
+            expedita perferendis, incidunt officia modi fugiat obcaecati eius
+            quo aliquam, quasi error ipsam maiores nostrum! Consequatur,
+            perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Soluta eum doloremque harum
+            maxime repellendus aperiam laborum iure placeat blanditiis rem,
+            excepturi dolor minus non earum ullam hic quod molestias fugiat
+            cupiditate itaque ad dignissimos! Perspiciatis illum adipisci
+            aspernatur voluptatum sit!
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </Container>
   );
 }
-
-
-
-// sir wala code 
+    

@@ -6,6 +6,7 @@ const userSchema=mongoose.Schema({
     password: String,
     type: String,
     companyName: String
+
 });
 
 
@@ -17,5 +18,8 @@ module.exports={
     },
     getAll:()=>userCollection.find(),
     deleteById:(userid)=> userCollection.deleteOne({_id:userid}),
-     update:(id,fields)=>userCollection.updateOne({_id:id},fields)  
+     update:(id,fields)=>userCollection.updateOne({_id:id},fields),  
+     hasValidUser: (emailId, pwd) => {
+        return userCollection.find({emailId: emailId, password: pwd});
+      }
 }
