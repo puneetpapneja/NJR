@@ -9,36 +9,36 @@ function Appliedjob() {
   const jobs = useSelector(state => state?.job?.jobs);
   const dispatch = useDispatch();
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(getAllJobs());
-  },[])
+  }, [])
 
-  useEffect(()=> {
-    return ()=> {
+  useEffect(() => {
+    return () => {
       dispatch(reset())
     }
   })
 
   const renderJobs = () => {
     return jobs.map(job => {
-      const {title, maxSalary, description} = job;
+      const { title, maxSalary, description } = job;
       return (
         <div className="d-flex justify-content-center">
-        <Card>
-          <Card.Header className="d-flex justify-content-between align-items-center">
-            <span>{title}</span>
-            <span>MAX Salary {maxSalary}</span>
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>Description</Card.Title>
-            <Card.Text>
-            {description}
-      
-            </Card.Text>
-            <Button variant="primary">Apply</Button>
-          </Card.Body>
-        </Card>
-      </div>
+          <Card>
+            <Card.Header className="d-flex justify-content-between align-items-center">
+              <span>{title}</span>
+              <span>MAX Salary {maxSalary}</span>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>Description</Card.Title>
+              <Card.Text>
+                {description}
+
+              </Card.Text>
+              <Button variant="primary">Apply</Button>
+            </Card.Body>
+          </Card>
+        </div>
       )
     })
   }
@@ -49,9 +49,9 @@ function Appliedjob() {
         <Form inline className="justify-content-center mb-3">
           <FormControl type="search" placeholder="Search" />
         </Form>
-        {renderJobs()}        
+        {renderJobs()}
       </Container>
-    
+
     </div>
   );
 }

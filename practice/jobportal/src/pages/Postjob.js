@@ -22,8 +22,7 @@ const PostJob = () => {
               <Form.Label>Max Salary</Form.Label>
               <Form.Control type="text" placeholder="Enter max salary" />
             </Form.Group>
-            <div style={{ height: '20px' }}></div> 
-
+            <div style={{ height: '20px' }}></div>
             <div className="d-flex justify-content-center">
               <Button variant="dark" type="submit" className="mb-3">
                 Post
@@ -32,8 +31,6 @@ const PostJob = () => {
           </Form>
         </Col>
       </Row>
-     
-   
     </Container>
   );
 };

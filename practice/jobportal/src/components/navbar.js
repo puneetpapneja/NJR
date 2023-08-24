@@ -1,47 +1,47 @@
 import React from 'react';
-import { Nav, Navbar, Form, FormControl, Container } from 'react-bootstrap';
+import { Container, Nav, Navbar, Form, FormControl, Image, Dropdown } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './NavBarComponent.css'; // Import your custom CSS for additional styling
+import { RECURITER_MENU, SEEKER_MENU } from '../utils/constants';
+// import { BsPerson, BsBoxArrowRight } from 'react-icons/bs';
 
 const NavBarComponent = () => {
+  const hasRecuriter = useSelector(state => state?.user?.hasRecuriter);
+  const renderNavItems = () => {
+    const navItems = hasRecuriter ? RECURITER_MENU : SEEKER_MENU;
+    return navItems?.map(item => <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
+  }
   return (
     <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand as={Link} to="/Dashboard">
-          <span className="brand-name">Opportunity</span><span className="brand-wave">Wave</span>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarNav" />
-        <Navbar.Collapse id="navbarNav" className="justify-content-between">
-          <Nav>
-            <Nav.Link as={Link} to="/Jobs" className='font'>
-              Jobs
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Postjob" className='font'>
-              Post a Job
-            </Nav.Link>
-            <Nav.Link as={Link} to="# " className='font'>
-              Applied Jobs
-            </Nav.Link>
-            <Nav.Link as={Link} to="#" className='font'>
-              Posted Jobs
-            </Nav.Link>
-          </Nav>
-          <Form inline className="my-2 my-lg-0">
-            <div className="input-group">
-              <FormControl type="search" placeholder="Search" className="mr-sm-2" />
-              <div className="input-group-append">
-                <button type="button" className="btn btn-outline-secondary search-button">Secondary</button>
-              </div>
-            </div>
-          </Form>
-          <Nav.Link as={Link} to="/LoginPage" className="user-icon">
-            <i className="bi bi-person-circle" style={{ fontSize: '30px' }}></i>
-            {/* <ion-icon name="person-circle-outline" style={{ fontSize: '30px' }}></ion-icon> */}
-          </Nav.Link>
-        </Navbar.Collapse>
-      </Container>
+      <div style={{ width: '10px' }}></div>
+      <Navbar.Brand as={Link} to="/Dashboard" className="col-lg-4">
+        Logo
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarNav" />
+      <Navbar.Collapse id="navbarNav">
+        <Nav className="mr-auto">
+          {renderNavItems()}
+        </Nav>
+        <Form inline>
+          <FormControl type="search" placeholder="Search" className="mr-sm-2" />
+        </Form>
+        <Nav.Link className="col-xl-5 d-flex justify-content-end">
+          <Dropdown>
+            <Dropdown.Toggle variant="link" id="dropdown-basic">
+              <i style={{ fontSize: "40px" }} className="bi bi-person-circle"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to="/ProfilePage">
+                {/* <BsPerson className="mr-2" /> Profile */}
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/LoginPage">
+                {/* <BsBoxArrowRight className="mr-2" /> Logout */}
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav.Link>
+      </Navbar.Collapse>
     </Navbar>
   );
 };
-
 export default NavBarComponent;
