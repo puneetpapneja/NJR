@@ -1,4 +1,4 @@
-import Registration from '../components/Register';
+import Register from '../components/Register.js';
 export default function RegisterPage(){
-    return(<Registration/>);
+    return(<Register />);
 }

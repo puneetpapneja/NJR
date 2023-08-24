@@ -10,3 +10,4 @@ export const getSession = () => {
 export const getKey = () => {
    return sessionStorage.getItem("key");
 };
+

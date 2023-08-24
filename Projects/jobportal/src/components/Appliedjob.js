@@ -1,29 +1,27 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import {Container} from 'react-bootstrap';
-const appliedjob=()=>{
-    return(
-        <>
-        <Container fluid>
-          <Row>
-            <h1>Jobs</h1>
-          </Row>
-           <Form>
-            
-        <Row className='d-flex justify-content-center'>
+import { Col, Container, Row } from "react-bootstrap";
+import AppliedStructure from "./AppliedStructure";
 
-          <Col xs="8">
-             <i className="bi bi-search"></i>
-            <Form.Control
-              type="text"
-              className=" mr-sm-2 p"
-            />
-          </Col>
-        </Row>
-      </Form>
+export default function Appliedjobs(){
+    return(
+        <Container>
+            <Row>
+                <h1 style={{fontSize:"3em"}} className="mt-3 ms-5">Applied Jobs</h1>
+            </Row>
+            <Row>
+                <Col>
+                    <AppliedStructure Title="Senior Developer" time="1 day ago" id="5476" email="ksd@sdvg.sfg" description="lorem ipsum set amet dolores"/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <AppliedStructure Title="Senior Developer" time="1 day ago" id="5476" email="ksd@sdvg.sfg" description="lorem ipsum set amet dolores"/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <AppliedStructure Title="Senior Developer" time="1 day ago" id="5476" email="ksd@sdvg.sfg" description="lorem ipsum set amet dolores"/>
+                </Col>
+            </Row>
         </Container>
-        </>
-    )
+    );
 }
-export default appliedjob;

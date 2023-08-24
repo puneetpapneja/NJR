@@ -1,18 +1,15 @@
-import Navigationbar from "./Navigationbar";
 import React from "react";
 import { Container } from "react-bootstrap";
+import Navigationbar from "./Navigationbar";
 import { Outlet } from "react-router";
-import Footer from "./footerbody";
-import { getKey, getSession } from "../utils/utils";
-import LoginPage from '../pages/loginpage';
-import RegisterPage from "../pages/registerpage";
+import Footer from "./Footer";
+import { getSession } from "../utils/utils";
 export default function Pagelayout(){
     if(!getSession())
     {
-        if(getKey()=="login")
-        return(<LoginPage />);
-        else
-        return(<RegisterPage />);
+        return(
+            <Outlet/>
+        );
     }
     else
     {

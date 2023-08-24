@@ -1,9 +1,12 @@
 import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setKey, setSession } from "../utils/utils";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../store/reducers/userSlice";
 export default function Register(){
     const navigate = useNavigate();
+    const err = useSelector(state=>state?.user?.Error);
+    const dispatch = useDispatch();
     const [email,setEmail]=useState("");
     const [emailError,setEmailError] = useState("");
     const [password,setPassword]=useState("");
@@ -12,7 +15,9 @@ export default function Register(){
     const [roleError,setRoleError]=useState("");
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-        
+    const [comp,setComp]=useState("d-none");
+    const [compError,setCompError]=useState("");
+    const [company,setCompany]=useState("");
     const Handelclick= (event) =>{
         if(!email || !emailRegExp.test(email))
         {
@@ -31,27 +36,24 @@ export default function Register(){
             setRoleError("*select a role");
             return;
         }
-        else
+        if(role === "Job Recruiter" && !company)
         {
-            setSession("Registered");
+            event.preventDefault();
+            setCompError("*required");
+            return;
+        }
+        const data = {emailId:email,password:password,type:role,companyName:company};
+        console.log(data);
+        dispatch(registerUser(data));
+        if(err!==""){
             navigate("/");
         }
     }
-    const SwitchTo = () =>{
-        setSession("");
-        setKey("login");
-        navigate("/Login");
-    }
-    let email1=email;
-    window.localStorage.setItem("email", email1);
-
-    let passwrd=password;
-    window.localStorage.setItem("password", passwrd);
     return(
-        <Container className="d-flex justify-content-center">
-            <Form>
+        <Container>
+            <Form as={Col} md="5" sm="12" className="mx-auto">
                 <Row>
-                    <h1 className="text-center my-5 text-danger">Register</h1>
+                    <h1 className="text-center my-5">Register</h1>
                 </Row>
                 <Row>
                     <Form.Group>
@@ -102,6 +104,7 @@ export default function Register(){
                                     (e)=>{
                                         setRole(e.target.value);
                                         setRoleError("");
+                                        setComp("d-none")
                                     }
                                 }
                             />
@@ -118,18 +121,36 @@ export default function Register(){
                                     (e)=>{
                                         setRole(e.target.value);
                                         setRoleError("");
+                                        setComp("d-block")
                                     }
                                 }
                             />
                         </Col>
                         {roleError && <Alert variant="danger">{roleError}</Alert>}
                 </Row>
+                <Row className={comp}>
+                    <Form.Group>
+                        <Form.Label className="my-3">Company/Institute</Form.Label>
+                        <Form.Control 
+                            type="text"
+                            value={company}
+                            onChange={
+                                (e)=>{
+                                    setCompany(e.target.value);
+                                    setCompError("");
+                                }
+                            }
+                        />
+                    </Form.Group>
+                    {compError &&  <Alert variant="danger">{compError}</Alert>}
+                </Row>
                 <Row>
                     <Container className="float-start mb-5 mt-3">
-                        <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
+                        <Button variant="link"as={Link} to="/">Already have an account? Login Now</Button>
                     </Container>
                 </Row>
                 <Row>
+                    {err && <Alert variant="danger">{err.msg}</Alert>}
                     <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
                 </Row>
             </Form>

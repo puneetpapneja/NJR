@@ -1,16 +1,18 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 export default function JobDescStruct (props){
+
+    // console.log("this is props data",props.props)
     return(
-        <Container>
-            <Row>
-                <Col>{props.title}</Col>
-                <Col className="float-end me-5">
+        <Container as={Col} xs="10" md="8" className="bg-tertiary border pb-2">
+            <Row className="bg-secondary-subtle">
+                <Col className="fs-4">{props.props.title}</Col>
+                <Col className="float-end me-5" md="2">
                     <Row>
-                        <p>Max:salary</p>
+                        Max salary:
                     </Row>
                     <Row>
-                       {props.salary}
+                       {props.props.maxSalary}
                     </Row>
                 </Col>
             </Row>
@@ -18,9 +20,9 @@ export default function JobDescStruct (props){
                 <Col className="fs-4">Description</Col>
             </Row>
             <Row>
-                <Col>{props.description}</Col>
+                <Col className="text-muted">{props.props.description}</Col>
             </Row>
-            <Row>
+            <Row as={Col} xs="8" md="5" className="mt-3 mx-auto">
                 <Button variant="dark" type="Submit" className="float-start text-white text-center">Apply</Button>
             </Row>
         </Container>
