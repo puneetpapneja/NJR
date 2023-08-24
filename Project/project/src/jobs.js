@@ -1,48 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, Button, Form } from 'react-bootstrap';
+import { Container, Card, Button, Form, Row, Col } from 'react-bootstrap';
 import NavbarComponent from "./navbar";
-import axios from 'axios'
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './jobs.css';
 const Jobs = () => {
-    
-    const[users, setUsers]= useState([])
-    useEffect(()=>{
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
         axios.get("http://localhost:8080/getusers")
-        .then(users=>setUsers(users.data))
-        .catch(err => console.log(err))
-    },[])
-    
+            .then(response => setUsers(response.data))
+            .catch(err => console.log(err))
+    }, []);
+
     return (
         <>
-        <NavbarComponent></NavbarComponent>
-
-        <table className='table'>
-            <tr>
-                <th>JOBTITLE</th>
-                <th>JOBDESC</th>
-                <th>JOBSALERY</th>
-            </tr>
-            <tbody>
-                {
-                    users.map(user=>{
-                        return <tr>
-                            
-                            <td>{user.jobtitle}</td>
-                            <td>{user.jobdesc}</td>
-                            <td>{user.jobsal}</td>
-                        
-                        </tr>
-                    })
-                }
-            </tbody>
-        </table>
-        
-
-
-         
-
-
+            <NavbarComponent></NavbarComponent>
+            
+            <Container className="mt-4">
+                <Row>
+                    {users.map(user => (
+                        <Col md={4} key={user._id}>
+                            <Card className="mb-4 custom-card">
+                                <Card.Body>
+                                    <Card.Title>{user.jobtitle}</Card.Title>
+                                    <Card.Text>Discretion: {user.jobdesc}</Card.Text>
+                                    <Card.Text>Salary: {user.jobsal}</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
         </>
     );
 };
