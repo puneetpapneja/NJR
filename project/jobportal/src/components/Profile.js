@@ -1,37 +1,74 @@
-import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
-
-export default function Profile() {
+import {Form,Container,Button,Row,Col} from 'react-bootstrap';
+import { useState } from 'react';
+export default function Profile(){
+        const [validated, setValidated] = useState(false);
+    // const navigate=useNavigate();
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        setValidated(true);
+        // if(validated===true){
+        //   setSession("1234");
+        //   navigate("/");
+        // }
+    }
+    // const onclick=()=>{
+    //   navigate("/register");
+    //   // return(
+    //   //   <Registerpage/>
+    //   // )
+    // }
+    
     return (
-        <Container className='mt-4'>
-            <h1 className=' mb-4' style={{marginLeft:'17vw'}}>Profile</h1> 
-            <Form className='mx-auto'  style={{ width: '40%'}}>
-                <Form.Group controlId='firstName' className='mb-3'>
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control type='text' placeholder='Enter your first name' />
-                </Form.Group>
-
-                <Form.Group controlId='lastName' className='mb-3'>
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control type='text' placeholder='Enter your last name' />
-                </Form.Group>
-
-                <Form.Group controlId='email' className='mb-3'>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type='email' placeholder='Enter your email' />
-                </Form.Group>
-
-                <Form.Group controlId='resume' className='mb-3'>
-                    <Form.Label>Resume (CV)</Form.Label>
-                    <Form.Control type='file' />
-                </Form.Group>
-
-                <div className='d-flex justify-content-center'>
-                    <Button type='submit' style={{backgroundColor:'black', border:'none'}}>
-                        Submit
-                    </Button>
-                </div>
-            </Form>
+       
+    <Container className='mt-5' >
+       <Row>
+       <h1 className='text-center mt-5 mb-3'>Profile</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row className='mb-3'>
+        <Form.Group controlId='formFirstName'>
+            <Form.Label>First Name</Form.Label>
+            <Form.Control type="text" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formLastName'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="text" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Resume(CV)</Form.Label>
+            <Form.Control type="file" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Submit</Button>
         </Container>
-    );
+       </Form>
+    </Container>
+    )
 }

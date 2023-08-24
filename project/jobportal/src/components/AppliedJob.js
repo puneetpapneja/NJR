@@ -1,7 +1,10 @@
 import {Form, Row, Container} from 'react-bootstrap'
 import WithHeaderStyledExample from './Card'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllJobs, reset } from '../store/reducer/jobSlice'
 export default function AppliedJob(){
     return(
+          
           <Container className='w-75 mt-5'>
             <Row>
               <Form>
@@ -12,8 +15,6 @@ export default function AppliedJob(){
               </Form>
             </Row>
             <Container fluid className='mt-3 w-100 ps-0 pe-0'>
-               <WithHeaderStyledExample/>
-               <WithHeaderStyledExample/>
                <WithHeaderStyledExample/>
             </Container>
           </Container>
