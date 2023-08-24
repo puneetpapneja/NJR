@@ -4,11 +4,10 @@ import LoginPage from "./pages/Loginpage";
 import RegisterPage from "./pages/registerpage";
 import Pagelayout from "./components/Page-layout";
 import Post from "./pages/Post";
-import Appliedjob from './pages/Appliedjob';
+import Appliedjob from './pages/Joblist';
 import Applied from './pages/Appliedjob2';
 import Posted from './pages/Postedajob';
 import Profile from './pages/Profile';
-import Appliedajob2 from "./components/Appliedjob2";
 export const routes=[
     {
         path:"/",

@@ -2,13 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { API_URL } from "../../utils/constants";
 
-const initialState ={
-    jobs:[],
-    isLoading:false
+const initialState = {
+    jobs: [],
+    isLoading: false
 }
-
-export const getAllJobs = createAsyncThunk("jobs/getAll",async(params, thunkAPI)=>{
-    return axios.get(`${API_URL}Job/getAll`)
+export const getAllJobs = createAsyncThunk("job/find",async(params, thunkAPI)=>{
+    return axios.get(`${API_URL}/job/find`)
+    //axios.post("",params);
 })
 
 export const jobSlice = createSlice({
@@ -31,5 +31,5 @@ export const jobSlice = createSlice({
         })
     }
 });
-export const {reset}  = jobSlice.actions;
+export const {reset }  = jobSlice.actions;
 export default jobSlice.reducer;
