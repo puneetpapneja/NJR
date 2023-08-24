@@ -56,9 +56,13 @@ function SignUp() {
     }
 
     setValidated(true);
-    dispatch(postNewUser(formData));
-    setSession("registered User");
-    navigate("/dashboard");
+    dispatch(postNewUser(formData)).then((response) => {
+      console.log(response);
+      if (response.meta.requestStatus === "fulfilled") {
+        setSession("user registered");
+        navigate("/dashboard");
+      }
+    });
   };
 
   return (
