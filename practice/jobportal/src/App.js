@@ -1,15 +1,14 @@
-import './App.css';
-import React from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { getRoutes } from './routing';
-import { useSelector } from 'react-redux';
-
+// import logo from "./logo.svg";
+import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { routes } from "./routing";
 
 function App() {
-  const hasRecuriter = useSelector(state => state?.user?.hasRecuriter);
   return (
-    <RouterProvider router={createBrowserRouter(getRoutes(hasRecuriter))}>
-    </RouterProvider>);
+    <>
+      <RouterProvider router={createBrowserRouter(routes)}></RouterProvider>
+    </>
+  );
 }
 
 export default App;

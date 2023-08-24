@@ -1,10 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import jobSlice from './reducers/jobSlice';
-import userSlice from './reducers/userSlice';
+import postJobSlice from './reducers/postJobSlice';
+import userRegisterSlice from './reducers/userRegisterSlice';
 
 export const store = configureStore({
     reducer: {
         job: jobSlice,
-        user: userSlice
-    }
+        postJob:postJobSlice,
+        userRegistration:userRegisterSlice,
+
+    },
+    
 })

@@ -1,63 +1,62 @@
-import React from 'react';
-import RegisterPage from './pages/RegisterPage';
-import LoginPage from './pages/LoginPage';
-import Dashboard from './pages/Dashboard';
-import Jobs from './pages/Jobs';
-// import NavBarComponent from "./components/navbar";
-import PostJob from './pages/Postjob';
-import PageLayout from './components/pagelayout';
-import AppliedJobsPage from './pages/ApplideJobPage';
-import ProfilePage from './pages/ProfilePage';
-import PostedJobsPage from './pages/PostedJobsPage';
+// import About from "./pages/";
+import PageLayout from "./components/PageLayout";
+import LoginPage from "./pages/loginpage";
+import SignUp from "./components/SignUp";
+import Dashboard from "./pages/dashboard";
+import PostJob from "./pages/post";
+import Apply from "./pages/apply";
+// import Login from "./components/Login";
+// import DeveloperPage from "./pages/candidatepage";
+import ProfilePage from "./pages/profilepage";
+import Posted from "./pages/posted";
+import JobPage from "./pages/Jobpage";
+export const routing = [
 
-const COMMON_ROUTES = [
-    {
-        path: "/",
-        element: <LoginPage />
-    },
-    {
-        path: "/LoginPage",
-        element: <LoginPage />
-    },
-    {
-        path: "/RegisterPage",
-        element: <RegisterPage />
-    },
-    {
-        path: "/Dashboard",
-        element: <Dashboard />
-    },
-    {
-        path: "/ProfilePage",
-        element: <ProfilePage />
-    }
-]
-const SEEKER_ROUTES = [
-    ...COMMON_ROUTES,
-    {
-        path: "/Jobs",
-        element: <Jobs />
-    },
-    {
-        path: "/AppliedJobsPage",
-        element: <AppliedJobsPage />
-    }
-]
-export const RECURITER_ROUTES = [
-    ...COMMON_ROUTES,
-    {
-        path: "/Postjob",
-        element: <PostJob />
-    },
-    {
-        path: "/PostedJobsPage",
-        element: <PostedJobsPage />
-    }
-]
-export const getRoutes = (hasRecuriter) => [
-    {
-        path: "/",
-        element: <PageLayout />,
-        children: hasRecuriter ? RECURITER_ROUTES : SEEKER_ROUTES
-    }
-]
+  {
+    path: "/",
+    element: <LoginPage />,
+  },
+
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
+
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+
+  {
+    path: "/postjob",
+    element: <PostJob />,
+  },
+
+  {
+    path: "/appliedjob",
+    element: <Apply />,
+  },
+
+  {
+    path: "/jobs",
+    element: <JobPage />,
+  },
+
+  {
+    path: "/postedjob",
+    element: <Posted />,
+  },
+
+  {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
+];
+
+export const routes = [
+  {
+    path: "/",
+    element: <PageLayout />,
+    children: routing,
+  },
+];
