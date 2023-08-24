@@ -71,8 +71,8 @@ module.exports = {
       else res.send({status:"fail", msg:"user not exist", error:"Login fail"})
     })
 
-    // .catch((err) => {
-    //   return res.send({ status: "failed", error: err });
-    // })
+    .catch((err) => {
+      return res.send({ status: "failed", error: err });
+    })
   }
 };
