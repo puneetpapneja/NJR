@@ -3,7 +3,7 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
 import Jobs from './pages/Jobs';
-import NavBarComponent from "./components/navbar";
+// import NavBarComponent from "./components/navbar";
 import PostJob from './pages/Postjob';
 import PageLayout from './components/pagelayout';
 import AppliedJobsPage from './pages/ApplideJobPage';
