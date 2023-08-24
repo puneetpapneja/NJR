@@ -44,4 +44,14 @@ module.exports = {
       )
       .catch((err) => res.send({ status: "fail", error: err }));
   },
+  hasValidUser: (req, res) => {
+    const { email, pwd } = req.body;
+    return userModel.hasValidUser(email, pwd).then((data) => {
+      if (data.length === 1) {
+        res.send({ status: "valid", type: data?.[0]?.type });
+      } else {
+        res.send({ status: "invalid" });
+      }
+    });
+  },
 };

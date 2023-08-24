@@ -18,11 +18,56 @@ function Register() {
     navigate("/Login");
   };
 
-  // const [user, setuser] = useState([]);
-  // const userdata = (e) => {
-  //   setuser({ ...user, [e.target.name]: e.target.value });
+  // const [formData, setFormData] = useState({});
+
+  // const [selectedRole, setSelectedRole] = useState("");
+  // const [validated, setValidated] = useState(false);
+  // const dispatch = useDispatch();
+  // const isLoading = useSelector((state) => state?.user?.isLoading);
+
+  // const handleRoleChange = (event) => {
+  //   const role = event.target.value;
+  //   setFormData({
+  //     ...formData,
+  //     type: role,
+  //   });
   // };
-  // console.log(user);
+
+  // const handleEmailChange = (event) => {
+  //   const email = event.target.value;
+  //   setFormData({
+  //     ...formData,
+  //     emailId: email,
+  //   });
+  // };
+
+  // const handlePwdChange = (event) => {
+  //   const pwd = event.target.value;
+  //   setFormData({
+  //     ...formData,
+  //     password: pwd,
+  //   });
+  // };
+
+  // const handleCompanyName = (event) => {
+  //   const companyName = event.target.value;
+  //   setFormData({
+  //     ...formData,
+  //     companyName: companyName,
+  //   });
+  // };
+  // const handleSubmit = (event) => {
+  //   const form = event.currentTarget;
+  //   event.preventDefault();
+  //   event.stopPropagation();
+  //   if (form.checkValidity() === false) {
+  //     event.preventDefault();
+  //     event.stopPropagation();
+  //   }
+
+  //   setValidated(true);
+  //   dispatch(createuser(formData));
+  // };
   return (
     <Container className="login_page">
       <Row className="justify-content-center">
