@@ -1,42 +1,39 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Card from 'react-bootstrap/Card';
 
-function Navbars() {
+function Dashboard() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="#">LOGO</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/PostJob">Post A Job</Nav.Link>
-            <Nav.Link href="/appliedJobPage" >
-              Applied Job
-            </Nav.Link>
-            <Nav.Link href="/" >
-              Posted Job
-            </Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+<>
+    <div className='container text-center'>
+      <h2>Dashboard</h2>
+    </div>
+      <div className='container d-flex justify-content-center'>
+      <Card style={{ width: '18rem' ,margin:'45px', height:'197px',backgroundColor:'red'}}>
+      <Card.Body style={{textAlign:'center',marginTop:"45px",color:'white'}}>
+        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>7</Card.Title>
+        <Card.Text>
+          Applied Jobs
+        </Card.Text>
+      </Card.Body>
+    </Card>
+      <Card style={{ width: '18rem' ,margin:'45px', height:'197px', backgroundColor:'green'}}>
+      <Card.Body style={{textAlign:'center',marginTop:"45px",color:'white'}}>
+        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>40</Card.Title>
+        <Card.Text>
+          Total Post
+        </Card.Text>
+      </Card.Body>
+    </Card>
+      <Card style={{ width: '18rem' ,margin:'45px', height:'197px',backgroundColor:'purple'}}>
+      <Card.Body style={{textAlign:'center',marginTop:"45px",color:'white'}}>
+        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>2</Card.Title>
+        <Card.Text>
+        Today's Post
+        </Card.Text>
+      </Card.Body>
+    </Card>
+      </div>
+      </>
   );
 }
 
-export default Navbars;
+export default Dashboard;

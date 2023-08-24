@@ -5,8 +5,8 @@ export const setKey = (value) => {
     sessionStorage.setItem("key", value);
 };
 export const getSession = () => {
-    return sessionStorage.getItem("token");
+   return sessionStorage.getItem("token");
 };
 export const getKey = () => {
-    return sessionStorage.getItem("key");
+   return sessionStorage.getItem("key");
 };
