@@ -17,9 +17,11 @@ function Header() {
               navbarScroll
             >
               <Nav.Link as={Link} to='/dashboard'>Home</Nav.Link>
+              <Nav.Link as={Link} to='/jobs'>Jobs</Nav.Link>
               <Nav.Link as={Link} to='/postjob'>Post A Job</Nav.Link>
               <Nav.Link as={Link} to='/appliedjobs'>Applied job</Nav.Link>
-              <Nav.Link as={Link} to='/postjob'>Posted job</Nav.Link>
+              <Nav.Link as={Link} to='/postedjobs'>Posted job</Nav.Link>
+              
             </Nav>
             <Form className="d-flex">
               <Form.Control

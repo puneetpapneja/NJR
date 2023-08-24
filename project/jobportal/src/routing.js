@@ -5,6 +5,8 @@ import PageLayout from "./components/pagelayout";
 // import Home from "./components/home";
 import PostJob from "./components/PostJob"
 import Appliedjobs from "./components/AppliedJob";
+import Jobs from "./components/jobs";
+import Postedjobspage from "./pages/postedjobs";
 
 export const routing = [
     {
@@ -26,6 +28,14 @@ export const routing = [
     {
         path: "/appliedjobs",
         element: <Appliedjobs/>
+    },
+    {
+        path: "/jobs",
+        element: <Jobs/>
+    },
+    {
+        path: "/postedjobs",
+        element: <Postedjobspage/>
     }
 
 ]
