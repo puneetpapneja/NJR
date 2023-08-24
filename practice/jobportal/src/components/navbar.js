@@ -20,12 +20,10 @@ function Navigation() {
   };
   return (
     <>
-      
-    
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="#" className="me-5 ms-3">
-            Logo
+            <nav></nav>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -35,7 +33,7 @@ function Navigation() {
               navbarScroll
             >
               <Link
-                to="/dashboard"
+                to="/dashboard" 
                 className="me-4"
                 style={{ color: "black", textDecoration: "none" }}
               >
