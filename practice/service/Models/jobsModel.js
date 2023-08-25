@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const jobSchema = mongoose.Schema({
-  title:String,
-  description:String,
-  maxSalary:String,
+  title: String,
+  description: String,
+  maxSalary: String,
 });
 
 const jobCollection = mongoose.model("jobs", jobSchema);
