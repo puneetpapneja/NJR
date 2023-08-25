@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        const performOperation = (operation) => {
+            const fv = document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+
+            switch (operation) {
+                case 'add':
+                    result.value = parseInt (fv.value) + parseInt(sv.value);
+                    break;
+                case 'sub':
+                    result.value = fv.value - sv.value;
+                    break;
+                case 'multi':
+                    result.value = fv.value * sv.value;
+                    break;
+                case 'div':
+                    result.value = fv.value / sv.value;
+                    break;
+                default:
+                    result.value = "Invalid operation";
+                    break;
+            }
+        }
+           
+    </script>
+</head>
+<body>
+    First number: <input type="text" id="txt1"/>
+    Second number: <input type="text" id="txt2"/><br/>
+    <input type="button" value="Add" onclick="performOperation('add')"/>
+    <input type="button" value="Subtract" onclick="performOperation('sub')"/>
+    <input type="button" value="Multiply" onclick="performOperation('multi')"/>
+    <input type="button" value="Divide" onclick="performOperation('div')"/>
+    <br/>
+    Result: <input type="text" id="result" />
+    <br/>
+</body>
+</html>
