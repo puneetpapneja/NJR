@@ -1,13 +1,15 @@
+import Card from 'react-bootstrap/Card';
 import React from 'react';
-import "../index.css";
-import { Container } from 'react-bootstrap';
-
-function Footer() {
+function footercontent() {
   return (
-    <div className='footer'>
-    <div className='footertext'>TM-Techno India NJR Institite of Techology-Arvind Suthar</div>
-  </div>
+     <Card.Body>
+          <Card.Text className='bg-dark text-light text1' style={{marginTop:"150px",padding:"20px",textAlign:"center"}}>
+           TM &copy;2023-Techno India NJR Institute Of Technology-All Right Reserved
+          </Card.Text>
+        </Card.Body>
   );
 }
 
-export default Footer;
+
+
+export default footercontent;

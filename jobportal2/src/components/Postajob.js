@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
-
-
-
-
 export default function PostJob(){
     const [JobTitle,setJobTitle]=useState("");
     const [JobTitleError,setJobTitleError]=useState("");
@@ -24,12 +20,12 @@ export default function PostJob(){
         }
     }
     return(
-        <Container fluid className='postform'>
-            <Form >
+        <Container fluid>
+            <Form>
                 <Row>
                     <Col lg="1"></Col>
-                    <Col lg="3">
-                        <h1 className='my-3'>Post Job</h1>
+                    <Col lg="10">
+                        <h1 style={{textAlign:"center"}}>Post Job</h1>
                     </Col>
                 </Row>
                 <Row>
