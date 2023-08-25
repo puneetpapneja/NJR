@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.use("/job", jobRoute);
 app.use("/user", userRoute);
+
 app.get("/health", (req, res) => {
   res.send({ status: "OK" });
 });
