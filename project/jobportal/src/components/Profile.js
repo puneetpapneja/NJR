@@ -20,7 +20,7 @@ export default function profile(){
         <Form.Control type="text" placeholder="firstname" />
       </Form.Group>
        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Last Name</Form.Label>
+        <Form.Label>Last Nmae</Form.Label>
         <Form.Control type="text" placeholder="Last Name" />
       </Form.Group>
        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">

@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
+//import Accordion from 'react-bootstrap/Accordion';
+//import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Row,Col} from "react-bootstrap";
 export default function Appliedajob2(){
@@ -14,9 +14,9 @@ return(
                 </Row>
                 <Card style={{background:"pink"}}>
       <Card.Body>
-        <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Senio Developer<Card.Title>3 days ago</Card.Title></Card.Title>
+        <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Senior Developer<Card.Title>3 days ago</Card.Title></Card.Title>
         <Card.Text>
-            <Card.Text>Aman@gmail.com</Card.Text>
+            <Card.Text>Amar@gmail.com</Card.Text>
          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia expedita perferendis, incidunt officia modi fugiat obcaecati eius quo aliquam, quasi error ipsam maiores nostrum! Consequatur, perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta eum doloremque harum maxime repellendus aperiam laborum iure placeat blanditiis rem, excepturi dolor minus non earum ullam hic quod molestias fugiat cupiditate itaque ad dignissimos! Perspiciatis illum adipisci aspernatur voluptatum sit!
         </Card.Text>
       </Card.Body>
@@ -24,10 +24,10 @@ return(
          <Card style={{background:"grey"}}>
             
       <Card.Body>
-        <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Senio Developer<Card.Title>3 days ago</Card.Title></Card.Title>
+        <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Software Engineer<Card.Title>3 days ago</Card.Title></Card.Title>
         <Card.Title></Card.Title>
         <Card.Text>
-            <Card.Text>Aman@gmail.com</Card.Text>
+            <Card.Text>Akbar@gmail.com</Card.Text>
          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia expedita perferendis, incidunt officia modi fugiat obcaecati eius quo aliquam, quasi error ipsam maiores nostrum! Consequatur, perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta eum doloremque harum maxime repellendus aperiam laborum iure placeat blanditiis rem, excepturi dolor minus non earum ullam hic quod molestias fugiat cupiditate itaque ad dignissimos! Perspiciatis illum adipisci aspernatur voluptatum sit!
         </Card.Text>
       </Card.Body>
@@ -35,9 +35,9 @@ return(
          <Card>
            
       <Card.Body>
-         <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Senio Developer<Card.Title>3 days ago</Card.Title></Card.Title>
+         <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Graphic Designer<Card.Title>3 days ago</Card.Title></Card.Title>
         <Card.Text>
-            <Card.Text>Aman@gmail.com</Card.Text>
+            <Card.Text>Anthony@gmail.com</Card.Text>
          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, numquam nisi corrupti vel eaque autem veniam reprehenderit mollitia expedita perferendis, incidunt officia modi fugiat obcaecati eius quo aliquam, quasi error ipsam maiores nostrum! Consequatur, perferendis! Doloremque id neque similique a! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta eum doloremque harum maxime repellendus aperiam laborum iure placeat blanditiis rem, excepturi dolor minus non earum ullam hic quod molestias fugiat cupiditate itaque ad dignissimos! Perspiciatis illum adipisci aspernatur voluptatum sit!
         </Card.Text>
       </Card.Body>

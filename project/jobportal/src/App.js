@@ -1,21 +1,14 @@
+import { RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
+import { getRoutes } from "./routing";
+import { useSelector } from "react-redux";
 
-
-import './App.css';
-import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import { routing } from './routing';
-import React from 'react';
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-    function App() {
-        return (
-          <React.Fragment>
-            <RouterProvider router={createBrowserRouter(routing)}>
-       
-       </RouterProvider> 
-          </React.Fragment>
-      
+function App() {
+  const hasRecruiter = useSelector(state => state?.user?.hasRecruiter);
+  return (
+   
+    <RouterProvider router={createBrowserRouter(getRoutes(hasRecruiter))}></RouterProvider>
+   
   );
 }
-
 export default App;

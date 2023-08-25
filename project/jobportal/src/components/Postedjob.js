@@ -6,7 +6,7 @@ export default function postedjob(){
         <Row>
                     <Col lg="1"></Col>
                     <Col lg="10">
-                        <h1 style={{textAlign:"center"}}>Applied Jobs</h1>
+                        <h1 style={{textAlign:"center"}}>Posted Jobs</h1>
                     </Col>
                 </Row>
    <Row style={{display:"flex",justifyContent:"space-around"}}>

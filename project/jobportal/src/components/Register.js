@@ -1,27 +1,32 @@
 import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setKey, setSession } from "../utils";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../store/reducers/userregisterSlice";
+import { setMessage } from "../store/reducers/notificationSlices";
 export default function Register(){
     const navigate = useNavigate();
+    const err = useSelector(state=>state?.user?.Error);
+    const dispatch = useDispatch();
     const [email,setEmail]=useState("");
     const [emailError,setEmailError] = useState("");
     const [password,setPassword]=useState("");
     const [passwordError,setPasswordError]=useState("");
     const [role,setRole]=useState("");
     const [roleError,setRoleError]=useState("");
-    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-    const Handelclick= (event) =>{
-        if(!email || !emailRegExp.test(email))
+    const [comp,setComp]=useState("d-none");
+    const [compError,setCompError]=useState("");
+    const [company,setCompany]=useState("");
+    const Handelclick= async(event) =>{
+        if(!email || !isValidEmail(email))
         {
             event.preventDefault();
-            setEmailError("*invalid email format");
+            setEmailError("must contain @gmail.com");
             return;
         }
-        if(!password || !passwordRegExp.test(password)){
+        if(!password || !isValidPassword(password)){
             event.preventDefault();
-            setPasswordError("*Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
+            setPasswordError("*Password must contain one capital,one special symbol");
             return;
         }
         if(!role)
@@ -30,22 +35,45 @@ export default function Register(){
             setRoleError("*select a role");
             return;
         }
-        else
+        if(role === "Job Recruiter" && !company)
         {
-            setSession("Registered");
-            navigate("/");
+            event.preventDefault();
+            setCompError("*required");
+            return;
         }
+
+        const data = {emailId:email,password:password,type:role,companyName:company};
+        dispatch(registerUser(data));
+        if(!err){
+   const successPayload = {
+  title: "Success",
+  message: "Registration successful!",
+  variant: "success"
+};
+dispatch(setMessage(successPayload)); const result = await dispatch(registerUser(data));
+
+      if (registerUser.fulfilled.match(result)) {
+    
+        dispatch(setMessage({ title: 'Success', message: 'Registration successful!', variant: 'success' }));
+        //navigate('/login');
+      }
+        }
+        
     }
-    const SwitchTo = () =>{
-        setSession("");
-        setKey("login");
-        navigate("/Login");
-    }
+      const isValidEmail = (email) => {
+    return email.includes('@gmail.com');
+  };
+  const isValidPassword = (password) => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*]/.test(password);
+    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
+  };
     return(
-        <Container className="d-flex justify-content-center">
-            <Form>
+        <Container>
+            <Form as={Col} md="5" sm="12" className="mx-auto"  style={{border:"2px solid",padding:"20px 70px",marginTop:"60px",boxShadow:"3px 4px 4px 0.5px black"}}>
                 <Row>
-                    <h1 className="text-center my-5 text-danger">Register</h1>
+                    <h1 className="text-center my-5">Register</h1>
                 </Row>
                 <Row>
                     <Form.Group>
@@ -54,6 +82,7 @@ export default function Register(){
                         <Form.Control 
                             type="text"
                             value={email}
+                            placeholder='Enter your Email'
                             onChange={(e)=>{
                                     setEmail(e.target.value);
                                     setEmailError("");
@@ -65,11 +94,12 @@ export default function Register(){
                 </Row>
                 <Row>
                     <Form.Group>
-                        <Form.Label className="my-3">Password</Form.Label>
+                        <Form.Label className="my-3 mt">Password</Form.Label>
                         <br />
                         <Form.Control 
                             type="text"
                             value={password}
+                            placeholder='Enter your Password'
                             onChange={
                                 (e)=>{
                                     setPassword(e.target.value);
@@ -96,6 +126,7 @@ export default function Register(){
                                     (e)=>{
                                         setRole(e.target.value);
                                         setRoleError("");
+                                        setComp("d-none")
                                     }
                                 }
                             />
@@ -112,19 +143,38 @@ export default function Register(){
                                     (e)=>{
                                         setRole(e.target.value);
                                         setRoleError("");
+                                        setComp("d-block")
                                     }
                                 }
                             />
                         </Col>
                         {roleError && <Alert variant="danger">{roleError}</Alert>}
                 </Row>
+                <Row className={comp}>
+                    <Form.Group>
+                        <Form.Label className="my-3">Enter the Company Name </Form.Label>
+                        <Form.Control 
+                            type="text"
+                            value={company}
+                            placeholder='Enter your Company Name'
+                            onChange={
+                                (e)=>{
+                                    setCompany(e.target.value);
+                                    setCompError("");
+                                }
+                            }
+                        />
+                    </Form.Group>
+                    {compError &&  <Alert variant="danger">{compError}</Alert>}
+                </Row>
                 <Row>
-                    <Container className="float-start mb-5 mt-3">
-                        <Button variant="link" href="/Login" onClick={SwitchTo}>Already have an account? Login Now</Button>
+                    <Container className="float-start mb-3">
+                        <Button variant="link"as={Link} to="/login">Already have an account? Login Now</Button>
                     </Container>
                 </Row>
                 <Row>
-                    <Button type="Submit" variant="dark" onClick={Handelclick}>Register</Button>
+                    {err && <Alert variant="danger">{err}</Alert>}
+                    <Button type="Submit" variant="primary" onClick={Handelclick} style={{width:"100px",marginLeft:"20px"}}>Register</Button>
                 </Row>
             </Form>
         </Container>
