@@ -25,5 +25,10 @@ module.exports={
         return jobModel.update(req.body.id, req.body.fields)
         .then((updatedjob)=> res.send({status: "OK",msg:"Job updated successfully.",updatedjob:updatedjob}))
         .catch((err)=> res.send({status: "Fail",error:err}));
+    },
+    searchjob:(req,res)=>{
+        return jobModel.searchjob(req.keyword)
+        .then((searchedjob)=> res.send({status: "Ok" ,msg:"Job searched successfully",searchedjob:searchedjob }))
+        .catch((err)=> res.send({status:"fail", msg:"Job not found", error:err}));
     }
 }

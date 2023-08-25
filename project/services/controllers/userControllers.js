@@ -27,8 +27,8 @@ module.exports ={
         .catch((err)=> res.send({status: "Fail",error:err}));
     },
     hasValidUser: (req, res) => {
-        const { email, pwd} = req.body;
-        return userModel.hasValidUser(email,pwd)
+        const { emailId, password} = req.body;
+        return userModel.hasValidUser(emailId,password)
         .then((data)=> {
           if(data.length === 1){
             res.send({status: "valid", type: data?.[0]?.type});
