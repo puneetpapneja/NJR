@@ -11,6 +11,12 @@ export const getAllJobs = createAsyncThunk("job/getAll",async(params, thunkAPI)=
     return axios.get(`${API_URL}job/getAll`)
 })
 
+
+export const createjob = createAsyncThunk("jobs/create",async(params, thunkAPI)=>{
+    return axios.post(`${API_URL}jobs/create`,params)
+})
+
+
 export const jobSlice = createSlice({
     name: "job",
     initialState,

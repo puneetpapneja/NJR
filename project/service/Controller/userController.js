@@ -59,20 +59,39 @@ module.exports = {
   },
 
   loginuser: (req, res) => {
-    return userModel.getuser(req.body.emailId)
+    return userModel
+      .getuser(req.body.emailId)
 
-    .then((userData) => {
-      // console.log("Controller");
-      if(userData){
-        // console.log(userData)
-        if(userData.password === req.body.password) return res.send({status:"ok", msg:"Login successful"})
-        else return res.send({status:"fail", msg:"Incorrect Password", error:"Login fail"})
-      }
-      else res.send({status:"fail", msg:"user not exist", error:"Login fail"})
-    })
+      .then((userData) => {
+        // console.log("Controller");
+        if (userData) {
+          console.log(userData);
+          if (userData.password === req.body.password)
+            return res.send({
+              status: "ok",
+              msg: "Login successful",
+              type: userData?.type,
+              firstName: userData?.firstName,
+              lastName: userData?.lastName,
+              emailId: userData?.emailId,
+              companyName: userData?.companyName
+            });
+          else
+            return res.send({
+              status: "fail",
+              msg: "Incorrect Password",
+              error: "Login fail",
+            });
+        } else
+          res.send({
+            status: "fail",
+            msg: "user not exist",
+            error: "Login fail",
+          });
+      })
 
-    .catch((err) => {
-      return res.send({ status: "failed", error: err });
-    })
-  }
+      .catch((err) => {
+        return res.send({ status: "failed", error: err });
+      });
+  },
 };

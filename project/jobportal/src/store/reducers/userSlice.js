@@ -7,6 +7,11 @@ const initialState = {
     Error:"",
     isLoading:false,
     isValidUser:false,
+    firstName:"",
+    lastName:"",
+    companyName:"",
+    type:"",
+    emailId:"",
 }
 
 export const registerUser = createAsyncThunk("user/create", async(userData,ThunkAPI)=>{
@@ -45,11 +50,16 @@ export const userSlice = createSlice({
             state.isLoading = false;
         })
         .addCase(loginValidation.fulfilled, (state, {payload})=>{
-            // console.log("payload",payload);
+            console.log("payload",payload);
             state.Error = "";
             state.isLoading = false;
             state.isValidUser = payload?.data?.status === 'ok' ? true : false;    
             // console.log(state.isValidUser);
+            state.firstName = payload?.data?.firstName;
+            state.lastName = payload?.data?.lastName;
+            state.type = payload?.data?.type;
+            state.companyName = payload?.data?.companyName;
+            state.emailId = payload?.data?.emailId;
         })
     }
 })
