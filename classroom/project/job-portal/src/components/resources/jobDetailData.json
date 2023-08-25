@@ -1,0 +1,27 @@
+[
+    {
+        "jobtitle": "Software Engineer",
+        "max-salary": 120000,
+        "description": "Develops and maintains software applications."
+    },
+    {
+        "jobtitle": "Data Scientist",
+        "max-salary": 150000,
+        "description": "Analyzes and interprets complex data sets."
+    },
+    {
+        "jobtitle": "UX Designer",
+        "max-salary": 100000,
+        "description": "Creates user-centered designs and interfaces."
+    },
+    {
+        "jobtitle": "Marketing Manager",
+        "max-salary": 110000,
+        "description": "Plans and executes marketing strategies."
+    },
+    {
+        "jobtitle": "Financial Analyst",
+        "max-salary": 90000,
+        "description": "Provides financial analysis and insights."
+    }
+]
