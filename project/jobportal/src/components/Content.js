@@ -10,9 +10,9 @@ return(
     <Row className="h-100" >
         <Col xs="12" md="3" className="bg-danger"><Square value="7" title="Applied Job's" /></Col>
         <Col md="1"></Col>
-        <Col xs="12" md="3" className="bg-success"><Square value="7" title="Applied Job's"/></Col>
+        <Col xs="12" md="3" className="bg-success"><Square value="7" title="Total Post"/></Col>
         <Col md="1"></Col>
-        <Col xs="12" md="3" className="bg-info"><Square value="7" title="Applied Job's"/></Col>
+        <Col xs="12" md="3" className="bg-info"><Square value="7" title="Today's Posts"/></Col>
     </Row>
     </Container>
 </Container>
@@ -20,3 +20,5 @@ return(
 }
 
 export default Content;
+
+//Do git pull origin master

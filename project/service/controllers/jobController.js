@@ -1,36 +1,37 @@
 const jobModel = require('../models/jobModel');
 
-module.exports = {
-    create: (req, res) => {
-        //logic/data validation code write here
+module.exports={
+    create: (req,res)=>{
+        console.log(req.body);
         return jobModel.create(req.body)
-        .then((data) => {
-            return res.send({status: "ok", msg:"Job created successfully.", data: data})
+        .then((data)=>{
+            return res.send({status: "ok", msg: "job posted successfully"})
         })
         .catch((err)=>{
-            return res.send({status: "fail", error: err});
-        });
+            return res.send({status:"fail", error:err})
+        })
     },
-    getAll: (req, res) => {
+    getAll: (req,res)=>{
         return jobModel.getAll()
-        .then((alljobs)=> res.send(alljobs))
-        .catch((err) => res.send({status: "fail", error: err, code: 500}));
+        .then((allJobs)=>res.send(allJobs))
+        .catch((err)=>res.send({status:"fail",err:(err)}))
     },
-    deleteById: (req,res) => {
+    deleteById: (req,res)=>{
         return jobModel.deleteById(req.body.id)
-        .then((deletedjob) => res.send({status: "OK", msg: "job deleted successfully.", deletedjob: deletedjob}))
-        .catch((err)=> res.send({status:"fail", errro: err}));
+        .then((allJobs)=>res.send({status:"Ok",msg : "job deleted successfully"}))
+        .catch((err)=>res.send({status:"fail",err:(err)}))
     },
-    update: (req,res)=> {
+    update: (req,res)=>{
         return jobModel.update(req.body.id, req.body.fields)
-        .then((updatedjob) =>  res.send({status: "OK", msg: "job updated successfully.", updatedjob: updatedjob}))
-        .catch((err)=> res.send({status:"fail", errro: err}));
+        .then((updatedjobdtls)=>res.send({status:"ok",msg: "job details updated successfully"}))
+        .catch((err)=>res.send({status:"fail",err:(err)}))
     },
     getSpecified: (req,res)=>{
         console.log(req.body.title);
-        console.log(jobModel.getSpecified(req.body.title));
+        // console.log(jobModel.getSpecified(req.body.title));
         return jobModel.getSpecified(req.body.title)
-        .then((matchedJobs)=>res.send(matchedJobs))
+        .then((matchedJobs)=>{res.send(matchedJobs);
+        console.log(matchedJobs);})
         .catch((err)=>res.send({status:"fail",err:(err)}))
-}
+    }
 }
