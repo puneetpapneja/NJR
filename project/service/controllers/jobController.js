@@ -1,3 +1,4 @@
+const { getSearchParamsForLocation } = require('react-router-dom/dist/dom');
 const jobModel = require('../models/jobModel');
 
 module.exports = {
@@ -25,5 +26,9 @@ module.exports = {
         return jobModel.update(req.body.id, req.body.fields)
         .then((updatedjob) =>  res.send({status: "OK", msg: "job updated successfully.", updatedjob: updatedjob}))
         .catch((err)=> res.send({status:"fail", errro: err}));
+    },
+    find : (req,res)=>
+    {
+        return jobModel.find(req.body.title,req.body.companyname,req.body.jobId)
     }
 }

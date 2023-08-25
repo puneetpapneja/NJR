@@ -1,101 +1,88 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import { useState } from "react";
-import { registerUser, selectRegistrationStatus, selectRegistrationError } from '../store/reducers/userSlice';
+import {Button, Form,Container,Row, Col} from 'react-bootstrap';
+import {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom'
+import { setKey, setSession } from '../Utils';
 
 
-function Register() {
-  const [selectedRole, setSelectedRole] = useState('');
-  const [showCompany, setShowCompany] = useState(false);
-  const dispatch = useDispatch();
+ function Register(){
+    const navigate=useNavigate();
+    const [validated, setValidated] = useState(false);
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        setValidated(true);
+        if(validated===true){
+            setSession("");
+            navigate("/login");
+        }
+    }
+    const onclick=()=>{
+        setSession("");
+        navigate("/login");
+      }
+    
+      const [checkradio, setcheckradio]=useState(false);
+    const handleradio=(event)=>{
+        const form =event.currentTarget;
+        if(form.value==="J-r"){
+           setcheckradio(true);
+        }
+        else{
+           setcheckradio(false);
+        }
+    }
 
-  const registrationStatus = useSelector(selectRegistrationStatus);
-  const registrationError = useSelector(selectRegistrationError);
-
-  const handleRoleChange = (event) => {
-    const role = event.target.value;
-    setSelectedRole(role);
-    setShowCompany(role === 'Job Recruiter');
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const userData = {
-      email: "arjunpuri991@gmail.com",
-      password: "arjun", 
-      role: selectedRole,
-      companyName: showCompany 
-    };
-
-    dispatch(registerUser(userData));
-  };
-  return (
-   
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title>
-                <h1 className="text-center">Register</h1>
-              </Card.Title>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Form>
-                 {[ 'radio'].map((type) => (
-                 <div key={`inline-${type}`} className="mb-3">
-                 <Form.Check
-                 inline
-                 label="job seeker"
-                 name="group1"
-                 type={type}
-                 id={`inline-${type}-1`}
-                />
-                  <Form.Check
-                 inline
-                 label="job recruiter"
-                 name="group1"
-                 type={type}
-                 id={`inline-${type}-2`}
-                /> 
-                </div>
-                ))}
-              </Form>
-
-              <Form.Group
-                        className="mb-3"
-                        controlId="formBasicCheckbox"
-                      >
-                        <p className="small">
-                          <Link className="text-primary" as={Link} to="/Login">
-                            Have an account ? Login Now
-                          </Link>
-                        </p>
-              </Form.Group>
-              <Button variant="dark" type="submit"> Register</Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+    return (
+       
+    <Container >
+       <Row>
+       <h1 className='text-center mt-5 mb-3' >Register</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" required/>
+            <Form.Control.Feedback type='invalid'>please enter a valid email</Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" required/>
+            <Form.Control.Feedback type='invalid'>please set a password</Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <br/>
+        <Row>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Seeker' name="role" value="J-s" onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
+            </Col>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Recruiter' value="J-r" name='role' onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
+            </Col>
+        </Row>
+        <br/>
+        <Row>
+        {checkradio &&
+        <Form.Group controlId='formCompany'>
+            <Form.Label>Company name</Form.Label>
+            <Form.Control type="text" required/>
+            <Form.Control.Feedback type='invalid'>please enter a company name</Form.Control.Feedback>
+        </Form.Group>}
+        </Row>
+        <Button variant="link" onClick={onclick} >Have an account? Login Now</Button>
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Register</Button>
+        </Container>
+       </Form>
     </Container>
-  );
+ 
+ );
 }
 
 export default Register;

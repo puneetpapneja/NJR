@@ -38,7 +38,7 @@ function Postjob() {
                 </Form.Group>
 
                 <Button  style={{marginLeft:"250px"}} variant="dark" type="submit">
-                  Register
+                  Submit
                 </Button>
               </Form>
             </Card.Body>

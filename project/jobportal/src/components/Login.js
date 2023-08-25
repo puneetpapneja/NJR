@@ -1,52 +1,99 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Link } from 'react-router-dom';
+import {Button, Form,Container,Row} from 'react-bootstrap';
+import {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { setSession } from '../Utils';
+import { useDispatch, useSelector } from 'react-redux';
+import { validateUser } from '../store/reducer/userSlice';
 
-function Login() {
-  return (
-    <Container>
-      <Row className="justify-content-center">
-        <Col xs={12} md={6}>
-          <Card>
-            <Card.Body>
-              <Card.Title>
-                <h1 className="text-center">Login</h1>
-              </Card.Title>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
+ function Login(){
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-
-                <Form.Group
-                        className="mb-3"
-                        controlId="formBasicCheckbox"
-                      >
-                        <p className="small">
-                          <Link  as={Link} to="/Register">
-                            Dont have a account?Register Now
-                          </Link>
-                        </p>
-                </Form.Group>
-                <Button variant="dark" type="submit">
-                  Submit
-                </Button>
-              </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+    const [validated, setValidated] = useState(false);
+    const navigate=useNavigate();
+    const dispatch= useDispatch();
+    const isValidUser = useSelector(state => state?.user?.isValidUser);
+    console.log(isValidUser);
+    useEffect(()=> {
+      if(isValidUser){
+        setSession("isValidUser");
+         navigate("/")
+      }
+  },[isValidUser])
+    // console.log(error);
+    const [email,setEmail]= useState('');
+    const [password, setPassword]= useState('');
+    const data={
+      emailId:email,
+      password:password
+    }
+    console.log(data);
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        setValidated(true);
+        if (form.checkValidity() === false) {
+          // console.log("dfgh");
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        
+        else{
+        // if(validated===true){
+          // console.log("DF");
+          event.preventDefault();
+          event.stopPropagation();
+        dispatch(validateUser(data));
+        // if(error===""){
+        //   console.log(error);
+        //     setSession("1234");
+        //     navigate("/");
+        // }
+        // else{
+        //     dispatch(reset());
+        // }
+        }
+    }
+    const onclick=()=>{
+      navigate("/register");
+      // return(
+      //   <Registerpage/>
+      // )
+    }
+    
+    return (
+       
+    <Container  >
+       <Row>
+       <h1 className='text-center mt-5 mb-3'>Login</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" onChange={(e)=>setEmail(e.target.value)} required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" onChange={(e)=>setPassword(e.target.value)} required />
+            <Form.Control.Feedback type="invalid">
+              Please set a password.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        
+        
+        <Button variant="link" onClick={onclick}  className='p-0 mb-3'>Dont have a account? Register Now</Button>
+        {/* <Link to="">Dont have a account? Register Now</Link> */}
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Login</Button>
+        </Container>
+       </Form>
     </Container>
-  );
+ );
+    // }
 }
-
 export default Login;

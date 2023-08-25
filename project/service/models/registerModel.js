@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 
-const postjobSchema = mongoose.Schema({
-    jobTitle: String,
-    jobDescription: String,
-    MaxSalary: String,
+const registerSchema = mongoose.Schema({
+    
     
 });
 
