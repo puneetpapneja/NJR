@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSession } from "../utils";
 import { JOB_RECURITER, JOB_SEEKER } from "../utils/constants";
 import { postNewUser } from "../store/reducers/userRegisterSlice";
+import "./dashboard.css";
 
 function SignUp() {
 
@@ -96,22 +97,19 @@ function SignUp() {
               checked={formData?.type === role}
             />
           ))}
-          <Container className="d-flex flex-column mb-3">
-            {formData?.type === "Job Recruiter" && (
-              <Form.Group controlId="formBasicCompany">
-                <Form.Label>Company name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Company Name"
-                  onChange={handleCompanyName}
-                />
-              </Form.Group>
-            )}
-
-            <Button variant="link">
-              <Link to="/"> Have an account? Log in</Link>
-            </Button>
-          </Container>
+          {formData?.type === JOB_RECURITER && (
+            <Form.Group controlId="formBasicCompany">
+              <Form.Label>Company name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Company Name"
+                onChange={handleCompanyName}
+              />
+            </Form.Group>
+          )}
+          <p className="mt-3 text-center">
+            Have an account?<Link to="/"> Log in</Link>
+          </p>
           <Button
             disabled={isLoading}
             variant="dark"

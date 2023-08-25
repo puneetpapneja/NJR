@@ -36,9 +36,103 @@
 .custom-toggle::after {
     content: none !important;
 }
+
 .link-icon {
     color: #007bff;
     /* Adjust the color to your preference */
     text-decoration: underline;
     cursor: pointer;
+}
+
+.login-box {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.btn-login {
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+/* You can add more custom styling here */
+/* Apply responsive styles to the Navbar */
+.navbar {
+    padding: 15px 0;
+    background-color: #f8f9fa;
+    /* Change to your preferred background color */
+}
+
+/* Style the brand name */
+.brand-name {
+    font-size: 1.5rem;
+    color: #007bff;
+    /* Change to your preferred color */
+}
+
+/* Style the wave */
+.brand-wave {
+    font-size: 1.5rem;
+    color: #28a745;
+    /* Change to your preferred color */
+}
+
+/* Style the search button */
+.search-button {
+    background-color: #007bff;
+    /* Change to your preferred color */
+    color: #fff;
+    border: none;
+}
+
+/* Style the user icon */
+.user-icon {
+    color: #007bff;
+    /* Change to your preferred color */
+}
+
+/* Style the dropdown menu */
+.dropdown-menu {
+    min-width: 160px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style dropdown items */
+.dropdown-item {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    /* Change to your preferred color */
+}
+
+/* Make the search bar responsive */
+.input-group {
+    width: 100%;
+    max-width: 300px;
+    /* Adjust as needed */
+}
+
+/* Add responsiveness to the Nav links */
+.nav-link {
+    padding: 10px 15px;
+    font-size: 14px;
+}
+
+/* Add responsiveness to the Toggle button */
+.navbar-toggler {
+    border: none;
 }
