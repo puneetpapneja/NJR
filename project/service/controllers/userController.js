@@ -3,13 +3,24 @@ const userModel = require('../models/userModel');
 module.exports = {
   create: (req, res) => {
     const userData = req.body;
-    userModel.userCollection.create(userData)
-      .then((data) => {
-        return res.send({ status: "ok", msg: "User created successfully." });
-      })
-      .catch((err) => {
-        return res.send({ status: "fail", error: err });
-      });
+    const {emailId} = userData;
+    userModel.userCollection.find({emailId: emailId})
+    .then((data) => {
+      if(data.length === 0){
+        return userModel.userCollection.create(userData)
+        .then((data) => {
+          return res.send({ status: "ok", msg: "User created successfully." });
+        })
+        .catch((err) => {
+          return res.send({ status: "fail", msg:"something went wrong", error: err });
+        });
+      }
+      else{
+        res.send({status: "fail", msg: "User already exist"});
+      }
+    })
+    
+      
   },
   
   getAll: async (req, res) => {

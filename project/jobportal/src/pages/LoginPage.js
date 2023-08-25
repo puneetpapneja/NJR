@@ -23,7 +23,7 @@ const LoginPage = () => {
         <Formik
         initialValues={{ email: '', pwd: '' }}
         onSubmit={(values, { setSubmitting }) => {
-          dispatch(validateUser({email:values.email, pwd:values.pwd}));
+          dispatch(validateUser({email:values.email, pwd:btoa(values.pwd)}));
         }}
          >
           {({ handleSubmit, handleChange, handleBlur, values, touched, errors }) => (

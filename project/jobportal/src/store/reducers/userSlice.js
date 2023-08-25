@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { API_URL, JOB_RECURITER, JOB_SEEKER } from "../../utils/constants";
+import { setMessage } from "./notificationSlice";
 const initialState = {
   isValidUser: false,
   hasRecuriter: false,
@@ -19,8 +20,17 @@ export const validateUser = createAsyncThunk("user/validateUser", async (params,
 
 export const createuser = createAsyncThunk("user/create", async (userData, thunkAPI) => {
   try {
-    const response = await axios.post(`${API_URL}user/create`, userData);
-    return response.data;
+    const {data} = await axios.post(`${API_URL}user/create`, userData);
+    const {status, msg } = data;
+    console.log(status, msg, data);
+    if(status === "ok"){
+      console.log("enter into if")
+      thunkAPI.dispatch(setMessage({title: "success", message: msg, variant: "success"}));
+    }
+    else{
+      thunkAPI.dispatch(setMessage({title: "fail", message: msg, variant: "error"}));
+    }
+    return data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
   }

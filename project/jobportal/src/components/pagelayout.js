@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import NavBarComponent from "./navbar";
 import Footercomponent from "./footer.js";
 import { useSelector } from "react-redux";
+import Notification from "./notification";
 
 const PageLayout = ()=>{
     const isValidUser = useSelector(state => state?.user?.isValidUser);
@@ -17,7 +18,9 @@ const PageLayout = ()=>{
     
     return (
         <React.Fragment>
+        
             {isValidUser ? <NavBarComponent /> : null}
+            <Notification />
             <Outlet />
             <Footercomponent />
         </React.Fragment>
