@@ -23,6 +23,41 @@ const appliedjob = () => {
                         </Card.Text>
                     </Card.Body>
                 </Card>
+
+                <Card style={{ width: '79rem' }}>
+                <Card.Body>
+                <Card.Title>Full stack Developer <div className='float-end'>1 day ago</div></Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">abc@gmail.com</Card.Subtitle>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content.
+                            <span className='float-end'>Applied</span>
+                        </Card.Text>
+                </Card.Body>
+
+                </Card>
+
+                <Card style={{ width: '79rem' }}>
+                <Card.Body>
+                <Card.Title>Full stack Developer <div className='float-end'>1 day ago</div></Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">abc@gmail.com</Card.Subtitle>
+                        <Card.Text>
+                            Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content. Some quick example text to build on the card title and make up the
+                            bulk of the card's content.
+                            <span className='float-end'>Applied</span>
+                        </Card.Text>
+                </Card.Body>
+
+                </Card>
+
             </Form>
         </Container>
     )
