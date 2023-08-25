@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
-import Accordion from 'react-bootstrap/Accordion';
-import Button from 'react-bootstrap/Button';
+//import Accordion from 'react-bootstrap/Accordion';
+//import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {Row,Col} from "react-bootstrap";
 export default function Appliedajob2(){
@@ -12,7 +12,7 @@ return(
                         <h1 style={{textAlign:"center"}}>Applied Jobs</h1>
                     </Col>
                 </Row>
-                <Card style={{background:"pink"}}>
+                <Card style={{background:"LightGray"}}>
       <Card.Body>
         <Card.Title className="d-flex" style={{justifyContent:"space-between"}}>Senio Developer<Card.Title>3 days ago</Card.Title></Card.Title>
         <Card.Text>
@@ -45,3 +45,4 @@ return(
    </Container>
 )
 }
+
