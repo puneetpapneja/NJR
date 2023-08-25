@@ -62,7 +62,7 @@ const Loginpg = () => {
     }, [])
     return (
 
-
+            <>
         
             <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
@@ -123,7 +123,7 @@ const Loginpg = () => {
                 </div>
             </div>
         
-
+            </>
     );
 }
 

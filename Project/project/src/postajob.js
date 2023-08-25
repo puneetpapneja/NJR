@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import NavbarComponent from "./navbar";
 import { useDispatch } from "react-redux";
 import { addJob } from "./actions/jobActions";
+import Footer from "./footer";
 const Postajob = () => {
-    const [form,setform]= useState({});
+    const [form, setform] = useState({});
     const dispatch = useDispatch();
-    
+
 
     const handleFunc = (e) => {
         setform({
@@ -23,19 +24,19 @@ const Postajob = () => {
 
 
 
-    const handlefunc=(e)=>{
+    const handlefunc = (e) => {
         setform({
             ...form,
-            [e.target.name] : e.target.value,
+            [e.target.name]: e.target.value,
         })
     }
-    const handlesubmit = async(e)=>{
+    const handlesubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch('http://localhost:8080/demo',{
+        const response = await fetch('http://localhost:8080/demo', {
             method: 'POST',
-            body:JSON.stringify(form),
-            headers:{
-                'Content-Type':'application/json'
+            body: JSON.stringify(form),
+            headers: {
+                'Content-Type': 'application/json'
             }
         })
         const data = await response.json();
@@ -45,10 +46,10 @@ const Postajob = () => {
     return (
         <>
             <NavbarComponent />
-            
-            
+
+
             <div className="container mt-5">
-                <h1>Post a Job</h1>
+                <h1 style={{ fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>Post a Job</h1>
 
                 <form onSubmit={handlesubmit}>
                     <div className="mb-3">
@@ -59,7 +60,6 @@ const Postajob = () => {
                             className="form-control"
                             id="jobTitle"
                             onChange={handlefunc}
-                            
                         />
                     </div>
 
@@ -70,7 +70,6 @@ const Postajob = () => {
                             className="form-control"
                             id="jobDescription"
                             onChange={handlefunc}
-                            
                         />
                     </div>
 
@@ -82,13 +81,13 @@ const Postajob = () => {
                             className="form-control"
                             id="maxSalary"
                             onChange={handlefunc}
-                            
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-primary">Post</button>
+                    <button type="submit" className="btn btn-primary" style={{ backgroundColor: '#7894b3', fontFamily: 'Arial, sans-serif', fontWeight: 'bold', border: 'none', borderRadius: '100px' }}>Post</button>
                 </form>
             </div>
+            <Footer />
         </>
     );
 };

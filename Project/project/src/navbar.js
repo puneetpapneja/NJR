@@ -29,10 +29,10 @@ const NavbarComponent = () => {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
+        <nav style={{backgroundColor: '#92A8D1'}} className="navbar navbar-expand-lg navbar-light ">
             <div className="ml-3 position-relative" onMouseEnter={toggleOptions} onMouseLeave={toggleOptions}>
                 <img
-                    src="prf.png"
+                    src="ic.jpg"
                     alt="Profile"
                     style={{ borderRadius: '50%', width: '40px', height: '40px', margin: '10px', cursor: 'pointer' }}
                 />
@@ -77,5 +77,7 @@ const NavbarComponent = () => {
         </nav>
     );
 };
+
+
 
 export default NavbarComponent;

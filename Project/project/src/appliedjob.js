@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavbarComponent from "./navbar";
+import Footer from "./footer";
 
 const AppliedJobBlock = ({ category, email, description }) => {
     return (
@@ -43,6 +44,7 @@ const Applyjob = () => {
                 </div>
             </div>
         </div>
+        <Footer />
         </>
     );
 };
