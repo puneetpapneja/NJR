@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        const clickhandler = (callback) => {
+            const fv = document.getElementById("txt1");
+            const sv = document.getElementById("txt2");
+            const result = document.getElementById("result");
+
+            if (fv.value === "" && sv.value === "") {
+                result.value = "Please enter at least one value";
+                return;
+            }
+            result.value = callback(fv.value , sv.value);
+        }
+            const add = (a, b) => parseInt(a) + parseInt(b);
+            const sub = (a, b) => parseInt(a) - parseInt(b);
+            const multi = (a, b) => parseInt(a) * parseInt(b);
+            const div = (a, b) => parseInt(a) / parseInt(b);
+        
+    
+    </script>
+</head>
+<body>
+    First number <input type="text" id="txt1"/>
+    Second number <input type="text" id="txt2"/><br/>
+    <input type="button" value="Add" ondblclick="clickhandler(add)" />
+    <input type="button" value="Subtract" ondblclick="clickhandler(sub)"/>
+    <input type="button" value="Multiply" ondblclick="clickhandler(multi)"/>
+    <input type="button" value="Divide" ondblclick="clickhandler(div)"/>
+    <br/>
+    Result: <input type="text" id="result" />
+    <br/>
+</body>
+</html>
