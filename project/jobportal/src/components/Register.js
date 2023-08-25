@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../store/reducers/userregisterSlice";
+import { setMessage } from "../store/reducers/notificationSlices";
 export default function Register(){
     const navigate = useNavigate();
     const err = useSelector(state=>state?.user?.Error);
@@ -40,11 +41,12 @@ export default function Register(){
             setCompError("*required");
             return;
         }
+
         const data = {emailId:email,password:password,type:role,companyName:company};
-        console.log(data);
         dispatch(registerUser(data));
         if(!err){
-            navigate("/login");
+            dispatch(setMessage({ title: "Success", message: "Registration successful!", variant: "success" }));
+            //navigate("/login");
         }
     }
       const isValidEmail = (email) => {
