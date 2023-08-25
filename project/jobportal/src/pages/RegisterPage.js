@@ -34,7 +34,7 @@ const RegisterPage = () => {
     const pwd = event.target.value;
     setFormData({
       ...formData,
-     password: pwd
+     password: btoa(pwd)
     }); 
   }
 
@@ -47,8 +47,8 @@ const RegisterPage = () => {
   }
   const handleSubmit = (event) => {
     const form = event.currentTarget;
-    event.preventDefault();
-      event.stopPropagation();
+    // event.preventDefault();
+    //   event.stopPropagation();
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
