@@ -1,15 +1,14 @@
-import './App.css';
-import React from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { getRoutes } from './routing';
-import { useSelector } from 'react-redux';
-
+import { RouterProvider } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
+import { getRoutes } from "./routing";
+import { useSelector } from "react-redux";
 
 function App() {
-  const hasRecuriter = useSelector(state => state?.user?.hasRecuriter);
+  const hasRecruiter = useSelector(state => state?.user?.hasRecruiter);
   return (
-    <RouterProvider router={createBrowserRouter(getRoutes(hasRecuriter))}>
-    </RouterProvider>);
+   
+    <RouterProvider router={createBrowserRouter(getRoutes(hasRecruiter))}></RouterProvider>
+   
+  );
 }
-
 export default App;

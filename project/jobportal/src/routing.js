@@ -1,64 +1,59 @@
-import React from 'react';
-import RegisterPage from './pages/RegisterPage';
-import LoginPage from './pages/LoginPage';
-import Dashboard from './pages/Dashboard';
-import Jobs from './pages/Jobs';
-import NavBarComponent from './components/navbar';
-import PostJob from './pages/Postjob';
-import PageLayout from './components/pagelayout';
-import AppliedJobsPage from './pages/AppliedJobsPage';
-import ProfilePage from './pages/ProfilePage';
-import PostedJobsPage from './pages/PostedJobsPage';
-
-const COMMON_ROUTES = [
+import React from "react";
+import Dashboard from "./pages/Dashboardpage"
+import LoginPage from "./pages/Loginpage";
+import RegisterPage from "./pages/registerpage";
+import Pagelayout from "./components/Page-layout";
+import Post from "./pages/Post";
+import Jobs from "./pages/Appliedajob";
+import PostedJobs from "./pages/Postedajob";
+import Appliedjob from "./pages/Appliedajob2";
+import Profile from "./pages/Profiles";
+export const commonRoutes = [
     {
-        path: "/",
-        element:  <LoginPage />
+        path:"/",
+        element: <Dashboard />        
     },
     {
-        path: "/LoginPage",
-        element:  <LoginPage />
+        path:"/login",
+        element: <LoginPage />
     },
     {
-        path: "/RegisterPage",
-        element:  <RegisterPage />
-    },
-    {
-        path: "/Dashboard",
-        element:  <Dashboard />
-    },
-    {
-        path: "/ProfilePage",
-        element:  <ProfilePage />
+        path:"/register",
+        element: <RegisterPage />
     }
 ]
-const SEEKER_ROUTES = [   
-    ...COMMON_ROUTES,
+export const recruiterRoutes=[
+    ...commonRoutes,
     {
-        path: "/Jobs",
-        element:  <Jobs />
+        path:"/postjob",
+        element: <Post />
     },
     {
-        path: "/AppliedJobsPage",
-        element:  <AppliedJobsPage />
-    }    
+        path:"/postedjob",
+        element:<PostedJobs/>
+    }
 ]
-export const RECURITER_ROUTES = [ 
-    ...COMMON_ROUTES,   
+export const seekerRoutes =[
+    ...commonRoutes,
     {
-        path: "/Postjob",
-        element:  <PostJob />
+        path:"/Job",
+        element: <Jobs />
     },
     {
-        path: "/PostedJobsPage",
-        element:  <PostedJobsPage />
+        path:"/appliedjob",
+        element:<Appliedjob/>
+    },
+    {
+        path:"/Profile",
+        element: <Profile/>
     }
 ]
 
-export const getRoutes =(hasRecuriter)=> [
+const getRoutes =(hasRecruiter)=>[
     {
-        path: "/",
-        element:  <PageLayout/>,
-        children: hasRecuriter ? RECURITER_ROUTES : SEEKER_ROUTES 
+        path:"/",
+        element:<Pagelayout />,
+        children: hasRecruiter?recruiterRoutes:seekerRoutes
     }
 ]
+export {getRoutes};
