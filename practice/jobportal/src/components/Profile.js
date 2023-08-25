@@ -4,7 +4,7 @@ import { Container, Form, Button } from 'react-bootstrap';
 export default function Profile() {
     return (
         <Container className='mt-4'>
-            <h1 className=' mb-4' style={{marginLeft:'17vw'}}>Profile</h1> 
+            <h1 className=' mb-4 d-flex justify-content-center' style={{marginTop:"15vh" }}>Profile</h1> 
             <Form className='mx-auto'  style={{ width: '40%'}}>
                 <Form.Group controlId='firstName' className='mb-3'>
                     <Form.Label>First Name</Form.Label>
@@ -27,7 +27,7 @@ export default function Profile() {
                 </Form.Group>
 
                 <div className='d-flex justify-content-center'>
-                    <Button type='submit' style={{backgroundColor:'black', border:'none'}}>
+                    <Button type='submit' style={{backgroundColor:'black', border:'none',marginBottom:"5vh"}}>
                         Submit
                     </Button>
                 </div>

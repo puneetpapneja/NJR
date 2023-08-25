@@ -32,7 +32,7 @@ export default function PostedJob() {
 
     return (
         <Container className='mt-4'>
-            <h1 className='mb-4'>Posted Job</h1>
+            <h1 className='mb-4' style={{marginTop:"15vh"}}>Posted Job</h1>
             <div className='d-flex flex-wrap'>
                 {jobData.map((job, index) => (
                     <Card key={index} className='mb-4 me-4' style={{ width: '18rem' }}>

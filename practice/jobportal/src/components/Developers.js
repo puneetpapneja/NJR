@@ -2,11 +2,11 @@ import React from 'react';
 import { Container, Table } from 'react-bootstrap';
 
 
-  
+
 
 
 export default function Developers() {
-    
+
     const developerData = [
         {
             name: 'John Doe',
@@ -51,16 +51,16 @@ export default function Developers() {
             resumeLink: 'Link to Bob\'s Resume'
         },
 
-        
+
     ];
-    
+
 
 
     return (
         <Container className='mt-4'>
             <h1 className='mb-4'>Position</h1>
-            <Table striped className="mx-auto" style={{ width: '90%'}} responsive>
-                <thead>   
+            <Table striped className="mx-auto" style={{ width: '90%' }} responsive>
+                <thead>
                     <tr>
                         <th>Candidates</th>
                         <th>Email</th>

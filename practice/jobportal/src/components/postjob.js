@@ -15,10 +15,8 @@ export default function PostJob() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [maxSalary, setMaxSalary] = useState("");
-
     const dispatch = useDispatch();
     const postingStatus = useSelector((state) => state.postJob.postingStatus);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if (title && description && maxSalary) {
@@ -27,11 +25,8 @@ export default function PostJob() {
         }
     };
     return (
-
         <Form style={formStyle} onSubmit={handleSubmit}>
-
-            <h1 className="mb-4" >Post Job</h1>
-
+            <h1 className="mb-4" style={{ marginTop: "15vh" }} >Post Job</h1>
             <Form.Group className="mb-3 col-md-4" controlId="jobTitle">
                 <Form.Label>Job Title</Form.Label>
                 {/* <Form.Control type="text" placeholder="Enter job title" /> */}
@@ -41,7 +36,6 @@ export default function PostJob() {
                     onChange={(e) => setTitle(e.target.value)}
                 />
             </Form.Group>
-
             <Form.Group className="mb-3 col-md-4" controlId="jobDescription">
                 <Form.Label>Job Description</Form.Label>
                 {/* <Form.Control as="textarea" placeholder="Enter job description" rows={3} /> */}
@@ -51,7 +45,6 @@ export default function PostJob() {
                     onChange={(e) => setDescription(e.target.value)}
                 />
             </Form.Group>
-
             <Form.Group className="mb-3 col-md-4" controlId="maxSalary">
                 <Form.Label>Max salary</Form.Label>
                 {/* <Form.Control type="number" placeholder="Enter max salary" /> */}
@@ -61,12 +54,9 @@ export default function PostJob() {
                     onChange={(e) => setMaxSalary(e.target.value)}
                 />
             </Form.Group>
-
-            <Button style={{ backgroundColor: 'black', border: 'none' }} type="submit">
+            <Button style={{ backgroundColor: 'black', border: 'none', marginBottom: "5vh" }} type="submit">
                 Post
             </Button>
         </Form>
-
-
     );
 }
