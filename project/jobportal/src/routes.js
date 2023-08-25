@@ -7,6 +7,7 @@ import Post from "./pages/Post";
 import Jobs from "./pages/Jobspage";
 import PostedJobs from "./pages/Postedpage";
 import Appliedjob from "./pages/Appliedjobspage";
+import UserProfile from "./pages/Profilepage";
 export const commonRoutes = [
     {
         path:"/",
@@ -19,6 +20,10 @@ export const commonRoutes = [
     {
         path:"/register",
         element: <RegisterPage />
+    },
+    {
+        path:"/profile",
+        element:<UserProfile />
     }
 ]
 export const recruiterRoutes=[

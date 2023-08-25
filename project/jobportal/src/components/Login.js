@@ -33,7 +33,7 @@ export default function Login(){
             setPasswordError("Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
             return;
         }
-        dispatch(loginValidation({emailId:email,password:password}))
+        dispatch(loginValidation({emailId:email,password:btoa(password)}))
         if(!status)
         {
             // console.log("status:",status);

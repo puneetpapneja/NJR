@@ -13,7 +13,10 @@ const initialState = {
 export const registerUser = createAsyncThunk("user/create", async(userData,ThunkAPI)=>{
     return axios.post(`${API_URL}user/create`,userData)
 })
-
+export const updateProfile = createAsyncThunk("user/update", async (data,ThunkAPI)=>{
+    // console.log(data);
+    return axios.put(`${API_URL}user/update`,data)
+})
 export const loginValidation = createAsyncThunk("user/loginValidation",async (loginData,ThunkAPI)=>{
     try{
         return axios.post(`${API_URL}user/loginValidation`,loginData);
@@ -51,7 +54,7 @@ export const userSlice = createSlice({
             state.isLoading = false;
         })
         .addCase(loginValidation.fulfilled, (state,{payload})=>{
-            // console.log(payload);
+            console.log("login payload",payload);
             state.isvalidUser = payload?.data?.status === "valid"? true:false;
             state.firstName = payload?.data?.firstName;
             state.lastName = payload?.data?.lastName;
@@ -59,6 +62,19 @@ export const userSlice = createSlice({
             state._id = payload?.data?._id;
             state.companyName = payload?.data?.companyName;
             state.hasRecruiter = payload?.data?.type === "Job Recruiter"?true:false;
+            state.isLoading = false;
+        })
+        .addCase(updateProfile.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(updateProfile.rejected, (state,action)=> {
+            state.Error = action.payload.data.error;
+            state.Status = action.payload.data.status;
+            state.isLoading = false;
+        })
+        .addCase(updateProfile.fulfilled, (state,action)=>{
+            state.Status = action.payload.data.status;
+            state.Error = "";
             state.isLoading = false;
         })
     }

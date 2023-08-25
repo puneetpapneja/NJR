@@ -6,15 +6,14 @@ export default function AppliedStructure(props){
             <Card.Body>
                 <Card.Title>
                     <Row>
-                        <Col sm="6" lg="6">{props.Title}({props.id})</Col>
+                        <Col sm="6" lg="6">{props.props.title}({props.props._id})</Col>
                         <Col></Col>
-                        <Col sm="4" lg="4" className="text-end text-muted fs-6 me-0">{props.time}</Col>
+                        <Col sm="4" lg="4" className="text-end text-muted fs-6 me-0">1 day ago</Col>
                     </Row>
                 </Card.Title>
-                <Card.Subtitle>{props.email}</Card.Subtitle>
                 <Card.Text>
                     <Row>
-                        <Col>{props.description}</Col>
+                        <Col>{props.props.description}</Col>
                     </Row>
                     <Row>
                         <Col className="float-end fs-6">applied</Col>

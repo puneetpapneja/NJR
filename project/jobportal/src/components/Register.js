@@ -42,7 +42,7 @@ export default function Register(){
             setCompError("*required");
             return;
         }
-        const data = {emailId:email,password:password,type:role,companyName:company};
+        const data = {emailId:email,password:btoa(password),type:role,companyName:company};
         console.log(data);
         dispatch(registerUser(data));
         if(!err){

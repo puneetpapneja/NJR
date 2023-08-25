@@ -13,7 +13,6 @@ export default function PostJob(){
     const [maxSalary,setMaxSalary]= useState("");
     const [maxSalaryError,setMaxSalaryError]=useState("");
     const companyName = useSelector(state=>state?.user?.companyName)
-    const status = useSelector(state=>state?.user?.status)
     const firstName = useSelector(state=>state?.user?.firstName)
     const lastName = useSelector(state=>state?.user?.lastName)
     const emailId = useSelector(state=>state?.user?.emailId)

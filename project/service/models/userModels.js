@@ -20,7 +20,7 @@ module.exports = {
         return userCollection.find();
     },
     deleteById:(id)=>userCollection.deleteOne({_id:id}),
-    update:(id,fields)=>userCollection.updateOne({_id:id},fields),
+    update:(id,fields)=>userCollection.updateOne({_id:id},{$set:fields}),
     getByEmail:(email)=>userCollection.find({emailId:email}),
     getUser:(email,password)=>userCollection.find({emailId:email,password:password})
 }
