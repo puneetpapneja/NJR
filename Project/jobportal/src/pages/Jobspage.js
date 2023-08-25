@@ -1,6 +1,5 @@
-import Jobs from '../components/Jobs'
-export default function Jobspage(){
-    return(
-        <Jobs/>
-    )
+import Job from "../components/Job";
+
+export default function Jobs(){
+    return(<Job />)
 }
