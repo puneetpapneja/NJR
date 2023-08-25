@@ -43,7 +43,7 @@ export default function Register(){
             return;
         }
         const data = {emailId:email,password:btoa(password),type:role,companyName:company};
-        console.log(data);
+        // console.log(data);
         dispatch(registerUser(data));
         if(!err){
             // console.log("error is",err)

@@ -54,7 +54,7 @@ export const userSlice = createSlice({
             state.isLoading = false;
         })
         .addCase(loginValidation.fulfilled, (state,{payload})=>{
-            console.log("login payload",payload);
+            // console.log("login payload",payload);
             state.isvalidUser = payload?.data?.status === "valid"? true:false;
             state.firstName = payload?.data?.firstName;
             state.lastName = payload?.data?.lastName;
