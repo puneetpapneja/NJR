@@ -1,19 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const { port } = require("./config");
-const db = require('./database');
-const userRoute = require('./routes/userRoute');
-const jobRoutes=require('./routes/posjobRoutes')
-const applyRoutes=require('./routes/apply')
-const cors = require('cors');
+const db = require("./database");
+const userRoute = require("./routes/userRoute")
+const jobRoute = require("./routes/jobRoute")
+
 const app = express();
 
-app.use(express.json());
 app.use(cors());
-app.use("/job",jobRoutes);
-app.use("/user",userRoute);
-app.use("/appliedjob",applyRoutes);
+app.use(express.json());
+app.use('/user',userRoute);
+app.use('/job',jobRoute);
 
-
-
-
-app.listen(port, () => console.log("service started on port: ", port));
+app.listen(port,()=> console.log("service started on port ",port));
