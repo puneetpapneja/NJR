@@ -2,42 +2,36 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { API_URL } from "../../utils/constants";
 
-export const registerUser = createAsyncThunk("user/register", async (userData, thunkAPI) => {
-  try {
-    const response = await axios.post(`${API_URL}user/create`, userData);
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data);
-  }
-});
-
-const initialState = {
-  registrationStatus: "",
-  registrationError: null,
+const initialState ={
+    registrationError:"",
+    registrationStatus:"",
+    isloading:false
 };
 
-const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(registerUser.pending, (state) => {
-        state.registrationStatus = "loading";
-        state.registrationError = null;
-      })
-      .addCase(registerUser.rejected, (state, action) => {
-        state.registrationStatus = "error";
-        state.registrationError = action.payload.message;
-      })
-      .addCase(registerUser.fulfilled, (state) => {
-        state.registrationStatus = "success";
-        state.registrationError = null;
-      });
-  },
-});
+export const registerdata = createAsyncThunk("user/create",async(params, thunkAPI)=>{
+    return axios.post(`${API_URL}user/create`)
+})
 
-export const selectRegistrationStatus = (state) => state.user.registrationStatus;
-export const selectRegistrationError = (state) => state.user.registrationError;
-
-export default userSlice.reducer;
+export const registrationSlice = createSlice({
+    name: 'registration',
+    initialState,
+    reducers: {
+        reset: ()=> initialState
+    },
+    extraReducers: (builder) => {
+        builder
+        .addCase(registerdata.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(registerdata.rejected, (state)=> {
+            state.isLoading = false;
+        })
+        .addCase(registerdata.fulfilled, (state, {payload})=>{
+            state.jobs = payload.data;
+            state.isLoading = false;
+        })
+    }
+  });
+  
+  export const { reset } = registrationSlice.actions;
+  export default registrationSlice.reducer;

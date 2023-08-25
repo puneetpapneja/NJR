@@ -1,6 +1,6 @@
 import { Container, Form,Button } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-import React,{useEffect} from 'react';
+import React,{ useEffect } from 'react';
 //import Col from 'react-bootstrap/Col';
 //import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
@@ -24,10 +24,10 @@ const Postedjob = () => {
    
     const renderJobs = ()=>{
       return jobs.map(job => {
-        const {jobTitle,maxSalary,jobDescription,companyName}=jobs;
+        const {jobTitle,maxSalary,jobDescription,companyName}=job;
           return (
 
-            <Card style={{width: '79rem' }}>
+            <Card style={{ width: '79rem' }}>
               <Card.Header>{jobTitle}<br/><span className='float-start'>{companyName}</span></Card.Header>
               <Card.Body>
               <Card.Subtitle>Description</Card.Subtitle>

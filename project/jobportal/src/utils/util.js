@@ -1,6 +1,6 @@
 export const getSession = () => {
     return sessionStorage.getItem("token");
 }
-export const setSessionet = (value) => {
+export const setSession = (value) => {
     return sessionStorage.setItem("token", value);
 }
