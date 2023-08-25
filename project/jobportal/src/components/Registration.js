@@ -19,6 +19,7 @@ export const Registration = () => {
   const [password, setPassword] = useState("");
   const [companyName, setCname] = useState("");
   const [type, settype] = useState("Job-seeker");
+  sessionStorage.clear();
 
   // const postData = async (e) => {
   //   e.preventDefault();
@@ -47,8 +48,9 @@ export const Registration = () => {
     const item = {firstName:firstName, lastName:lastName, emailId:emailId, password:password, type:type, companyName:companyName};
     console.log(item);
     dispatch(registerUser(item))
+    navigate('/')
     if(err!==""){
-      navigate('/')
+      
     }
   }
   return (

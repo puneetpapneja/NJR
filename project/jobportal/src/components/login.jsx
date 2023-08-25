@@ -14,6 +14,7 @@ export const Login = () => {
   const isValidUser = useSelector(state => state?.user?.isValidUser)
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  sessionStorage.clear();
 
 
   useEffect(()=> {
