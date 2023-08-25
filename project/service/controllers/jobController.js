@@ -13,7 +13,7 @@ module.exports = {
     },
     getAll: (req, res) => {
         return JobModel.getAll()
-        .then((allUsers)=> res.send(allUsers))
+        .then((allUsers)=> res.send(allUsers))           
         .catch((err) => res.send({status: "fail", error: err, code: 500}));
     },
     deleteById: (req,res) => {
@@ -25,5 +25,10 @@ module.exports = {
         return JobModel.update(req.body.id, req.body.fields)
         .then((updatedJob) =>  res.send({status: "OK", msg: "Job updated successfully.", updatedJob: updatedJob}))
         .catch((err)=> res.send({status:"fail", errro: err}));
+    },
+    search:(req,res)=>{
+        return JobModel.search(req.keyword)
+        .then((searchedjob)=>res.send({status:"ok",msg:"job searched succesfully",searchedjob:searchedjob}))
+        .catch((err)=>res.send({status:"fail",msg:"job not found",error:err}));
     }
 }

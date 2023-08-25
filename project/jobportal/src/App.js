@@ -1,16 +1,18 @@
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
-import { routes } from './routing';
+import { getRoutes } from './routing';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
     function App() {
+      const hasRecruiter = useSelector(state => state?.user?.hasRecruiter);
         return (
           <React.Fragment>
-            <RouterProvider router={createBrowserRouter(routes)}>
+          <RouterProvider router={createBrowserRouter(getRoutes(hasRecruiter))}>
        
        </RouterProvider> 
-          </React.Fragment>
+         </React.Fragment>
       
   );
 }
