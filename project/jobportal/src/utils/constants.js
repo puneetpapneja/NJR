@@ -2,7 +2,7 @@ export const API_URL = "http://localhost:5000/";
 
 export const seekerMenu = [
     {
-        path:"/applyjob",
+        path:"/Job",
         name:"Jobs"
     },
     {

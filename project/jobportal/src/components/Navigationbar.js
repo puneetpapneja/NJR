@@ -30,7 +30,7 @@ export default function Navigationbar(){
             <Navbar.Collapse id="basic-navbar-nav">
             <Nav.Link as={Link} to="/dashboard" className="me-5">Home</Nav.Link>
             {renderNavItems()}            
-            <Nav.Link as={Col} lg="5" className="me-5" style={{marginLeft:"270px"}}><Form.Control type="text" placeholder="Search" /></Nav.Link>
+            <Nav.Link as={Col} lg="5" style={{marginLeft:"270px"}}><Form.Control type="text" placeholder="Search" /></Nav.Link>
     
             </Navbar.Collapse>
          <Dropdown show={showOptions} onMouseEnter={handleProfileLogoClick} onMouseLeave={() => setShowOptions(false)} style={{marginRight:"100px"}}>

@@ -36,7 +36,7 @@ export const recruiterRoutes=[
 export const seekerRoutes =[
     ...commonRoutes,
     {
-        path:"/applyjob",
+        path:"/Job",
         element: <Jobs />
     },
     {

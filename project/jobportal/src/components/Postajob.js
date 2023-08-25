@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { createJob } from '../store/reducers/JobSlice';
 
 export default function PostJob(){
+    const navigate = useNavigate();
     const [JobTitle,setJobTitle]=useState("");
     const [JobTitleError,setJobTitleError]=useState("");
     const [JobDescription,setJobDescription]=useState("");
     const [JobDescriptionError,setJobDescriptionError]=useState("");
+    const [maxSalary,setMaxSalary]= useState("");
+    const [maxSalaryError,setMaxSalaryError]=useState("");
+    const companyName = useSelector(state=>state?.user?.companyName)
+    const status = useSelector(state=>state?.user?.status)
+    const firstName = useSelector(state=>state?.user?.firstName)
+    const lastName = useSelector(state=>state?.user?.lastName)
+    const emailId = useSelector(state=>state?.user?.emailId)
+    const _id = useSelector(state=>state?.user?._id)
+    const dispatch = useDispatch();
     const Handleclick = (event)=>{
         if(!JobTitle)
         {
@@ -19,14 +32,34 @@ export default function PostJob(){
             setJobDescriptionError("*required");
             return;
         }
+        if(!maxSalary)
+        {
+            event.preventDefault();
+            setMaxSalaryError("*required");
+            return;
+        }
+        const data = {
+            title:JobTitle,
+            description:JobDescription,
+            maxSalary:maxSalary,
+            companyName: companyName,
+            recruiterDetails:{
+                _id:_id,
+                firstName:firstName,
+                lastName:lastName,
+                emailId:emailId
+            }
+        }
+        dispatch(createJob(data));
+            navigate("/");
     }
     return(
-        <Container fluid>
-            <Form>
+        <Container fluid >
+            <Form style={{border:"2px solid",margin:"100px 400px 200px 400px",borderRadius:"20px"}}>
                 <Row>
                     <Col lg="1"></Col>
-                    <Col lg="10">
-                        <h1 style={{textAlign:"center"}}>Post Job</h1>
+                    <Col lg="3">
+                        <h1 className='text-center' style={{width:"400px",marginTop:"30px",marginLeft:"20px"}}>Post Job</h1>
                     </Col>
                 </Row>
                 <Row>
@@ -73,14 +106,24 @@ export default function PostJob(){
                     <Col lg="8">
                     <Form.Group>
                         <Form.Label className='my-3'>Max Salary</Form.Label>
-                        <Form.Control type='text' />
+                        <Form.Control 
+                        type='text'
+                        value={maxSalary}
+                        onChange={
+                            (e)=>{
+                                setMaxSalary(e.target.value);
+                                setMaxSalaryError("");
+                            }
+                        }
+                        />
                     </Form.Group>
+                    {maxSalaryError && <Alert variant='danger'>{maxSalaryError}</Alert>}
                     </Col>
                 </Row>
                 <Row className='mb-5'>
-                    <Col lg="5"></Col>
+                    <Col lg="4"></Col>
                     <Col>
-                        <Button variant='dark' type='Submit' className='my-5 px-5 fs-5' onClick={Handleclick}>Post</Button>
+                        <Button variant='primary' type='Submit'style={{marginTop:"20px",width:"180px"}} onClick={Handleclick}>Post</Button>
                     </Col>
                 </Row>
             </Form>
