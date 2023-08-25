@@ -19,7 +19,7 @@ const NavBarComponent = () => {
         <Navbar bg="light" expand="lg" sticky="top">
           <Container>
             <Navbar.Brand as={Link} to="/Dashboard">
-              <span className="brand-name">Opp</span><span className="brand-wave">Wave</span>
+              <span className="brand-name">opportunity</span><span className="brand-wave">Wave</span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarNav" />
             <Navbar.Collapse id="navbarNav" className="justify-content-between">

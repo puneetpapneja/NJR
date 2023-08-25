@@ -12,25 +12,9 @@
 .search-button {
     margin-left: 10px;
 }
-
-.brand-name {
-    font-family: 'YourDesiredFont', sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-    color: #333;
-
-}
-
-.brand-wave {
-    font-family: 'YourOtherFont', sans-serif;
-    font-weight: normal;
-    font-size: 28px;
-    color: #007bff;
-}
-
 .font {
     font-family: "Signika";
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .custom-toggle::after {
@@ -62,27 +46,23 @@
 .btn-login:hover {
     background-color: #0056b3;
 }
-
-/* You can add more custom styling here */
-/* Apply responsive styles to the Navbar */
-.navbar {
+.Navbar {
     padding: 15px 0;
     background-color: #f8f9fa;
-    /* Change to your preferred background color */
 }
-
-/* Style the brand name */
 .brand-name {
-    font-size: 1.5rem;
+    font-family: 'YourDesiredFont', sans-serif;
+    font-size: 1.9rem;
+    font-weight: bold;
     color: #007bff;
-    /* Change to your preferred color */
+    
 }
-
-/* Style the wave */
 .brand-wave {
-    font-size: 1.5rem;
+    font-family: 'YourDesiredFont', sans-serif;
+    font-size: 1.3rem;
+    font-weight: normal;
     color: #28a745;
-    /* Change to your preferred color */
+    
 }
 
 /* Style the search button */
@@ -129,7 +109,7 @@
 /* Add responsiveness to the Nav links */
 .nav-link {
     padding: 10px 15px;
-    font-size: 14px;
+    font-size: 19px;
 }
 
 /* Add responsiveness to the Toggle button */
