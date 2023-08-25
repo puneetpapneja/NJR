@@ -1,105 +1,58 @@
-// import Button from 'react-bootstrap/Button';
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import React, { useState } from 'react';
+import { Nav, Navbar, Form, FormControl, Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Dropdown from "react-bootstrap/Dropdown";
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-import "bootstrap-icons/font/bootstrap-icons.css";
+import './dashboard.css';
 
-function Navigation() {
-  const [setLoggedOut] = useState(false); // State to track login status
+const NavBarComponent = () => {
+  const [setLoggedOut] = useState(false);
 
   const handleLogout = () => {
     // Implement your logout logic here
     // For example, clear any user session, update state, etc.
     setLoggedOut(false);
-  };
+  }
   return (
     <>
-      <Navbar expand="lg" className="bg-body-tertiary">
-        <Container fluid>
-          <Navbar.Brand href="#" className="me-5 ms-3">
-            <nav></nav>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand as={Link} to="/Dashboard">
+            <span className="brand-name">Opportunity</span><span className="brand-wave">Wave</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Link
-                to="/dashboard" 
-                className="me-4"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                Home
-              </Link>
-              <Link
-                to="/jobs"
-                className="me-4"
-                style={{ color: "black", textDecoration: "none" }}
-              >
+          <Navbar.Toggle aria-controls="navbarNav" />
+          <Navbar.Collapse id="navbarNav" className="justify-content-between">
+            <Nav>
+              <Nav.Link as={Link} to="/Jobs" className='font'>
                 Jobs
-              </Link>
-              <Link
-                to="/postjob"
-                className="me-4"
-                style={{ color: "black", textDecoration: "none" }}
-              >
+              </Nav.Link>
+              <Nav.Link as={Link} to="/Postjob" className='font'>
                 Post a Job
-              </Link>
-              <Link
-                to="/appliedjob"
-                className="me-4"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                Applied Job
-              </Link>
-              <Link
-                to="/postedjob"
-                className="me-4"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                {" "}
-                Posted Job
-              </Link>
-              {/* <Link
-                to="/developers"
-                className="me-4"
-                style={{ color: "black", textDecoration: "none" }}
-              >
-                {" "}
-                Developers
-              </Link> */}
+              </Nav.Link>
+              <Nav.Link as={Link} to="/appliedjob" className='font'>
+                Applied Jobs
+              </Nav.Link>
+              <Nav.Link as={Link} to="/postedjob" className='font'>
+                Posted Jobs
+              </Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="🔍 Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              {/* <Button variant="outline-success">🔍</Button> */}
-              {/* <Link to='/profile'>
-              <button className="btn btn-primary">
-                <i className="fas fa-user"></i>
-              </button>
-              </Link> */}
+            <Form inline className="my-2 my-lg-0">
+              <div className="input-group">
+                <FormControl type="search" placeholder="Search" className="mr-sm-2" />
+                <div className="input-group-append">
+                  <button type="button" className="btn btn-outline-secondary search-button">Search</button>
+                </div>
+              </div>
             </Form>
+            <Nav.Link as={Link} to="/LoginPage" className="user-icon">
+            </Nav.Link>
             <Dropdown>
-              <Dropdown.Toggle variant="link" id="dropdown-basic" >
-                <i className="fas fa-user"></i>
+              <Dropdown.Toggle variant="link" id="dropdown-basic" className="custom-toggle">
+                <ion-icon name="person-circle-outline" style={{ fontSize: '5vh' }}></ion-icon>
               </Dropdown.Toggle>
               <Dropdown.Menu align="end">
                 <Dropdown.Item as={Link} to="/profile">
                   <i class="bi bi-person-add"></i> Profile
                 </Dropdown.Item>
-
                 <Dropdown.Item onClick={handleLogout}>
                   <i class="bi bi-box-arrow-right"></i> Logout
                 </Dropdown.Item>
@@ -110,6 +63,6 @@ function Navigation() {
       </Navbar>
     </>
   );
-}
+};
 
-export default Navigation;
+export default NavBarComponent;
