@@ -6,7 +6,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import "../App.css";
 
 
-function Boxcomponent() {
+function Dashboard() {
        return (
        <CardGroup className='container'>
 
@@ -45,4 +45,4 @@ function Boxcomponent() {
       );
 }
 
-export default Boxcomponent;
+export default Dashboard;
