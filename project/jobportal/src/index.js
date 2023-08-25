@@ -1,14 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-// Bootstrap css
-import "bootstrap/dist/css/bootstrap.min.css";
-// Bootstrap Bundle JS
-import "bootstrap/dist/js/bootstrap.bundle.min";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
+import {Provider} from 'react-redux';
+import { store } from './store';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
+
+// ReactDOM.render(
+//     <React.StrictMode>
+//       <test />
+//     </React.StrictMode>,
+//     document.getElementById('root')
+//   );
+  
