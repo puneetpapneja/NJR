@@ -14,15 +14,15 @@ export default function Content() {
   <Container className="my-4">
     <div className="row">
       <div className="col-md-4">
-        <div className="card bg-danger text-white text-center p-5 m-5">
-          <h3>7 </h3>
+        <div className="card bg-success text-white text-center p-5 m-5">
+          <h3>7</h3>
           <p>
             <b>Applied Job's</b>
           </p>
         </div>
       </div>
       <div className="col-md-4">
-        <div className="card bg-success text-white text-center p-5 m-5">
+        <div className="card bg-info text-white text-center p-5 m-5">
           <h3>40</h3>
           <p>
             <b>Total Post</b>
