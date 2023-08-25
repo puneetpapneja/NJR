@@ -17,7 +17,7 @@ export default function Register(){
     const [comp,setComp]=useState("d-none");
     const [compError,setCompError]=useState("");
     const [company,setCompany]=useState("");
-    const Handelclick= (event) =>{
+    const Handelclick= async(event) =>{
         if(!email || !isValidEmail(email))
         {
             event.preventDefault();
@@ -45,9 +45,20 @@ export default function Register(){
         const data = {emailId:email,password:password,type:role,companyName:company};
         dispatch(registerUser(data));
         if(!err){
-            dispatch(setMessage({ title: "Success", message: "Registration successful!", variant: "success" }));
-            //navigate("/login");
+   const successPayload = {
+  title: "Success",
+  message: "Registration successful!",
+  variant: "success"
+};
+dispatch(setMessage(successPayload)); const result = await dispatch(registerUser(data));
+
+      if (registerUser.fulfilled.match(result)) {
+    
+        dispatch(setMessage({ title: 'Success', message: 'Registration successful!', variant: 'success' }));
+        //navigate('/login');
+      }
         }
+        
     }
       const isValidEmail = (email) => {
     return email.includes('@gmail.com');
@@ -71,6 +82,7 @@ export default function Register(){
                         <Form.Control 
                             type="text"
                             value={email}
+                            placeholder='Enter your Email'
                             onChange={(e)=>{
                                     setEmail(e.target.value);
                                     setEmailError("");
@@ -87,6 +99,7 @@ export default function Register(){
                         <Form.Control 
                             type="text"
                             value={password}
+                            placeholder='Enter your Password'
                             onChange={
                                 (e)=>{
                                     setPassword(e.target.value);
@@ -143,6 +156,7 @@ export default function Register(){
                         <Form.Control 
                             type="text"
                             value={company}
+                            placeholder='Enter your Company Name'
                             onChange={
                                 (e)=>{
                                     setCompany(e.target.value);

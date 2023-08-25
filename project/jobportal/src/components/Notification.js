@@ -4,12 +4,21 @@ import { useSelector } from 'react-redux';
 
 const Notification = () => {
     const {variant, heading, message } = useSelector(state => state?.notification);
-   const [show, setShow] = useState(false);
-
-    useEffect(() => {
-        console.log("enter into notification useEffect", message);
-        setShow(!!message); // This will set show to true if message exists
-    }, [message]);
+    const [show, setShow] = useState(false);
+    useEffect(()=>{
+      console.log("enter into notification useEffect", message);
+      if(message){
+        setShow(true);
+      }
+      else{
+        setShow(false);
+      }
+    },[message])
+    useEffect(()=> {
+      if(message){
+        setShow(true);
+      }
+    },[]);
 
     return (<Toast
     className="d-inline-block m-1"

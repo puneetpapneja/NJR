@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginValidation } from '../store/reducers/userregisterSlice';
 export default function Login(){
-    const [email,setEmail]=useState("Enter your Email");
-    const [password , setPassword] = useState("Enter the password");
+    const [email,setEmail]=useState("");
+    const [password , setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
     const [emailError,setEmailError]=useState("");
     const [validError,setValidError]=useState("");
@@ -64,6 +64,7 @@ export default function Login(){
                         <Form.Control 
                             type='text' 
                             value={email}
+                            placeholder='Enter your Email'
                             onChange={(e)=>{
                                                 setEmail(e.target.value);
                                                 setEmailError("");
@@ -81,6 +82,7 @@ export default function Login(){
                         <Form.Control 
                             type='text'
                             value={password} 
+                            placeholder='Enter your Password'
                             onChange={(e)=>{
                                     setPassword(e.target.value);
                                     setPasswordError("");
