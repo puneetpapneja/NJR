@@ -36,11 +36,11 @@ return userModel.update(req.body.id,req.body.field)
 .catch((err)=> res.send({status:"fail", errro: err}));
     },
 
-    hasValidUser: (req, res) => {
+    hasvalidUser: (req, res) => {
       const { email, pwd} = req.body;
-      return userModel.hasValidUser(email,pwd)
+      return userModel.hasvalidUser(email,pwd)
       .then((data)=> {
-        if(data.length === 1){
+        if(data.length === 1){     // if only and only one user exist in our db then this condition will work
           res.send({status: "valid", type: data?.[0]?.type});
         }
         else{

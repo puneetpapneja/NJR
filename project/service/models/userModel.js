@@ -19,7 +19,7 @@ module.exports={
     getAll:()=>userCollection.find(),
     deleteById:(userid)=> userCollection.deleteOne({_id:userid}),
      update:(id,fields)=>userCollection.updateOne({_id:id},fields),  
-     hasValidUser: (emailId, pwd) => {
-        return userCollection.find({emailId: emailId, password: pwd});
+     hasvalidUser: (email, pwd)=> {
+         return userCollection.find({emailId: email, password: pwd});
       }
 }
