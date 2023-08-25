@@ -46,4 +46,15 @@ module.exports = {
       )
       .catch((err) => res.send({ status: "fail", errro: err }));
   },
+   
+  getSpecified: (req,res)=>{
+    console.log(req.body);
+    // console.log(jobModel.getSpecified(req.body.title));
+    return jobModel.getSpecified(req.body.field)
+    .then((matchedJobs)=>{res.send(matchedJobs);
+    console.log(matchedJobs);})
+    .catch((err)=>res.send({status:"fail",err:(err)}))
+},
+  
+
 };
