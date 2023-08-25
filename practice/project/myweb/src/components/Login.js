@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 import './login.css';
 
 const Login = () => {
@@ -19,7 +20,7 @@ const Login = () => {
         <>
             <div className="login-container">
                 <div className="login-box">
-                    <h2 style={{ textAlign: "center", fontFamily: "cursive" }}>Login</h2>
+                    <h2 style={{ textAlign: "center", fontFamily:"inherit" }}>Login</h2>
                     <form>
                         <div className="input-group">
                             <label>Username:</label>
@@ -36,11 +37,14 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
+                            <Link to="/Register">Dont have a account?Register now</Link>
                         </div>
                         {errorMessage && <p className="error-message">{errorMessage}</p>}
-                        <button type="button" onClick={handleLogin} className="btn btn-primary">
-                            Login
-                        </button>
+                        <div className='d-flex justify-content-center'>
+                            <button type="button" onClick={handleLogin} className="btn btn-primary">
+                                Login
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

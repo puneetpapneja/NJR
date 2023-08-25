@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-bootstrap": "^2.8.0",
+    "react-router": "^6.15.0"
+  }
+}
