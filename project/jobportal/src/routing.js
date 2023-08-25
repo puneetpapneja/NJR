@@ -1,5 +1,5 @@
 import Content from "./components/Content";
-import Pagelayout from "./Page/DashBoardPage";
+
 import Postjobpage from "./Page/Postjobpage";
 import RegisterPage from "./Page/RegisterPage";
 import LoginPage from "./Page/LoginPage";
@@ -7,6 +7,7 @@ import Jobspage from "./Page/Jobspage";
 import PostedPage from "./Page/PostedPage";
 import AppliedPage from "./Page/AppliedPage";
 import Profile from "./components/Profile";
+import DashBoardPage from "./Page/DashBoardPage";
 export const COMMON_ROUTES=[
     {
         path: "/",
@@ -51,7 +52,7 @@ export const RECRUITER_ROUTES=[
 export const getRoutes =(hasRecruiter)=> [
     {
         path: "/",
-        element:  <Pagelayout/>,
+        element:  <DashBoardPage/>,
         children: hasRecruiter ? RECRUITER_ROUTES : SEEKER_ROUTES 
     }
 ]
