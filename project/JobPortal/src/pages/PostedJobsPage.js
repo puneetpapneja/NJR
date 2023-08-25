@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button, Badge } from 'react-bootstrap';
-import { BsEyeFill, BsTrashFill, BsPencilSquare } from 'react-icons/bs';
+// import { BsEyeFill, BsTrashFill, BsPencilSquare } from 'react-icons/bs';
 
 const PostedJobsPage = () => {
   const postedJobs = [
@@ -41,7 +41,7 @@ const PostedJobsPage = () => {
                   <div>  
                  {job.views} <Badge bg="secondary"></Badge>
       
-                    <BsEyeFill className="mr-2" />
+                 <i class="bi bi-eye"></i>
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-2">

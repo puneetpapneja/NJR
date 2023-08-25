@@ -1,9 +1,16 @@
 import React from 'react';
 import { Container, Nav, Navbar, Form, FormControl, Image, Dropdown } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { BsPerson, BsBoxArrowRight } from 'react-icons/bs';
+import { RECURITER_MENU, SEEKER_MENU } from '../utils/constants';
+// import { BsPerson, BsBoxArrowRight } from 'react-icons/bs';
 
 const NavBarComponent = () => {
+  const hasRecuriter = useSelector(state => state?.user?.hasRecuriter);
+  const renderNavItems = ()=>{
+    const navItems = hasRecuriter ? RECURITER_MENU : SEEKER_MENU;
+    return navItems?.map(item =>  <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
+  }
   return (
     <Navbar bg="light" expand="lg">
       <div style={{ width: '10px' }}></div> 
@@ -13,11 +20,7 @@ const NavBarComponent = () => {
       <Navbar.Toggle aria-controls="navbarNav" />
       <Navbar.Collapse id="navbarNav">
         <Nav className="mr-auto">
-          <Nav.Link as={Link} to="/Dashboard">Home</Nav.Link>
-          <Nav.Link as={Link} to="/Jobs">Jobs</Nav.Link>
-          <Nav.Link as={Link} to="/Postjob">Post a Job</Nav.Link>
-          <Nav.Link as={Link} to="/AppliedJobsPage">Applied Jobs</Nav.Link>
-          <Nav.Link as={Link} to="/PostedJobsPage">Posted Jobs</Nav.Link>
+          {renderNavItems()}
         </Nav>
         <Form inline>
           <FormControl type="search" placeholder="Search" className="mr-sm-2" />
@@ -29,10 +32,10 @@ const NavBarComponent = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to="/ProfilePage">
-                <BsPerson className="mr-2" /> Profile
+              <i class="bi bi-person-add"> Profile</i>
               </Dropdown.Item>
               <Dropdown.Item as={Link} to="/LoginPage">
-                <BsBoxArrowRight className="mr-2" /> Logout
+              <i class="bi bi-box-arrow-right"> Log Out</i>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

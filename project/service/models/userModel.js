@@ -11,4 +11,9 @@ const userSchema = mongoose.Schema({
 
 const userCollection = mongoose.model("users", userSchema);
 
-module.exports = userCollection;
+module.exports = {
+  userCollection,
+  hasValidUser: (emailId, pwd) => {
+    return userCollection.find({emailId: emailId, password: pwd});
+  }
+};

@@ -2,50 +2,78 @@ import React, { useState } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, selectRegistrationStatus, selectRegistrationError } from '../store/reducers/userSlice';
+import { registerUser, selectRegistrationStatus, selectRegistrationError, createuser } from '../store/reducers/userSlice';
+import { JOB_RECURITER, JOB_SEEKER } from '../utils/constants';
 
 const RegisterPage = () => {
+  const [formData, setFormData] = useState({});
+    
   const [selectedRole, setSelectedRole] = useState('');
-  const [showCompany, setShowCompany] = useState(false);
+  const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
+  const isLoading = useSelector(state => state?.user?.isLoading);
 
-  const registrationStatus = useSelector(selectRegistrationStatus);
-  const registrationError = useSelector(selectRegistrationError);
 
   const handleRoleChange = (event) => {
     const role = event.target.value;
-    setSelectedRole(role);
-    setShowCompany(role === 'Job Recruiter');
+    setFormData({
+      ...formData,
+     type: role
+    });    
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleEmailChange = (event)=>{
+    const email = event.target.value;
+    setFormData({
+      ...formData,
+     emailId: email
+    }); 
+  }
 
-    const userData = {
-      email: "arjunpuri991@gmail.com",
-      password: "arjun", 
-      role: selectedRole,
-      companyName: showCompany 
-    };
+ const handlePwdChange = (event)=>{
+    const pwd = event.target.value;
+    setFormData({
+      ...formData,
+     password: btoa(pwd)
+    }); 
+  }
 
-    dispatch(registerUser(userData));
+  const handleCompanyName = (event) => {
+    const companyName = event.target.value;
+    setFormData({
+      ...formData,
+      companyName: companyName
+    }); 
+  }
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    // event.preventDefault();
+    //   event.stopPropagation();
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+    dispatch(createuser(formData));
+    
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
       <div className="login-box p-4">
         <h2 className="mb-10 text-md-center">Register</h2>
-        <Form onSubmit={handleSubmit}>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" placeholder="Enter email" onChange={handleEmailChange} />
           </Form.Group>
           {/* Other form fields */}
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password" placeholder="Password" onChange={handlePwdChange} />
           </Form.Group>
-          {['Job Seeker', 'Job Recruiter'].map((role) => (
+          {[JOB_SEEKER, JOB_RECURITER].map((role) => (
             <Form.Check
               key={role}
               inline
@@ -55,27 +83,20 @@ const RegisterPage = () => {
               value={role}
               id={`inline-role-${role}`}
               onChange={handleRoleChange}
-              checked={selectedRole === role}
+              checked={formData?.type === role}
             />
           ))}
-          {showCompany && (
+           {formData?.type === "Job Recruiter" && (
             <Form.Group controlId="formBasicCompany">
               <Form.Label>Company name</Form.Label>
-              <Form.Control type="text" placeholder="Enter Company Name" />
+              <Form.Control type="text" placeholder="Enter Company Name" onChange={handleCompanyName} />
             </Form.Group>
           )}
-          {registrationStatus === 'error' && (
-            <div className="text-danger">Registration failed: {registrationError}</div>
-          )}
-          {registrationStatus === 'success' && (
-            <div className="text-success">
-              Registration successful! <Link to="/LoginPage">Login</Link>
-            </div>
-          )}
+         
           <Button variant="link">
             Have an account? <Link to="/LoginPage">Log in</Link>
           </Button>
-          <Button variant="dark" type="submit" className="w-100">
+          <Button disabled={isLoading} variant="dark" type="submit" className="w-100">
             Register
           </Button>
         </Form>
