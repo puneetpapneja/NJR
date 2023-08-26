@@ -1,16 +1,38 @@
-import { Outlet } from "react-router-dom"
-import React from 'react';
-import NavBarComponent from "./navbar";
-import Footercomponent from "./footer.js";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import Navigation from "./navbar";
+import { Col, Container, Row } from "react-bootstrap";
+import { getSession } from "../utils";
+import Footer from "./footer";
+// import LoginPage from "../pages/loginpage";
+// import SignUp from "./SignUp";
 
-const PageLayout = ()=>{
-    return (
-        <React.Fragment>
-            <NavBarComponent />
+const PageLayout = () => {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!getSession()) {
+      navigate("/");
+    }
+  }, []);
+
+  return (
+    <React.Fragment>
+      <Container fluid>
+        <Row>
+          <Col>{getSession() ? <Navigation /> : null}</Col>
+        </Row>
+        <Row>
+          <Col>
             <Outlet />
-            <Footercomponent />
-        </React.Fragment>
-    )
-}
+          </Col>
+        </Row>
+        <Row>
+          <Col>{getSession() ? <Footer /> : null}</Col>
+        </Row>
+      </Container>
+    </React.Fragment>
+  );
+};
 
 export default PageLayout;
