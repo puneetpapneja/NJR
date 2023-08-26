@@ -1,0 +1,12 @@
+.center{
+    margin-top: 2em;
+    margin-left: 15vw;
+    margin-right: auto;
+}
+.set_width{
+    padding-left:10vw;
+    padding-right:10vw;
+    max-width: 30vw;
+    display: inline;
+    border: 0.1em solid black;
+}

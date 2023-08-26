@@ -3,9 +3,6 @@ import './App.css';
 import Item from './components/Item';
 import Header from './components/Header';
 import { useState } from 'react';
-import Card from './components/Card';
-import Hooks from './components/Hooks';
-import ToDoList from './components/todolist';
 
 // export const test = ()=>{
 
@@ -16,7 +13,7 @@ import ToDoList from './components/todolist';
 // const body = document.getElementById("body");
 // const p = document.createElement("p");
 // p.innerHTML ="testing"
-// body.append(p);
+// body.append(p); 
 
 function App() {
 
@@ -57,18 +54,11 @@ function App() {
   }
   ]
   return (
-
-    <Card>
-        {/* <Item list={items} heading="Ceramic Products" /> */}
-        {/* <button onClick={() => setShowHeader(!showHeader)}>click </button>
-       {showHeader ? <Hooks /> : null}  */}
-       <ToDoList />
-    </Card>
-    // showHeader ? (<div className="App">      
-    // <Header /> 
-    //   <Item list={items} heading="Ceramic Products" />
-    //   <Item list={items2} heading="Cars" testContent="testContent" />
-    // </div>): null 
+    showHeader ? (<div className="App">      
+    <Header /> 
+      <Item list={items} heading="Ceramic Products" />
+      <Item list={items2} heading="Cars" testContent="testContent" />
+    </div>): null 
   );
 }
 
