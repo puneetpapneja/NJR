@@ -28,6 +28,7 @@ function Menu()
           ><div style={{marginLeft : "100px",display:"flex"}}>
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link  as={Link} to="/Postjob">PostJob</Nav.Link>
+            <Nav.Link  as={Link} to="/jobs">Jobs</Nav.Link>
             <Nav.Link as={Link} to="/Appliedjob">AppliedJob </Nav.Link>
             <Nav.Link  as={Link}to="/Postedjob"> PostedJob</Nav.Link>
             </div>

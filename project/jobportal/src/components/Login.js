@@ -3,9 +3,10 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { setSession } from '../Utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { validateUser } from '../store/reducer/userSlice';
+import { postjob } from '../store/reducers/jobSlice';
+import { validateUser } from '../store/reducers/userSlice';
 
- function Login(){
+export default function Login(){
 
     const [validated, setValidated] = useState(false);
     const navigate=useNavigate();
@@ -93,7 +94,6 @@ import { validateUser } from '../store/reducer/userSlice';
         </Container>
        </Form>
     </Container>
- );
+ )
     // }
 }
-export default Login;

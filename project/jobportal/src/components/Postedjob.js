@@ -1,105 +1,58 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/esm/Row';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import { AiFillDelete } from "react-icons/ai";
-import {BiMessageAltEdit} from "react-icons/bi";
+import React from 'react';
+import { Container, Card } from 'react-bootstrap';
+//import 'bootstrap-icons/font/bootstrap-icons.css';
 
+export default function PostedJob() {
+    const jobData = [
+        {
+            position: 'Frontend Developer',
+            interestedCandidates: 10,
+            company: 'ABC Inc.',
+            details: 'We are looking for a skilled Frontend Developer to join our team...',
+        },
+        {
+            position: 'Backend Engineer',
+            interestedCandidates: 8,
+            company: 'XYZ Corp.',
+            details: 'We are seeking a talented Backend Engineer to work on the server-side logic...',
+        },
+        {
+            position: 'UI/UX Designer',
+            interestedCandidates: 5,
+            company: 'DesignTech',
+            details: 'Join our design team to create intuitive and visually appealing user interfaces...',
+        },
+        {
+            position: 'Data Scientist',
+            interestedCandidates: 7,
+            company: 'DataWise',
+            details: 'Looking for a Data Scientist to analyze and interpret complex data...',
+        },
+    ];
 
-function Postedjob() {
-  const postedJobs = [
-    {
-      title: 'Senior Developer',
-      views: 125,
-      company: 'Kp Developers',
-      description:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
-    },
-    {
-      title: 'Full Stack Developer',
-      views: 98,
-      company: 'Tech Innovators',
-      description:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
-    },
-    {
-      title: 'UI/UX Designer',
-      views: 75,
-      company: 'Creative Designs Inc.',
-      description:
-        'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
-    },
-    // Add more posted job entries here
-  ];
-  return (
-    <Container>
-    <h1>Posted Job</h1>
-
-    <div className='d-flex justify-content-between  m-auto'>
-      <Row>
-      <Col>
-        <Card style={{ width: '26rem' }}>
-        <Card.Body>
-        <Card.Title>Senior developers (4536)</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Kp developers</Card.Subtitle>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        < AiFillDelete style={{width:"30px",height:"30px"}}/>
-        <BiMessageAltEdit style={{width:"30px",height:"30px",marginLeft:"320px",marginTop:"13px"}}/>
-
-        </Card.Body>
-        </Card>
-
-      </Col>
-        
-
-        <Col style={{marginLeft:""}}>
-        <Card style={{ width: '26rem' }}>
-        <Card.Body>
-        <Card.Title>Senior developers (4566)</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Kp developers</Card.Subtitle>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        < AiFillDelete style={{width:"30px",height:"30px"}}/>
-        <BiMessageAltEdit style={{width:"30px",height:"30px",marginLeft:"320px",marginTop:"13px"}}/>
-
-        
-        </Card.Body>
-        </Card>
-
-        </Col>
-
-        <Col>
-        <Card style={{ width: '26rem' }}>
-        <Card.Body>
-        <Card.Title>Senior developers (4598)</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Kp developers</Card.Subtitle>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        < AiFillDelete style={{width:"30px",height:"30px"}}/>
-        <BiMessageAltEdit style={{width:"30px",height:"30px",marginLeft:"320px",marginTop:"13px"}}/>
-
-        </Card.Body>
-        </Card>
-        
-
-        </Col>
-
-      </Row>
-    </div>
-    <footer style={{backgroundColor:"black",height:"30px",marginTop:"300px",marginRight:""}}><p style={{color: "white",paddingTop:"4px",textAlign:"center"}}>TM 2023 Techno India NJR Institute Of Technology-All Rights Reserved</p></footer>
-    </Container>
-    
-
-   
-  );
+    return (
+        <Container className='mt-4'>
+            <h1 className='mb-4'>Posted Job</h1>
+            <div className='d-flex flex-wrap'>
+                {jobData.map((job, index) => (
+                    <Card key={index} className='mb-4 me-4' style={{ width: '18rem' }}>
+                        <Card.Header className='d-flex justify-content-between'>
+                            <span>{job.position}</span>
+                            <span>
+                                <i className='bi bi-eye'></i> {job.interestedCandidates}
+                            </span>
+                        </Card.Header>
+                        <Card.Body>
+                            <h6 className='mb-2'>{job.company}</h6>
+                            <p className='mb-0'>{job.details}</p>
+                        </Card.Body>
+                        <Card.Footer className='d-flex justify-content-between'>
+                            <i className='bi bi-trash'></i>
+                            <i className='bi bi-pencil-square'></i>
+                        </Card.Footer>
+                    </Card>
+                ))}
+            </div>
+        </Container>
+    );
 }
-
-export default Postedjob;

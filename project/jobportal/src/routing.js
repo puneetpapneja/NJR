@@ -9,6 +9,7 @@ import Postedjob from './components/Postedjob';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Register from './components/Register';
+import Jobs from './components/jobs';
 
 
 export const routing = [
@@ -31,6 +32,10 @@ export const routing = [
     {
         path: "/Login",
         element:  <Login />
+    },
+    {
+        path: "/Jobs",
+        element:  <Jobs />
     },
     {
         path: "/Profile",

@@ -1,47 +1,46 @@
 import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Container, Form, FormControl } from 'react-bootstrap';
+import { Container, Form, FormControl, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllJobs, reset } from '../store/reducers/jobSlice';
 
-function Appliedjob() {
+function Jobs() {
   const jobs = useSelector(state => state?.job?.jobs);
   const dispatch = useDispatch();
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(getAllJobs());
-  },[])
+    return () => {
+      dispatch(reset());
+    };
+  }, [dispatch]);
 
-  useEffect(()=> {
-    return ()=> {
-      dispatch(reset())
-    }
-  })
+
+  
+  console.log(jobs);
 
   const renderJobs = () => {
     return jobs.map(job => {
-      const {title, maxSalary, description} = job;
+      const { jobTitle, maxSalary, jobDesc, _id } = job; 
       return (
-        <div className="d-flex justify-content-center">
-        <Card>
-          <Card.Header className="d-flex justify-content-between align-items-center">
-            <span>{title}</span>
-            <span>MAX Salary {maxSalary}</span>
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>Description</Card.Title>
-            <Card.Text>
-            {description}
-      
-            </Card.Text>
-            <Button variant="primary">Apply</Button>
-          </Card.Body>
-        </Card>
-      </div>
-      )
-    })
-  }
+        <Col key={_id} className="mb-3">
+          <Card className="h-100 w-100">
+            <Card.Header className="d-flex justify-content-between align-items-center">
+              <span>{jobTitle}</span>
+              <span>Salary {maxSalary}</span>
+            </Card.Header>
+            <Card.Body>
+              <Card.Title>Description</Card.Title>
+              <Card.Text>{jobDesc}</Card.Text>
+              <Button variant="primary">Apply</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      );
+    });
+  };
+
   return (
     <div className="wrapper">
       <Container className="vh-100">
@@ -49,11 +48,10 @@ function Appliedjob() {
         <Form inline className="justify-content-center mb-3">
           <FormControl type="search" placeholder="Search" />
         </Form>
-        {renderJobs()}        
+        <Col>{renderJobs()}</Col>
       </Container>
-    
     </div>
   );
 }
 
-export default Appliedjob;
+export default Jobs;
