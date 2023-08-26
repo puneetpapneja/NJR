@@ -1,44 +1,74 @@
-import { Container } from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
-import {Row,Col} from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
-
-export default function profile(){
-    return(
-    <Container>
-      <Row>
-                    <Col lg="1"></Col>
-                    <Col lg="10">
-                        <h1 style={{textAlign:"center"}}>Profile</h1>
-                    </Col>
-                </Row>
-                <Container>
-          
-                <Form>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>First Name</Form.Label>
-        <Form.Control type="text" placeholder="firstname" />
-      </Form.Group>
-       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Last Nmae</Form.Label>
-        <Form.Control type="text" placeholder="Last Name" />
-      </Form.Group>
-       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="name@example.com" />
-      </Form.Group>
-      <Form.Group controlId="formFile" className="mb-3">
-        <Form.Label>Default file input example</Form.Label>
-        <Form.Control type="file" />
-      </Form.Group>
-      </Form>
-      </Container>
-     <Row className='mb-5'>
-                    <Col lg="5"></Col>
-                    <Col>
-                        <Button variant='dark' type='Submit' className='my-5 px-5 fs-5'>Submit</Button>
-                    </Col>
-                </Row>
+import {Form,Container,Button,Row,Col} from 'react-bootstrap';
+import { useState } from 'react';
+export default function Profile(){
+        const [validated, setValidated] = useState(false);
+    // const navigate=useNavigate();
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        setValidated(true);
+        // if(validated===true){
+        //   setSession("1234");
+        //   navigate("/");
+        // }
+    }
+    // const onclick=()=>{
+    //   navigate("/register");
+    //   // return(
+    //   //   <Registerpage/>
+    //   // )
+    // }
+    
+    return (
+       
+    <Container className='mt-5' >
+       <Row>
+       <h1 className='text-center mt-5 mb-3'>Profile</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row className='mb-3'>
+        <Form.Group controlId='formFirstName'>
+            <Form.Label>First Name</Form.Label>
+            <Form.Control type="text" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formLastName'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="text" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Resume(CV)</Form.Label>
+            <Form.Control type="file" required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Submit</Button>
+        </Container>
+       </Form>
     </Container>
     )
 }

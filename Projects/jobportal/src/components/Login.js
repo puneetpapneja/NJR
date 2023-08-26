@@ -1,78 +1,96 @@
-import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import { setSession ,setKey} from "../utils/utils";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-export default function Register(){
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-      const Handelclick= (event) =>{
-        if(!email || !isValidEmail(email))
-        {
-            event.preventDefault();
-            setError("*invalid email format");
-            return;
+import {Button, Form,Container,Row} from 'react-bootstrap';
+import {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import { setSession } from '../utils';
+import { useDispatch, useSelector } from 'react-redux';
+import { reset, userLogin, validateUser } from '../store/reducers/userSlice';
+
+export default function Login(){
+
+    const [validated, setValidated] = useState(false);
+    const navigate=useNavigate();
+    const dispatch= useDispatch();
+    const isValidUser = useSelector(state => state?.user?.isValidUser);
+    console.log(isValidUser);
+    useEffect(()=> {
+      if(isValidUser){
+       
+        setSession("isValidUser");
+         navigate("/")
+      }
+  },[isValidUser])
+    // console.log(error);
+    const [email,setEmail]= useState('');
+    const [password, setPassword]= useState('');
+    const data={
+      emailId:email,
+      password:password
+    }
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        setValidated(true);
+        if (form.checkValidity() === false) {
+          // console.log("dfgh");
+          event.preventDefault();
+          event.stopPropagation();
         }
-        if(!password || !isValidPassword(password)){
-            setError("*Password must contain one capital,one special symbol");
-            return;
-        }
-        else
-        {
-            setSession("Registered");
-            navigate("/");
+        
+        else{
+        // if(validated===true){
+          // console.log("DF");
+        dispatch(validateUser(data));
+        // if(error===""){
+        //   console.log(error);
+        //     setSession("1234");
+        //     navigate("/");
+        // }
+        // else{
+        //     dispatch(reset());
+        // }
         }
     }
-    const isValidEmail = (email) => {
-    return email.includes('@gmail.com');
-  };
- const switchto=()=>{
-    //setSession("login")
-    sessionStorage.removeItem("token");
-    setKey("register");
-    navigate("/");
-  }
-  const isValidPassword = (password) => {
-    const hasCapitalLetter = /[A-Z]/.test(password);
-    const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[!@#$%^&*]/.test(password);
-    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
-  };
-    return(
-        <Container className="d-flex justify-content-center" style={{marginTop:"100px"}}>
+    const onclick=()=>{
+      navigate("/register");
+      // return(
+      //   <Registerpage/>
+      // )
+    }
+    
+    return (
+       
+    <Container  >
        <Row>
-      <Col xs={12} md={6} lg={12} style={{border:"2px solid",padding:"40px",boxShadow:"3px 4px 4px 0.5px black"}}>
-        <h2 className="mb-3 text-primary text-center" style={{fontSize:"45px"}}>LOGIN</h2>
-        <Form>
-          <Form.Group controlId="registerEmail" className="mb-2" style={{width:"400px",marginLeft:"70px",marginTop:"30px"}}>
-            <Form.Label>Email:</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-4" controlId="registerPassword"  style={{width:"400px",marginLeft:"70px",marginTop:"30px"}}>
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </Form.Group>
-          {error && <Alert variant="danger">{error}</Alert>}
-          Don't have a account?<Link  onClick={switchto}>Register Now</Link>
-          <Row  style={{marginLeft:"70px",marginTop:"10px"}}>
-            <Col>
-          <Button type="Submit" onClick={Handelclick}>Login</Button>
-          </Col>
-          </Row>
-        </Form>
-      </Col>
-    </Row>
+       <h1 className='text-center mt-5 mb-3'>Login</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row className='mb-3'>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" onChange={(e)=>setEmail(e.target.value)} required/>
+            <Form.Control.Feedback type="invalid">
+              Please choose a email.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row className='mb-3'>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" onChange={(e)=>setPassword(e.target.value)} required />
+            <Form.Control.Feedback type="invalid">
+              Please set a password.
+            </Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        
+        
+        <Button variant="link" onClick={onclick}  className='p-0 mb-3'>Dont have a account? Register Now</Button>
+        {/* <Link to="">Dont have a account? Register Now</Link> */}
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Login</Button>
+        </Container>
+       </Form>
     </Container>
-    );
+ )
+    // }
 }

@@ -1,7 +1,6 @@
-export const API_URL = "http://localhost:5000/";
-
+export const API_URL="http://localhost:5000"
 export const JOB_SEEKER = "Job Seeker"
-export const JOB_RECURITER = "Job Recruiter"
+export const JOB_RECRUITER = "Job Recruiter"
 
 export const SEEKER_MENU = [
     {
@@ -14,20 +13,20 @@ export const SEEKER_MENU = [
     },
     {
         path: "/AppliedJobsPage",
-        name: "Applied Jobs"
+        name: "Applied Job"
     }
 ]
-export const RECURITER_MENU = [
+export const RECRUITER_MENU = [
     {
-        path: "/dashboard",
+        path: "/",
         name: "Home"
     },
     {
-        path: "/Postjob",
-        name: "Post Job"
+        path: "/post_a_job",
+        name: "Post A Job"
     },
     {
-        path: "/PostedJobsPage",
-        name: "Posted Jobs"
+        path: "/postedjob",
+        name: "Posted Job"
     }
 ]

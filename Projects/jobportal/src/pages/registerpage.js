@@ -1,5 +1,6 @@
-import Register from '../components/Register.js';
-import { useState } from 'react';
-export default function RegisterPage(){
-    return(<Register/>);
+import Register from "../components/Register";
+
+
+export default function Registerpage(){
+    return <Register/>
 }

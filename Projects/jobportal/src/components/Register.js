@@ -1,146 +1,112 @@
-import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
-import {  setKey, setSession } from "../utils/utils";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import {Button, Form,Container,Row, Col} from 'react-bootstrap';
+import {useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom'
+import { getSession } from '../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, selectRegistrationStatus, selectRegistrationError, createuser } from '../store/reducers/userSlice';
-import { JOB_RECURITER, JOB_SEEKER } from '../utils/constants';
+import { registerUser, reset } from '../store/reducers/userSlice';
+import { JOB_RECRUITER, JOB_SEEKER } from '../utils/constants';
+
+
 export default function Register(){
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('jobSeeker');
-  const [companyName, setCompanyName] = useState('');
-  const [error, setError] = useState('');
-  const RegisterPage = () => {
-    const [formData, setFormData] = useState({});
-      
-    const [selectedRole, setSelectedRole] = useState('');
+    const navigate=useNavigate();
+    const dispatch=useDispatch();
+    const error= useSelector(state=>state?.user?.error);
+    // const error = useSelector(state =>console.log(state.user.error));
+    const [email, setEmail]=useState('');
+    const [password, setPassword]=useState('');
+    const [type, setType]=useState('');
+    const [company, setCompany]= useState('');
     const [validated, setValidated] = useState(false);
-    const dispatch = useDispatch();
-    const isLoading = useSelector(state => state?.user?.isLoading);
-  
-  
-    const handleRoleChange = (event) => {
-      const role = event.target.value;
-      setFormData({
-        ...formData,
-       type: role
-      });    
-    };
-      const Handelclick= (event) =>{
-         if(!email || !isValidEmail(email))
-        {
-            event.preventDefault();
-            setError("*invalid email format");
-            return;
-        }
-        if(!password || !isValidPassword(password)){
-            event.preventDefault();
-            setError("*Password must contain one capital,one special symbol");
-            return;
-        }
-         else
-        {
-            setSession("registered");
+    useEffect(()=> {
+        console.log("dbfnmmbf");
+        if(getSession()){
             navigate("/");
         }
+    },[navigate]);
+    const data ={
+        emailId: email,
+        password: password,
+        type: type,
+        companyName: company
     }
-    const switchto=()=>{
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("key");
-    navigate("/");
-  }
-    //const switchto=()=>{
-     //setSession("true")
-      //setKey("login")
-      //navigate('/');
-    //}
-  
- // const redirectToLogin = () => {
-    //setSession("login");
-    //setKey("login");
-    //navigate("/");
-  //};
- 
-    const isValidEmail = (email) => {
-    return email.includes('@gmail.com');
-  };
-  const isValidPassword = (password) => {
-    const hasCapitalLetter = /[A-Z]/.test(password);
-    const hasNumber = /\d/.test(password);
-    const hasSpecialChar = /[!@#$%^&*]/.test(password);
-    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
-  };
-    return(
-      <Container className="d-flex justify-content-center" style={{marginTop:"100px"}}>
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        else{
+        dispatch(registerUser(data));
+        setValidated(true);
+        if(error===""){
+            navigate("/login");
+        }
+        else{
+            dispatch(reset());
+        }
+        }
+    }
+    const onclick=()=>{
+        navigate("/login");
+      }
+    
+      const [checkradio, setcheckradio]=useState(false);
+    const handleradio=(event)=>{
+        const form =event.currentTarget;
+        setType(form.value);
+        if(form.value===JOB_RECRUITER){
+           setcheckradio(true);
+        }
+        else{
+           setcheckradio(false);
+        }
+    }
+   
+    return (
+    <Container >
        <Row>
-      <Col xs={12} lg={12} md={6} style={{border:"2px solid",padding:"40px",boxShadow:"3px 4px 4px 0.5px black"}}>
-        <h2 className="mb-3 text-center">REGISTER</h2>
-        <Form>
-          <Form.Group controlId="registerEmail">
-            <Form.Label>Email:</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group controlId="registerPassword">
-            <Form.Label>Password:</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group controlId="userType" className="d-flex mt-3">
-            <Form.Check
-              type="radio"
-              label="Job Seeker"
-              name="userType"
-              value="jobSeeker"
-              className="me-3"
-              checked={userType === 'jobSeeker'}
-              onChange={() => setUserType('jobSeeker')}
-              required
-            />
-            <Form.Check
-              type="radio"
-              label="Job Recruiter"
-              name="userType"
-              value="jobRecruiter"
-              checked={userType === 'jobRecruiter'}
-              onChange={() => setUserType('jobRecruiter')}
-              required
-            />
-          </Form.Group>
-          {userType === 'jobRecruiter' && (
-            <Form.Group controlId="companyName">
-              <Form.Label>Company Name:</Form.Label>
-              <Form.Control
-                type="text"
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-                required
-              />
-            </Form.Group>
-          )}
-          {error && <Alert variant="danger">{error}</Alert>}
-          <Link as={Link} to="Login" onClick={switchto}>Already have a account?Login</Link>
-           <Row>
-      <Col>
-          <Button className="ms-2" type="Submit" onClick={Handelclick}>Register</Button>
-          </Col>
-          </Row>
-        
-
-        </Form>
-      </Col>
-    </Row>
+       <h1 className='text-center mt-5 mb-3' >Register</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" onChange={(e)=>setEmail(e.target.value)} required/>
+            <Form.Control.Feedback type='invalid'>please enter a valid email</Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" onChange={(e)=>setPassword(e.target.value)} required/>
+            <Form.Control.Feedback type='invalid'>please set a password</Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <br/>
+        <Row>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Seeker' name="role" value={JOB_SEEKER} onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
+            </Col>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Recruiter' value={JOB_RECRUITER} name='role' onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
+            </Col>
+        </Row>
+        <br/>
+        <Row>
+        {checkradio &&
+        <Form.Group controlId='formCompany'>
+            <Form.Label>Company name</Form.Label>
+            <Form.Control type="text" onChange={(e)=>setCompany(e.target.value)} required/>
+            <Form.Control.Feedback type='invalid'>please enter a company name</Form.Control.Feedback>
+        </Form.Group>}
+        </Row>
+        <Button variant="link" onClick={onclick}>Have an account? Login Now</Button>
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Register</Button>
+        </Container>
+       </Form>
     </Container>
-    );
-}
+ 
+ )
 }

@@ -12,14 +12,14 @@ const userSchema = mongoose.Schema({
 const userCollection = mongoose.model("users", userSchema);
 
 module.exports = {
-    create: (fields, res)=>{
+    create: (fields)=>{
         const user = new userCollection(fields);
-        return user.save()
-        .then((data) => {
-            return res.send({status: "ok", msg:"User created successfully."})
-        })
-        .catch((err)=>{
-            return res.send({status: "fail", error: err});
-        })
+        return user.save()      
+    },
+    getAll: ()=> userCollection.find(),
+    deleteById: (id) => userCollection.deleteOne({_id: id}),
+    update: (id, fields) => userCollection.updateOne({_id: id}, fields),
+    hasValidUser: (email, pwd)=>{
+        return userCollection.find({emailId:email, password: pwd});
     }
 }
