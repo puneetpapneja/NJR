@@ -1,38 +1,64 @@
+import React from 'react';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard';
+import Jobs from './pages/Jobs';
+import NavBarComponent from './components/navbar';
+import PostJob from './pages/Postjob';
+import PageLayout from './components/pagelayout';
+import AppliedJobsPage from './pages/AppliedJobsPage';
+import ProfilePage from './pages/ProfilePage';
+import PostedJobsPage from './pages/PostedJobsPage';
 
-import Content from "./components/Content";
-import Pagelayout from "./pages/Pagelayout";
-import Postpage from "./pages/Postjobpage";
-import Registerpage from "./pages/Registerpage";
-import LoginPage from "./pages/loginPage";
-import Jobspage from "./pages/Jobspage";
-export const routing = [
+const COMMON_ROUTES = [
     {
         path: "/",
-        element :<Content/>
+        element:  <LoginPage />
     },
     {
-        path: "/post_a_job",
-        element:<Postpage/>
+        path: "/LoginPage",
+        element:  <LoginPage />
     },
     {
-        path: "/jobs",
-        element:<Jobspage/>
+        path: "/RegisterPage",
+        element:  <RegisterPage />
     },
     {
-        path: "/login",
-        element :<LoginPage/>
+        path: "/Dashboard",
+        element:  <Dashboard />
     },
     {
-    path: "/register",
-    element :<Registerpage/>
-},
+        path: "/ProfilePage",
+        element:  <ProfilePage />
+    }
 ]
-export const routes=[
-    
+const SEEKER_ROUTES = [   
+    ...COMMON_ROUTES,
     {
-    path:"/",
-    element:<Pagelayout/>,
-    children:routing
-},
+        path: "/Jobs",
+        element:  <Jobs />
+    },
+    {
+        path: "/AppliedJobsPage",
+        element:  <AppliedJobsPage />
+    }    
+]
+export const RECURITER_ROUTES = [ 
+    ...COMMON_ROUTES,   
+    {
+        path: "/Postjob",
+        element:  <PostJob />
+    },
+    {
+        path: "/PostedJobsPage",
+        element:  <PostedJobsPage />
+    }
+]
 
+export const getRoutes =(hasRecuriter)=> [
+    {
+        path: "/",
+        element:  <PageLayout/>,
+        children: hasRecuriter ? RECURITER_ROUTES : SEEKER_ROUTES 
+    }
 ]

@@ -1,30 +1,48 @@
-import { Container, Nav, Navbar,Form } from "react-bootstrap";
-import {Link} from 'react-router-dom';
+import React from 'react';
+import { Container, Nav, Navbar, Form, FormControl, Image, Dropdown } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { RECURITER_MENU, SEEKER_MENU } from '../utils/constants';
+// import { BsPerson, BsBoxArrowRight } from 'react-icons/bs';
 
-const NavBar = () =>{
-    return (
-    <Navbar expand="lg" className="bg-body-tertiary fixed-top">
-      <Container fluid>
-        <Navbar.Brand href="#home" className="ms-3">Logo</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="ms-3">
-          <Nav className="ms-3">
-            <Nav.Link as={Link} to="/" className="me-3">Home</Nav.Link>
-            <Nav.Link as={Link} to="/jobs" className="me-3">Jobs</Nav.Link>
-            <Nav.Link as={Link} to="/post_a_job">Post A Job</Nav.Link>
-            <Nav.Link href="" className="me-3">Applied job</Nav.Link>
-            <Nav.Link href="" className="me-3">Posted job</Nav.Link>
-            <Nav.Link href="" className="me-3"><Form ><Form.Control type="text" placeholder="🔍search" /></Form></Nav.Link>
-          </Nav>
-          </Navbar.Collapse>
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end me-3">
-            <Nav>
-            <Nav.Link href=""><i class="bi bi-person-circle fs-3"></i></Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
+const NavBarComponent = () => {
+  const hasRecuriter = useSelector(state => state?.user?.hasRecuriter);
+  const renderNavItems = ()=>{
+    const navItems = hasRecuriter ? RECURITER_MENU : SEEKER_MENU;
+    return navItems?.map(item =>  <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
+  }
+  return (
+    <Navbar bg="light" expand="lg">
+      <div style={{ width: '10px' }}></div> 
+      <Navbar.Brand as={Link} to="/Dashboard" className="col-lg-4">
+        Logo
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="navbarNav" />
+      <Navbar.Collapse id="navbarNav">
+        <Nav className="mr-auto">
+          {renderNavItems()}
+        </Nav>
+        <Form inline>
+          <FormControl type="search" placeholder="Search" className="mr-sm-2" />
+        </Form>
+        <Nav.Link className="col-xl-5 d-flex justify-content-end">
+          <Dropdown>
+            <Dropdown.Toggle variant="link" id="dropdown-basic">
+              <i style={{ fontSize: "40px" }} className="bi bi-person-circle"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to="/ProfilePage">
+                {/* <BsPerson className="mr-2" /> Profile */}
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/LoginPage">
+                {/* <BsBoxArrowRight className="mr-2" /> Logout */}
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav.Link>
+      </Navbar.Collapse>
     </Navbar>
-    );
-}
+  );
+};
 
-export default NavBar;
+export default NavBarComponent;
