@@ -35,6 +35,9 @@ const Menu = () => {
               Applied Job
             </Nav.Link>
             <Nav.Link>posted Job</Nav.Link>
+            <Nav.Link as={Link} to="/jobs">
+              Jobs
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <Form className="d-flex  searchbtn">

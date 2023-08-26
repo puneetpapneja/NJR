@@ -8,6 +8,7 @@ import DashboardScreen from "./pages/DashboardScreen";
 import AppliedJob from "./componants/AppliedJob";
 import Developers from "./componants/Developers";
 import Profile from "./componants/Profile";
+import Jobs from "./componants/Jobs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardScreen />} />
           <Route path="/appliedjob" element={<AppliedJob />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/jobs" element={<Jobs />} />
         </Route>
       </Routes>
     </BrowserRouter>

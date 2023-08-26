@@ -19,7 +19,7 @@ export default function AppliedJob() {
 
   return (
     <Container className="mt-5 postajobform" style={{ width: "55vw" }}>
-      <h1 className="mb-4">Jobs</h1>
+      <h1 className="mb-4">Applied Jobs</h1>
       <Form>
         <Form.Group controlId="search">
           <Form.Control
