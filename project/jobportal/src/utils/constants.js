@@ -4,7 +4,7 @@ export const JOB_RECRUITER = "Job Recruiter"
 
 export const SEEKER_MENU = [
     {
-        path: "/Content",
+        path: "/",
         name: "Home"
     },
     {
@@ -18,7 +18,7 @@ export const SEEKER_MENU = [
 ]
 export const RECRUITER_MENU = [
     {
-        path: "/Content",
+        path: "/",
         name: "Home"
     },
     {

@@ -43,15 +43,29 @@ module.exports = {
     // }
 
     hasValidUser: (req, res) => {
-        const { email, pwd} = req.body;
-        return userModel.hasValidUser(email,pwd)
+        const { emailId, password} = req.body;
+        console.log(req.body);
+        return userModel.hasValidUser(emailId,password)
         .then((data)=> {
           if(data.length === 1){
-            res.send({status: "valid", type: data?.[0]?.type});
+            res.send({status: "valid", type: data?.[0]?.type, emailId:data?.[0]?.emailId, firstname: data?.[0]?.firstName || '', lastname:data?.[0]?.lastName || '' , _id:data?.[0]?._id, companyName: data?.[0]?.companyName, applied_jobs:data?.[0]?.applied_jobs} );
           }
           else{
             res.send({status: "invalid"});
           }
         })
+      },
+      appliedjobs: (req,res)=>{
+        // console.log(req.body.fields);
+        return userModel.appliedjobs(req.body.id,req.body.fields)
+        .then((updatedUser) =>  res.send({status: "OK", msg: "applied jobs updated successfully.", updatedUser: updatedUser}))
+        .catch((err)=> res.send({status:"fail", errro: err}));
+      },
+      showapplied: (req,res)=>{
+        // console.log(req.body._id);
+        return userModel.showapplied(req.body._id)
+        .then((allUsers)=> {res.send(allUsers.applied_jobs)})
+        // console.log(allUsers)})
+        .catch((err) => res.send({status: "fail", error: err, code: 500}))
       }
 }

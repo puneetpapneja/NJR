@@ -53,7 +53,7 @@ export default function Login(){
         }
     }
     const onclick=()=>{
-      navigate("/register");
+      navigate("/Register");
       // return(
       //   <Registerpage/>
       // )

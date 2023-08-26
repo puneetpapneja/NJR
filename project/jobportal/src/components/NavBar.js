@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Container, Nav, Navbar,Form } from "react-bootstrap";
-import {Link} from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { Container, Nav, Navbar,Form, Dropdown, NavDropdown } from "react-bootstrap";
+import {Link, useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import { RECRUITER_MENU, SEEKER_MENU } from "../utils/constants";
-
+import { reset } from "../store/reducer/userSlice";
+import { setSession } from "../Utils";
 const NavBar = () =>{
-  const [profile,setProfile]= useState(false);
+  const navigate=useNavigate();
   const hasRecruiter = useSelector(state => state?.user?.hasRecruiter);
+  const dispatch=useDispatch();
   const renderNavItems = ()=>{
     const navItems = hasRecruiter ? RECRUITER_MENU : SEEKER_MENU;
     return navItems?.map(item =>  <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
@@ -23,7 +25,16 @@ const NavBar = () =>{
           </Navbar.Collapse>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end me-3">
             <Nav>
-            <Nav.Link onClick={(event)=>setProfile(!profile)}  ><i class="bi bi-person-circle fs-3"></i>{profile && <Menu/>}</Nav.Link>
+            <Nav.Link>
+            <NavDropdown title=<i class="bi bi-person-circle fs-3" ></i>>
+                <NavDropdown.Item  onClick={()=>navigate("/Profile")} className="w-50"><i class="bi bi-person-add me-2"></i>Profile</NavDropdown.Item>
+                <NavDropdown.Item onClick={()=>{
+                  dispatch(reset());
+                  setSession("");
+                  navigate("/Login");
+                }}><i class="bi bi-box-arrow-in-right me-2"></i>LogOut</NavDropdown.Item>
+            </NavDropdown>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -7,9 +7,7 @@ export default function AppliedJobDitails(){
                 <h1 className="mt-5 mb-4">Applied Job</h1>
             </Row>
             <Container>
-                <WithHeaderExample/>
-                <WithHeaderExample/>
-                <WithHeaderExample/>
+                <WithHeaderExample />
             </Container>
         </Container>
     )

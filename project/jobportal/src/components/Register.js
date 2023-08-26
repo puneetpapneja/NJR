@@ -40,7 +40,7 @@ export default function Register(){
         dispatch(registerUser(data));
         setValidated(true);
         if(isRegistered){
-            navigate("/login");
+            navigate("/Login");
         }
         else{
             dispatch(reset());
@@ -48,14 +48,14 @@ export default function Register(){
         }
     }
     const onclick=()=>{
-        navigate("/login");
+        navigate("/Login");
       }
     
       const [checkradio, setcheckradio]=useState(false);
-    const handleradio=(event)=>{
-        const form =event.currentTarget;
-        setType(form.value);
-        if(form.value===JOB_RECRUITER){
+      const handleradio=(event)=>{
+      const form =event.currentTarget;
+      setType(form.value);
+      if(form.value===JOB_RECRUITER){
            setcheckradio(true);
         }
         else{
@@ -108,6 +108,5 @@ export default function Register(){
         </Container>
        </Form>
     </Container>
- 
  )
 }
