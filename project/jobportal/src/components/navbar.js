@@ -32,10 +32,10 @@ const NavBarComponent = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to="/ProfilePage">
-                {/* <BsPerson className="mr-2" /> Profile */}
+              <i class="bi bi-person-add"> Profile</i>
               </Dropdown.Item>
               <Dropdown.Item as={Link} to="/LoginPage">
-                {/* <BsBoxArrowRight className="mr-2" /> Logout */}
+              <i class="bi bi-box-arrow-right"> Log Out</i>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
