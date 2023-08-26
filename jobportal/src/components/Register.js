@@ -1,43 +1,86 @@
-import { Form,Button,Container,Row, Col } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import {Button, Form,Container,Row, Col} from 'react-bootstrap';
+import {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom'
+import { setKey, setSession } from '../utils';
+
 
 export default function Register(){
-    return(
-        <Container>
-            <Row>
-                <h1 className="text-center">Register</h1>
-            </Row>
-            <Row>
-                <Form.Group>
-                    <Form.Label>Email Address</Form.Label>
-                    <br />
-                    <Form.Control type="text"></Form.Control>
-                </Form.Group>
-            </Row>
-            <Row>
-                <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <br />
-                    <Form.Control type="text"/>
-                </Form.Group>
-            </Row>
-            <Row>
-            <Col>
-                    <Form.Check type="radio" label="Job Seeker" name ="role" id='Job-Seeker'/>
+    const navigate=useNavigate();
+    const [validated, setValidated] = useState(false);
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        setValidated(true);
+        if(validated===true){
+            setSession("");
+            navigate("/login");
+        }
+    }
+    const onclick=()=>{
+        setSession("");
+        navigate("/login");
+      }
+    
+      const [checkradio, setcheckradio]=useState(false);
+    const handleradio=(event)=>{
+        const form =event.currentTarget;
+        if(form.value==="J-r"){
+           setcheckradio(true);
+        }
+        else{
+           setcheckradio(false);
+        }
+    }
+
+    return (
+       
+    <Container >
+       <Row>
+       <h1 className='text-center mt-5 mb-3' >Register</h1>
+       </Row>
+       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+       <Row>
+        <Form.Group controlId='formEmail'>
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" required/>
+            <Form.Control.Feedback type='invalid'>please enter a valid email</Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <Row>
+        <Form.Group controlId='formPassword'>
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" required/>
+            <Form.Control.Feedback type='invalid'>please set a password</Form.Control.Feedback>
+        </Form.Group>
+        </Row>
+        <br/>
+        <Row>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Seeker' name="role" value="J-s" onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
             </Col>
-            <Col>
-                    <Form.Check type="radio" label="Job Recruiter" name ="role" id='Job-Recruiter'/>
+            <Col xs='6'>
+                <Form.Check type='radio' label='Job Recruiter' value="J-r" name='role' onChange={handleradio} inline feedback="please select any one" feedbackType='invalid' required/>
             </Col>
-            </Row>
-            <Row>
-                <Container className="float-start">
-                    <Button variant="link" as ={Link} to={"/login "}>Already have an account? Login Now</Button>
-                    
-                </Container>
-            </Row>
-            <Row>
-                <Button type="Submit" variant="dark">Register</Button>
-            </Row>
+        </Row>
+        <br/>
+        <Row>
+        {checkradio &&
+        <Form.Group controlId='formCompany'>
+            <Form.Label>Company name</Form.Label>
+            <Form.Control type="text" required/>
+            <Form.Control.Feedback type='invalid'>please enter a company name</Form.Control.Feedback>
+        </Form.Group>}
+        </Row>
+        <Button variant="link" onClick={onclick} >Have an account? Login Now</Button>
+        <br/>
+        <Container className='text-center'>
+        <Button type="submit" variant='dark'>Register</Button>
         </Container>
-    );
+       </Form>
+    </Container>
+ 
+ )
 }

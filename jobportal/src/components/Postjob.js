@@ -1,92 +1,53 @@
-import React, { useState } from 'react';
-import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
-
-
-
-
-export default function PostJob(){
-    const [JobTitle,setJobTitle]=useState("");
-    const [JobTitleError,setJobTitleError]=useState("");
-    const [JobDescription,setJobDescription]=useState("");
-    const [JobDescriptionError,setJobDescriptionError]=useState("");
-    const Handleclick = (event)=>{
-        if(!JobTitle)
-        {
-            event.preventDefault();
-            setJobTitleError("*required");
-            return;
+import {Container,Row,Form,Button} from "react-bootstrap";
+import { useState } from "react";
+export default function Post(){
+    const [validated, setValidated] = useState(false);
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
         }
-        if(!JobDescription)
-        {
-            event.preventDefault();
-            setJobDescriptionError("*required");
-            return;
-        }
+        setValidated(true);
     }
-    return(
-        <Container fluid className='postform'>
-            <Form >
-                <Row>
-                    <Col lg="1"></Col>
-                    <Col lg="3">
-                        <h1 className='my-3'>Post Job</h1>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2"></Col>
-                    <Col lg="8">
-                        <Form.Group>
-                            <Form.Label className='my-3' >Job Title</Form.Label>
-                            <Form.Control 
-                                type='text'
-                                value={JobTitle}
-                                onChange={
-                                    (e)=>{
-                                        setJobTitle(e.target.value);
-                                        setJobTitleError("");
-                                    }
-                                } 
-                            />
-                            {JobTitleError && <Alert variant='danger'>{JobTitleError}</Alert>}
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2"></Col>
-                    <Col lg="8">
-                    <Form.Group>
-                        <Form.Label className='my-3'>Job Description</Form.Label>
-                        <Form.Control 
-                            as='textarea'
-                            rows={2}
-                            value={JobDescription}
-                            onChange={
-                                (e)=>{
-                                    setJobDescription(e.target.value);
-                                    setJobDescriptionError("");
-                                }
-                            } 
-                        />
-                        {JobDescriptionError && <Alert variant='danger'>{JobDescriptionError}</Alert>}
-                    </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2"></Col>
-                    <Col lg="8">
-                    <Form.Group>
-                        <Form.Label className='my-3'>Max Salary</Form.Label>
-                        <Form.Control type='text' />
-                    </Form.Group>
-                    </Col>
-                </Row>
-                <Row className='mb-5'>
-                    <Col lg="5"></Col>
-                    <Col>
-                        <Button variant='dark' type='Submit' className='my-5 px-5 fs-5' onClick={Handleclick}>Post</Button>
-                    </Col>
-                </Row>
-            </Form>
+    return (
+        <Container className="w-75 mt-5">
+            <Row>
+                 <h1 className="ms-3 mt-5 mb-3">Post Job</h1>
+            </Row>
+        <Form className="ms-5" noValidate validated={validated} onSubmit={handleSubmit}>
+            <Row className="mb-3">
+                <Form.Group>
+                      <Form.Label >Job Title</Form.Label>
+                      <Form.Control type="text" required/>
+                      <Form.Control.Feedback type="invalid">
+              please enter the title of the job
+            </Form.Control.Feedback>
+                </Form.Group>
+            </Row>
+            <Row className="mb-3">
+                <Form.Group>
+                      <Form.Label>Job Description</Form.Label>
+                      <Form.Control as="textarea"  className="form-control" required/>
+                      <Form.Control.Feedback type="invalid">
+              Enter the job description
+            </Form.Control.Feedback>
+                </Form.Group>
+            </Row>
+            <Row className="mb-3">
+                <Form.Group>
+                      <Form.Label>Max Salary</Form.Label>
+                      <Form.Control type="text" required/>
+                      <Form.Control.Feedback type="invalid">
+              Enter an estimate of salary
+            </Form.Control.Feedback>
+                </Form.Group>
+            </Row>
+            <br/>
+            <Container className="text-center">
+                <Button type="submit" variant="dark">Post</Button>
+            </Container>
+        </Form>
         </Container>
-    );
+    )
 }
