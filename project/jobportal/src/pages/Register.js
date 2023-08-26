@@ -1,11 +1,11 @@
 import {Button, Form,Container,Row, Col} from 'react-bootstrap';
 import {useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom'
-import { getSession } from '../utils';
+import { useNavigate } from 'react-router-dom';
+import { getSession } from '../store/utils/utils';
 
 
 export default function Register(){
-    const navigate=useNavigate();
+    const navigate= useNavigate();
     const [validated, setValidated] = useState(false);
     useEffect(()=> {
         console.log("dbfnmmbf");
@@ -88,4 +88,4 @@ export default function Register(){
     </Container>
  
  )
-}
+};

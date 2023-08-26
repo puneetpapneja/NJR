@@ -1,7 +1,7 @@
 import {Button, Form,Container,Row} from 'react-bootstrap';
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { setSession } from '../utils';
+import { setSession } from '../store/utils/utils';
 
 export default function Login(){
 

@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import NavBar from "../components/Navbar";
 import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
-import {  getSession } from "../utils";
+import { getSession } from "../store/utils/utils";
 import { useEffect } from "react";
 
 export default function Pagelayout(){
