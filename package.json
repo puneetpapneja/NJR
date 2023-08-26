@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "react-bootstrap": "^2.8.0"
+    "@reduxjs/toolkit": "^1.9.5",
+    "react-bootstrap": "^2.8.0",
+    "react-script": "^2.0.5",
+    "react-scripts": "^5.0.1"
   }
 }
