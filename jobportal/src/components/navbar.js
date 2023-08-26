@@ -17,7 +17,7 @@ const NavBarComponent = () => {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand as={Link} to="/Dashboard">
-            <span className="brand-name">Opportunity</span><span className="brand-wave">Wave</span>
+            <span className="brand-name">Gene</span><span className="brand-wave">sis</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarNav" />
           <Navbar.Collapse id="navbarNav" className="justify-content-between">
