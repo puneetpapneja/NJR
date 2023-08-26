@@ -1,0 +1,45 @@
+._footer{
+  background-color: black;
+  color: white;
+  height: 50px;
+  text-align: center;
+  line-height: 3;
+  border-radius: 10px;
+  margin: 0 2% 0 2%;
+}
+
+.login_page{
+  margin: 5%;
+  top: 25vh;
+
+}
+.dashbody_css{
+  margin-top: 8%;
+}
+
+.dashbody_css h1{
+  margin-left: 3rem;
+}
+
+.postedbox{
+
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+}
+.postdiv{
+  width: 30rem;
+  margin: auto;
+}
+
+.postjobbox{
+  max-width: 270px;
+  border: 1px solid gray;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.stack{
+  justify-content: space-between;
+}
