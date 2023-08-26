@@ -49,7 +49,7 @@ export const seekerRoutes =[
     }
 ]
 
-const getRoutes =(hasRecruiter)=>[
+const getRoutes = (hasRecruiter)=>[
     {
         path:"/",
         element:<Pagelayout />,

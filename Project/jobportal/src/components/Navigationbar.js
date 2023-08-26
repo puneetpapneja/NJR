@@ -25,10 +25,10 @@ export default function Navigationbar(){
     return(
         <Container fluid className="px-0">
         <Navbar expand="md" className="bg-body-tertiary px-0">
-            <Navbar.Brand as={Link} to="/dashboard" className="me-5 ms-3">LOGO</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/" className="me-5 ms-3">LOGO</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-            <Nav.Link as={Link} to="/dashboard" className="me-5">Home</Nav.Link>
+            <Nav.Link as={Link} to="/" className="me-5">Home</Nav.Link>
             {renderNavItems()}            
             <Nav.Link as={Col} lg="5" style={{marginLeft:"270px"}}><Form.Control type="text" placeholder="Search" /></Nav.Link>
     
