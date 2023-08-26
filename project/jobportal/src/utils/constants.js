@@ -4,15 +4,15 @@ export const JOB_RECRUITER = "Job Recruiter"
 
 export const SEEKER_MENU = [
     {
-        path: "/dashboard",
+        path: "/",
         name: "Home"
     },
     {
-        path: "/Jobs",
+        path: "/jobs",
         name: "Jobs"
     },
     {
-        path: "/AppliedJobsPage",
+        path: "/appliedjob",
         name: "Applied Job"
     }
 ]

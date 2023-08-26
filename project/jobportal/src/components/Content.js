@@ -10,9 +10,9 @@ return(
     <Row className="h-100" >
         <Col xs="12" md="3" className="bg-danger"><Square value="7" title="Applied Job's" /></Col>
         <Col md="1"></Col>
-        <Col xs="12" md="3" className="bg-success"><Square value="7" title="Applied Job's"/></Col>
+        <Col xs="12" md="3" className="bg-success"><Square value="40" title="Total post"/></Col>
         <Col md="1"></Col>
-        <Col xs="12" md="3" className="bg-info"><Square value="7" title="Applied Job's"/></Col>
+        <Col xs="12" md="3" className="bg-info"><Square value="2" title="Today's post"/></Col>
     </Row>
     </Container>
 </Container>

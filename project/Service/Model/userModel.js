@@ -6,7 +6,13 @@ const userSchema = mongoose.Schema({
     emailId: String,
     password: String,
     type: String,
-    companyName: String
+    companyName: String,
+    applied_jobs:[{
+        _id:String,
+        job_title:String,
+        description:String,
+        "recruiter_dtls.emailId": String
+    }]
 });
 
 const userCollection = mongoose.model("users", userSchema);
@@ -21,5 +27,12 @@ module.exports = {
     update: (id, fields) => userCollection.updateOne({_id: id}, fields),
     hasValidUser: (email, pwd)=>{
         return userCollection.find({emailId:email, password: pwd});
+    },
+    appliedjobs: (id,fields)=>{
+        return userCollection.updateOne({_id:id},{$push:{applied_jobs:fields}});
+    },
+    showapplied:(id)=>{
+         // console.log(id);
+        return userCollection.findOne({_id:id});
     }
 }

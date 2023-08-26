@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { setSession } from '../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { reset, userLogin, validateUser } from '../store/reducers/userSlice';
+import { postjob } from '../store/reducers/jobSlice';
+import { validateUser } from '../store/reducers/userSlice';
 
 export default function Login(){
 
@@ -14,7 +15,6 @@ export default function Login(){
     console.log(isValidUser);
     useEffect(()=> {
       if(isValidUser){
-       
         setSession("isValidUser");
          navigate("/")
       }
@@ -26,6 +26,7 @@ export default function Login(){
       emailId:email,
       password:password
     }
+    console.log(data);
     const handleSubmit = (event) => {
         const form = event.currentTarget;
         setValidated(true);
@@ -38,6 +39,8 @@ export default function Login(){
         else{
         // if(validated===true){
           // console.log("DF");
+          event.preventDefault();
+          event.stopPropagation();
         dispatch(validateUser(data));
         // if(error===""){
         //   console.log(error);

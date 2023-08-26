@@ -7,15 +7,7 @@ export default function Postedjob(){
         <h1 className='mt-5 mb-4'> Posted Jobs</h1>
         </Row>
         <Row>
-            <Col >
-                <TextExample/>
-            </Col>
-            <Col>
-                <TextExample/>
-            </Col>
-            <Col>
-                <TextExample/>
-            </Col>
+            <TextExample/>
         </Row>
     </Container>)
 }

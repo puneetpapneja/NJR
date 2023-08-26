@@ -4,10 +4,18 @@ const jobSchema=mongoose.Schema({
       description: String,
       max_salary: Number,
       company_name: String,
-      recruiter_dtls: {
-        name:String,
+      applied_candidates:[{
+        _id:String,
+        firstName: String,
+        lastName:String,
         emailId:String,
-        contactNo: String
+        CV:String
+      }],
+      recruiter_dtls: {
+        firstName:String,
+        lastName:String,
+        emailId:String,
+        _id:String,
       }
 });
 
@@ -19,12 +27,20 @@ module.exports={
     },
     getAll: ()=> jobCollection.find(),
     deleteById: (id)=>{
-        jobCollection.deleteOne({_id:id});
+        return jobCollection.deleteOne({_id:id});
     },
     update: (id,fields)=>{
-        jobCollection.updateOne({_id:id},fields);
+        return jobCollection.updateOne({_id:id},fields);
     },
-    getSpecified: (title)=>{
-        return jobCollection.find({job_title:title});
+    getSpecified: (field)=>{
+        const regex = new RegExp(`.*${field}.*`, "i");
+        return jobCollection.find({$or:[{job_title:{ $regex: regex} },{company_name:{ $regex: regex} }]});
+    },
+    findposted:(email)=>{
+        console.log(email);
+        return jobCollection.find({"recruiter_dtls.emailId" :email})
+    },
+    appliedids: (id,fields)=>{
+        return jobCollection.updateOne({_id:id},{$push:{applied_candidates:fields}});
     }
-    }
+}

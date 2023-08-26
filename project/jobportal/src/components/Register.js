@@ -10,7 +10,8 @@ import { JOB_RECRUITER, JOB_SEEKER } from '../utils/constants';
 export default function Register(){
     const navigate=useNavigate();
     const dispatch=useDispatch();
-    const error= useSelector(state=>state?.user?.error);
+    const isRegistered= useSelector(state=>state?.user?.isRegistered);
+    
     // const error = useSelector(state =>console.log(state.user.error));
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
@@ -38,7 +39,7 @@ export default function Register(){
         else{
         dispatch(registerUser(data));
         setValidated(true);
-        if(error===""){
+        if(isRegistered){
             navigate("/login");
         }
         else{
@@ -51,10 +52,10 @@ export default function Register(){
       }
     
       const [checkradio, setcheckradio]=useState(false);
-    const handleradio=(event)=>{
-        const form =event.currentTarget;
-        setType(form.value);
-        if(form.value===JOB_RECRUITER){
+      const handleradio=(event)=>{
+      const form =event.currentTarget;
+      setType(form.value);
+      if(form.value===JOB_RECRUITER){
            setcheckradio(true);
         }
         else{
@@ -107,6 +108,5 @@ export default function Register(){
         </Container>
        </Form>
     </Container>
- 
  )
 }
