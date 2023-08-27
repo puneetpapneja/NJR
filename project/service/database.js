@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://127.0.0.1:27017/practice');
+mongoose.connect("mongodb://127.0.0.1:27017/practice");
 
 const con = mongoose.connection;
 
@@ -19,13 +19,3 @@ con.on('error', ()=> {
 
 module.exports = con;
 
-
-
-// {
-//     "firstName": "Garvita",
-//     "lastName": "jain",
-//     "emailId": "gv@gmail.com",
-//     "password": "12234!",
-//     "type": "String",
-//     "companyName": "facebook"
-// }

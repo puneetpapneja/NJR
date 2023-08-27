@@ -1,75 +1,105 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Login_Signup.css'
-
-function Login() {
-  return (
-    <div className='login template d-flex justify-content-center align-items-center vh-100 grav_col'>
-      <div className='form_container p-5 rounded bg-white'>
-        <form>
-          <h2 className='text-center txt_col'>Sign In</h2>
-          <div className='mb2'>
-            <label htmlFor='email'>Email</label>
-            <input type='email' placeholder='Enter Email' className='form-control'/>
-          </div>
-          <div className='mb2'>
-            <label htmlFor='password'>Password</label>
-            <input type='password' placeholder='Enter Password' className='form-control'/>
-          </div>
-          <div className='mb2'>
-            <input type='checkbox' className='custom-control custom-checkbox' id='check'/>
-            <label htmlFor='check' className='custom-input-label ms-2'>
-              Remember me
-            </label>
-          </div>
-          <br/>
-          <div className='text-center'>
-            <button className='grav_col txt2_col'>Sign In</button>
-          </div>
-          
-          <div className='mt-2'>
-            <a href='' className='txt_col text-start'>Forgot Password?</a>
-            
-            <Link to="/signup" className='ms-2 txt_col text-end '>Sign Up</Link>
-          </div>
-        </form>
-      </div>  
-    </div>
-  )
+import {Form,Button,Container,Row, Alert, Col} from 'react-bootstrap';
+import { setSession } from '../utils/utils';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginValidation } from '../store/reducers/userregisterSlice';
+export default function Login(){
+    const [email,setEmail]=useState("Enter your Email");
+    const [password , setPassword] = useState("Enter the password");
+    const [passwordError, setPasswordError] = useState("");
+    const [emailError,setEmailError]=useState("");
+    const [validError,setValidError]=useState("");
+    const status = useSelector(state=>state?.user?.isvalidUser);
+    useEffect(()=>{
+        if(status){
+            setSession("isvaliduser");
+            navigate("/");
+        }
+    },[status])
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const isValidEmail = (email) => {
+    return email.includes('@gmail.com');
+    }
+    const isValidPassword = (password) => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*]/.test(password);
+    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
+  };
+    const Handleclick = (event) =>{
+         if(!email || !isValidEmail(email)){
+            event.preventDefault();
+            setEmailError("*invalid email format");
+            return;
+        }
+         if(!password || !isValidPassword(password)){
+            event.preventDefault();
+            setPasswordError("*Password must contain one capital,one special symbol");
+            return;
+        }
+        dispatch(loginValidation({emailId:email,password:password}))
+        if(!status)
+        {
+            event.preventDefault();
+            setValidError("Invalid user");
+        }
+        else{
+            setValidError("");
+            setSession("logged in");
+            navigate("/");
+        }
+  };
+    return(
+        <Container>
+            <Form as={Col} sm="12" md="5" className='mx-auto'  style={{border:"2px solid",padding:"20px 70px",marginTop:"60px",boxShadow:"3px 4px 4px 0.5px black"}}>
+                <Row>
+                    <h1 className='text-center my-5'>Login</h1>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Email Address</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text' 
+                            value={email}
+                            onChange={(e)=>{
+                                                setEmail(e.target.value);
+                                                setEmailError("");
+                                            }
+                                    }
+                            className='mb-3'
+                        />
+                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Password</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text'
+                            value={password} 
+                            onChange={(e)=>{
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                        }
+                            }
+                        />
+                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Container className='float-start mb-3 mt-3'>
+                    <Button variant='link' as={Link} to="/register">Don't have an account? Register Now</Button>
+                    </Container>
+                </Row>
+                <Row>
+                    {validError && <Alert variant='danger'>{validError}</Alert>}
+                    <Button type='submit' variant='primary' onClick={Handleclick} style={{width:"100px",marginLeft:"20px"}}>Login</Button>
+                </Row>
+            </Form>
+        </Container>
+    )
 }
-
-export default Login
-
-
-
-// import Button from 'react-bootstrap/Button';
-// import Form from 'react-bootstrap/Form';
-// import './Login.css';
-// function BasicExample() {
-//   return (
-//     <>
-//      <h1>Login Page</h1>
-//     <Form className="form">
-       
-//       <Form.Group className="mb-3" controlId="formBasicEmail">
-//         <Form.Label>Email address</Form.Label>
-//         <Form.Control className="input" type="email" placeholder="Enter email" />
-        
-//       </Form.Group>
-
-//       <Form.Group className="mb-3" controlId="formBasicPassword">
-//         <Form.Label>Password</Form.Label>
-//         <Form.Control className="input" type="password" placeholder="Password" />
-//       </Form.Group>
-//       <div>
-//       <a href='/'>Don't have a account?Register Now</a>
-//       </div>
-//       <Button className="btn" variant="primary" type="submit">
-//         Submit
-//       </Button>
-//     </Form>
-//     </>
-//   );
-// }
-
-// export default BasicExample;
