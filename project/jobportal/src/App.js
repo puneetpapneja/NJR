@@ -4,7 +4,7 @@ import Loginpage from './pages/Loginpage';
 import { Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import {routes } from './routing';
+import {routes} from './routing';
 import Pagelayout from './pages/Pagelayout';
 import React from 'react';
 import Footer from './components/Footer';
@@ -17,7 +17,7 @@ import store from "./store/index"
 function App() {
   const hasRecruiter = useSelector(state => state?.user?.hasRecruiter);
   return (
-    <RouterProvider router={createBrowserRouter(getRoutes(hasRecruiter))}>
+    <RouterProvider router={createBrowserRouter(routes(hasRecruiter))}>
     </RouterProvider>
    )
 }

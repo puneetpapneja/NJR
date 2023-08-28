@@ -1,11 +1,10 @@
-
 import {Button, Form,Container,Row} from 'react-bootstrap';
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { setSession } from '../Utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { Postjob } from '../store/reducer/jobSlice';
-import { ValidateUser } from '../store/reducer/userSlice';
+import { postjob } from '../store/reducers/jobSlice';
+import { validateUser } from '../store/reducers/userSlice';
 
 export default function Login(){
 
@@ -54,7 +53,7 @@ export default function Login(){
         }
     }
     const onclick=()=>{
-      navigate("/register");
+      navigate("/Register");
       // return(
       //   <Registerpage/>
       // )

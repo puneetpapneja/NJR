@@ -1,5 +1,3 @@
-
-
 import {Form,Container,Button,Row,Col} from 'react-bootstrap';
 import { useState } from 'react';
 export default function Profile(){
@@ -36,7 +34,7 @@ export default function Profile(){
             <Form.Label>First Name</Form.Label>
             <Form.Control type="text" required/>
             <Form.Control.Feedback type="invalid">
-              Please choose a email.
+              Please enter your first name
             </Form.Control.Feedback>
         </Form.Group>
         </Row>
@@ -45,7 +43,7 @@ export default function Profile(){
             <Form.Label>Email address</Form.Label>
             <Form.Control type="text" required/>
             <Form.Control.Feedback type="invalid">
-              Please choose a email.
+              Please enter your second name
             </Form.Control.Feedback>
         </Form.Group>
         </Row>
@@ -63,7 +61,7 @@ export default function Profile(){
             <Form.Label>Resume(CV)</Form.Label>
             <Form.Control type="file" required/>
             <Form.Control.Feedback type="invalid">
-              Please choose a email.
+              Please enter a file.
             </Form.Control.Feedback>
         </Form.Group>
         </Row>

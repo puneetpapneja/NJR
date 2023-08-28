@@ -1,19 +1,43 @@
+import { useEffect } from 'react';
 import {Button,Row,Col} from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { showapplied } from '../store/reducer/userSlice';
 function WithHeaderExample() {
+  const appliedjobs=useSelector(state=>state?.user?.applied);
+  // const appliedjobs=useSelector(state=>state?.user?.appliedjobs);
+  const id=useSelector(state=>state?.user?.id);
+  // console.log(id);
+  // console.log(appliedjobs);
+  const dispatch=useDispatch();
+  useEffect(
+    ()=>{
+      dispatch(showapplied({_id:id}));
+    },[dispatch, id]
+  )
+  if(!appliedjobs){
+    return(
+      <h1>you have not aplied for any job</h1>
+    );
+  }
+  else{
   return (
-    <Card className='w-100 rounded-0'>
-      <Card.Header><Row><Col><h5  lg='6' md='6' xs='12' >Senior software developers</h5></Col><Col md='6' xs='12' lg='6' className='mt-2'><p className='float-end mb-0'>3 minutes ago</p></Col></Row></Card.Header>
+    appliedjobs.map((job)=>{
+      return(
+      <Card className='w-100 rounded-0 bg-secondary-subtle'>
       <Card.Body>
-        <Card.Title>a@gmail.com</Card.Title>
+      <Card.Title className='mb-0'><Row ><Col><h5  lg='6' md='6' xs='12' >{job.job_title}</h5></Col><Col md='6' xs='12' lg='6' className='mt-2'><p className='float-end mb-0 fs-6'>3 minutes ago</p></Col></Row></Card.Title>
+        <Card.Title>{job.recruiter_dtls.emailId}</Card.Title>
         <Card.Text className='fw-light mb-0'>
-        “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.” The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout.
+        {job.description}
         </Card.Text>
         <p className='text-end mb-0 mt-0'>Applied</p>
       </Card.Body>
     </Card>
+    )})  
   );
+  }
+
 }
 
 export default WithHeaderExample;

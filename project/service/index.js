@@ -10,3 +10,5 @@ app.use(cors())
 app.use("/job",jobRoute);
 app.use("/user",userRoute);
 app.listen(port,()=>console.log("service started on port:",port));
+
+

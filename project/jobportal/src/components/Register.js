@@ -1,10 +1,9 @@
-
 import {Button, Form,Container,Row, Col} from 'react-bootstrap';
 import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import { getSession } from '../Utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, reset } from '../store/reducer/userSlice';
+import { registerUser, reset } from '../store/reducers/userSlice';
 import { JOB_RECRUITER, JOB_SEEKER } from '../util/constants';
 
 
@@ -41,7 +40,7 @@ export default function Register(){
         dispatch(registerUser(data));
         setValidated(true);
         if(isRegistered){
-            navigate("/login");
+            navigate("/Login");
         }
         else{
             dispatch(reset());
@@ -49,14 +48,14 @@ export default function Register(){
         }
     }
     const onclick=()=>{
-        navigate("/login");
+        navigate("/Login");
       }
     
       const [checkradio, setcheckradio]=useState(false);
-    const handleradio=(event)=>{
-        const form =event.currentTarget;
-        setType(form.value);
-        if(form.value===JOB_RECRUITER){
+      const handleradio=(event)=>{
+      const form =event.currentTarget;
+      setType(form.value);
+      if(form.value===JOB_RECRUITER){
            setcheckradio(true);
         }
         else{
@@ -109,6 +108,5 @@ export default function Register(){
         </Container>
        </Form>
     </Container>
- 
  )
 }

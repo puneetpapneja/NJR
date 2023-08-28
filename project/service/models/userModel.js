@@ -1,14 +1,3 @@
-const mongoose = require("mongoose");
-
-const userSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    emailId: String,
-    password: String,
-    type: String,
-    companyName: String
-});
-
 const userCollection = mongoose.model("users", userSchema);
 
 module.exports = {
@@ -21,5 +10,12 @@ module.exports = {
     update: (id, fields) => userCollection.updateOne({_id: id}, fields),
     hasValidUser: (email, pwd)=>{
         return userCollection.find({emailId:email, password: pwd});
+    },
+    appliedjobs: (id,fields)=>{
+        return userCollection.updateOne({_id:id},{$push:{applied_jobs:fields}});
+    },
+    showapplied:(id)=>{
+         // console.log(id);
+        return userCollection.findOne({_id:id});
     }
 }
