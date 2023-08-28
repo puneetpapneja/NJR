@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Dongle
+- Font Author: Copyright 2021 The Dongle Project Authors (https://github.com/yangheeryu/Dongle)
+- Font Source: http://fonts.gstatic.com/s/dongle/v9/sJoF3Ltdjt6VPkqmveRPah6RxA.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
