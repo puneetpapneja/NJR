@@ -1,29 +1,44 @@
 import React from "react";
-import ContentStructure from "./ContentStructure";
-import { Container,Col, Row } from "react-bootstrap";
-export default function Content(){
-    return(
-        <Container>
-            <Row>
-                <Col xs="12"md="8" className="my-3 ms-5">
-                    <h1 style={{fontSize:"3em"}}>Dashboard</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col md="2"></Col>
-                <Col className="bg-info" xs="12" md="2">
-                    <ContentStructure title="7" subtitle="Applied Jobs" />
-                </Col>
-                <Col xs="12" md="1"></Col>
-                <Col className="bg-danger" xs="12" md="2">
-                    <ContentStructure title="40" subtitle="Total Post" />
-                </Col>
-                <Col xs="12" md="1"></Col>
-                <Col className="bg-primary" xs="12" md="2">
-                    <ContentStructure title="2" subtitle="Today's Posts" />
-                </Col>
-                <Col md="2"></Col>
-            </Row>
-        </Container>
-    );
+import { Container, Col, Row, Card } from "react-bootstrap";
+export default function Content() {
+  const displayData = [
+    {
+      title: "2",
+      subtitle: "Applied Jobs",
+    },
+    {
+      title: "114",
+      subtitle: "Total Posts",
+    },
+    {
+      title: "50",
+      subtitle: "Today's Posts",
+    },
+  ];
+  return (
+    <Container>
+      <Row>
+        <Col xs="12" md="8" className="my-3 ms-5">
+          <h1 style={{ fontSize: "3em" }}>Dashboard</h1>
+        </Col>
+      </Row>
+      <Row>
+        {displayData.map((data) => (
+          <Card
+            style={{
+              width: "18rem",
+              height: "10rem",
+              backgroundColor: "#8CF9FF",
+              marginRight: "5%",
+            }}
+          >
+            <Card.Body className="d-flex flex-column justify-content-center align-items-center">
+              <Card.Title>{data.title}</Card.Title>
+              <Card.Subtitle>{data.subtitle}</Card.Subtitle>
+            </Card.Body>
+          </Card>
+        ))}
+      </Row>
+    </Container>
+  );
 }

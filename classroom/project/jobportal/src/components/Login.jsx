@@ -30,6 +30,7 @@ export default function Login() {
         <Formik
           validationSchema={schema}
           onSubmit={(values) => {
+            console.log(values);
             dispatch(
               loginValidation({
                 emailId: values.email,
