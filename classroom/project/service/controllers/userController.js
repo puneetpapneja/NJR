@@ -1,62 +1,38 @@
-const userModel = require("../models/userModel");
+const userModels = require("../models/userModels")
 
 module.exports = {
-  create: (req, res) => {
-    return userModel
-      .create(req.body)
-      .then((data) => {
-        return res.send({
-          status: "ok",
-          msg: "User created successfully.",
-          data: data,
-        });
-      })
-      .catch((err) => {
-        return res.send({ status: "fail", error: err });
-      });
-  },
-  getAll: (req, res) => {
-    return userModel
-      .getAll()
-      .then((allusers) => res.send(allusers))
-      .catch((err) => res.send({ status: "fail", error: err, code: 500 }));
-  },
-  deleteById: (req, res) => {
-    return userModel
-      .deleteById(req.body.id)
-      .then((deleteduser) =>
-        res.send({
-          status: "OK",
-          msg: "user deleted successfully.",
-          deleteduser: deleteduser,
+    create: (req,res)=>{
+        return userModels.create(req.body)
+        .then((data)=>{
+            return res.send({status:"ok",msg:"user created successfully", data:data})
         })
-      )
-      .catch((err) => res.send({ status: "fail", errro: err }));
-  },
-  update: (req, res) => {
-    return userModel
-      .update(req.body.id, req.body.fields)
-      .then((updateduser) =>
-        res.send({
-          status: "OK",
-          msg: "user updated successfully.",
-          updateduser: updateduser,
+        .catch((err)=>res.send({status:"fail",err:err}))
+    },
+    getAll: (req,res)=>{
+        return userModels.getAll()
+        .then((allUser)=>res.send(allUser))
+        .catch((err)=>res.send({status:"fail", error:err,code:500})) 
+    },
+    deleteById:(req,res) =>{
+        return userModels.deleteById(req.body.id)
+        .then((deletedUser)=>res.send({status:"Ok", msg:"user deleted",deletedUser:deletedUser}))
+        .catch((err)=>res.send({status:"fail",error:err}))
+    },
+    update:(req,res)=>{
+        return userModels.update(req.body.id,req.body.fields)
+        .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
+        .catch((err)=>res.send({status:"fail",error:err}))
+    },
+    loginValidation:(req,res)=>{
+        const { emailId, password} = req.body;
+        return userModels.getUser(emailId,password)
+        .then((data)=> {
+            if(data.length === 1){
+            res.send({status: "valid", type: data?.[0]?.type , firstName: data?.[0]?.firstName || "",lastName: data?.[0]?.lastName || "", emailId: data?.[0]?.emailId , _id:data?.[0]?._id,companyName: data?.[0]?.companyName || ""});
+        }
+        else {
+            res.send({status: "invalid"});
+        }
         })
-      )
-      .catch((err) => res.send({ status: "fail", errro: err }));
-  },
-  hasValidUser: (req, res) => {
-    const { emailId, password } = req.body;
-    return userModel.hasValidUser(emailId, password).then((data) => {
-      if (data.length === 1) {
-        res.send({
-          status: "valid",
-          type: data?.[0].type,
-          emailId: data?.[0].emailId,
-        });
-      } else {
-        res.send({ status: "invalid" });
-      }
-    });
-  },
-};
+    }
+}
