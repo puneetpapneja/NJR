@@ -41,7 +41,6 @@ function FormExample() {
           },
         };
         dispatch(createJob(data));
-        // console.log("sent: ",data)
         navigate("/");
       }}
       initialValues={{
@@ -97,7 +96,9 @@ function FormExample() {
               />
             </InputGroup>
           </Form.Group>
-          <Button type="submit">Submit form</Button>
+          <Button type="submit" variant="dark">
+            Submit form
+          </Button>
         </Form>
       )}
     </Formik>

@@ -37,7 +37,6 @@ export default function Login() {
                 password: btoa(values.password),
               })
             );
-            // console.log(values);
           }}
           initialValues={{
             email: "Mark@gmail.com",
@@ -59,7 +58,6 @@ export default function Login() {
                   onChange={handleChange}
                   isValid={touched.email && !errors.email}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
               <Form.Group
                 as={Col}
@@ -75,7 +73,11 @@ export default function Login() {
                   onChange={handleChange}
                   isValid={touched.password && !errors.password}
                 />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                {status === false ? (
+                  <Form.Control.Feedback style={{ color: "red" }}>
+                    Invalid Credentials
+                  </Form.Control.Feedback>
+                ) : null}
               </Form.Group>
               <Button variant="link" as={Link} to="/register">
                 Don't have an account? Register Now

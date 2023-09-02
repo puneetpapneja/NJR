@@ -10,6 +10,7 @@ export default function Profile() {
   const { Formik } = formik;
   const id = useSelector((state) => state?.user?._id);
   const err = useSelector((state) => state?.user?.Error);
+  const email = useSelector((state) => state?.user?.emailId);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const schema = yup.object().shape({
@@ -39,7 +40,7 @@ export default function Profile() {
       initialValues={{
         firstName: "Mark",
         lastName: "Otto",
-        emailId: "",
+        emailId: email,
       }}
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
@@ -101,7 +102,9 @@ export default function Profile() {
               {errors.file}
             </Form.Control.Feedback>
           </Form.Group>
-          <Button type="submit">Submit form</Button>
+          <Button type="submit" variant="dark">
+            Submit form
+          </Button>
         </Form>
       )}
     </Formik>
