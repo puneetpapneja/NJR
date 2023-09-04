@@ -26,6 +26,14 @@ console.log(isvalidUser);
  if(isvalidUser)
  Navigate("/Dashboard")
   },[isvalidUser]);
+  useEffect(()=>{
+ if(isvalidUser===false)
+   document.getElementById("log-in-msg-wrg-id-pass").innerHTML="The email-id and password you entered did not match out record. please double-check and try again"
+ 
+  },[isvalidUser]);
+
+
+  
 
 const { Formik } = formik;
 const dispatch = useDispatch();
@@ -43,7 +51,7 @@ const schema = yup.object().shape({
         dispatch(validateUser({email:values.email,pwd:values.pwd}));                     
       }
       }
-
+   
 
     initialValues={{
       email: '',
@@ -53,10 +61,15 @@ const schema = yup.object().shape({
       {({ handleSubmit, handleChange, values, touched, errors }) => (
     
     <Container className="login_page">
+   
       <Row className="justify-content-center">
         <Col xs={12} md={5}>
+    <span id="log-in-msg-wrg-id-pass" className=" d-flex justify-content-center mb-2"></span>
+
           <Card>
+
             <Card.Body>
+
               <Card.Title>Login</Card.Title>
               <Form noValidate onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="validationFormik01">

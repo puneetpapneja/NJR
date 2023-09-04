@@ -21,5 +21,6 @@ module.exports={
      update:(id,fields)=>userCollection.updateOne({_id:id},fields),  
      hasvalidUser: (email, pwd)=> {
          return userCollection.find({emailId: email, password: pwd});
-      }
+      },
+    find:(email)=>userCollection.find({emailId:email})
 }

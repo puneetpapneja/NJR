@@ -2,21 +2,32 @@ import "../App.css";
 import {Link} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
+import  Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useState, useRef } from 'react';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RECRUITER_MENU, SEEKER_MENU } from '../utils/constants';
+import { Dropdown } from "react-bootstrap";
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
+
 function  Menubar () {
   const [show, setShow] = useState(false);
   const target = useRef(null);
-
   const Navigate=useNavigate();
   function handleclick(){
     Navigate("/profile");
   } 
+  const hasRecruiter=useSelector((state)=>state?.user?.hasRecruiter);
+
+ const randernav=()=>{
+  const navItems=hasRecruiter? RECRUITER_MENU:SEEKER_MENU;
+  return navItems?.map(item=> <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
+ }
  
   
   return (
@@ -28,13 +39,10 @@ function  Menubar () {
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: '100px' }}
-            navbarScroll
+            
           >
-            <Nav.Link as={Link} to="/Dashboard">Home</Nav.Link>
-            <Nav.Link as={Link} to="/job">Job</Nav.Link>
-            <Nav.Link  as={Link} to="/postajob">Post a Job</Nav.Link>
-            <Nav.Link  as={Link} to="/appliedjob">Applied Job</Nav.Link>
-            <Nav.Link  as={Link} to="/postedjob">Posted Job</Nav.Link>
+           { randernav()}
+           
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -44,19 +52,25 @@ function  Menubar () {
               aria-label="Search"
             />
           </Form>
+       
 
+          <Dropdown >
+            <Dropdown.Toggle variant="Secondary" id="dropdown-basic">
+              <i style={{ fontSize: "20px" }} className="bi bi-person-circle"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu   className="Dropdowm_menu">
+              <Dropdown.Item   as={Link} to="/profile" >
+                Profile 
+              </Dropdown.Item>
+              <Dropdown.Item  as={Link} to="/loginPage">
+                 Logout
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           
-          <i class="bi bi-person-circle"  ref={target} onClick={() => setShow(!show)}></i>
-              
-         
-          <Overlay target={target.current} show={show} placement="bottom">
-        {(props) => (
-          <Tooltip id="overlay-example" {...props}>
-          <Nav.Link as={Link} to="/profile">profile</Nav.Link>
-            <Nav.Link as={Link} to="/logout">logout</Nav.Link>
-          </Tooltip>
-        )}
-      </Overlay>
+        
+        
+        
 
 
   

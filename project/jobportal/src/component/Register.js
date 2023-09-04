@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
@@ -6,21 +6,39 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from 'react-router-dom';
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { users } from "../store/reducers/userSlice"
 import * as formik from 'formik';
 import * as yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 
 function Register() {
   const Navigate = useNavigate();
-
-
+const doneRegister=useSelector(state=>state?.user?.doneRegister);
+const userExist=useSelector(state=>state?.user?.userExist);
+console.log("userExist" ,userExist);
   function changepath() {
     Navigate("/");
-  } 
+  }
+ 
+  useEffect(()=>{
+    if(doneRegister && userExist===false){
+      Navigate("/Dashboard");
+    }
+
+  },[doneRegister , userExist]);
+  
+  useEffect(()=>{
+    if( userExist===true){
+  alert("already exist");
+    }
+
+  },[ userExist]);
+
+
 
   const { Formik } = formik;
   const dispatch = useDispatch();
@@ -38,6 +56,7 @@ function Register() {
     Navigate("Dashboard");
   }
 
+  
 
   return (
     <Formik
@@ -45,6 +64,7 @@ function Register() {
       onSubmit={
         (values, { setSubmitting }) => {
           dispatch(users(values));
+          
         }}
 
 
@@ -94,14 +114,17 @@ function Register() {
                       name="type"
                       value="job recruiter"
                       onChange={handleChange}
+                      
+                        
 
                     />
+                    
                     <br /> <br />  <Link onClick={changepath} >Have not log-in? Log-in now</Link> <br />  <br />
 
 
 
 
-                    <Button  type="submit" variant="primary">Register</Button>
+                    <Button type="submit" variant="primary">Register</Button>
                   </Form>
                 </Card.Body>
               </Card>

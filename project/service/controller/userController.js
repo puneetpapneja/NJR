@@ -1,14 +1,23 @@
 const userModel=require("../models/userModel");
 
 module.exports={
-    create:(req,res)=>{
+    create: async(req,res)=>{
+      const checkuser=await userModel.find(req.body.emailId)
+          if(checkuser.length=== 0){
+            console.log("inside create controller");
            return userModel.create(req.body)
            .then((data)=>{
-             return  res.send({status:"ok" ,msg:"user created successfully", data:data})
-           })
-           .catch((err)=>{
-            return res.send({status:"fail", error:err});
-           })
+            return  res.send({status:"ok" ,msg:"user created successfully", data:data})
+          })
+          .catch((err)=>{
+           return res.send({status:"fail", error:err});
+          })
+            
+          }
+          else{
+            console.log("inside already exist");
+            return res.send( { msg:"already exist"});
+          }   
     },
 
     getAll:(req,res)=>{
@@ -40,7 +49,7 @@ return userModel.update(req.body.id,req.body.field)
       const { email, pwd} = req.body;
       return userModel.hasvalidUser(email,pwd)
       .then((data)=> {
-        if(data.length === 1){     // if only and only one user exist in our db then this condition will work
+        if(data.length === 1){    
           res.send({status: "valid", type: data?.[0]?.type});
         }
         else{
