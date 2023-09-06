@@ -24,7 +24,7 @@ export default function Login(){
     const [password, setPassword]= useState('');
     const data={
       emailId:email,
-      password:password
+      password:btoa(password)
     }
     console.log(data);
     const handleSubmit = (event) => {
@@ -55,7 +55,7 @@ export default function Login(){
     const onclick=()=>{
       navigate("/Register");
       // return(
-      //   <Registerpage/>
+      //   <RegisterPage/>
       // )
     }
     

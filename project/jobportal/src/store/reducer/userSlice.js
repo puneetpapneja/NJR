@@ -12,7 +12,7 @@ const initialState={
 }
 
 export const registerUser= createAsyncThunk("/user/create",async(params,thunkAPI)=>{
-    return axios.put(`${API_URL}/user/create`,params);
+    return axios.post(`${API_URL}/user/create`,params);
 })
 // export const userLogin= createAsyncThunk("/user/find",async(params,thunkAPI)=>{
 //     return axios.post(`${API_URL}/user/find`,params);

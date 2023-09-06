@@ -29,7 +29,7 @@ function WithHeaderStyledExample() {
   return (
     jobs.map((job)=>{const {job_title,
       description,
-      max_salary,_id}=job;
+      max_salary,_id,company_name}=job;
       const email= job.recruiter_dtls.emailId;
       const jobdata={
         id:id,
@@ -52,14 +52,23 @@ function WithHeaderStyledExample() {
       // console.log(jobdata);
     return(
     <Card className='w-100 mb-3'>
-    <Card.Header className='bg-secondary-subtle '><Row><Col><h6 className='mt-2' lg='6' md='6' xs='12' >{job_title}</h6></Col><Col md='6' xs='12' lg='6' className='mt-2'><h5 className='float-end mb-0'>Max Salary</h5><br/><p className='float-end fs-6 mb-0'>{max_salary}</p></Col></Row></Card.Header>
+    <Card.Header className='bg-secondary-subtle '><Row><Col><h5 className='mt-2' lg='6' md='6' xs='12' >{job_title}</h5></Col>
+    <Col xs='0' md='4' lg='4'></Col>
+    <Col md='2' xs='12' lg='2' className='mt-2'><h6 className='mb-0'>Company Name</h6><p className='fs-6 mb-0'>{company_name}</p></Col></Row></Card.Header>
     <Card.Body>
-      <Card.Title>{description}</Card.Title>
+      <Card.Title>Description</Card.Title>
       <Card.Text className='fw-light'>
-      {/* “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.” The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. */}
+      <Row>
+      <Col>{description}</Col>
+      </Row>
       </Card.Text>
-      <Button variant="dark" onClick={()=>{dispatch(appliedjobs(jobdata));
-      dispatch(appliedcandidates(userdata))}}>Apply</Button>
+      <Row>
+      <Col>
+      <Button xs='6' md='4' lg='4' variant="dark" onClick={()=>{dispatch(appliedjobs(jobdata));
+      dispatch(appliedcandidates(userdata))}}>Apply</Button></Col>
+       <Col xs='0' md='4' lg='6'></Col>
+       <Col md='2' xs='12' lg='2' className='mt-2'><h6 className='mb-0'>Max Salary</h6><p className='fs-6 mb-0'>{max_salary}</p></Col>
+       </Row>
     </Card.Body>
   </Card>
   );

@@ -3,7 +3,7 @@ import Square from "./Square"
 const Content=()=>{
 return(
 <Container className="w-75 mt-5" >
-    <Row >
+    <Row>
         <h1 className="mt-5">Dashboard</h1>
     </Row>
     <Container>

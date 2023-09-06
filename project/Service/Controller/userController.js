@@ -5,6 +5,7 @@ module.exports = {
         //logic/data validation code write here
         return userModel.create(req.body)
         .then((data) => {
+           console.log("user",data);
             return res.send({status: "ok", msg:"User created successfully."});
         })
         .catch((err)=>{

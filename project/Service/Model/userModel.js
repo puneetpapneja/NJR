@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-
+const multer= require('multer');
+const upload=multer();
 const userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -7,6 +8,7 @@ const userSchema = mongoose.Schema({
     password: String,
     type: String,
     companyName: String,
+    CV: String,
     applied_jobs:[{
         _id:String,
         job_title:String,

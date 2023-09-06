@@ -11,7 +11,7 @@ export default function Register(){
     const navigate=useNavigate();
     const dispatch=useDispatch();
     const isRegistered= useSelector(state=>state?.user?.isRegistered);
-    
+    console.log("re",isRegistered);
     // const error = useSelector(state =>console.log(state.user.error));
     const [email, setEmail]=useState('');
     const [password, setPassword]=useState('');
@@ -26,7 +26,7 @@ export default function Register(){
     },[navigate]);
     const data ={
         emailId: email,
-        password: password,
+        password: btoa(password),
         type: type,
         companyName: company
     }
