@@ -4,26 +4,26 @@ function Dashboard() {
   return (
 <>
     <div className='container text-center'>
-      <h2>Dashboard</h2>
+      <h1>Dashboard</h1>
     </div>
       <div className='container d-flex justify-content-center'>
-      <Card style={{ width: '18rem' ,margin:'45px', height:'197px',backgroundColor:'coral'}}>
+      <Card border="info" style={{ width: '18rem' ,margin:'45px', height:'197px',backgroundColor:'Green'}}>
       <Card.Body style={{textAlign:'center',marginTop:"45px",color:'white'}}>
-        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>7</Card.Title>
+        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>5</Card.Title>
         <Card.Text>
           Applied Jobs
         </Card.Text>
       </Card.Body>
     </Card>
-      <Card style={{ width: '18rem' ,margin:'45px', height:'197px', backgroundColor:'gray'}}>
+      <Card border="danger" style={{ width: '18rem' ,margin:'45px', height:'197px', backgroundColor:'gray'}}>
       <Card.Body style={{textAlign:'center',marginTop:"45px",color:'white'}}>
-        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>40</Card.Title>
+        <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>15</Card.Title>
         <Card.Text>
           Total Post
         </Card.Text>
       </Card.Body>
     </Card>
-      <Card style={{ width: '18rem' ,margin:'45px', height:'197px',backgroundColor:'brown'}}>
+      <Card border="warning" style={{ width: '18rem' ,margin:'45px', height:'197px',backgroundColor:'blue'}}>
       <Card.Body style={{textAlign:'center',marginTop:"45px",color:'white'}}>
         <Card.Title style={{fontSize:"50px", fontWeight:'bold'}}>2</Card.Title>
         <Card.Text>

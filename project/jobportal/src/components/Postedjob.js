@@ -10,16 +10,16 @@ export default function postedjob(){
                     </Col>
                 </Row>
    <Row style={{display:"flex",justifyContent:"space-around"}}>
-    <Card style={{ width: '18rem' }}>
+    <Card bg="info" style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title style={{display:"flex",justifyContent:"space-between"}}>Senior Developer<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+        <Card.Title style={{display:"flex",justifyContent:"space-between"}}>Frontend Developer<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
 </svg></Card.Title>
        
-        <Card.Subtitle className="mb-2 text-muted">Kp developers</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">Metacube</Card.Subtitle>
          <Card.Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis adipisci nihil atque voluptatum ea. Reiciendis error quaerat cum quia, eos in excepturi nesciunt atque animi harum voluptate esse dignissimos possimus.
+        We are looking for a skilled Frontend Developer to join our team.
         </Card.Text>
         
       </Card.Body>
@@ -34,15 +34,15 @@ export default function postedjob(){
 </svg></Col>
 </Row>
     </Card>
-    <Card style={{ width: '18rem' }}>
+    <Card bg="danger" style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title style={{display:"flex",justifyContent:"space-between"}}>Senior Developer<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+        <Card.Title style={{display:"flex",justifyContent:"space-between"}}>Backend Developer<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
 </svg></Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">Kansoft Solutions</Card.Subtitle>
         <Card.Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis adipisci nihil atque voluptatum ea. Reiciendis error quaerat cum quia, eos in excepturi nesciunt atque animi harum voluptate esse dignissimos possimus.
+        We are looking for a talented and experienced Backend Engineer to work on the server side logic.
         </Card.Text>
       </Card.Body>
       <Row>
@@ -58,15 +58,15 @@ export default function postedjob(){
 
       
     </Card>
-    <Card style={{ width: '18rem' }}>
+    <Card bg="warning" style={{ width: '18rem' }}>
       <Card.Body>
-        <Card.Title style={{display:"flex",justifyContent:"space-between"}}>Senior Developer<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+        <Card.Title style={{display:"flex",justifyContent:"space-between"}}>UI/UX Designer<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
   <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
   <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
 </svg></Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Subtitle className="mb-2 text-muted">Microsoft</Card.Subtitle>
         <Card.Text>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis adipisci nihil atque voluptatum ea. Reiciendis error quaerat cum quia, eos in excepturi nesciunt atque animi harum voluptate esse dignissimos possimus.
+        Join our design team to create intuitive and visuallly appealing user interfaces.
         </Card.Text>
         
       </Card.Body>
