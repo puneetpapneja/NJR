@@ -3,9 +3,8 @@ import Header from "./header"
 import Footer from "./footer";
 import React, { useEffect } from 'react';
 import { getSession } from "../utils/util";
-import loginpage from "./loginpage";
-import Navigationbar from "../components/navbar";
 import { Container } from "react-bootstrap";
+import Notification from "../components/notification";
 
 
 const PageLayout = ()=>{
@@ -20,7 +19,8 @@ const PageLayout = ()=>{
         }},[navigate])
                  return(
                     <Container fluid className="px-0 mx-0">
-                    {getSession()?<Navigationbar />:null}
+                    {getSession()?<Header />:null}
+                    <Notification/>
                     <Outlet />
                     {getSession()?<Footer />:null}
                 </Container> 

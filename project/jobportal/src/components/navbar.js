@@ -2,21 +2,18 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Col } from 'react-bootstrap';
+import { Col,Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Dropdown from 'react-bootstrap/Dropdown';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { recruiterMenu,seekerMenu } from '../utils/constants';
 
 function Navbarbody() {
   const hasRecruiter = useSelector(state=>state?.user?.hasRecruiter);
   const renderNavItems=()=>{
-    const navItems = hasRecruiter?recruiterMenu:seekerMenu;
-    return navItems.map((items)=>{
-      return(
-        <Nav.Link as={Link} to={items.path} className='me-5'>{items.name}</Nav.Link>      )
-    })
-  }
+    const navItems = hasRecruiter ? recruiterMenu : seekerMenu;
+    return navItems?.map(item =>  <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>
+    )}
+  
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
@@ -26,9 +23,23 @@ function Navbarbody() {
           > <Navbar.Collapse id="basic-navbar-nav">
             <Nav.Link as={Link} to="/dashboard">Home</Nav.Link>
             {renderNavItems()}  
-            <Nav.Link as={Col} lg="5" className="me-5"><Form.Control type="text" placeholder="Search" /></Nav.Link>
+            <Nav.Link as={Col} lg="5" style={{marginLeft:"520px"}} className=".justify-content-sm-end"><Form.Control type="text" placeholder="Search" /></Nav.Link>
             </Navbar.Collapse>
-            <i class="bi bi-person-circle px-4 fs-1"></i>
+            <Nav.Link className=".justify-content-sm-end">
+          <Dropdown>
+            <Dropdown.Toggle variant="link" id="dropdown-basic" style={{marginRight:"30px"}}>
+              <i style={{ fontSize: "30px" }} className="bi bi-person-circle"></i>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to="/profilepage">
+                  Profile 
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/login">
+                 Logout 
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Nav.Link>
       
         </Nav>
       </Container>

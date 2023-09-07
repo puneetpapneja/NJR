@@ -1,8 +1,8 @@
 import { Container, Form,Button } from 'react-bootstrap';
 import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
-// import Col from 'react-bootstrap/Col';
-// import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllJobs, reset } from '../store/reducers/jobSlice';
@@ -50,21 +50,23 @@ const Postedjob = () => {
   return jobs.map(job => {
     const{jobTitle,maxSalary,jobDescription,companyName}=job;
     return(
-      
-      <Card style={{ width: '79rem' }}>
+      <Container>
+      <Card style={{ width: '79rem',marginTop:"20px" }}>
           <Card.Header>{jobTitle}<br/><span className='float-start'>{companyName}</span> <span className='float-end'>MAX Salary {maxSalary}</span></Card.Header>
             <Card.Body>
              <Card.Subtitle>Description</Card.Subtitle>
               <Card.Text>
                 {jobDescription}
               </Card.Text>
-              <Button variant="dark" type="submit" className="btn btn-dark"as={Link} to="/">
+              <Button variant="dark" type="submit" className="btn btn-dark"as={Link} to="/appliedjob">
               Apply
             </Button>
             <span className='float-end'>Max Salary</span>
             </Card.Body>
             <br/>
           </Card>
+      </Container>
+
         
           
 
@@ -73,18 +75,36 @@ const Postedjob = () => {
 }
   return (
     <Container>
+          
           <Form className="w-100 p-10" >
+          <Row lg={3}>
+            <Col>
            <h1>Jobs</h1>
+           </Col>
+           </Row>
+           <Row >
+            <Col>
+            <div style={{width:"8rem"}}>
        <Form.Control
          type="search"
          placeholder="Search"
-         className="me-2"
          aria-label="Search"
-       /> 
+       /></div> </Col></Row>
+       <Row></Row>
       
-       </Form>   
+       </Form> 
+    
+      <Row ></Row>
+    
+       <Row  style={{marginTop:"50px"}}>
+        <Col>
        {renderJobs()} 
-     </Container>
+       </Col>
+       </Row> 
+
+      
+       </Container> 
+  
 );
   // return (
   //   <div className="wrapper">

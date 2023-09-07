@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { API_URL, JOB_RECURITER,JOB_SEEKER} from "../../utils/constants";
-
+import { API_URL, JobRecruiter} from "../../utils/constants";
 const initialState ={
     isvalidUser:false,
-    hasRecuriter: false,
+    hasRecruiter: false,
     isLoading:false
 };
 
@@ -49,15 +48,15 @@ const userSlice = createSlice({
         .addCase(loginValid.fulfilled, (state,{payload})=>{
             state.isLoading = false;
             state.isvalidUser = payload?.status === "valid" ? true : false;        
-            state.hasRecuriter = payload?.type === JOB_RECURITER ? true : false;
-            // state.isvalidUser = payload?.data?.status === "valid"? true:false;
-            // state.firstName = payload?.data?.firstName;
-            // state.lastName = payload?.data?.lastName;
-            // state.emailId = payload?.data?.emailId;
-            // state._id = payload?.data?._id;
-            // state.companyName = payload?.data?.companyName;
-            // state.hasRecruiter = payload?.data?.type === "Job Recruiter"?true:false;
-            // state.isLoading = false;
+            state.hasRecruiter = payload?.type === JobRecruiter ? true :false;
+            console.log("type",payload.type);
+            state.firstName = payload?.data?.firstName;
+            state.lastName = payload?.data?.lastName;
+            state.emailId = payload?.data?.emailId;
+            state._id = payload?.data?._id;
+            state.companyName = payload?.data?.companyName;
+            
+            state.isLoading = false;
         })
     }
   });

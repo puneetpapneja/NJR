@@ -1,7 +1,7 @@
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom';
 import { getRoutes } from './routing';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useSelector } from 'react-redux';
 import React from 'react';
 
 

@@ -24,7 +24,7 @@ export const commonRoute = [
         element:  <Registerpage />
     },
     {
-        path:"/profile",
+        path:"/profilepage",
         element:<Profile />
     }
 ]
@@ -63,7 +63,7 @@ const getRoutes =(hasRecruiter)=> [
     {
         path: "/",
         element: <PageLayout />,
-        children:hasRecruiter?recruiterRoutes:seekerRoutes
+        children: hasRecruiter ? recruiterRoutes:seekerRoutes
     }
 ]
 

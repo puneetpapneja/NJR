@@ -3,6 +3,7 @@ import { Link , useNavigate} from 'react-router-dom';
 import React ,{useEffect}from 'react';
 import {useDispatch , useSelector} from 'react-redux';
 import { loginValid } from '../store/reducers/userSlice';
+import  { setSession } from '../utils/util';
 import * as formik from 'formik';
 
 const Login = () => {
@@ -13,9 +14,11 @@ const Login = () => {
     useEffect(()=> {
       if(valid){
         navigate("/dashboard")
+
+      }
         
       }
-    })
+    )
     return (
       <Container className="d-flex justify-content-sm-center">
              <div className="w-25 p-1" >
@@ -58,7 +61,7 @@ const Login = () => {
            <Link to="/register"> Don't have an account? Register</Link>
           </div>
                <div className=" mx-auto">
-               <Button  variant="dark" type="submit" className="btn btn-dark">
+               <Button  variant="dark" type="submit" className="btn btn-dark"  onClick={() => setSession("authenticate")}>
                  Login
                </Button>
                </div>

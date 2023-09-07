@@ -2,8 +2,9 @@ import { Container, Form, Button, Alert} from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import {Link ,useNavigate} from 'react-router-dom';
 import React ,{ useState } from 'react';
- import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { registerdata } from '../store/reducers/userSlice';
+import { JobRecruiter,JobSeeker } from '../utils/constants';
 
 
 const Register = ()=>{
@@ -39,13 +40,13 @@ function handelsubmit(event){
       setRoleError("*select a role");
       return;
   }
-  if(role === "Job Recruiter" && !companyName)
+  if(role === "JobRecruiter" && !companyName)
   {
       event.preventDefault();
       setCompError("*required");
       return;
   }
-  if(role === "Job Seeker" && companyName)
+  if(role === "JobSeeker" && companyName)
   {
       event.preventDefault();
       setCompError("*not required");
@@ -89,13 +90,13 @@ return (
   <div className="form-check">
     <label className="form-check-label" htmlFor="flexRadioDefault1">
       Job Seeker
-      <input className="form-check-input" type="radio" name="flexRadioDefault" id="Job seeker" value={"Job Seeker"} onChange={(e)=>{setRole(e.target.value)}} />
+      <input className="form-check-input" type="radio" name="flexRadioDefault" id="JobSeeker" value={JobSeeker} onChange={(e)=>{setRole(e.target.value)}} />
     </label>
   </div>
   <div className="form-check">
     <label className="form-check-label" htmlFor="flexRadioDefault2">
       Job Recruiter
-      <input className="form-check-input" type="radio" name="flexRadioDefault" id="Job recruiter" value={"Job Recruiter"} onChange={(e)=>{setRole(e.target.value)}} />
+      <input className="form-check-input" type="radio" name="flexRadioDefault" id="JobRecruiter" value={JobRecruiter} onChange={(e)=>{setRole(e.target.value)}} />
     </label>
   </div>
   {roleError && <Alert variant="danger">{roleError}</Alert>}
@@ -110,7 +111,7 @@ return (
 
   <Form.Group className="mb-3">
      <Form.Text className="text-muted">
-     <Card.Link as={Link} to="/">Have a account?Login Now</Card.Link>
+     <Card.Link as={Link} to="/login">Have a account?Login Now</Card.Link>
      </Form.Text>
   </Form.Group>
 
@@ -119,9 +120,6 @@ return (
     Register
   </Button>
   </div> 
-
-
- 
   </div>
 </Form>
 </Container>

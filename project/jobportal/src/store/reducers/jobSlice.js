@@ -3,14 +3,16 @@ import axios from 'axios';
 import { API_URL } from "../../utils/constants";
 
 const initialState = {
-    jobs: [
-    ],
+    
     isLoading: false
 }
 
 export const getAllJobs = createAsyncThunk("job/getAll",async(params, thunkAPI)=>{
     return axios.get(`${API_URL}job/getAll`)
     //axios.post("",params);
+})
+export const createJobs = createAsyncThunk("job/Create",async(jobdata,thunkAPI)=>{
+    return axios.post(`${API_URL}job/Create`)
 })
 
 export const jobSlice = createSlice({
@@ -28,6 +30,16 @@ export const jobSlice = createSlice({
             state.isLoading = false;
         })
         .addCase(getAllJobs.fulfilled, (state, {payload})=>{
+            state.jobs = payload.data;
+            state.isLoading = false;
+        })
+        .addCase(createJobs.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(createJobs.rejected, (state)=> {
+            state.isLoading = false;
+        })
+        .addCase(createJobs.fulfilled, (state, {payload})=>{
             state.jobs = payload.data;
             state.isLoading = false;
         })
