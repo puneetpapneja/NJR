@@ -5,6 +5,13 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  registerUser,
+  selectRegistrationStatus,
+  selectRegistrationError,
+  create,
+} from "../store/reducers/userSlice";
 
 import { useNavigate } from "react-router-dom";
 
