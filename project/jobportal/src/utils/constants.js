@@ -1,33 +1,37 @@
 export const API_URL = "http://localhost:5000/";
 
-// export const JOB_SEEKER = "Job Seeker"
-// export const JOB_RECURITER = "Job Recruiter"
+export const JOB_SEEKER = "job seeker";
+export const JOB_RECRUITER = "job recruiter";
 
-// export const SEEKER_MENU = [
-//     {
-//         path: "/dashboard",
-//         name: "Home"
-//     },
-//     {
-//         path: "/Jobs",
-//         name: "Jobs"
-//     },
-//     {
-//         path: "/AppliedJobsPage",
-//         name: "Applied Jobs"
-//     }
-// ]
-// export const RECURITER_MENU = [
-//     {
-//         path: "/dashboard",
-//         name: "Home"
-//     },
-//     {
-//         path: "/Postjob",
-//         name: "Post Job"
-//     },
-//     {
-//         path: "/PostedJobsPage",
-//         name: "Posted Jobs"
-//     }
-// ]
+
+export const  SEEKER_MENU=[
+    {
+    path: "/Dashboard",
+    name: "Home"
+},
+    {
+    path: "/job",
+    name: "Job"
+},
+    {
+    path: "/appliedjob",
+    name: "Applied Job"
+},
+
+
+]
+
+export const RECRUITER_MENU = [
+    {
+        path: "/Dashboard",
+        name: "Home"
+    },
+    {
+        path: "/postajob",
+        name: "Post a Job"
+    },
+    {
+        path: "/postedjob",
+        name: "Posted Job"
+    }
+]

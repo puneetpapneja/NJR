@@ -1,18 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { API_URL, JOB_RECURITER, JOB_SEEKER } from "../../utils/constants";
+import { API_URL, JOB_RECRUITER, JOB_SEEKER } from "../../utils/constants.js";
 
 const initialState = {
-  isValidUser: false,
-  hasRecuriter: false,
+  user: [],
+  isvalidUser: "",
   isLoading: false,
+  hasRecruiter: false,
+  doneRegister: false,
+  userExist: false,
 };
 
+export const users = createAsyncThunk(
+  "users/create",
+  async (params, thunkAPI) => {
+    return axios.post(`${API_URL}user/create`, params);
+  }
+);
+
 export const validateUser = createAsyncThunk(
-  "user/validateUser",
+  "user/validUser",
   async (params, thunkAPI) => {
     try {
-      const response = await axios.post(`${API_URL}user/validateUser`, params);
+      const response = await axios.post(`${API_URL}user/validUser`, params);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -20,33 +31,26 @@ export const validateUser = createAsyncThunk(
   }
 );
 
-export const createuser = createAsyncThunk(
-  "user/create",
-  async (userData, thunkAPI) => {
-    try {
-      const response = await axios.post(`${API_URL}user/create`, userData);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
-    }
-  }
-);
-
-const userSlice = createSlice({
+export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    // reset: ()=> initialState
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(createuser.pending, (state) => {
+      .addCase(users.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createuser.rejected, (state, action) => {
+      .addCase(users.rejected, (state) => {
         state.isLoading = false;
       })
-      .addCase(createuser.fulfilled, (state, { payload }) => {
+      .addCase(users.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        console.log("payload", payload);
+        state.doneRegister = true;
+        //  console.log("payload", payload.msg);
+        //  console.log("payload", payload.data.msg);
+        state.userExist = payload?.data.msg === "already exist" ? true : false;
       })
       .addCase(validateUser.pending, (state) => {
         state.isLoading = true;
@@ -56,10 +60,13 @@ const userSlice = createSlice({
       })
       .addCase(validateUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.isValidUser = payload?.status === "valid" ? true : false;
-        state.hasRecuriter = payload?.type === JOB_RECURITER ? true : false;
+        console.log(payload);
+        state.isvalidUser = payload?.status === "valid" ? true : false;
+        state.hasRecruiter = payload?.type === JOB_RECRUITER ? true : false;
       });
   },
 });
+
+export const { reset } = userSlice.actions;
 
 export default userSlice.reducer;

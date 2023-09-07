@@ -1,83 +1,128 @@
+// import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import * as Yup from "yup";
-import { Formik } from "formik";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "../App.css";
+import { users } from "../store/reducers/usrSlice";
+import * as formik from "formik";
+import * as yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function Register() {
-  const navigate = useNavigate();
-  const gotoRegister = () => {
-    navigate("/");
-  };
+  const Navigate = useNavigate();
+  const doneRegister = useSelector((state) => state?.user?.doneRegister);
+  console.log("hello", doneRegister);
+  const userExist = useSelector((state) => state?.user?.userExist);
+  console.log("userExist", userExist);
+  function changepath() {
+    Navigate("/");
+  }
 
-  const initialValues = {
-    mail: "heloo@mail",
-    password: "",
-    type: "",
-  };
+  useEffect(() => {
+    if (doneRegister) {
+      Navigate("/Dashboard");
+    }
+  }, [doneRegister]);
 
-  const gotoDashboard = () => {
-    navigate("/dashboard");
-  };
+  // useEffect(() => {
+  //   if (userExist === true) {
+  //     alert("already exist");
+  //   }
+  // }, [userExist]);
+
+  const { Formik } = formik;
+  const dispatch = useDispatch();
+
+  const schema = yup.object().shape({
+    emailId: yup.string().required(),
+    password: yup.string().required(),
+    type: yup.string().required(),
+  });
+
+  function handle() {
+    Navigate("Dashboard");
+  }
+
   return (
-    <Container className="logReg">
-      <Formik initialValues={initialValues}>
-        <Row className="justify-content-center">
-          <Col xs={12} md={6}>
-            <Card>
-              <Card.Body>
-                <Card.Title>
-                  <h1>Register</h1>
-                </Card.Title>
-                <Form>
-                  <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control
-                      type="email"
-                      placeholder="Enter email"
-                      id="mail"
-                      name="mail"
-                    />
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Password"
-                      id="password"
-                      name="password"
-                    />
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Formik
+      validationSchema={schema}
+      onSubmit={(values, { setSubmitting }) => {
+        dispatch(users(values));
+      }}
+      initialValues={{
+        emailId: "",
+        password: "",
+        type: "",
+      }}
+    >
+      {({ handleSubmit, handleChange, values, touched, errors }) => (
+        <Container className="login_page">
+          <Row className="justify-content-center">
+            <Col xs={12} md={5}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Register</Card.Title>
+                  <Form noValidate onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="validationFormik01">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        name="emailId"
+                        value={values.emailId}
+                        onChange={handleChange}
+                      />
+                      <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                      </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="validationFormik02">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={values.password}
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
                     <Form.Check
-                      type="checkbox"
-                      label="Accept Terms & Conditions"
+                      inline
+                      label="Job seeker"
+                      type="radio"
+                      name="type"
+                      value="job seeker"
+                      onChange={handleChange}
                     />
-                    <label onClick={gotoRegister}>
-                      Already Registered. Go to logIn
-                    </label>
-                  </Form.Group>
-                  <Button
-                    style={{ backgroundColor: "black", border: "none" }}
-                    type="submit"
-                    onClick={gotoDashboard}
-                  >
-                    Submit
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Formik>
-    </Container>
+                    <Form.Check
+                      inline
+                      label="Job Recruiter"
+                      type="radio"
+                      name="type"
+                      value="job recruiter"
+                      onChange={handleChange}
+                    />
+                    <br /> <br />{" "}
+                    <Link onClick={changepath}>
+                      Have not log-in? Log-in now
+                    </Link>{" "}
+                    <br /> <br />
+                    <Button type="submit" variant="primary">
+                      Register
+                    </Button>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      )}
+    </Formik>
   );
 }
-
 export default Register;

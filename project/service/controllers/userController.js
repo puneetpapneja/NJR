@@ -1,20 +1,20 @@
-const userModel = require('../models/userModel');
+const userModel = require("../models/userModel");
 
 module.exports = {
   create: (req, res) => {
     const userData = req.body;
-    userModel.userCollection.create(userData)
-      .then((data) => {
+    return userModel.create(userData)
+ .then((data) => {
         return res.send({ status: "ok", msg: "User created successfully." });
       })
       .catch((err) => {
         return res.send({ status: "fail", error: err });
       });
   },
-  
+
   getAll: async (req, res) => {
     try {
-      const users = await userModel.userCollection.find();
+      const users = await userModel.getAll();
       res.status(200).json(users);
     } catch (error) {
       res.status(500).json({ error: "An error occurred" });
@@ -38,7 +38,11 @@ module.exports = {
     try {
       const userId = req.params.id;
       const updatedData = req.body;
-      const updatedUser = await userModel.userCollection.findByIdAndUpdate(userId, updatedData, { new: true });
+      const updatedUser = await userModel.userCollection.findByIdAndUpdate(
+        userId,
+        updatedData,
+        { new: true }
+      );
       if (!updatedUser) {
         return res.status(404).json({ error: "User not found" });
       }
@@ -51,7 +55,9 @@ module.exports = {
   delete: async (req, res) => {
     try {
       const userId = req.params.id;
-      const deletedUser = await userModel.userCollection.findByIdAndDelete(userId);
+      const deletedUser = await userModel.userCollection.findByIdAndDelete(
+        userId
+      );
       if (!deletedUser) {
         return res.status(404).json({ error: "User not found" });
       }
@@ -61,15 +67,13 @@ module.exports = {
     }
   },
   hasValidUser: (req, res) => {
-    const { email, pwd} = req.body;
-    return userModel.hasValidUser(email,pwd)
-    .then((data)=> {
-      if(data.length === 1){
-        res.send({status: "valid", type: data?.[0]?.type});
+    const { email, pwd } = req.body;
+    return userModel.hasValidUser(email, pwd).then((data) => {
+      if (data.length === 1) {
+        res.send({ status: "valid", type: data?.[0]?.type });
+      } else {
+        res.send({ status: "invalid" });
       }
-      else{
-        res.send({status: "invalid"});
-      }
-    })
-  }
+    });
+  },
 };
