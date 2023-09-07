@@ -4,8 +4,7 @@ import Navigation from "./navbar";
 import { Col, Container, Row } from "react-bootstrap";
 import { getSession } from "../utils";
 import Footer from "./footer";
-// import LoginPage from "../pages/loginpage";
-// import SignUp from "./SignUp";
+import { useSelector } from "react-redux";
 
 const PageLayout = () => {
 

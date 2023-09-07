@@ -2,7 +2,6 @@ const userModel = require("../models/userModel");
 
 module.exports = {
   create: (req, res) => {
-    //logic/data validation code write here
     return userModel
       .create(req.body)
       .then((data) => {
@@ -46,12 +45,15 @@ module.exports = {
       )
       .catch((err) => res.send({ status: "fail", errro: err }));
   },
-
   hasValidUser: (req, res) => {
     const { emailId, password } = req.body;
     return userModel.hasValidUser(emailId, password).then((data) => {
       if (data.length === 1) {
-        res.send({ status: "valid", type: data?.[0].type });
+        res.send({
+          status: "valid",
+          type: data?.[0].type,
+          emailId: data?.[0].emailId,
+        });
       } else {
         res.send({ status: "invalid" });
       }
