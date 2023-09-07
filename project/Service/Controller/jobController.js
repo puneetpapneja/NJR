@@ -36,7 +36,7 @@ module.exports={
         .catch((err)=>res.send({status:"fail",err:(err)}))
     },
     findposted: (req,res)=>{
-        console.log("hiii",req.body);
+        // console.log("hiii",req.body);
         return jobModel.findposted(req.body.email)
         .then((postedjobs)=>{console.log(postedjobs);
             res.send(postedjobs)})

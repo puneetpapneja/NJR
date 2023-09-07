@@ -8,6 +8,9 @@ function TextExample() {
   const email= useSelector(state=>state?.user?.email);
   const postedjob=useSelector(state=>state?.job?.postedjob);
   const dispatch= useDispatch();
+  // useEffect(()=>{
+  //   dispatch(postedjobs({email}))
+  // })
   useEffect(()=>{
     dispatch(postedjobs({email:email}));
   },[dispatch,postedjob]);
@@ -17,8 +20,8 @@ function TextExample() {
       dispatch(reset());
     }
   },[dispatch])
-  console.log(email);
-  console.log(postedjob);
+  // console.log(email);
+  // console.log(postedjob);
   return(
     postedjob.map((jobs)=>{const {job_title,
       description,companyName, _id}=jobs
