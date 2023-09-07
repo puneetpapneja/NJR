@@ -8,4 +8,5 @@ app.get("/health",(req,res)=>(
     res.send()
 ))
 
-app.listen(port,() => console.log("service started",port));
+app.listen(PORT,() => console.log("service started",PORT));
+    
