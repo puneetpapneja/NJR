@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button ,Toast} from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { postNewJob } from "../store/reducers/postJobSlice";
 
@@ -17,15 +17,19 @@ export default function PostJob() {
     const [maxSalary, setMaxSalary] = useState("");
     const dispatch = useDispatch();
     const postingStatus = useSelector((state) => state.postJob.postingStatus);
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (title && description && maxSalary) {
-            // Dispatch the action to post new job
-            dispatch(postNewJob({ title, description, maxSalary }));
-        }
-    };
+
+    const [showToast, setShowToast] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title && description && maxSalary) {
+      dispatch(postNewJob({ title, description, maxSalary }));
+      setShowToast(true);
+    }
+  };
     return (
-        <Form style={formStyle} onSubmit={handleSubmit}>
+        <div>
+          <Form style={formStyle} onSubmit={handleSubmit}>
             <h1 className="mb-4" style={{ marginTop: "15vh" }} >Post Job</h1>
             <Form.Group className="mb-3 col-md-4" controlId="jobTitle">
                 <Form.Label>Job Title</Form.Label>
@@ -58,5 +62,22 @@ export default function PostJob() {
                 Post
             </Button>
         </Form>
+        <Toast
+        show={showToast}
+        onClose={() => setShowToast(false)}
+        style={{
+          position: "absolute",
+          top: 20,
+          right: 20,
+          backgroundColor: "green",
+          color: "white",
+        }}
+        delay={3000} // Set the duration for how long the toast will be visible
+        autohide
+      >
+        <Toast.Body>Job posted successfully!</Toast.Body>
+      </Toast>
+        </div>
+        
     );
 }

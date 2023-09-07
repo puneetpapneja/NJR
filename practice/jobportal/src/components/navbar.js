@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { Nav, Navbar, Form, FormControl, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import Dropdown from "react-bootstrap/Dropdown";
 import './dashboard.css';
 
 const NavBarComponent = () => {
   const [loggedOut, setLoggedOut] = useState(false);
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     // Implement your logout logic here
     // For example, clear any user session, update state, etc.
-    setLoggedOut(true);
+    // setLoggedOut(false);
+    sessionStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
