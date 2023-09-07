@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_URL } from "../../utils/constants";
 
 const initialState = {
-    
+    jobs :[],
     isLoading: false
 }
 
@@ -12,7 +12,7 @@ export const getAllJobs = createAsyncThunk("job/getAll",async(params, thunkAPI)=
     //axios.post("",params);
 })
 export const createJobs = createAsyncThunk("job/Create",async(jobdata,thunkAPI)=>{
-    return axios.post(`${API_URL}job/Create`)
+    return axios.post(`${API_URL}job/Create`,jobdata)
 })
 
 export const jobSlice = createSlice({

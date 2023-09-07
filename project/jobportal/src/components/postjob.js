@@ -8,11 +8,12 @@ import { createJobs } from '../store/reducers/jobSlice';
 const Postjob = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [title,setTitle]=useState("");
-  const[description,setDescription]=useState("");
-  const [salary,setMaxSalary]=useState("");
+  const [jobTitle,setTitle]=useState("");
+  const[jobDescription,setDescription]=useState("");
+  const [maxSalary,setMaxSalary]=useState("");
   function handelsubmit(event){
-    const postdata={jobTitle:title,jobDescription:description, maxSalary:salary,};
+    event.preventDefault();
+    const postdata={jobTitle:jobTitle,jobDescription:jobDescription, maxSalary:maxSalary,};
     console.log(postdata);
     dispatch(createJobs(postdata))
     if(postdata!==""){
@@ -28,17 +29,17 @@ const Postjob = () => {
 
           <Form.Group className="mb-3" controlId="formBasicjobtitle">
           <Form.Label>Job Title</Form.Label>
-  <input type='text' onChange={(e)=>{setTitle(e.target.value)}}></input>
+  <input type='text' value={jobTitle} onChange={(e)=>{setTitle(e.target.value)}}></input>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicdescription">
           <Form.Label>Job Description</Form.Label>
-  <input type='text' onChange={(e)=>{setDescription(e.target.value)}}></input>
+  <input type='text' value={jobDescription} onChange={(e)=>{setDescription(e.target.value)}}></input>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicsalary">
           <Form.Label>Max Salary</Form.Label>
-  <input type='text' onChange={(e)=>{setMaxSalary(e.target.value)}}></input>
+  <input type='text' value={maxSalary} onChange={(e)=>{setMaxSalary(e.target.value)}}></input>
           </Form.Group>
 
           <div class=" mx-auto">
