@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 import { API_URL } from "../../utils/constants";
-import { setMessage } from "./notificationSlices";
+
 const initialState = {
     Status:"",
     Error:"",
@@ -10,38 +10,13 @@ const initialState = {
     isLoading:false
 }
 
-export const registerUser = createAsyncThunk("user/create", async(userData,thunkAPI)=>{
-    try {
-    const { data } = await axios.post(`${API_URL}user/create`, userData);
-    const { status, msg } = data;
-    if (status === "ok") {
-      console.log("enter into if");
-      const successPayload = {
-        title: "Success",
-        message: msg,
-        variant: "success"
-      };
-      thunkAPI.dispatch(setMessage(successPayload));
-      return data;
-    } else {
-      const errorPayload = {
-        title: "Fail",
-        message: msg,
-        variant: "error"
-      };
-      
-      thunkAPI.dispatch(setMessage(errorPayload));
-      throw new Error(msg); 
-    }
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data);
-  }
-});
+export const registerUser = createAsyncThunk("user/create", async(userData,ThunkAPI)=>{
+    return axios.post(`${API_URL}user/create`,userData)
+})
 
 export const loginValidation = createAsyncThunk("user/loginValidation",async (loginData,ThunkAPI)=>{
     try{
-       const response = await axios.post(`${API_URL}user/loginValidation`, loginData);
-    return response.data; 
+        return axios.post(`${API_URL}user/loginValidation`,loginData);
       
     }
     catch(error){
@@ -75,11 +50,11 @@ export const userSlice = createSlice({
         .addCase(loginValidation.rejected, (state)=> {
             state.isLoading = false;
         })
-        .addCase(loginValidation.fulfilled, (state,action)=>{
-             const payload = action.payload;
-             state.isvalidUser = payload?.status === "valid" ? true : false;
-            state.firstName = payload?.firstName;
-            state.lastName = payload?.lastName;
+        .addCase(loginValidation.fulfilled, (state,{payload})=>{
+            // console.log(payload);
+            state.isvalidUser = payload?.data?.status === "valid"? true:false;
+            state.firstName = payload?.data?.firstName;
+            state.lastName = payload?.data?.lastName;
             state.emailId = payload?.data?.emailId;
             state._id = payload?.data?._id;
             state.companyName = payload?.data?.companyName;

@@ -1,4 +1,4 @@
-const jobModels = require("../models/jobModel")
+const jobModel = require("../models/jobModel");
 
 module.exports = {
     create: (req,res)=>{

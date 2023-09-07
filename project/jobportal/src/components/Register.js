@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../store/reducers/userregisterSlice";
-import { setMessage } from "../store/reducers/notificationSlices";
 export default function Register(){
     const navigate = useNavigate();
     const err = useSelector(state=>state?.user?.Error);
@@ -17,7 +16,7 @@ export default function Register(){
     const [comp,setComp]=useState("d-none");
     const [compError,setCompError]=useState("");
     const [company,setCompany]=useState("");
-    const Handelclick= async(event) =>{
+    const Handelclick= (event) =>{
         if(!email || !isValidEmail(email))
         {
             event.preventDefault();
@@ -41,24 +40,12 @@ export default function Register(){
             setCompError("*required");
             return;
         }
-
         const data = {emailId:email,password:password,type:role,companyName:company};
+        console.log(data);
         dispatch(registerUser(data));
         if(!err){
-   const successPayload = {
-  title: "Success",
-  message: "Registration successful!",
-  variant: "success"
-};
-dispatch(setMessage(successPayload)); const result = await dispatch(registerUser(data));
-
-      if (registerUser.fulfilled.match(result)) {
-    
-        dispatch(setMessage({ title: 'Success', message: 'Registration successful!', variant: 'success' }));
-        //navigate('/login');
-      }
+            navigate("/login");
         }
-        
     }
       const isValidEmail = (email) => {
     return email.includes('@gmail.com');
@@ -82,7 +69,6 @@ dispatch(setMessage(successPayload)); const result = await dispatch(registerUser
                         <Form.Control 
                             type="text"
                             value={email}
-                            placeholder='Enter your Email'
                             onChange={(e)=>{
                                     setEmail(e.target.value);
                                     setEmailError("");
@@ -99,7 +85,6 @@ dispatch(setMessage(successPayload)); const result = await dispatch(registerUser
                         <Form.Control 
                             type="text"
                             value={password}
-                            placeholder='Enter your Password'
                             onChange={
                                 (e)=>{
                                     setPassword(e.target.value);
@@ -156,7 +141,6 @@ dispatch(setMessage(successPayload)); const result = await dispatch(registerUser
                         <Form.Control 
                             type="text"
                             value={company}
-                            placeholder='Enter your Company Name'
                             onChange={
                                 (e)=>{
                                     setCompany(e.target.value);
