@@ -36,7 +36,7 @@ export default function profile(){
      <Row className='mb-5'>
                     <Col lg="5"></Col>
                     <Col>
-                        <Button variant='dark' type='Submit' className='my-5 px-5 fs-5'>Submit</Button>
+                        <Button variant='secondary' type='Submit' className='my-5 px-5 fs-5'>Submit</Button>
                     </Col>
                 </Row>
     </Container>

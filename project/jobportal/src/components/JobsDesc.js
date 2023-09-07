@@ -17,7 +17,7 @@ export default function JobDescStruct (props){
     <Container>
  <Card style={{marginTop:"20px"}}>
       
-      <Card.Header as="h5">Senior deveoper</Card.Header>
+      <Card.Header as="h5">Senior developer</Card.Header>
       
       <Card.Body>
         <Card.Title>Description</Card.Title>
@@ -39,7 +39,7 @@ export default function JobDescStruct (props){
     </Card>
     <Card style={{marginTop:"20px"}}>
       
-      <Card.Header as="h5">Senior deveoper</Card.Header>
+      <Card.Header as="h5">Senior developer</Card.Header>
       
       <Card.Body>
         <Card.Title>Description</Card.Title>
