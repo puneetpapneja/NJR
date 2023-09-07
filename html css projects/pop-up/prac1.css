@@ -1,0 +1,285 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#landing_div{
+    /* border: 2px solid rebeccapurple; */
+    height: 100vh;
+    width: 100vw;
+    /* background-color: antiquewhite; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url("banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    padding-left: 2rem;
+    width: 100vw;
+    margin-bottom: 13rem;
+    /* padding-right: 25rem; */
+}
+
+#login{
+    background: transparent;
+    border: 0px;
+}
+
+/* #logo{
+    
+} */
+
+nav{
+    /* background-color: aquamarine; */
+    width: 40vw;
+    height: 90%;
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: center;
+    
+}
+
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    
+}
+
+section h1{
+    font-size: 4rem;
+    width: 60vw;
+    
+    /* font-stretch: expanded; */
+    /* background-color: aqua; */
+    text-align: center;
+    margin-bottom: 3rem;
+    /* word-spacing: 1rem; */
+
+}
+
+section p{
+    /* background-color: blueviolet; */
+    width: 40vw;
+    text-align: center;
+    margin-bottom: 2rem;
+
+    
+}
+
+        
+/* #section1{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("log_img.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: absolute;
+    background-color: #1b1bd9;        
+    /* display: ; */
+    /* display: hidden; 
+    
+    
+    
+    
+}*/
+#container{
+    display: flex;
+    height: 600px;
+    width: 800px;
+    border: 1px solid black;
+    margin: auto;
+    /* margin-top: 50px; */
+    box-shadow: 9px 9px 25px #555151;
+    position: absolute;
+    top: 10vh;
+    left: 25vw;
+    display: none;
+    
+    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    background-color: antiquewhite;
+
+}
+
+.form h2{
+    font-size: 3rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 40px;
+    font-weight: 200;
+    letter-spacing: 5px;
+
+}
+
+.i_field{
+    padding: 12px;
+    width: 65%;
+    margin: 15px;
+    border: 1px solid #251f1f;
+    outline: none;
+    border-radius: 4px/19%;
+}
+
+#submit{
+    padding: 12px 30px;
+    width: 65%;
+    margin-top: 15px;
+    background-color: black;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    border-radius: 4px/19%;
+}
+
+#submit:hover{
+    cursor: pointer;
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 14px;
+
+    
+
+
+}
+
+.form a{
+    text-decoration: none;
+    color: black;
+    margin-top: 25px;
+
+}
+
+.form a:hover{
+    
+    color: #1b1bd9;
+
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------- */
+
+.image_con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    background-color: #f6dbb7e3;
+}
+
+
+.image_con img{
+    width: 450px;
+    height: 450px;
+    border-radius: 5px/2%;
+    object-fit: cover;
+    border: 1px solid black;
+
+    
+
+}
+
+.splitter{
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 18px;
+    
+}
+
+hr{
+    color: black;
+    height: 0px;
+    width: 100px;
+    margin-top: 10.5px;
+    display: inline-block
+    
+    
+}
+
+span{
+    margin: 0px 4px;
+
+}
+
+.icons{
+    width: 65%;
+    height: 32px;
+    background-color: #efd1a9;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 4px/19%;
+
+
+}
+
+
+.icons span{
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+
+.icons img{
+    height: 16px;
+    width: 15.6px;
+}
+
+.icons:hover{
+    
+    background-color: #efd1a9;
+    border: 1px solid black;
+
+    
+
+}
+
+#dont{
+    width: 70%;
+    margin-top: 25px;
+
+}
+
+#dtxt{
+    color: #1b1bd9;
+    font-weight: 300;
+}
+
+#dtxt:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#cross{
+    position: absolute;
+    top: 0px;
+    right: 22vw;
+    top: 7vh;
+    display: none;
+    
+}

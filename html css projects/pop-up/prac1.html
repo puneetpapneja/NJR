@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./prac1.css">
+</head>
+
+<body>
+    <section class="landing">
+        <div id="landing_div">
+            <header>
+        
+                <div id="logo">logo img</div>
+                <nav>
+                    <ul>
+                        <li>HOME</li>
+                        <li>ABOUT</li>
+                        <li>COURSE</li>
+                        <li>BLOG</li>
+                        <li><button id="login" onclick="display()">Login</button></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <h1>World's Biggest University</h1>
+            <p>Making Website is now one of the easiest thing in the world.You just need to know HTML,CSS,Javascript and you are good to go</p>
+            <button>Visit Us To Know More</button>
+        </div>
+    </section> 
+        
+    
+        <button id="cross" onclick="hide()">❌</button>
+        <div id="container">
+            <form action="" class="form">
+                <h2>LOGIN</h2>
+                <input type="email" name="email" id="" class="i_field" placeholder="Enter Email">
+                <input type="password" name="password" id="" class="i_field" placeholder="Enter Password">
+                <input type="submit" value="LOGIN " id="submit">
+                <a href="">Forgot Password?</a>
+                <div class="splitter">
+    
+                    <hr>
+                    <span>or</span>
+                    <hr>
+                </div>
+    
+                <div class="icons">
+                    <span class="google">Sign Up with</span>
+                    <img src="google logo.png" alt="">
+                </div>
+                <div id="dont">Dont have an account?<span id="dtxt">SIGN UP</span> </div>
+            </form>
+    
+        <div class="image_con">
+            <img src="log_img.jpg" alt="">
+        </div>
+    
+        </div> 
+        
+    
+        </section>
+        <script defer>
+            let popup=document.getElementById("container");
+            let c=document.getElementById("cross");
+            function display(params) {
+                console.log(popup);
+                popup.style.display="flex"
+                c.style.display="block"
+            }
+            
+            function hide(params) {
+                popup.style.display="none"
+                c.style.display="none"   
+            }
+            
+        </script>
+    
+</body>
+</html>

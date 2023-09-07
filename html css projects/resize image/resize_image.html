@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-weight: 600;
+        background: #a1ffce; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          #faffd1,
+          #a1ffce
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          #faffd1,
+          #a1ffce
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        /* width: 100vw; */
+      }
+      #left_container {
+        width: 80vw;
+        /* background-color: aquamarine; */
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid grey;
+        background-position: center;
+        background-size: cover;
+        /* background-color: black; */
+
+        /* filter: blur(100px); */
+        /* backface-visibility: hidden; */
+      }
+
+      #left_container_div {
+        height: 50%;
+        width: 50%;
+        border: 2px solid gray;
+        object-fit: cover;
+        object-position: center;
+        background-color: aqua;
+
+      }
+      #left_container_div img {
+        height: 100%;
+        width: 100%;
+        /* border: 2px solid red; */
+      }
+
+      #right_container {
+        height: 100%;
+        width: 20vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        /* background-color: #c7f9cc; */
+      }
+
+      h1 {
+        margin: 7vh 0px 1vh 1rem;
+        font-size: 3rem;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+        padding: 1rem;
+        /* background-color: bisque; */
+        height: 90%;
+
+        /* padding-top: 5vh; */
+      }
+
+      label {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10%;
+        /* height: 10%;
+             */
+        font-size: 1.2rem;
+        font-weight: 400 !important;
+      }
+
+      input {
+        margin: 0.5rem 0px;
+        height: 1.5rem;
+        width: 100%;
+        padding: 0.7rem;
+      }
+
+      form div {
+        margin-top: 5%;
+        /* margin-right: 10em; */
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 60%;
+        padding-left: 0.3rem;
+        gap: 4em;
+      }
+
+      button {
+        background-color: #22223b;
+        height: 1.8rem;
+        /* width: 20%; */
+        border-radius: 0.3rem;
+        padding: 0.1rem 0.4rem;
+        color: whitesmoke;
+      }
+
+      p {
+        margin-top: auto;
+        color: red;
+        line-height: 1.3rem;
+      }
+    </style>
+    
+    
+
+    
+    
+    
+    
+  </head>
+  <body>
+    <div id="left_container">
+      <div id="left_container_div">
+        <img
+          src="https://wallpaperheart.com/wp-content/uploads/2018/03/scenery-hd-wallpaper-beautiful-waterfall-hd-scenery.jpg"
+          alt="image"
+          
+        />
+      </div>
+    </div>
+
+    <div id="right_container">
+      <h1>Welcome Here</h1>
+      <form id="form">
+        <label for="height"
+          >Enter height of image:
+
+          <input required id="height" type="number" />
+        </label>
+        <label for="width"
+          >Enter width of image:
+
+          <input required id="width" type="number" />
+        </label>
+
+        <div>
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
+          
+        </div>
+
+        <p>
+          Note* : The value submitted in the input fields are the values in
+          percentage units.Like 50 is not 50 pixel it is 50% of the page.
+        </p>
+      </form>
+    <script defer>
+    
+        const form=document.getElementById("form");
+        form.addEventListener("submit",(e)=>{
+            e.preventDefault();
+            // console.log(form)
+            let h=document.getElementById("height").value;
+            let w=document.getElementById("width").value;
+            const img=document.getElementById("left_container_div");
+            h=parseInt(h);
+            w=parseInt(w);
+            if(h>100||w>100){
+                alert("values should be not greater than 100 percent");
+                return;
+            }
+            img.setAttribute("style",`width: ${w}%;height: ${h}%`);
+            img.style.height=h;
+            img.style.width=Number(w)
+        })
+
+      
+  </script>
+    </div>
+  </body>
+</html>

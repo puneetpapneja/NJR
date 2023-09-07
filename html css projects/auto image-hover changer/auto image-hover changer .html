@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        height: 100vh;
+        width: 100vw;
+        padding: 40px;
+        margin: 0px;
+        
+        box-sizing: border-box;
+        /* background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
+         */
+         background-color: #E9FFC2;
+      }
+
+      div {
+        /* height: 500px; */
+        width: 500px;
+        /* height: max-content; */
+        border: 2px solid grey;
+      }
+      
+      div img {
+        width: 100%;
+      }
+      
+      #btn-controller{
+        width: 500px;
+        border: 2px solid grey;
+      }
+      
+      #btn_div{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <img id="im" src="" alt="img" />
+      <div><center>Auto-Image viewer</center></div>
+    </div>
+    <div id="btn-controller">
+      <img onmouseenter="Hover()" onmouseleave="noHover()" id="b_im" src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Wallpapers-pexels-photo.jpg" alt="img" />
+      <div id="btn_div">
+        Image changer on Hover
+      </div>
+    </div>
+  </body>
+
+  <script>
+    images = [
+      "https://www.pixelstalk.net/wp-content/uploads/2016/07/Wallpapers-pexels-photo.jpg",
+      "https://www.thewowstyle.com/wp-content/uploads/2015/01/nature-images..jpg",
+      "https://jooinn.com/images/nature-319.jpg",
+    ];
+    
+    let index = 0;
+    setInterval(() => {
+      if (index === images.length) index = 0;
+      let i = document.getElementById("im");
+      i.src = images[index];
+      // console.log(i);
+      index++;
+    }, 3000);
+    
+    let hover_index=0;
+    let i = document.getElementById("b_im");
+    
+    function timer(params) {
+      hover_index++;
+      i.src = images[hover_index];
+      if (hover_index === images.length-1) hover_index = -1}
+    
+    function Hover(params) {
+      var x=setTimeout(timer, 500);
+    }
+    
+
+    
+    
+
+  </script>
+</html>

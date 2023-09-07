@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* flex-direction: column; */
+        /* gap: 4rem; */
+        height: 100vh;
+        width: 100vw;
+        /* padding: 40px; */
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      #main {
+        /* height: 500px; */
+        height: 90%;
+        width: 80%;
+        /* height: max-content; */
+        border: 2px solid grey;
+      }
+      
+      div img {
+        height: 100%;
+        width: 100%;
+      }
+      
+      #btn-controller{
+        width: 500px;
+        border: 2px solid grey;
+      }
+      
+      #btn_div{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      
+      
+      
+
+    </style>
+  </head>
+  <body>
+    <button onclick="previous()"><</button>
+    <div id="main">
+      <img id="im" src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Wallpapers-pexels-photo.jpg" alt="img" />
+    </div>
+    <button onclick="next()">></button>
+      
+      <!-- <div><center>Auto-Image viewer</center></div> -->
+    <!-- <div id="btn-controller">
+      <img id="b_im" src="https://www.pixelstalk.net/wp-content/uploads/2016/07/Wallpapers-pexels-photo.jpg" alt="img" />
+      <div id="btn_div">
+        <button onclick="previous()">Previous</button>
+        <button onclick="next()">Next</button>
+      </div>
+    </div> -->
+  </body>
+
+  <script>
+    images = [
+      "https://www.pixelstalk.net/wp-content/uploads/2016/07/Wallpapers-pexels-photo.jpg",
+      "https://www.thewowstyle.com/wp-content/uploads/2015/01/nature-images..jpg",
+      "https://jooinn.com/images/nature-319.jpg",
+    ];
+    
+    let index = 0;
+    let i = document.getElementById("im");
+    
+    function timer(params) {
+    if (index === images.length-1||index>=images.length-1) index = 0;
+      i.src = images[index];
+      // console.log(i);
+      index++;
+    }
+    
+    
+    setInterval(timer, 3000);
+    
+    // let b_index=0;
+    function next() {
+        if (index === images.length-1) index = -1;
+        index++;
+        console.log(index)
+        if (index === images.length) index = -1;
+    //   let i = document.getElementById("im");
+      i.src = images[index];
+    }
+    function previous() {
+      if (index === 0) index = images.length;
+      index--;
+    //   let i = document.getElementById("im");
+      i.src = images[index];
+    }
+  </script>
+</html>
