@@ -1,0 +1,28 @@
+.div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left, #middle, #right {
+    width: 25%;
+    height: 100px;
+    border: 2px solid black; 
+}
+
+#left {
+    background: red;
+}
+
+#middle {
+    background: green;
+}
+
+#right {
+    background: blue;
+}
+
+h1 {
+    color:black;
+    text-align: center;
+}
