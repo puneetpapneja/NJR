@@ -22,6 +22,7 @@ const AppRoutes = () => {
             <Route path="/postajob" element={<Postajob />} />
             <Route path="/postedjob" element={<Jobs />} />
             <Route path="/jobs" element={<Postedjob />} />
+            <Route path="/profile" element={<Postedjob />} />
         </Routes>
         </>
     );
