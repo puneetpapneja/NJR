@@ -1,6 +1,6 @@
 // import Button from 'react-bootstrap/Button';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -17,6 +17,14 @@ function Navigation() {
     // For example, clear any user session, update state, etc.
     //     setLoggedOut(false);
     // };
+    const navigate = useNavigate();
+      const handleLogout = () => {
+    // Implement your logout logic here
+    // For example, clear any user session, update state, etc.
+    // setLoggedOut(false);
+    sessionStorage.removeItem("token");
+    navigate("/");
+  };
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -60,7 +68,7 @@ function Navigation() {
                                 </Link>
                             </Dropdown.Item>
                             {/* <Dropdown.Divider /> */}
-                            <Dropdown.Item>
+                            <Dropdown.Item onClick={handleLogout}>
                                 <i className='bi bi-box-arrow-right'></i> Logout
                             </Dropdown.Item>
                         </Dropdown.Menu>
