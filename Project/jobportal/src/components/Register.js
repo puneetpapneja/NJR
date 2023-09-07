@@ -1,139 +1,130 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  registerUser,
-  selectRegistrationStatus,
-  selectRegistrationError,
-  create,
-} from "../store/reducers/userSlice";
-
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { users } from "../store/reducers/userSlice";
+import * as formik from "formik";
+import * as yup from "yup";
+import { useDispatch, useSelector } from "react-redux";
 
 function Register() {
-  const navigate = useNavigate();
   const Navigate = useNavigate();
-  function handleclick() {
-    Navigate("/dashboard");
+  const doneRegister = useSelector((state) => state?.user?.doneRegister);
+  const userExist = useSelector((state) => state?.user?.userExist);
+
+  console.log("userExist", userExist);
+  function changepath() {
+    Navigate("/");
   }
-  const gotoLogin = () => {
-    navigate("/Login");
-  };
 
-  // const [formData, setFormData] = useState({});
+  useEffect(() => {
+    if (doneRegister && userExist === false) {
+      Navigate("/Dashboard");
+    }
+  }, [doneRegister, userExist]);
 
-  // const [selectedRole, setSelectedRole] = useState("");
-  // const [validated, setValidated] = useState(false);
-  // const dispatch = useDispatch();
-  // const isLoading = useSelector((state) => state?.user?.isLoading);
+  useEffect(() => {
+    if (userExist === true) {
+      alert("already exist");
+    }
+  }, [userExist]);
 
-  // const handleRoleChange = (event) => {
-  //   const role = event.target.value;
-  //   setFormData({
-  //     ...formData,
-  //     type: role,
-  //   });
-  // };
+  const { Formik } = formik;
+  const dispatch = useDispatch();
 
-  // const handleEmailChange = (event) => {
-  //   const email = event.target.value;
-  //   setFormData({
-  //     ...formData,
-  //     emailId: email,
-  //   });
-  // };
+  const schema = yup.object().shape({
+    emailId: yup.string().required(),
+    password: yup.string().required(),
+    type: yup.string().required(),
+  });
 
-  // const handlePwdChange = (event) => {
-  //   const pwd = event.target.value;
-  //   setFormData({
-  //     ...formData,
-  //     password: pwd,
-  //   });
-  // };
+  function handle() {
+    Navigate("Dashboard");
+  }
 
-  // const handleCompanyName = (event) => {
-  //   const companyName = event.target.value;
-  //   setFormData({
-  //     ...formData,
-  //     companyName: companyName,
-  //   });
-  // };
-  // const handleSubmit = (event) => {
-  //   const form = event.currentTarget;
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   if (form.checkValidity() === false) {
-  //     event.preventDefault();
-  //     event.stopPropagation();
-  //   }
-
-  //   setValidated(true);
-  //   dispatch(createuser(formData));
-  // };
   return (
-    <Container className="login_page">
-      <Row className="justify-content-center">
-        <Col xs={12} md={5}>
-          <Card>
-            <Card.Body>
-              <h2>Register</h2>
-              <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    name="email"
-                    // onChange={userdata}
-                  />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    // onChange={userdata}
-                  />
-                </Form.Group>
-                <Form.Check
-                  inline
-                  label="Job seeker"
-                  type="radio"
-                  name="work"
-                  value="job seeker"
-                  // onChange={userdata}
-                />
-                <Form.Check
-                  inline
-                  label="Job Recruiter"
-                  type="radio"
-                  name="work"
-                  // onChange={userdata}
-                  value="job recruiter"
-                />
-                <br /> <br />
-                <label onClick={gotoLogin}>
-                  Already have account? go to Login
-                </label>
-              </Form>
-              <br />
-              <Button variant="dark" type="submit" onClick={handleclick}>
-                Register
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <Formik
+      validationSchema={schema}
+      onSubmit={(values, { setSubmitting }) => {
+        console.log(values);
+        dispatch(users(values));
+      }}
+      initialValues={{
+        emailId: "",
+        password: "",
+        type: "",
+      }}
+    >
+      {({ handleSubmit, handleChange, values, touched, errors }) => (
+        <Container className="login_page">
+          <Row className="justify-content-center">
+            <Col xs={12} md={5}>
+              <Card>
+                <Card.Body>
+                  <Card.Title>Register</Card.Title>
+                  <Form noValidate onSubmit={handleSubmit}>
+                    <Form.Group className="mb-3" controlId="validationFormik01">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        name="emailId"
+                        value={values.emailId}
+                        onChange={handleChange}
+                      />
+                      <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                      </Form.Text>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="validationFormik02">
+                      <Form.Label>Password</Form.Label>
+                      <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        value={values.password}
+                        onChange={handleChange}
+                      />
+                    </Form.Group>
+                    <Form.Check
+                      inline
+                      label="Job seeker"
+                      type="radio"
+                      name="type"
+                      value="job seeker"
+                      onChange={handleChange}
+                    />
+                    <Form.Check
+                      inline
+                      label="Job Recruiter"
+                      type="radio"
+                      name="type"
+                      value="job recruiter"
+                      onChange={handleChange}
+                    />
+                    <br /> <br />{" "}
+                    <Link onClick={changepath}>
+                      Have not log-in? Log-in now
+                    </Link>{" "}
+                    <br /> <br />
+                    <Button type="submit" variant="primary">
+                      Register
+                    </Button>
+                  </Form>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      )}
+    </Formik>
   );
 }
+
 export default Register;

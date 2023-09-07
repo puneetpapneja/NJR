@@ -30,7 +30,12 @@ export const createuser = createAsyncThunk(
     }
   }
 );
-
+export const users = createAsyncThunk(
+  "users/create",
+  async (params, thunkAPI) => {
+    return axios.post(`${API_URL}user/create`, params);
+  }
+);
 const userSlice = createSlice({
   name: "user",
   initialState,

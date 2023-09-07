@@ -5,6 +5,12 @@ const initialState = {
   jobs: [],
   isLoading: false,
 };
+export const users = createAsyncThunk(
+  "users/create",
+  async (params, thunkAPI) => {
+    return axios.post(`${API_URL}user/create`, params);
+  }
+);
 
 export const getAllJobs = createAsyncThunk(
   "jobs/getAll",
