@@ -40,8 +40,11 @@ export default function Jobs() {
     setSearchText(event.target.value);
   };
 
-  const filteredJobs = jobs.filter((item) =>
-    item.title.toLowerCase().includes(searchText.toLowerCase())
+   const filteredJobs = jobs.filter((item) =>
+    // Search in title, description, and maxSalary
+    item.title.toLowerCase().includes(searchText.toLowerCase()) ||
+    item.description.toLowerCase().includes(searchText.toLowerCase()) ||
+    item.maxSalary.toString().includes(searchText) // Convert maxSalary to string for comparison
   );
 
   return (

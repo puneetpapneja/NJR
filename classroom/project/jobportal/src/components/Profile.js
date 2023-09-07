@@ -1,9 +1,20 @@
-import React from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Form, Button,Toast } from 'react-bootstrap';
+
 
 export default function Profile() {
+    const [showToast,setShowToast]=useState(false);
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        setTimeout(() => {
+            setShowToast(true); 
+            console.log("showToast set to true");
+
+          }, 1000);
+    }
     return (
-        <Container className='mt-4'>
+        <div>
+            <Container className='mt-4'>
             <h1 className=' mb-4' style={{marginLeft:'17vw'}}>Profile</h1> 
             <Form className='mx-auto'  style={{ width: '40%'}}>
                 <Form.Group controlId='firstName' className='mb-3'>
@@ -32,6 +43,24 @@ export default function Profile() {
                     </Button>
                 </div>
             </Form>
+           
         </Container>
+        <Toast
+        show={showToast}
+        onClose={() => setShowToast(false)}
+        style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          backgroundColor: 'green',
+          color: 'white',
+        }}
+        delay={3000} // Set the duration for how long the toast will be visible
+        autohide
+      >
+        <Toast.Body>Submitted successfully!</Toast.Body>
+      </Toast>
+        </div>
+        
     );
 }

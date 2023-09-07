@@ -25,7 +25,7 @@ function Navigation() {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="#" className="me-5 ms-3">
-            Logo
+            JobPortal
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
