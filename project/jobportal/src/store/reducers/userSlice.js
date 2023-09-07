@@ -15,7 +15,7 @@ export const registerUser = createAsyncThunk("user/create", async(userData,Thunk
 })
 export const updateProfile = createAsyncThunk("user/update", async (data,ThunkAPI)=>{
     // console.log(data);
-    return axios.put(`${API_URL}user/update`,data)
+    return axios.post(`${API_URL}user/update`,data)
 })
 export const loginValidation = createAsyncThunk("user/loginValidation",async (loginData,ThunkAPI)=>{
     try{
