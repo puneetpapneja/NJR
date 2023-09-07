@@ -1,18 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import store from './store';
+import { BrowserRouter as Router} from "react-router-dom";
 import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
+import { UserProvider } from './UserContext';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
+  <switch>
   <Provider store={store}>
-
-  
-    <App />
-    </Provider>
+  <UserProvider> {/* Wrap your App with UserProvider */}
+      <App />
+    </UserProvider>
+  </Provider>,
+  </switch>,
+  document.getElementById('root')
 );
 
 reportWebVitals();

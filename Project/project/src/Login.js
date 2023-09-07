@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
+import { useUser } from './UserContext';
 import { useEffect, useState } from 'react';
 const Loginpg = () => {
     const navigate = useNavigate();
     const [form, setForm] = useState({});
     const [users, setUsers] = useState([]);
+    const { setUserEmail } = useUser();
     const [usernameTaken, setUsernameTaken] = useState(false);
 
     const handleForm = (e) => {
@@ -17,40 +19,29 @@ const Loginpg = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (!form.username || !form.password) {
-            console.log("Please enter both username and password.");
+            alert("Please enter both username and password.");
             return;
         }
-
-        const usernameExists = users.some(user => user.username === form.username);
-        if (usernameExists) {
-            navigate("/dashboard");
-            setUsernameTaken(true);
-            return;
-        }
-        else{
-            alert("User Dosen't Exist")
-            setUsernameTaken(true);
-            return;
-        }
-
-        const response = await fetch('http://localhost:8080/demo', {
-            method: 'POST',
-            body: JSON.stringify(form),
-            headers: {
-                'Content-Type': 'application/json'
+    
+        const user = users.find(user => user.username === form.username);
+    
+        if (user) {
+            const userType = user.userType;
+            if (userType === "seeker" || userType === "recruiter") {
+                setUserEmail(user.username);
+                navigate("/dashboard", { state: { userType } });
+            } else {
+                alert("User doesn't have the required userType.");
             }
-        });
-
-        const data = await response.json();
-        console.log(data);
-
-        
+        } else {
+            alert("User doesn't Exist");
+        }
     }
 
     const getUsers = async () => {
-        const response = await fetch('http://localhost:8080/demo', {
+        const response = await fetch('http://localhost:7070/demo', {
             method: 'GET',
         });
         const data = await response.json();
@@ -114,7 +105,7 @@ const Loginpg = () => {
                                             <a href="#!" className="small text-muted">Terms of use.</a>
                                             <a href="#!" className="small text-muted">Privacy policy</a>
                                         </form>
-{usernameTaken && <p className="mt-3 text-danger">Username is already taken. Please choose a different username.</p>}
+
                                     </div>
                                 </div>
                             </div>

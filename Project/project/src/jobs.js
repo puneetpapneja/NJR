@@ -7,6 +7,7 @@ import './jobs.css';
 import Footer from './footer';
 
 const Jobs = () => {
+    //!This in POSTEDJOB
     const [users, setUsers] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredUsers, setFilteredUsers] = useState([]);

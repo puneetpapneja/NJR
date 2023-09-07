@@ -1,7 +1,8 @@
+// Applyjob.js
 import React from "react";
-import { Link } from "react-router-dom";
 import NavbarComponent from "./navbar";
 import Footer from "./footer";
+import { useLocation } from "react-router-dom";
 
 const AppliedJobBlock = ({ category, email, description }) => {
     return (
@@ -18,33 +19,36 @@ const AppliedJobBlock = ({ category, email, description }) => {
 };
 
 const Applyjob = () => {
+    const location = useLocation();
+    const userType = location.state ? location.state.userType : null;
+
     return (
         <>
-        <NavbarComponent />
-        <div className="container mt-5">
-            <h1>Applied Jobs</h1>
+            <NavbarComponent userType={userType} />
+            <div className="container mt-5">
+                <h1>Applied Jobs</h1>
 
-            <div className="row">
-                <div className="col-12 d-flex flex-column align-items-stretch">
-                    <AppliedJobBlock
-                        category="Developer"
-                        email="developer@example.com"
-                        description="Experienced software developer."
-                    />
-                    <AppliedJobBlock
-                        category="CAR Driver"
-                        email="acr.driver@example.com"
-                        description="Experienced driver with ACR license."
-                    />
-                    <AppliedJobBlock
-                        category="Full Stack"
-                        email="full.stack@example.com"
-                        description="Skilled full-stack web developer."
-                    />
+                <div className="row">
+                    <div className="col-12 d-flex flex-column align-items-stretch">
+                        <AppliedJobBlock
+                            category="Developer"
+                            email="developer@example.com"
+                            description="Experienced software developer."
+                        />
+                        <AppliedJobBlock
+                            category="CAR Driver"
+                            email="acr.driver@example.com"
+                            description="Experienced driver with ACR license."
+                        />
+                        <AppliedJobBlock
+                            category="Full Stack"
+                            email="full.stack@example.com"
+                            description="Skilled full-stack web developer."
+                        />
+                    </div>
                 </div>
             </div>
-        </div>
-        <Footer />
+            <Footer />
         </>
     );
 };

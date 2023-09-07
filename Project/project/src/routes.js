@@ -7,18 +7,23 @@ import Applyjob from './appliedjob';
 import Postajob from './postajob';
 import Postedjob from './postedjob';
 import Jobs from './jobs';
+import NavbarComponent from './navbar';
+
 const AppRoutes = () => {
     return (
+        <>
+        {/* You don't need to include the Router component here */}
         <Routes>
             <Route path="/" element={<Loginpg />} />
             <Route path="/login" element={<Loginpg />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard/>} />
-            <Route path="/appliedjob" element={<Applyjob/>} />
-            <Route path="/postajob" element={<Postajob/>} />
-            <Route path="/postedjob" element={<Postedjob/>} />
-            <Route path="/jobs" element={<Jobs/>} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/appliedjob" element={<Applyjob />} />
+            <Route path="/postajob" element={<Postajob />} />
+            <Route path="/postedjob" element={<Jobs />} />
+            <Route path="/jobs" element={<Postedjob />} />
         </Routes>
+        </>
     );
 }
 

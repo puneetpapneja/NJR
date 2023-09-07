@@ -1,29 +1,50 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const NavbarComponent = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const userType = location.state ? location.state.userType : null;
+    console.log("userType:", userType);
+
     const clickedappjobs = () => {
-        navigate("/appliedjob");
+        setTimeout(()=>{
+            navigate("/appliedjob", { state: { userType } });
+        })
     };
     const postajobbtn = () => {
-        navigate("/postajob");
+        setTimeout(()=>{
+            navigate("/postajob", { state: { userType } });
+        })
+        
     };
     const dashboardbtn = () => {
-        navigate("/dashboard");
+        setTimeout(()=>{
+            navigate("/dashboard", { state: { userType } });
+        })
+        
     };
     const postedjobbtn = () => {
-        navigate("/postedjob");
+        setTimeout(()=>{
+            navigate("/postedjob", { state: { userType } });
+        })
+        
     };
     const logout = () => {
-        navigate("/login")
+        setTimeout(()=>{
+            navigate("/login", { state: { userType } })
+        })
+        
     }
     const clickedjobs = ()=>{
-        navigate("/jobs")
+        setTimeout(()=>{
+            navigate("/jobs", { state: { userType } })
+        })
+        
     }
     const [showOptions, setShowOptions] = useState(false);
-
+    
     const toggleOptions = () => {
         setShowOptions(!showOptions);
     };
@@ -56,18 +77,26 @@ const NavbarComponent = () => {
                     <li className="nav-item">
                         <a className="nav-link" onClick={dashboardbtn} href="#">Home</a>
                     </li>
+                    {userType === "recruiter" && (
+                    <>
                     <li className="nav-item">
                         <a className="nav-link" onClick={postajobbtn} href="#">Post a Job</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={clickedappjobs} href="#">Applied Jobs</a>
+                        <a className="nav-link" onClick={postedjobbtn} href="#">Posted Jobs</a>
+                        
                     </li>
+                    </>)}
+                    {userType === "seeker" && (
+                    <>
                     <li className="nav-item">
                         <a className="nav-link" onClick={clickedjobs} href="#">Jobs</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" onClick={postedjobbtn} href="#">Posted Jobs</a>
+                    <a className="nav-link" onClick={clickedappjobs} href="#">Applied Jobs</a>
                     </li>
+                    </>
+                    )}
                 </ul>
 
                 <form className="form-inline my-2 my-lg-0">

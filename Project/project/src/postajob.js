@@ -4,7 +4,10 @@ import NavbarComponent from "./navbar";
 import { useDispatch } from "react-redux";
 import { addJob } from "./actions/jobActions";
 import Footer from "./footer";
+import { useLocation } from "react-router-dom";
 const Postajob = () => {
+    const location = useLocation();
+    const userType = location.state ? location.state.userType : null;
     const [form, setform] = useState({});
     const dispatch = useDispatch();
 
@@ -45,7 +48,7 @@ const Postajob = () => {
 
     return (
         <>
-            <NavbarComponent />
+            <NavbarComponent userType={userType} />
 
 
             <div className="container mt-5">

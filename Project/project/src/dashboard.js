@@ -1,12 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
 import NavbarComponent from "./navbar";
 import Footer from "./footer";
-
+import { useLocation } from "react-router-dom";
 const Dashboard = () => {
+    const location = useLocation();
+    const userType = location.state ? location.state.userType : null;
     return (
         <>
-        < NavbarComponent/>
+        <NavbarComponent userType={userType} />
         <div className="container mt-5">
             <h2>Dashboard</h2>
 

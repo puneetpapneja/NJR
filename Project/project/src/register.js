@@ -1,26 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react';
 
 function App() {
+    
     const navigate = useNavigate();
     const [form, setForm] = useState({});
     const [users, setUsers] = useState([]);
     const [usernameTaken, setUsernameTaken] = useState(false);
 
     const handleForm = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        });
+        const { name, value, type } = e.target;
+        setForm(prevForm => ({
+            ...prevForm,
+            [name]: type === 'radio' ? value : value,
+        }));
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!form.username || !form.password) {
-            console.log("Please enter both username and password.");
+        if (!form.username || !form.password || !form.userType) {
+            alert("Please enter all fields.");
             return;
         }
 
@@ -30,7 +30,7 @@ function App() {
             return;
         }
 
-        const response = await fetch('http://localhost:8080/demo', {
+        const response = await fetch('http://localhost:7070/demo', {
             method: 'POST',
             body: JSON.stringify(form),
             headers: {
@@ -39,13 +39,14 @@ function App() {
         });
 
         const data = await response.json();
-        console.log(data);
-
-        navigate("/dashboard");
+        
+        navigate("/dashboard", { state: { userType: data.userType } });
+        
+        
     }
 
     const getUsers = async () => {
-        const response = await fetch('http://localhost:8080/demo', {
+        const response = await fetch('http://localhost:7070/demo', {
             method: 'GET',
         });
         const data = await response.json();
@@ -86,15 +87,38 @@ function App() {
                                             <div className="form-outline mb-4">
                                                 <input type="text"
                                                     name="username"
-                                                    onChange={handleForm}  className="form-control form-control-lg" />
+                                                    onChange={handleForm} className="form-control form-control-lg" />
                                                 <label className="form-label" >Email address</label>
                                             </div>
 
                                             <div className="form-outline mb-4">
                                                 <input type="password"
                                                     name="password"
-                                                    onChange={handleForm}  className="form-control form-control-lg" />
+                                                    onChange={handleForm} className="form-control form-control-lg" />
                                                 <label className="form-label" >Password</label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="userType" // Use a common name for both options
+                                                    id="seeker"
+                                                    value="seeker"
+                                                    onChange={handleForm}
+                                                />
+                                                <label className="form-check-label" htmlFor="seeker"> Job Seeker </label>
+                                            </div>
+
+                                            <div className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="radio"
+                                                    name="userType" // Use a common name for both options
+                                                    id="recruiter"
+                                                    value="recruiter"
+                                                    onChange={handleForm}
+                                                />
+                                                <label className="form-check-label" htmlFor="recruiter"> Job Recruiter </label>
                                             </div>
 
                                             <div className="pt-1 mb-4">
