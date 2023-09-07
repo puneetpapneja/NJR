@@ -26,7 +26,7 @@ module.exports = {
       res
         .send(deletedJob)({
           status: "OK",
-          msg: "User deleted successfully",
+          msg: "Job deleted successfully",
           deletedJob: deletedJob,
         })
         .catch((err) => res.send({ status: "fail", error: err }))
