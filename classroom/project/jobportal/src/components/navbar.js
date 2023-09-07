@@ -1,6 +1,6 @@
 // import Button from 'react-bootstrap/Button';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 // import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -12,16 +12,16 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Navigation() {
   const [setLoggedOut] = useState(false); // State to track login status
-
+  const navigate = useNavigate();
   const handleLogout = () => {
     // Implement your logout logic here
     // For example, clear any user session, update state, etc.
-    setLoggedOut(false);
+    // setLoggedOut(false);
+    sessionStorage.removeItem("token");
+    navigate("/");
   };
   return (
     <>
-      
-    
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="#" className="me-5 ms-3">
@@ -94,7 +94,7 @@ function Navigation() {
               </Link> */}
             </Form>
             <Dropdown>
-              <Dropdown.Toggle variant="link" id="dropdown-basic" >
+              <Dropdown.Toggle variant="link" id="dropdown-basic">
                 <i className="fas fa-user"></i>
               </Dropdown.Toggle>
               <Dropdown.Menu align="end">

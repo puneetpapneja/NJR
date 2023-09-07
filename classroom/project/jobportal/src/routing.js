@@ -11,6 +11,7 @@ import ProfilePage from "./pages/profilepage";
 import Posted from "./pages/posted";
 import Jobpage from "./pages/Jobpage";
 export const routing = [
+
   {
     path: "/",
     element: <LoginPage />,
