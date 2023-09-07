@@ -12,7 +12,7 @@ export default function DashBoardPage(){
     if(!getSession())
        {
         console.log("test",getSession());
-        navigate("/login");
+        navigate("/Login");
        }
     },[navigate])
    

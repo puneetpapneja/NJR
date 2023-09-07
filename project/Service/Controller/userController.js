@@ -1,5 +1,4 @@
 const userModel = require('../Model/userModel');
-
 module.exports = {
     create: (req, res) => {
         //logic/data validation code write here
@@ -21,12 +20,19 @@ module.exports = {
         console.log(req.body.id);
         return userModel.deleteById(req.body.id)
         .then((deletedUser) => res.send({status: "OK", msg: "User deleted successfully.", deletedUser: deletedUser}))
-        .catch((err)=> res.send({status:"fail", errro: err}));
+        .catch((err)=> res.send({status:"fail", error:err}));
     },
     update: (req,res)=> {
-        return userModel.update(req.body.id, req.body.fields)
+        console.log(req.body);
+        console.log(req.file);
+        const fields = {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          CV: req.file?.path
+      }
+        return userModel.update(req.body.id, fields)
         .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
-        .catch((err)=> res.send({status:"fail", errro: err}));
+        .catch((err)=> res.send({status:"fail", error: err}));
     },
     // loginValidation:(req,res)=>{
     //     console.log(req.body.password);

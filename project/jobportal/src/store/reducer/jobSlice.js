@@ -13,7 +13,15 @@ export const getAllJobs = createAsyncThunk("job/find",async(params, thunkAPI)=>{
     //axios.post("",params);
 })
 export const postjob= createAsyncThunk("/job/create",async(params,thunkAPI)=>{
-    return axios.post(`${API_URL}/job/create`,params);
+    const res=axios.post(`${API_URL}/job/create`,params);
+    // console.log(res);
+    if(res.data.status==='ok'){
+        alert("job posted successfully");
+    }
+    else{
+        alert("error in job posting try again!");
+    }
+    return res;
 })
 export const postedjobs=createAsyncThunk("/job/findposted",async(params,thunkAPI)=>{
     return axios.post(`${API_URL}/job/findposted`,params);
@@ -25,7 +33,15 @@ export const deletejob= createAsyncThunk("/job/remove",async(params,thunkAPI)=>{
     return axios.post(`${API_URL}/job/remove`,params);
 })
 export const appliedcandidates= createAsyncThunk("/job/addapplied",async(params,thunkAPI)=>{
-    return axios.post(`${API_URL}/job/addapplied`,params);
+    const res=axios.post(`${API_URL}/job/addapplied`,params);
+    console.log(res);
+    if((await res).data.status==='ok'){
+        alert("applied successfully");
+    }
+    else{
+        alert("applied failed");
+    }
+    return res;
 })
 
 export const jobSlice = createSlice({

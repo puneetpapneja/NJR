@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 import { API_URL, JOB_RECRUITER } from "../../utils/constants"
 
+
 const initialState={
     isValidUser: false,
     hasRecruiter: false,
@@ -13,6 +14,18 @@ const initialState={
 
 export const registerUser= createAsyncThunk("/user/create",async(params,thunkAPI)=>{
     return axios.post(`${API_URL}/user/create`,params);
+})
+export const userProfile= createAsyncThunk("/user/update",async(params,thunkAPI)=>{
+    const res= await axios.post(`${API_URL}/user/update`,params);
+    console.log("sgdfgw"+res);
+    if(res.data.status==="OK"){
+        console.log("enter");
+       alert("user updated successfully");
+    }
+    else{
+        alert("user not updated");
+    }
+    return res;
 })
 // export const userLogin= createAsyncThunk("/user/find",async(params,thunkAPI)=>{
 //     return axios.post(`${API_URL}/user/find`,params);
@@ -94,6 +107,17 @@ const userSlice = createSlice({
             console.log(payload);
             state.isLoading = false;
         })
+        .addCase(userProfile.pending,(state)=>{
+            state.isLoading = true;
+        })
+        .addCase(userProfile.rejected, (state)=> {
+            state.isLoading = false;
+        })
+        .addCase(userProfile.fulfilled, (state, {payload})=>{
+            // console.log(payload);
+            state.isLoading = false;
+        })
+        
     }
 })
 export const {reset}= userSlice.actions
