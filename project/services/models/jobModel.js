@@ -13,4 +13,13 @@ const jobSchema = mongoose.Schema({
 });
 
 const jobCollection = mongoose.model("jobs", jobSchema);
-module.exports = jobCollection;
+
+module.exports = {
+  create: (fields) => {
+    const job = new jobCollection(fields);
+    return job.save();
+  },
+  getAll: () => jobCollection.find(),
+  deleteById: (jobid) => jobCollection.deleteOne({ _id: jobid }),
+  update: (id, fields) => jobCollection.updateOne({ _id: id }, fields),
+};

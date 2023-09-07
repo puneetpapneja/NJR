@@ -46,60 +46,117 @@
 //   },
 // };
 
-const Job = require("../models/jobmodel");
+// const Job = require("../models/jobmodel");
 
-exports.create = async (req, res) => {
-  try {
-    const { title, description, maxSalary } = req.body;
+// exports.create = async (req, res) => {
+//   try {
+//     const { title, description, maxSalary } = req.body;
 
-    const newJob = new Job({
-      title,
-      description,
-      maxSalary,
-    });
+//     const newJob = new Job({
+//       title,
+//       description,
+//       maxSalary,
+//     });
 
-    await newJob.save();
+//     await newJob.save();
 
-    res.status(201).json({ message: "Job created successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
+//     res.status(201).json({ message: "Job created successfully" });
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occurred" });
+//   }
+// };
 
-exports.getAll = async (req, res) => {
-  try {
-    const jobs = await Job.find();
+// exports.getAll = async (req, res) => {
+//   try {
+//     const jobs = await Job.find();
 
-    res.status(200).json(jobs);
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
+//     res.status(200).json(jobs);
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occurred" });
+//   }
+// };
 
-exports.deleteById = async (req, res) => {
-  try {
-    const { id } = req.body;
+// exports.deleteById = async (req, res) => {
+//   try {
+//     const { id } = req.body;
 
-    await Job.findByIdAndDelete(id);
+//     await Job.findByIdAndDelete(id);
 
-    res.status(200).json({ message: "Job deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
+//     res.status(200).json({ message: "Job deleted successfully" });
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occurred" });
+//   }
+// };
 
-exports.update = async (req, res) => {
-  try {
-    const { id, title, description, maxSalary } = req.body;
+// exports.update = async (req, res) => {
+//   try {
+//     const { id, title, description, maxSalary } = req.body;
 
-    await Job.findByIdAndUpdate(id, {
-      title,
-      description,
-      maxSalary,
-    });
+//     await Job.findByIdAndUpdate(id, {
+//       title,
+//       description,
+//       maxSalary,
+//     });
 
-    res.status(200).json({ message: "Job updated successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred" });
-  }
+//     res.status(200).json({ message: "Job updated successfully" });
+//   } catch (error) {
+//     res.status(500).json({ error: "An error occurred" });
+//   }
+// };
+
+const jobModel = require("../models/jobModel");
+
+module.exports = {
+  create: (req, res) => {
+    return jobModel
+      .create(req.body)
+      .then((data) => {
+        return res.send({
+          status: "ok",
+          msg: "job created successfully",
+          data: data,
+        });
+      })
+      .catch((err) => {
+        return res.send({ status: "fail", error: err });
+      });
+  },
+
+  getAll: (req, res) => {
+    return jobModel
+      .getAll()
+      .then((alljob) => {
+        return res.send(alljob);
+      })
+      .catch((err) => {
+        return res.send({ status: "fail", error: err });
+      });
+  },
+  deleteById: (req, res) => {
+    return jobModel
+      .deleteById(req.body.id)
+      .then((deletejob) => {
+        return res.send({
+          status: "ok",
+          msg: "job deleted successfully",
+          data: deletejob,
+        });
+      })
+      .catch((err) => {
+        return res.send({ status: "fail", error: err });
+      });
+  },
+
+  update: (req, res) => {
+    return jobModel
+      .update(req.body.id, req.body.field)
+      .then((updatedjob) =>
+        res.send({
+          status: "OK",
+          msg: "job updated successfully.",
+          updatedjob: updatedjob,
+        })
+      )
+      .catch((err) => res.send({ status: "fail", errro: err }));
+  },
 };
