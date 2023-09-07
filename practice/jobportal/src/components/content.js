@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import Box from './box';
+// import Box from './box';
 export default function Content() {
 
     return (
@@ -32,7 +32,6 @@ export default function Content() {
       <div className="col-md-4">
         <div className="card bg-primary text-white text-center p-5 m-5">
           <h3>2 </h3>
-
           <p>
             <b>Today's Post</b>
           </p>
@@ -43,7 +42,3 @@ export default function Content() {
 </>
     );
 }
-
-
-
-
