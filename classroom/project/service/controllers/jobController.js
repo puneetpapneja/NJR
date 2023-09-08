@@ -79,4 +79,12 @@ module.exports = {
       return res.send({ status: "fail", error: err });
     }
   },
+  uploadCV: async (req, res) => {
+    try {
+      const resData = await jobModels.uploadCV(req);
+      return res.send(resData);
+    } catch (err) {
+      return res.send({ status: "fail", error: err });
+    }
+  },
 };

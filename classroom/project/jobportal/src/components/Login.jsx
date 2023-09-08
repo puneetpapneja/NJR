@@ -39,8 +39,8 @@ export default function Login() {
             );
           }}
           initialValues={{
-            email: "Mark@gmail.com",
-            password: "Otto",
+            email: "emailOne@gmail.com",
+            password: "Secret123ss",
           }}
         >
           {({ handleSubmit, handleChange, values, touched, errors }) => (

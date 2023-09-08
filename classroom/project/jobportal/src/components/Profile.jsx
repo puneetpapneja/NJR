@@ -17,22 +17,21 @@ export default function Profile() {
     firstName: yup.string().required(),
     lastName: yup.string().required(),
     emailId: yup.string().required(),
+    fileCV: yup.mixed().required(),
   });
 
   return (
     <Formik
       validationSchema={schema}
       onSubmit={(values) => {
-        const data = {
-          id: id,
-          fields: {
-            firstName: values.firstName,
-            lastName: values.lastName,
-            emailId: values.emailId,
-          },
-        };
-        dispatch(updateProfile(data));
-        console.log("sent", data);
+        console.log(values);
+        const data = new FormData(); // Use FormData to send files
+        data.append("id", id);
+        data.append("firstName", values.firstName);
+        data.append("lastName", values.lastName);
+        data.append("emailId", values.emailId);
+        // data.append("fileCV", values.fileCV[0]);
+        console.log(data);
         if (!err) {
           navigate("/");
         }
@@ -41,13 +40,22 @@ export default function Profile() {
         firstName: "Mark",
         lastName: "Otto",
         emailId: email,
+        fileCV: null,
       }}
     >
-      {({ handleSubmit, handleChange, values, touched, errors }) => (
+      {({
+        handleSubmit,
+        handleChange,
+        setFieldValue,
+        values,
+        touched,
+        errors,
+      }) => (
         <Form
           noValidate
           onSubmit={handleSubmit}
           className="d-flex justify-content-center flex-column align-items-center"
+          encType="multipart/form-data"
         >
           <Form.Group as={Col} md="6" controlId="validationFormik01">
             <Form.Label>First name</Form.Label>
@@ -93,14 +101,12 @@ export default function Profile() {
             <Form.Label>File</Form.Label>
             <Form.Control
               type="file"
-              required
-              name="file"
-              onChange={handleChange}
-              isInvalid={!!errors.file}
+              name="fileCV"
+              onChange={(event) => {
+                setFieldValue("fileCV", event.currentTarget.files[0]);
+              }}
+              isInvalid={!!errors.fileCV}
             />
-            <Form.Control.Feedback type="invalid" tooltip>
-              {errors.file}
-            </Form.Control.Feedback>
           </Form.Group>
           <Button type="submit" variant="dark">
             Submit form
