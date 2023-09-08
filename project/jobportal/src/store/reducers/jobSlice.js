@@ -41,12 +41,11 @@ export const jobSlice = createSlice({
         })
         .addCase(createJobs.fulfilled, (state, {payload})=>{
             state.jobs = payload.data;
+            // console.log("data",payload.data);
             state.isLoading = false;
         })
     }
 });
 
 export const {reset }  = jobSlice.actions;
-
-
 export default jobSlice.reducer;

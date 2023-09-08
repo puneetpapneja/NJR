@@ -10,7 +10,7 @@ import { getAllJobs, reset } from '../store/reducers/jobSlice';
 
 
 
-const Postedjob = () => {
+const Postjob = () => {
   const jobs = useSelector(state => state?.job?.jobs);
   const dispatch = useDispatch();
 
@@ -170,4 +170,4 @@ const Postedjob = () => {
 // </div>
 //     )
 // }
-export default Postedjob;
+export default Postjob;
