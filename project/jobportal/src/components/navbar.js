@@ -7,15 +7,18 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
+// import { useNavigate } from "react-router-dom";
 // import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function Navigation() {
   const [setLoggedOut] = useState(false); // State to track login status
-
+  // const navigate = useNavigate();
   const handleLogout = () => {
     // Implement your logout logic here
     // For example, clear any user session, update state, etc.
+    // setLoggedOut(false);
+    // navigate('/');
     setLoggedOut(false);
   };
   return (
@@ -25,7 +28,7 @@ function Navigation() {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand href="#" className="me-5 ms-3">
-            Logo
+            
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">

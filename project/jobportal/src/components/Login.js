@@ -11,12 +11,17 @@ export default function Login() {
   const { Formik } = formik;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isValidUser = useSelector((state) => state?.user?.isValidUser);
+  const isValidUser = useSelector((state) => state.user?.isValidUser);
+
   useEffect(() => {
     if (isValidUser) {
       navigate("/dashboard");
     }
   }, [isValidUser]);
+
+  // const handleNavigate = () => {
+  //   navigate('/dashboard')
+  // }
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
@@ -63,7 +68,7 @@ export default function Login() {
                 />
               </Form.Group>
 
-              <Button variant="dark" type="submit" className="col-md-12 mt-4">
+              <Button variant="dark" type="submit" className="col-md-12 mt-4" >
                 Login
               </Button>
             </Form>
