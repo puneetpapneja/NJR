@@ -5,6 +5,7 @@ const initialState = {
   isValidUser: false,
   hasRecuriter: false,
   isLoading: false,
+  doneRegister: false,
 };
 
 export const validateUser = createAsyncThunk(
@@ -50,6 +51,7 @@ const userSlice = createSlice({
       })
       .addCase(createuser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
+        state.doneRegister = true;
         console.log("payload", payload);
       })
       .addCase(validateUser.pending, (state) => {

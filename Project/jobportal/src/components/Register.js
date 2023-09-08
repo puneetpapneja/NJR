@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 function Register() {
   const Navigate = useNavigate();
   const doneRegister = useSelector((state) => state?.user?.doneRegister);
+  console.log("hello", doneRegister);
   const userExist = useSelector((state) => state?.user?.userExist);
 
   console.log("userExist", userExist);
@@ -23,17 +24,12 @@ function Register() {
     Navigate("/");
   }
 
-  useEffect(() => {
-    if (doneRegister && userExist === false) {
-      Navigate("/Dashboard");
-    }
-  }, [doneRegister, userExist]);
-
-  useEffect(() => {
-    if (userExist === true) {
-      alert("already exist");
-    }
-  }, [userExist]);
+  // useEffect(() => {
+  //   if (doneRegister) {
+  //     console.log("in side useeffect");
+  //     Navigate("/");
+  //   }
+  // }, [doneRegister]);
 
   const { Formik } = formik;
   const dispatch = useDispatch();
@@ -54,6 +50,7 @@ function Register() {
       onSubmit={(values, { setSubmitting }) => {
         console.log(values);
         dispatch(users(values));
+        Navigate("/dashboard");
       }}
       initialValues={{
         emailId: "",
