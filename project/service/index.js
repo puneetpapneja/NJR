@@ -1,10 +1,18 @@
-const express = request("express");
-const PORT = require("./config")
+const express = require("express");
+const { port } = require("./config");
+const db = require("./database");
+const userRoute = require("./routes/userRoute");
+const jobRoute = require("./routes/jobroutes"); 
+const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+app.use("/user", userRoute);
+app.use("/job", jobRoute); 
 
-app.get("/health",(req.send));
+app.get("/health", (req, res) => {
+  res.send({ status: "OK" });
+});
 
-
-app.listen(port,() => console.log("service strted", port));
+app.listen(port, () => console.log("service started on port: ", port));
