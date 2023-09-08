@@ -4,4 +4,4 @@ const loginpage = ()=>{
     
     return <Login />
 }
-export default loginpage;
+export default loginpage;

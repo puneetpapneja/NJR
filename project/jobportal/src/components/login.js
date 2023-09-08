@@ -26,7 +26,7 @@ return (
         </Form.Text>
   </Form.Group>
 
-  <Button variant="dark" type="submit" className="btn">
+  <Button variant="dark" type="submit" className="btn" as={Link} to="/dashboard">
     Login
   </Button>
   </div>
@@ -34,4 +34,4 @@ return (
 </div>
 )
 }
-export default Login;
+export default Login;

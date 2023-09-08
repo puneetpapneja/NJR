@@ -4,4 +4,4 @@ const registerpage = ()=>{
     
     return <Register />
 }
-export default registerpage;
+export default registerpage;
