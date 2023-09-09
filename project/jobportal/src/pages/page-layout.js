@@ -1,17 +1,37 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import Header from "./header"
 import Footer from "./footer";
-import React from 'react';
-import Boxcomponent from "../components/boxcomponent";
+import React, { useEffect } from 'react';
+import { getSession } from "../utils/util";
+import { Container } from "react-bootstrap";
+import Notification from "../components/notification";
+
 
 const PageLayout = ()=>{
-    return (
-        <React.Fragment>
-            <Header />
-            <Outlet />
-            <Footer />
-        </React.Fragment>
-    )
-}
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(!getSession())
+        {
+            return(
+                <Outlet/>,
+                navigate("/login")
+            );
+        }},[navigate])
+                 return(
+                    <Container fluid className="px-0 mx-0">
+                    {getSession()?<Header />:null}
+                    <Notification/>
+                    <Outlet />
+                    {getSession()?<Footer />:null}
+                </Container> 
+            );
+        }
+
+
+
+
+
+
+
 
 export default PageLayout;
