@@ -1,88 +1,133 @@
-import React from "react";
-import { Form, Button, Card } from "react-bootstrap";
-import { Link , useNavigate } from "react-router-dom";
-import "./signup.css";
+import React, { useState } from "react";
+import { Form, Button, Card, Container } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { setSession } from "../utils";
+import { JOB_RECURITER, JOB_SEEKER } from "../utils/constants";
+import { postNewUser } from "../store/reducers/userRegisterSlice";
 
-export default function SignUp() {
+function SignUp() {
 
   const navigate = useNavigate();
-  const handleClick = () => {
-    setSession("Registered");
-    navigate("/login");
+  const [formData, setFormData] = useState({});
+  const [selectedRole, setSelectedRole] = useState("");
+  const [validated, setValidated] = useState(false);
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state?.user?.isLoading);
+  const handleRoleChange = (event) => {
+    const role = event.target.value;
+    setFormData({
+      ...formData,
+      type: role,
+    });
   };
 
-  const labelStyle = {
-    fontWeight: "bold",
-    marginTop: "1rem",
-    textAlign: "left"
+  const handleEmailChange = (event) => {
+    const email = event.target.value;
+    setFormData({
+      ...formData,
+      emailId: email,
+    });
   };
 
-  const linkStyle = {
-    display: "block",
-    marginBottom: "0.5rem",
-    marginTop: "1rem"
+  const handlePwdChange = (event) => {
+    const pwd = event.target.value;
+    setFormData({
+      ...formData,
+      password: pwd,
+    });
   };
+
+  const handleCompanyName = (event) => {
+    const companyName = event.target.value;
+    setFormData({
+      ...formData,
+      companyName: companyName,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    event.preventDefault();
+    event.stopPropagation();
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    setValidated(true);
+    dispatch(postNewUser(formData)).then((response) => {
+      console.log(response);
+      if (response.meta.requestStatus === "fulfilled") {
+        setSession("user registered");
+        navigate("/dashboard");
+      }
+    });
+  };
+
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <Card className="text-center p-4 mx-auto col-md-4">
-      <h1 className="mb-4">Register</h1>
-      <Form>
-        <Form.Group
-          controlId="formBasicEmail"
-        >
-          <Form.Label style={labelStyle}>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-        </Form.Group>
-
-        <Form.Group
-          controlId="formBasicPassword"
-        >
-          <Form.Label style={labelStyle}>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-
-        <Form.Group
-          controlId="formBasicCheckbox"
-        >
-          {["radio"].map((type) => (
-            <div key={`inline-${type}`} className="mb-3 mt-3">
-              <Form.Check
-                inline
-                label="Job Seeker"
-                name="group1"
-                type={type}
-                id={`inline-${type}-1`}
-              />
-              <Form.Check
-                inline
-                label="Job Recruiter"
-                name="group1"
-                type={type}
-                id={`inline-${type}-2`}
-              />
-            </div>
+    <Container className="d-flex justify-content-center align-items-center vh-100">
+      <div className="login-box p-4">
+        <h2 className="mb-10 text-md-center">Register</h2>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              onChange={handleEmailChange}
+            />
+          </Form.Group>
+          {/* Other form fields */}
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              onChange={handlePwdChange}
+            />
+          </Form.Group>
+          {[JOB_SEEKER, JOB_RECURITER].map((role) => (
+            <Form.Check
+              key={role}
+              inline
+              label={role}
+              name="role"
+              type="radio"
+              value={role}
+              id={`inline-role-${role}`}
+              onChange={handleRoleChange}
+              checked={formData?.type === role}
+            />
           ))}
-          <Link as={Link} to="/login" style={linkStyle}>
-            Have An Account? Login Now
-          </Link>
-        </Form.Group>
+          <Container className="d-flex flex-column mb-3">
+            {formData?.type === "Job Recruiter" && (
+              <Form.Group controlId="formBasicCompany">
+                <Form.Label>Company name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Company Name"
+                  onChange={handleCompanyName}
+                />
+              </Form.Group>
+            )}
 
-        <Form.Group className="text-center">
-        <Link to="/dashboard">
+            <Button variant="link">
+              <Link to="/"> Have an account? Log in</Link>
+            </Button>
+          </Container>
           <Button
-            style={{ backgroundColor: "black", border: "none" }}
-            className="mt-3"
+            disabled={isLoading}
+            variant="dark"
             type="submit"
-            block
-            onClick={handleClick}
+            className="w-100"
           >
             Register
           </Button>
-          </Link>
-        </Form.Group>
-      </Form>
-      </Card>
-    </div>
+        </Form>
+      </div>
+    </Container>
   );
 }
+
+export default SignUp;

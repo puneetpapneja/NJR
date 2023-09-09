@@ -32,12 +32,16 @@ export default function AppliedJob() {
             <div className='d-flex flex-wrap'>
                 {jobData.map((job, index) => (
                     <Card key={index} className='mb-3 me-3' style={{ width: '100%' }}>
-                        <Card.Header className='d-flex justify-content-between'>
-                            <div>
-                                <h5>{job.position} ({job.vacancies})</h5>
-                                <p className='mb-0'>{job.recruiterEmail}</p>
-                            </div>
-                            <p className='text-muted'>{job.daysAgo} days ago</p>
+                        <Card.Header className='d-flex justify-content-between '>
+                            
+                                <div>
+                                    <h5>{job.position} ({job.vacancies})</h5>
+                                    <p className='mb-0'>{job.recruiterEmail}</p>
+                                    
+                                </div>
+                                <p className='text-muted'>{job.daysAgo} days ago</p>
+                                
+                            
                         </Card.Header>
                         <Card.Body>
                             <Card.Text>{job.details}</Card.Text>

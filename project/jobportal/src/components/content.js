@@ -4,35 +4,43 @@ import Box from './box';
 export default function Content() {
 
     return (
-        <Container className='mt-5' >
+        <>
+        <Container className="mt-4">
+    <h2 className="text-left" style={{ fontSize: "60px", color: "black" }}>
+      Dashboard
+    </h2>
+  </Container>
 
-            <Row className='ms-4' >
-                <h1>Dashboard</h1>
-            </Row>
+  <Container className="my-4">
+    <div className="row">
+      <div className="col-md-4">
+        <div className="card bg-danger text-white text-center p-5 m-5">
+          <h3>7 </h3>
+          <p>
+            <b>Applied Job's</b>
+          </p>
+        </div>
+      </div>
+      <div className="col-md-4">
+        <div className="card bg-success text-white text-center p-5 m-5">
+          <h3>40</h3>
+          <p>
+            <b>Total Post</b>
+          </p>
+        </div>
+      </div>
+      <div className="col-md-4">
+        <div className="card bg-primary text-white text-center p-5 m-5">
+          <h3>2 </h3>
 
-            <Row className=' mt-3 justify-content-center' >
-                <Col xs={12} md={3} className='p-4' style={{  backgroundColor:"#F44336"}} >
-                    <Box
-                        title='7'
-                        subtitle='Applied Job's
-                    />
-                </Col>
-                <Col  xs="12" md="1"></Col>
-                <Col xs={12} md={3} className='p-4' style={{  backgroundColor:"#3BCA34"}}>
-                    <Box
-                        title='40'
-                        subtitle='Total Post'
-                    />
-                </Col>
-                <Col  xs="12" md="1"></Col>
-                <Col xs={12} md={3} className='p-4' style={{  backgroundColor:"#9C27B0"}}>
-                    <Box
-                        title='2'
-                        subtitle="Today's post's"
-                    />
-                </Col>
-            </Row>
-        </Container>
+          <p>
+            <b>Today's Post</b>
+          </p>
+        </div>
+      </div>
+    </div>
+  </Container>
+</>
     );
 }
 

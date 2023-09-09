@@ -1,54 +1,76 @@
-import React from 'react';
-import { Container, Form, Card, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Form } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import CardHeader from "react-bootstrap/esm/CardHeader";
+import FormControl from "react-bootstrap/FormControl";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllJobs, reset } from "../store/reducers/jobSlice";
 
 export default function Jobs() {
-    const jobData = [
-        {
-            position: 'Frontend Developer',
-            salary: '€70,000',
-            description: 'We are looking for a skilled Frontend Developer to join our team...',
-        },
-        {
-            position: 'Backend Engineer',
-            salary: '€80,000',
-            description: 'We are seeking a talented Backend Engineer to work on the server-side logic...',
-        },
-        {
-            position: 'Frontend Developer',
-            salary: '€70,000',
-            description: 'We are looking for a skilled Frontend Developer to join our team...',
-        },
-        {
-            position: 'Backend Engineer',
-            salary: '€80,000',
-            description: 'We are seeking a talented Backend Engineer to work on the server-side logic...',
-        }
-    ];
+  const jobs = useSelector((state) => state?.job?.jobs);
+  const dispatch = useDispatch();
 
-    return (
-        <Container className="mt-3" style={{ width:'55vw'}}>
-            <h1 className="mb-4">Jobs</h1>
-            <Form>
-                <Form.Group controlId="search">
-                    <Form.Control type="text" className='mb-5 rounded-4 border-dark' style={{height:'6vh' , width:'54vw'}} placeholder="Search jobs" />
-                </Form.Group>
-            </Form>
-            {jobData.map((job, index) => (
-                <Card key={index} className="mb-3">
-                    <Card.Body >
-                        <div className="d-flex justify-content-between align-items-center p-1" style={{backgroundColor:'#E0E0E0'}}>
-                            <h5>{job.position}</h5>
-                            <div>
-                                <h6>Max Salary</h6>
-                                <p className="text-muted">{job.salary}</p>
-                            </div>
-                        </div>
-                        <h6 className='mt-2'>Description</h6>
-                        <p>{job.description}</p>
-                        <Button style={{backgroundColor:'black' , borderStyle:'none', width:'7vw'}}>Apply</Button>
-                    </Card.Body>
-                </Card>
-            ))}
-        </Container>
-    );
+  useEffect(() => {
+    dispatch(getAllJobs());
+    return () => {
+      dispatch(reset());
+    };
+  }, [dispatch]);
+
+  const renderJobs = (jobsArray) => {
+    return jobsArray.map((items) => (
+      <Card className="col-md-10 mt-4 m-auto" key={items.id}>
+        <Card.Header as="h5" className="d-flex justify-content-between" inline>
+          <span>{items.title}</span>
+          <>{items.maxSalary}</>
+        </Card.Header>
+        <Card.Body>
+          <Card.Title>Description</Card.Title>
+          <Card.Text>{items.description}</Card.Text>
+          <Button variant="dark">Apply</Button>
+        </Card.Body>
+      </Card>
+    ));
+  };
+
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchChange = (event) => {
+    setSearchText(event.target.value);
+  };
+
+  // Check if jobs array exists before filtering
+  const filteredJobs = jobs
+    ? jobs.filter((item) =>
+        // Check if properties exist before using toLowerCase()
+        (item.title && item.title.toLowerCase().includes(searchText.toLowerCase())) ||
+        (item.description && item.description.toLowerCase().includes(searchText.toLowerCase())) ||
+        (item.maxSalary && item.maxSalary.toString().includes(searchText)) // Convert maxSalary to string for comparison
+      )
+    : [];
+
+  return (
+    <Form>
+      <CardHeader style={{ fontSize: "50px", marginLeft: "8vw" }}>
+        Jobs
+        <Form className="d-flex mt-3">
+          <FormControl
+            type="search"
+            placeholder="🔍 Search"
+            className="me-2"
+            aria-label="Search"
+            value={searchText}
+            onChange={handleSearchChange}
+          />
+          <Button variant="outline-primary">🔍</Button>
+        </Form>
+      </CardHeader>
+      {filteredJobs.length > 0 ? (
+        renderJobs(filteredJobs)
+      ) : (
+        <p>No matching jobs found.</p>
+      )}
+    </Form>
+  );
 }

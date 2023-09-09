@@ -47,8 +47,8 @@ export default function PostedJob() {
                             <p className='mb-0'>{job.details}</p>
                         </Card.Body>
                         <Card.Footer className='d-flex justify-content-between'>
-                            <i className='bi bi-trash'></i> 
-                             <i className='bi bi-pencil-square'></i>
+                            <i className='bi bi-trash'></i>
+                            <i className='bi bi-pencil-square'></i>
                         </Card.Footer>
                     </Card>
                 ))}
