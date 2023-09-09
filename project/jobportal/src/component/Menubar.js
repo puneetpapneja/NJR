@@ -19,11 +19,10 @@ function  Menubar () {
   const [show, setShow] = useState(false);
   const target = useRef(null);
   const Navigate=useNavigate();
-  function handleclick(){
-    Navigate("/profile");
-  } 
-  const hasRecruiter=useSelector((state)=>state?.user?.hasRecruiter);
 
+  
+  const hasRecruiter=useSelector((state)=>state?.user?.hasRecruiter);
+     console.log(hasRecruiter);
  const randernav=()=>{
   const navItems=hasRecruiter? RECRUITER_MENU:SEEKER_MENU;
   return navItems?.map(item=> <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
@@ -62,7 +61,7 @@ function  Menubar () {
               <Dropdown.Item   as={Link} to="/profile" >
                 Profile 
               </Dropdown.Item>
-              <Dropdown.Item  as={Link} to="/loginPage">
+              <Dropdown.Item  as={Link} to="/">
                  Logout
               </Dropdown.Item>
             </Dropdown.Menu>

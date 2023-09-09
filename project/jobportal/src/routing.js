@@ -14,8 +14,12 @@ const COMMON_ROUTES = [
     element: <LoginPage />
   },
   {
-    path: "/loginpage",
-    element: <LoginPage />
+    path: "/postajob",                // ye wala hatana hai
+    element: <Postajob />
+  },
+  {
+    path: "/postedjob",                    // ye wala hatana hai
+    element: <Postedjob />
   },
 
   {

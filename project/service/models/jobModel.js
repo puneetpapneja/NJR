@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-
-
 const jobSchema=mongoose.Schema({
     JobTitle:String,
      description:String,
@@ -18,6 +16,7 @@ const jobCollection=mongoose.model("job",jobSchema);
 module.exports={
     create:(fields)=>{
        const job=new jobCollection(fields);
+       console.log(job);
        return job.save();
     },
     getAll:()=>jobCollection.find(),

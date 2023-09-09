@@ -40,7 +40,9 @@ module.exports={
     },
 
     update:(req,res)=>{
-return userModel.update(req.body.id,req.body.field)
+      console.log(req.body.emailId)
+      console.log(req.body)
+return userModel.update(req.body.emailId,req.body)
 .then((updatedUser) =>  res.send({status: "OK", msg: "User updated successfully.", updatedUser: updatedUser}))
 .catch((err)=> res.send({status:"fail", errro: err}));
     },

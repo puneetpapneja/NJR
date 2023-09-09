@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 function App() {
   const hasRecruiter =useSelector((state)=>state?.user?.hasRecruiter); 
-  console.log(hasRecruiter);
+  // console.log(hasRecruiter);
   return (
 
  <>

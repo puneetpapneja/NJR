@@ -54,3 +54,7 @@
 #log-in-msg-wrg-id-pass{
   color: red;
 }
+.jobcard{
+  min-width: 70vw;
+  max-width: 70vw;
+}

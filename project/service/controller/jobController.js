@@ -4,6 +4,7 @@ module.exports={
     create:(req,res)=>{
            return jobModel.create(req.body)
            .then((data)=>{
+            console.log("data");
              return  res.send({status:"ok" ,msg:"job created successfully", data:data})
            })
            .catch((err)=>{

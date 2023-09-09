@@ -28,7 +28,7 @@ function Jobs(){
       const {JobTitle, maxSalary, description} = job;
       return (
         <div className="d-flex justify-content-center m-4">
-        <Card>
+        <Card  className="jobcard">
           <Card.Header className="d-flex justify-content-between align-items-center">
             <span>{JobTitle}</span>
             <span>MAX Salary {maxSalary}</span>

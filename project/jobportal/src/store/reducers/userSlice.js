@@ -8,7 +8,11 @@ const initialState = {
     isLoading: false, 
     hasRecruiter:false,
     doneRegister:false,
-    userExist:false
+    userExist:false,
+    emailId:"",
+    firstName:"",
+    LastName:"",
+    companyName:""
 }
 
 export const users = createAsyncThunk("users/create",async(params, thunkAPI)=>{
@@ -21,6 +25,16 @@ export const users = createAsyncThunk("users/create",async(params, thunkAPI)=>{
 export const validateUser=createAsyncThunk("user/validUser", async(params,thunkAPI)=>{
     try{
     const response=await axios.post(`${API_URL}user/validUser`,params);
+    
+    return response.data;
+    }
+    catch (error){
+        return thunkAPI.rejectWithValue(error.response.data);
+    }
+})
+export const profile=createAsyncThunk("user/update", async(params,thunkAPI)=>{
+    try{
+    const response=await axios.put(`${API_URL}user/update`,params);
     
     return response.data;
     }
@@ -49,7 +63,9 @@ export const userSlice = createSlice({
         .addCase(users.fulfilled, (state, {payload})=>{
             state.isLoading = false;
             state.doneRegister=true;
-            //  console.log("payload", payload.msg);
+            console.log("payload", payload);
+            state.emailId=payload.data.data.emailId;
+            
             //  console.log("payload", payload.data.msg);
             state.userExist=payload?.data.msg==="already exist"?true:false;
            
@@ -65,6 +81,17 @@ export const userSlice = createSlice({
             console.log(payload);
             state.isvalidUser=payload?.status==="valid"?true:false;
             state.hasRecruiter=payload?.type===JOB_RECRUITER?true:false;
+        })
+        .addCase(profile.pending, (state)=> {
+            state.isLoading = true;
+        })
+        .addCase(profile.rejected, (state)=> {
+            state.isLoading = false;    
+        })
+        .addCase(profile.fulfilled, (state, {payload})=> {
+            state.isLoading = false;
+            console.log(payload);
+      
         })
     }
 });

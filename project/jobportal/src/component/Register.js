@@ -15,10 +15,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 
+
 function Register() {
   const Navigate = useNavigate();
 const doneRegister=useSelector(state=>state?.user?.doneRegister);
 const userExist=useSelector(state=>state?.user?.userExist);
+const [isJobRecruiter, setIsJobRecruiter] = useState(false);
 console.log("userExist" ,userExist);
   function changepath() {
     Navigate("/");
@@ -56,7 +58,19 @@ console.log("userExist" ,userExist);
     Navigate("Dashboard");
   }
 
-  
+  // function handleChange(event) {
+  //   console.log("helo");
+  //   const { name, value } = event.target;
+  //   if (name === "type" && value === "job recruiter") {
+  //     setIsJobRecruiter(true);
+  //     console.log("job recruiter");
+  //   } else {
+  //     setIsJobRecruiter(false);
+  //   }
+  //   // Handle other form field changes
+  //   // ...
+  // }
+ 
 
   return (
     <Formik
@@ -67,6 +81,19 @@ console.log("userExist" ,userExist);
           
         }}
 
+        handleChange={
+          (e,{fun})=>{
+            console.log(e);
+            const { name, value } = e.target;
+    if (name === "type" && value === "job recruiter") {
+      setIsJobRecruiter(true);
+      console.log("job recruiter");
+    } else {
+      setIsJobRecruiter(false);
+    }
+          }
+        }
+
 
       initialValues={{
         emailId: '',
@@ -75,8 +102,11 @@ console.log("userExist" ,userExist);
 
 
       }}
+   
     >
+  
       {({ handleSubmit, handleChange, values, touched, errors }) => (
+
         <Container className="login_page">
           <Row className="justify-content-center">
             <Col xs={12} md={5}>
@@ -118,7 +148,18 @@ console.log("userExist" ,userExist);
                         
 
                     />
-                    
+                    {isJobRecruiter && (
+                      <Form.Group controlId="additionalInput">
+                        <Form.Label>Additional Input</Form.Label>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter additional information"
+                          name="additionalInfo"
+                          value={values.additionalInfo}
+                          onChange={handleChange}
+                        />
+                      </Form.Group>
+                    )}
                     <br /> <br />  <Link onClick={changepath} >Have not log-in? Log-in now</Link> <br />  <br />
 
 
