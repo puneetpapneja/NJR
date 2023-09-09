@@ -1,64 +1,34 @@
-const Job = require("../models/jobmodel");
+const jobModel = require('../models/jobModel');
 
-exports.create = async (req, res) => {
-  try {
-    const { title, description, maxSalary } = req.body;
-    
-    const newJob = new Job({
-      title,
-      description,
-      maxSalary,
-    });
+module.exports={
+    create:(req,res)=>{
 
-    
-    await newJob.save();
-
-    
-    res.status(201).json({ message: "Job created successfully" });
-  } catch (error) {
-    
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
-
-exports.getAll = async (req, res) => {
-  try {
-    const jobs = await Job.find();
-    
-    res.status(200).json(jobs);
-  } catch (error) {
-    
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
-
-exports.deleteById = async (req, res) => {
-  try {
-    const { id } = req.body;
-
-    await Job.findByIdAndDelete(id);
-
-    res.status(200).json({ message: "Job deleted successfully" });
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
-
-exports.update = async (req, res) => {
-  try {
-    
-    const { id, title, description, maxSalary } = req.body;
-
-    await Job.findByIdAndUpdate(id, {
-      title,
-      description,
-      maxSalary,
-    });
-
-    
-    res.status(200).json({ message: "Job updated successfully" });
-  } catch (error) {
-    
-    res.status(500).json({ error: "An error occurred" });
-  }
-};
+        return jobModel.create(req.body,res)
+        .then((data)=>{
+            return res.send({status: "ok", msg:"Job added successfully"})
+        })
+        .catch((err)=>{
+            return res.send({Status: "fail" ,ERROR: err})
+        })
+    },
+    getAll:(req,res)=>{
+        return jobModel.getall()
+        .then((allPost)=> res.send(allPost))
+        .catch((err)=> res.send({status: "fail",Error:"err"}));
+    },
+    deleteById:(req,res)=>{
+        return jobModel.deleteById(req.body.id)
+        .then((jobdeleted)=>res.send({status:"OK",msg:"Job deleted successfully",jobdeleted:jobdeleted}))
+        .catch((err)=> res.send({status: "fail",Error:"err"}));
+    },
+    update:(req,res)=>{
+        return jobModel.update(req.body.id, req.body.fields)
+        .then((updatedjob)=> res.send({status: "OK",msg:"Job updated successfully.",updatedjob:updatedjob}))
+        .catch((err)=> res.send({status: "Fail",error:err}));
+    },
+    searchjob:(req,res)=>{
+        return jobModel.searchjob(req.keyword)
+        .then((searchedjob)=> res.send({status: "Ok" ,msg:"Job searched successfully",searchedjob:searchedjob }))
+        .catch((err)=> res.send({status:"fail", msg:"Job not found", error:err}));
+    }
+}
