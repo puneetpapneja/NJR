@@ -116,7 +116,7 @@ return (
   </Form.Group>
 
   <div class=" mx-auto">
-  <Button variant="dark" type="submit" class="btn btn-dark">
+  <Button variant="dark" type="submit" class="btn btn-dark" as={Link} to="/login">
     Register
   </Button>
   </div> 

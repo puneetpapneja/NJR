@@ -61,7 +61,7 @@ const Login = () => {
            <Link to="/register"> Don't have an account? Register</Link>
           </div>
                <div className=" mx-auto">
-               <Button  variant="dark" type="submit" className="btn btn-dark"  onClick={() => setSession("authenticate")}>
+               <Button  variant="dark" type="submit" className="btn btn-dark"  onClick={() => setSession("authenticate")} as={Link} to="/dashboard">
                  Login
                </Button>
                </div>
