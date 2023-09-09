@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,9 +7,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { Formik } from "formik";
 import { validateUser } from "../store/reducers/userValidationSlice";
 import { setSession } from "../utils";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Login() {
-
   // const { Formik } = formik;
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,6 +24,12 @@ export default function Login() {
     }
   }, [isValidUser, navigate]);
 
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = (values) => {
     dispatch(
       validateUser({ emailId: values.email, password: values.pwd })
@@ -31,6 +38,8 @@ export default function Login() {
       if (response.payload.status === "valid") {
         setSession("user logined");
         navigate("/dashboard");
+      } else {
+        setErrorMessage("Invalid email or password");
       }
     });
   };
@@ -60,18 +69,25 @@ export default function Login() {
                   value={values.email}
                 />
               </Form.Group>
-
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="pwd"
                   placeholder="Password"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.pwd}
                 />
+                <Button
+                  variant="light"
+                  className="password-toggle-button"
+                  onClick={togglePasswordVisibility}
+                >
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </Button>
               </Form.Group>{" "}
+              {errorMessage && <p className="text-danger">{errorMessage}</p>}
               <Button
                 variant="dark"
                 type="submit"
