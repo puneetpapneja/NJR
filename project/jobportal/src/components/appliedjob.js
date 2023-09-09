@@ -2,7 +2,7 @@ import {Col,Row,Button, Container, Form, } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import React , {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllJobs, reset } from './store/reducers/jobSlice';
+import { getAllJobs,reset } from '../store/reducers/jobSlice';
 const Appliedjob = () => {
     const jobs = useSelector(state => state?.job?.jobs);
     const id = useSelector(state=>state?.user?._id);
