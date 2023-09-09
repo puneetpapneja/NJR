@@ -4,17 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { postNewJob } from "../store/reducers/postJobSlice";
 
 const formStyle = {
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: "4%",
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center",
+  marginTop: "4%",
 };
 
 export default function PostJob() {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [maxSalary, setMaxSalary] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [maxSalary, setMaxSalary] = useState("");
 
     const dispatch = useDispatch();
     const postingStatus = useSelector((state) => state.postJob.postingStatus);
