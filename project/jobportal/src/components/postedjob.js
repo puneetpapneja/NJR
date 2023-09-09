@@ -4,7 +4,7 @@ import React,{useEffect} from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllJobs, reset } from '../store/reducers/jobSlice';
+import { getAllJobs } from './store/reducers/jobSlice';
 
 const Postedjob = () => {
   const jobs = useSelector(state=>state?.job?.jobs);

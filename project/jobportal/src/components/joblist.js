@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllJobs, reset } from '../store/reducers/jobSlice';
+import { getAllJobs, reset } from './store/reducers/jobSlice';
 
 
 
