@@ -20,6 +20,5 @@ module.exports = {
     },
     getall:()=>jobCollection.find(),
     deleteById:(id)=>jobCollection.deleteOne({_id:id}),
-    update:(id,field)=>jobCollection.updateOne({_id:id,field}),
-    searchjob:(keyword)=>jobCollection.find({$or:[{jobTitle:/.*keyword*./} ,  {companyName: /.*keyword*./} , {_id:/.*keyword*./}]})
+    update:(id,field)=>jobCollection.updateOne({_id:id,field})
 }
