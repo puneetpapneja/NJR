@@ -1,6 +1,6 @@
 // import Button from 'react-bootstrap/Button';
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -10,13 +10,11 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 function Navigation() {
-    // const [setLoggedOut] = useState(false); // State to track login status
-
-    // const handleLogout = () => {
-    // Implement your logout logic here
-    // For example, clear any user session, update state, etc.
-    //     setLoggedOut(false);
-    // };
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        sessionStorage.removeItem("token");
+        navigate("/");
+    };
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -45,9 +43,6 @@ function Navigation() {
                         />
 
                     </Form>
-                    {/* <Link to='/profile'>
-                        <i className='bi bi-person-circle' style={{ fontSize: '27px', marginTop: 'auto', marginBottom: 'auto' , color:'black'}}></i>
-                    </Link> */}
                     <Dropdown>
                         <Dropdown.Toggle variant='primary' id='dropdown-icon' style={{ border: 'none', backgroundColor: 'transparent', color: 'black' }}>
                             <i className='bi bi-person-circle' style={{ fontSize: '27px', color: 'black' }}></i>
@@ -55,12 +50,12 @@ function Navigation() {
 
                         <Dropdown.Menu align='end'>
                             <Dropdown.Item>
-                                <Link to='/profile' style={{ color: 'black', textDecoration: 'none'}}>
+                                <Link to='/profile' style={{ color: 'black', textDecoration: 'none' }}>
                                     <i className='bi bi-person-plus'></i> Profile
                                 </Link>
                             </Dropdown.Item>
                             {/* <Dropdown.Divider /> */}
-                            <Dropdown.Item>
+                            <Dropdown.Item onClick={handleLogout}>
                                 <i className='bi bi-box-arrow-right'></i> Logout
                             </Dropdown.Item>
                         </Dropdown.Menu>
