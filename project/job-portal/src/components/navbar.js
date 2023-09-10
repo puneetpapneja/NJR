@@ -26,7 +26,7 @@ function Navigation() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link to="/" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link>
+                        <Link to="/dashboard" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link>
                         <Link to="/jobs" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Jobs</Link>
                         <Link to="/postjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Post a Job</Link>
                         <Link to="/appliedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Applied Job</Link>

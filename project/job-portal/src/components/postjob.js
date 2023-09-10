@@ -35,7 +35,7 @@ export default function PostJob() {
 
                 <Form.Group className="mb-3 col-md-4" controlId="jobTitle">
                     <Form.Label>Job Title</Form.Label>
-                    <Form.Control type="text" placeholder="Enter job title" />
+                    {/* <Form.Control type="text" placeholder="Enter job title" /> */}
                     <Form.Control
                         type="text"
                         value={title}
@@ -45,7 +45,7 @@ export default function PostJob() {
 
                 <Form.Group className="mb-3 col-md-4" controlId="jobDescription">
                     <Form.Label>Job Description</Form.Label>
-                    <Form.Control as="textarea" placeholder="Enter job description" rows={3} />
+                    {/* <Form.Control as="textarea" placeholder="Enter job description" rows={3} /> */}
                     <Form.Control
                         type="text"
                         value={description}
@@ -55,7 +55,7 @@ export default function PostJob() {
 
                 <Form.Group className="mb-3 col-md-4" controlId="maxSalary">
                     <Form.Label>Max salary</Form.Label>
-                    <Form.Control type="number" placeholder="Enter max salary" />
+                    {/* <Form.Control type="number" placeholder="Enter max salary" /> */}
                     <Form.Control
                         type="number"
                         value={maxSalary}

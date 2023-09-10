@@ -3,7 +3,7 @@ import { Form, Button, Card, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSession } from "../utils";
-import { JOB_RECURITER, JOB_SEEKER } from "../utils/constants";
+import { JOB_RECRUITER, JOB_SEEKER } from "../utils/constants";
 import { postNewUser } from "../store/reducers/userRegisterSlice";
 
 function SignUp() {
@@ -87,7 +87,7 @@ function SignUp() {
               onChange={handlePwdChange}
             />
           </Form.Group>
-          {[JOB_SEEKER, JOB_RECURITER].map((role) => (
+          {[JOB_SEEKER, JOB_RECRUITER].map((role) => (
             <Form.Check
               key={role}
               inline
