@@ -8,6 +8,9 @@ import { postNewUser } from "../store/reducers/userRegisterSlice";
 
 function SignUp() {
 
+  const [passwordValid,setPasswordValid]=useState(true);
+  const [passwordStrength,setPasswordStrength]=useState("");
+
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [selectedRole, setSelectedRole] = useState("");
@@ -36,7 +39,22 @@ function SignUp() {
       ...formData,
       password: pwd,
     });
+    const passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%^&*()_+])[A-Za-z\d@$!#%^&*()_+]{8,}$/;
+  setPasswordValid(passwordRegex.test(pwd));
+  if(pwd.length<8)
+  {
+    setPasswordStrength("Weak");
+  }
+  else if(pwd.length<12){
+    setPasswordStrength("Medium");
+  }
+  else {
+    setPasswordStrength("Strong");
+  }
+
   };
+  
+  
 
   const handleCompanyName = (event) => {
     const companyName = event.target.value;
@@ -50,21 +68,27 @@ function SignUp() {
     const form = event.currentTarget;
     event.preventDefault();
     event.stopPropagation();
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+    if (form.checkValidity() === false || !passwordValid) {
+      // event.preventDefault();
+      // event.stopPropagation();
+      
+    setValidated(true);
+    }
+    else
+    {
+      setValidated(false);
+      dispatch(postNewUser(formData)).then((response) => {
+        console.log(response);
+        if (response.meta.requestStatus === "fulfilled") {
+          setSession("user registered");
+          navigate("/dashboard");
+        }
+      });
+    };
+  
     }
 
-    setValidated(true);
-    dispatch(postNewUser(formData)).then((response) => {
-      console.log(response);
-      if (response.meta.requestStatus === "fulfilled") {
-        setSession("user registered");
-        navigate("/dashboard");
-      }
-    });
-  };
-
+   
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
       <div className="login-box p-4">
@@ -76,6 +100,7 @@ function SignUp() {
               type="email"
               placeholder="Enter email"
               onChange={handleEmailChange}
+              required
             />
           </Form.Group>
           {/* Other form fields */}
@@ -84,8 +109,20 @@ function SignUp() {
             <Form.Control
               type="password"
               placeholder="Password"
+
               onChange={handlePwdChange}
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!#%^&*()_+])[A-Za-z\d@$!#%^&*()_+]{8,}$"
+              required 
             />
+            {!passwordValid && (
+              <Form.Text className="text-danger">
+                Password must include at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.
+              </Form.Text>
+            )}
+            
+            <Form.Text className={`text-${passwordStrength === "Weak" ? "danger" : passwordStrength === "Medium" ? "warning" : "success"}`}>
+              {passwordStrength}
+            </Form.Text>
           </Form.Group>
           {[JOB_SEEKER, JOB_RECURITER].map((role) => (
             <Form.Check
@@ -108,6 +145,7 @@ function SignUp() {
                   type="text"
                   placeholder="Enter Company Name"
                   onChange={handleCompanyName}
+                  required
                 />
               </Form.Group>
             )}
