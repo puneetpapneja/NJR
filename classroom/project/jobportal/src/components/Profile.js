@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Form, Button,Toast } from 'react-bootstrap';
 
 
+
 export default function Profile() {
     const [showToast,setShowToast]=useState(false);
     const handleSubmit=(e)=>{
@@ -43,9 +44,7 @@ export default function Profile() {
                     </Button>
                 </div>
             </Form>
-           
-        </Container>
-        <Toast
+            <Toast
         show={showToast}
         onClose={() => setShowToast(false)}
         style={{
@@ -60,6 +59,9 @@ export default function Profile() {
       >
         <Toast.Body>Submitted successfully!</Toast.Body>
       </Toast>
+           
+        </Container>
+        
         </div>
         
     );
