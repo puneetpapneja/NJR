@@ -24,13 +24,6 @@ function Register() {
     Navigate("/");
   }
 
-  // useEffect(() => {
-  //   if (doneRegister) {
-  //     console.log("in side useeffect");
-  //     Navigate("/");
-  //   }
-  // }, [doneRegister]);
-
   const { Formik } = formik;
   const dispatch = useDispatch();
 
