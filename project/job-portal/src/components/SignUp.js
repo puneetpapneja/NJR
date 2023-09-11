@@ -46,16 +46,20 @@ function SignUp() {
     });
   };
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     event.preventDefault();
     event.stopPropagation();
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
 
     setValidated(true);
+
+    if (form.checkValidity() === false) {
+      setErrorMessage("Please fill out all required fields.");
+      return;
+    }
+
     dispatch(postNewUser(formData)).then((response) => {
       console.log(response);
       if (response.meta.requestStatus === "fulfilled") {
@@ -66,9 +70,22 @@ function SignUp() {
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center vh-100">
-      <div className="login-box p-4">
-        <h2 className="mb-10 text-md-center">Register</h2>
+    <Container className="d-flex justify-content-center align-items-center vh-100"
+      style={{ maxWidth: "500px" }}>
+      <div className="login-box p-4"
+        style={{
+          width: "100%",
+          border: "3px solid black",
+          borderRadius: "10px",
+          boxShadow: "12px 13px 20px 6px rgba(201,201,201,1)",
+        }}>
+        <h2 className="mb-4 text-center">Register</h2>
+        {errorMessage && (
+          <div className="alert alert-danger text-center" role="alert">
+            {errorMessage}
+          </div>
+        )}
+
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -76,15 +93,16 @@ function SignUp() {
               type="email"
               placeholder="Enter email"
               onChange={handleEmailChange}
+              required
             />
           </Form.Group>
-          {/* Other form fields */}
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
               onChange={handlePwdChange}
+              required
             />
           </Form.Group>
           {[JOB_SEEKER, JOB_RECRUITER].map((role) => (
@@ -108,23 +126,25 @@ function SignUp() {
                   type="text"
                   placeholder="Enter Company Name"
                   onChange={handleCompanyName}
+                  required
                 />
               </Form.Group>
             )}
-
-            <Button variant="link">
-              <Link to="/"> Have an account? Log in</Link>
-            </Button>
           </Container>
-          <Button
-            disabled={isLoading}
-            variant="dark"
-            type="submit"
-            className="w-100"
-          >
-            Register
-          </Button>
+          <div className="text-center">
+            <Button
+              disabled={isLoading}
+              variant="dark"
+              type="submit"
+              className="col-4 mt-1"
+            >
+              Register
+            </Button>
+          </div>
         </Form>
+        <p className="mt-3 text-center">
+          Have an account? <Link to="/">Log in</Link>
+        </p>
       </div>
     </Container>
   );
