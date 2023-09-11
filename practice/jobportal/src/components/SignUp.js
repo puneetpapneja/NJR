@@ -5,10 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSession } from "../utils";
 import { JOB_RECURITER, JOB_SEEKER } from "../utils/constants";
 import { postNewUser } from "../store/reducers/userRegisterSlice";
-import "./dashboard.css";
 
 function SignUp() {
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
   const [selectedRole, setSelectedRole] = useState("");
@@ -22,7 +20,6 @@ function SignUp() {
       type: role,
     });
   };
-
   const handleEmailChange = (event) => {
     const email = event.target.value;
     setFormData({
@@ -30,7 +27,6 @@ function SignUp() {
       emailId: email,
     });
   };
-
   const handlePwdChange = (event) => {
     const pwd = event.target.value;
     setFormData({
@@ -38,7 +34,6 @@ function SignUp() {
       password: pwd,
     });
   };
-
   const handleCompanyName = (event) => {
     const companyName = event.target.value;
     setFormData({
@@ -46,7 +41,6 @@ function SignUp() {
       companyName: companyName,
     });
   };
-
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     event.preventDefault();
@@ -55,11 +49,14 @@ function SignUp() {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
-    dispatch(postNewUser(formData));
-    setSession("registered User");
-    navigate("/dashboard");
+    dispatch(postNewUser(formData)).then((response) => {
+      console.log(response);
+      if (response.meta.requestStatus === "fulfilled") {
+        setSession("user registered");
+        navigate("/dashboard");
+      }
+    });
   };
 
   return (
@@ -97,19 +94,22 @@ function SignUp() {
               checked={formData?.type === role}
             />
           ))}
-          {formData?.type === JOB_RECURITER && (
-            <Form.Group controlId="formBasicCompany">
-              <Form.Label>Company name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter Company Name"
-                onChange={handleCompanyName}
-              />
-            </Form.Group>
-          )}
-          <p className="mt-3 text-center">
-            Have an account?<Link to="/"> Log in</Link>
-          </p>
+          <Container className="d-flex flex-column mb-3">
+            {formData?.type === "Job Recruiter" && (
+              <Form.Group controlId="formBasicCompany">
+                <Form.Label>Company name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Company Name"
+                  onChange={handleCompanyName}
+                />
+              </Form.Group>
+            )}
+
+            <Button variant="link">
+              <Link to="/"> Have an account? Log in</Link>
+            </Button>
+          </Container>
           <Button
             disabled={isLoading}
             variant="dark"

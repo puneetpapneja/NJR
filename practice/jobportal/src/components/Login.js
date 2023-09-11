@@ -2,39 +2,43 @@ import React, { useEffect } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { validateUser } from "../store/reducers/userLoginSlice";
+// import { validateUser } from "../store/reducers/userLoginSlice";
+// import * as yup from "yup";
 import { Formik } from "formik";
-import * as yup from "yup";
-
-import "./dashboard.css"; // Import your custom CSS for styling
+import { validateUser } from "../store/reducers/userValidationSlice";
+import { setSession } from "../utils";
 
 export default function Login() {
+  // const { Formik } = formik;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isValidUser = useSelector((state) => state?.user?.isValidUser);
+  // const isValidUser = useSelector((state) => state?.user?.isValidUser);
+  const isValidUser = useSelector((state) => state?.user?.isValid);
+  const postingStatus = useSelector((state) => state?.user?.postingStatus);
 
   useEffect(() => {
     if (isValidUser) {
       navigate("/dashboard");
     }
-  }, [isValidUser]);
+  }, [isValidUser, navigate]);
+
+  const handleSubmit = (values) => {
+    dispatch(
+      validateUser({ emailId: values.email, password: values.pwd })
+    ).then((response) => {
+      console.log(response);
+      if (response.payload.status === "valid") {
+        setSession("user logined");
+        navigate("/dashboard");
+      }
+    });
+  };
 
   return (
-    <Container className="login-container d-flex justify-content-center align-items-center vh-100">
+    <Container className="d-flex justify-content-center align-items-center vh-100">
       <div className="login-box p-4">
-        <h2 className="mb-4 text-center">Login</h2>
-        <Formik
-          initialValues={{ email: "", pwd: "" }}
-          onSubmit={(values, { setSubmitting }) => {
-            dispatch(
-              validateUser({ emailId: values.email, password: values.pwd })
-            );
-          }}
-          validationSchema={yup.object().shape({
-            email: yup.string().email().required("Email is required"),
-            pwd: yup.string().required("Password is required"),
-          })}
-        >
+        <h2 className="mb-10 text-md-center">Login</h2>
+        <Formik initialValues={{ email: "", pwd: "" }} onSubmit={handleSubmit}>
           {({
             handleSubmit,
             handleChange,
@@ -53,11 +57,7 @@ export default function Login() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  isInvalid={touched.email && !!errors.email}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.email}
-                </Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
@@ -69,25 +69,21 @@ export default function Login() {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.pwd}
-                  isInvalid={touched.pwd && !!errors.pwd}
                 />
-                <Form.Control.Feedback type="invalid">
-                  {errors.pwd}
-                </Form.Control.Feedback>
-              </Form.Group>
+              </Form.Group>{" "}
               <Button
                 variant="dark"
                 type="submit"
-                className="col-md-12 mt-4 btn-login"
-                disabled={Object.keys(errors).length > 0}
+                className="col-md-12 mt-4"
+                disabled={postingStatus === "loading"}
               >
-                Log in
+                {postingStatus === "loading" ? "Logging in..." : "Login"}
               </Button>
             </Form>
           )}
         </Formik>
         <p className="mt-3 text-center">
-          Don't have an account? <Link to="/signup">Register Now</Link>
+          <Link to="/signup">Don't have an account? Sign up</Link>
         </p>
       </div>
     </Container>
