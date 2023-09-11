@@ -40,18 +40,18 @@ export default function Jobs() {
     setSearchText(event.target.value);
   };
 
-   const filteredJobs = jobs.filter((item) =>
+  const filteredJobs = jobs.filter((item) =>
     // Search in title, description, and maxSalary
-    item.title.toLowerCase().includes(searchText.toLowerCase()) ||
-    item.description.toLowerCase().includes(searchText.toLowerCase()) ||
+    item.title.toLowerCase().includes(searchText.toLowerCase())||
+    item.description.toLowerCase().includes(searchText.toLowerCase())||
     item.maxSalary.toString().includes(searchText) // Convert maxSalary to string for comparison
   );
 
   return (
     <Form>
-      <CardHeader style={{ fontSize: "50px", marginLeft: "8vw" }}>
+      <CardHeader style={{ fontSize: "50px", marginLeft: "8vw",marginTop:"15vh"}}>
         Jobs
-        <Form className="d-flex mt-3">
+        {/* <Form className="d-flex mt-3">
           <FormControl
             type="search"
             placeholder="🔍 Search"
@@ -61,7 +61,7 @@ export default function Jobs() {
             onChange={handleSearchChange}
           />
           <Button variant="outline-primary">🔍</Button>
-        </Form>
+        </Form> */}
       </CardHeader>
       {filteredJobs.length > 0 ? (
         renderJobs(filteredJobs)
