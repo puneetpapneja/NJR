@@ -64,7 +64,7 @@ export default function Login(){
                         <Form.Control 
                             type='text' 
                             value={email}
-                            placeholder='Enter your Email'
+                            placeholder="Enter your Email"
                             onChange={(e)=>{
                                                 setEmail(e.target.value);
                                                 setEmailError("");
@@ -82,7 +82,7 @@ export default function Login(){
                         <Form.Control 
                             type='text'
                             value={password} 
-                            placeholder='Enter your Password'
+                            placeholder="Enter your Password"
                             onChange={(e)=>{
                                     setPassword(e.target.value);
                                     setPasswordError("");

@@ -1,132 +1,60 @@
-import React, { useState } from 'react';
-import {Alert, Button, Col, Container, Form, Row} from 'react-bootstrap';
+import { Container, Form, Button, } from 'react-bootstrap';
+//import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { createJob } from '../store/reducers/JobSlice';
+import React, { useState } from 'react';
+import { useDispatch, } from 'react-redux';
+import { createJobs } from '../store/reducers/JobSlice';
 
-export default function PostJob(){
-    const navigate = useNavigate();
-    const [JobTitle,setJobTitle]=useState("");
-    const [JobTitleError,setJobTitleError]=useState("");
-    const [JobDescription,setJobDescription]=useState("");
-    const [JobDescriptionError,setJobDescriptionError]=useState("");
-    const [maxSalary,setMaxSalary]= useState("");
-    const [maxSalaryError,setMaxSalaryError]=useState("");
-    const companyName = useSelector(state=>state?.user?.companyName)
-    const status = useSelector(state=>state?.user?.status)
-    const firstName = useSelector(state=>state?.user?.firstName)
-    const lastName = useSelector(state=>state?.user?.lastName)
-    const emailId = useSelector(state=>state?.user?.emailId)
-    const _id = useSelector(state=>state?.user?._id)
-    const dispatch = useDispatch();
-    const Handleclick = (event)=>{
-        if(!JobTitle)
-        {
-            event.preventDefault();
-            setJobTitleError("*required");
-            return;
-        }
-        if(!JobDescription)
-        {
-            event.preventDefault();
-            setJobDescriptionError("*required");
-            return;
-        }
-        if(!maxSalary)
-        {
-            event.preventDefault();
-            setMaxSalaryError("*required");
-            return;
-        }
-        const data = {
-            title:JobTitle,
-            description:JobDescription,
-            maxSalary:maxSalary,
-            companyName: companyName,
-            recruiterDetails:{
-                _id:_id,
-                firstName:firstName,
-                lastName:lastName,
-                emailId:emailId
-            }
-        }
-        dispatch(createJob(data));
-            navigate("/");
+const Postjob = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [jobTitle, setTitle] = useState("");
+  const [jobDescription, setDescription] = useState("");
+  const [maxSalary, setMaxSalary] = useState("");
+  function handelsubmit(event) {
+    event.preventDefault();
+    const postdata = {
+      jobTitle: jobTitle,
+      jobDescription: jobDescription,
+      maxSalary: maxSalary
+    };
+    console.log(postdata);
+    dispatch(createJobs(postdata))
+    if (postdata !== "") {
+      navigate("/postedjob")
+
     }
-    return(
-        <Container fluid >
-            <Form style={{border:"2px solid",margin:"100px 400px 200px 400px",borderRadius:"20px"}}>
-                <Row>
-                    <Col lg="1"></Col>
-                    <Col lg="3">
-                        <h1 className='text-center' style={{width:"400px",marginTop:"30px",marginLeft:"20px"}}>Post Job</h1>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2"></Col>
-                    <Col lg="8">
-                        <Form.Group>
-                            <Form.Label className='my-3' >Job Title</Form.Label>
-                            <Form.Control 
-                                type='text'
-                                value={JobTitle}
-                                onChange={
-                                    (e)=>{
-                                        setJobTitle(e.target.value);
-                                        setJobTitleError("");
-                                    }
-                                } 
-                            />
-                            {JobTitleError && <Alert variant='danger'>{JobTitleError}</Alert>}
-                        </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2"></Col>
-                    <Col lg="8">
-                    <Form.Group>
-                        <Form.Label className='my-3'>Job Description</Form.Label>
-                        <Form.Control 
-                            as='textarea'
-                            rows={2}
-                            value={JobDescription}
-                            onChange={
-                                (e)=>{
-                                    setJobDescription(e.target.value);
-                                    setJobDescriptionError("");
-                                }
-                            } 
-                        />
-                        {JobDescriptionError && <Alert variant='danger'>{JobDescriptionError}</Alert>}
-                    </Form.Group>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg="2"></Col>
-                    <Col lg="8">
-                    <Form.Group>
-                        <Form.Label className='my-3'>Max Salary</Form.Label>
-                        <Form.Control 
-                        type='text'
-                        value={maxSalary}
-                        onChange={
-                            (e)=>{
-                                setMaxSalary(e.target.value);
-                                setMaxSalaryError("");
-                            }
-                        }
-                        />
-                    </Form.Group>
-                    {maxSalaryError && <Alert variant='danger'>{maxSalaryError}</Alert>}
-                    </Col>
-                </Row>
-                <Row className='mb-5'>
-                    <Col lg="4"></Col>
-                    <Col>
-                        <Button variant='primary' type='Submit'style={{marginTop:"20px",width:"180px"}} onClick={Handleclick}>Post</Button>
-                    </Col>
-                </Row>
-            </Form>
-        </Container>
-    );
+  }
+
+  return (
+    <Container className="d-flex justify-content-sm-center">
+      <Form onSubmit={(e) => { handelsubmit(e) }} className="w-25 p-1" >
+        <div className="shadow-sm p-3 mb-5 bg-white rounded">
+          <h1 className="d-flex justify-content-center">Post Job</h1>
+
+          <Form.Group className="mb-3" controlId="formBasicjobtitle">
+            <Form.Label>Job Title</Form.Label>
+            <input type='text' value={jobTitle} onChange={(e) => { setTitle(e.target.value) }}></input>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicdescription">
+            <Form.Label>Job Description</Form.Label>
+            <input type='text' value={jobDescription} onChange={(e) => { setDescription(e.target.value) }}></input>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicsalary">
+            <Form.Label>Max Salary</Form.Label>
+            <input type='text' value={maxSalary} onChange={(e) => { setMaxSalary(e.target.value) }}></input>
+          </Form.Group>
+
+          <div class=" mx-auto">
+            <Button variant="dark" type="submit" class="btn btn-dark" >
+              POST
+            </Button>
+          </div>
+        </div>
+      </Form>
+    </Container>
+  )
 }
+export default Postjob;

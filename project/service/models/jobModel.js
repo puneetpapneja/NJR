@@ -1,28 +1,25 @@
-const mongoose = require("mongoose");
-
-const jobSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    maxSalary: String,
-    companyName: String,
-    recruiterDetails: {
-        _id: String,
-        firstName: String,
-        lastName: String,
-        emailId: String
+const mongoose = require('mongoose');
+const jobSchema = mongoose.Schema({
+    jobTitle: String,
+    jobDescription: String,
+    maxSalary:Number,
+    companyName:String,
+    recruiterDtl :{
+        name:String,
+        emailId:String,
+        contactNo:Number
     }
 });
 
-const jobCollection = mongoose.model("Job",jobSchema);
+const jobCollection = mongoose.model("job",jobSchema);
 
-module.exports={
-    create:(fields)=>{
-        // console.log(fields);
-        const job = new jobCollection(fields);
-        return job.save();
+module.exports = {
+    create: (field,res)=>{
+        const job = new jobCollection(field);
+        return job.save()
     },
-    getAll:()=>jobCollection.find(),
-    getById:(id)=>jobCollection.find({_id:id}),
-    deleteById: (id)=>jobCollection.deleteOne({_id:id}),
-    update: (id,fields)=>jobCollection.updateOne({_id:id},fields)
+    getall:()=>jobCollection.find(),
+    deleteById:(id)=>jobCollection.deleteOne({_id:id}),
+    update:(id,field)=>jobCollection.updateOne({_id:id,field}),
+    searchjob:(keyword)=>jobCollection.find({$or:[{jobTitle:/.*keyword*./} ,  {companyName: /.*keyword*./} , {_id:/.*keyword*./}]})
 }

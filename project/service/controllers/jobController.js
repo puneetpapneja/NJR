@@ -1,32 +1,34 @@
-const jobModels = require("../models/jobModel")
+const jobModel = require('../models/jobModel');
 
-module.exports = {
-    create: (req,res)=>{
-        // console.log(req.body);
-        return jobModels.create(req.body)
-        .then(()=>{
-            return res.send({status:"ok",msg:"job created successfully"})
+module.exports={
+    create:(req,res)=>{
+
+        return jobModel.create(req.body,res)
+        .then((data)=>{
+            return res.send({status: "ok", msg:"Job added successfully"})
         })
-        .catch((err)=>res.send({status:"fail",err:err}))
+        .catch((err)=>{
+            return res.send({Status: "fail" ,ERROR: err})
+        })
     },
-    getAll: (req,res)=>{
-        return jobModels.getAll()
-        .then((allJobs)=>res.send(allJobs))
-        .catch((err)=>res.send({status:"fail",error:err}))
+    getAll:(req,res)=>{
+        return jobModel.getall()
+        .then((allPost)=> res.send(allPost))
+        .catch((err)=> res.send({status: "fail",Error:"err"}));
     },
-    getById: (req,res)=>{
-        return jobModels.getById(req.body.id)
-        .then((job)=>res.send(job))
-        .catch((err)=>res.send({status:"fail",error:err}))
+    deleteById:(req,res)=>{
+        return jobModel.deleteById(req.body.id)
+        .then((jobdeleted)=>res.send({status:"OK",msg:"Job deleted successfully",jobdeleted:jobdeleted}))
+        .catch((err)=> res.send({status: "fail",Error:"err"}));
     },
-    deleteById: (req,res)=>{
-        return jobModels.deleteById(req.body.id)
-        .then((deletedJob)=>res.send({status:"deleted",deletedJob:deletedJob}))
-        .catch((err)=>res.send({status:"fail",error:err}))
+    update:(req,res)=>{
+        return jobModel.update(req.body.id, req.body.fields)
+        .then((updatedjob)=> res.send({status: "OK",msg:"Job updated successfully.",updatedjob:updatedjob}))
+        .catch((err)=> res.send({status: "Fail",error:err}));
     },
-    update: (req,res)=>{
-        return jobModels.update(req.body.id,req.body.fields)
-        .then((updatedJob)=>res.send({status:"Ok",updatedJob:updatedJob}))
-        .catch((err)=>res.send({status:"fail",error:err}))
+    searchjob:(req,res)=>{
+        return jobModel.searchjob(req.keyword)
+        .then((searchedjob)=> res.send({status: "Ok" ,msg:"Job searched successfully",searchedjob:searchedjob }))
+        .catch((err)=> res.send({status:"fail", msg:"Job not found", error:err}));
     }
 }
