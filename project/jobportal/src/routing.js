@@ -9,6 +9,7 @@ import Apply from "./pages/apply";
 // import DeveloperPage from "./pages/candidatepage";
 import ProfilePage from "./pages/profilepage";
 import Posted from "./pages/posted";
+// import JobPage from "./pages/Jobpage";
 import JobPage from "./pages/Jobpage";
 export const routing = [
 
