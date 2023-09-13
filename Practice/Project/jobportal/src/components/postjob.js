@@ -1,5 +1,4 @@
-import { Container, Row, Form, Button, Alert, Navbar } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
+import { Container, Form, Button,  } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import Navbar2 from "./navbar";

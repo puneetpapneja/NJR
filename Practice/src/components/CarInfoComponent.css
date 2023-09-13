@@ -1,0 +1,38 @@
+.car-info-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.car-image {
+    flex: 1;
+    overflow: hidden;
+    border: 2px solid;
+}
+
+.car-image img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+}
+
+.car-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -17px;
+}
+
+
+
+ul {
+    border: 2px solid black;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+
+}
+
+ul li {
+    margin-bottom: 8px;
+}

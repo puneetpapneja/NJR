@@ -1,15 +1,18 @@
 const express = require("express");
 const { port } = require("./config");
-const db = require('./database');
-// 3 process is 1
-
-const userRoute = require('./routes/userRoute');
-app.use("/user",userRoute); // this 2 is for process number 10
-
-
-
-/// this 2 procces is for 2
+const db = require("./database");
+const userRoute = require("./routes/userRoute");
+const jobRoute = require("./routes/jobroutes"); 
+const cors = require('cors');
 const app = express();
-app.use(express.json());
 
-app.listen(port,() => console.log("service started on port: ", port));
+app.use(express.json());
+app.use(cors());
+app.use("/user", userRoute);
+app.use("/job", jobRoute); 
+
+app.get("/health", (req, res) => {
+  res.send({ status: "OK" });
+});
+
+app.listen(port, () => console.log("service started on port: ", port));

@@ -2,10 +2,11 @@
 import React from "react";
 import Dashboard from "./components/dashboard"
 import Login from "./components/Login";
-import Register from "./components/register";
+import Register from "./components/Register";
 import Postjob from "./components/postjob";
 import Navbar from "./components/navbar";
 import Appliedjob from "./components/appliedjob"
+import Jobs from "./components/appliedjob";
 
 export const routes=[
     {
@@ -27,6 +28,10 @@ export const routes=[
     {
         path:"/appliedjob",
         element: <Appliedjob/>
+    },
+    {
+        path:"/seniordev",
+        element: <Jobs/>
     }
     
 ]
