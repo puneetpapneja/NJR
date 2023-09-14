@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const add=(a,b)=>a+b;
+    const sub=(a,b)=>a-b;
+    const div=(a,b)=>a/b;
+    const mul=(a,b)=>a*b; 
+    const clickhandler = (callback) => {
+      let a=parseInt(document.getElementById("item").value);
+      let b=parseInt(document.getElementById("item1").value)
+      let c=callback(a,b);
+      document.write('the value are '+c);
+    };
+  </script>
+  <body>
+    <input type="text" id="item" />
+    <input type="text" id="item1" />
+    <button onclick="clickhandler(add)">Add</button>
+    <button onclick="clickhandler(sub)">Sub</button>
+    <button onclick="clickhandler(div)">Division</button>
+    <button onclick="clickhandler(mul)">Mul</button>
+</body>
+</html>

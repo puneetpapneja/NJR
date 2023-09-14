@@ -1,16 +1,14 @@
-<<<<<<< HEAD
-practice/react/webapp/node_modules
-assignments/07.08.23/app/node_modules
-project/jobportal/node_modules
-classroom/react/node_modules
-project/service/node_modules
-classroom/project/service/node_modules/
-practice/webapp/node_modules/
-=======
->>>>>>> 33176c5e6cfd193573ce0807d32e6e2070725787
 
-practice/react/webapp/node_modules
-assignments/07.08.23/app/node_modules
+<<<<<<< HEAD
+<<<<<<< HEAD
+practice/node_modules
+=======
+classroom/react/node_modules/
+>>>>>>> 14da12cf25260ac2156c979ca5599783ee5c62ee
 project/jobportal/node_modules
-classroom/react/node_modules
-project/Service/node_modules
+=======
+classroom/react/node_modules/
+
+>>>>>>> 3b0e01ff6776fa8d96f826d6844bb23fe87fb9a1
+project/service/node_modules
+node_modules
