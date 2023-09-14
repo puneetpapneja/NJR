@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        height: 100vh;
+        width: 100vw;
+        padding: 40px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+
+      div {
+        width: 500px;
+        border: 2px solid black;
+      }
+      
+      div img {
+        width: 100%;
+      }
+      
+      #btn-controller{
+        width: 500px;
+        border: 2px solid black;
+      }
+      
+      #btn_div{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <img id="img" src="" alt="img" />
+      <div><center>Auto-Image viewer</center></div>
+    </div>
+    <div id="btn-controller">
+      <img id="btn_img" src="i1.jpg" alt="img" />
+      <div id="btn_div">
+        <button onclick="previous()">Previous</button>
+        <button onclick="next()">Next</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    images = [
+      "i1.jpg",
+      "i2.jpg",
+      "i3.jpg",
+    ];
+    
+    let index = 0;
+    setInterval(() => {
+      if (index === images.length) index = 0;
+      let i = document.getElementById("img");
+      i.src = images[index];
+      index++;
+    }, 2000);
+    
+    let btn_index=0;
+    function next() {
+      btn_index++;
+      let i = document.getElementById("btn_img");
+      i.src = images[btn_index];
+      if (btn_index === images.length-1) 
+              btn_index = -1;
+    }
+    function previous() {
+      if (btn_index === 0) 
+           btn_index = images.length;
+      btn_index--;
+      let i = document.getElementById("btn_img");
+      i.src = images[btn_index];
+    }
+  </script>
+</html> 
+

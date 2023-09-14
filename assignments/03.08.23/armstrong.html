@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>armstrong</title>
+</head>
+<body>
+    <input type="text" id="num">
+    <input type="button" value="check" onclick="armstrong()">
+    <script>
+        const armstrong=()=>{
+           const num=document.getElementById("num");
+           console.log(num.value);
+           let c=0;
+           for(let i=0;i<num.value.length;i++){
+               c+=Number(num.value[i])**3;
+           }
+           if(c==num.value){
+            document.write("yes, it's a armstrong number");
+           }
+           else{
+            document.write("no, it's not a armstrong number");
+           }
+        }
+        const str="a dhkj djhdkewjd";
+        console.log(str.length);
+        
+    </script>
+</body>
+</html>

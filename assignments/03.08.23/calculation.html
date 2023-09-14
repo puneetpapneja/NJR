@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation</title>
+</head>
+<body>
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <input type="button" value="add" onclick="calloperation(add)"> 
+    <input type="button" value="sub" onclick="calloperation(sub)"> 
+    <input type="button" value="mul" onclick="calloperation(mul)"> 
+    <input type="button" value="div" onclick="calloperation(div)"> 
+</body>
+<script>
+    const calloperation=(operation)=>{
+        const no1=document.getElementById("num1");
+        const no2=document.getElementById("num2");
+        const ans=operation(Number(no1.value),Number(no2.value));
+        document.write(ans);
+    }
+    const add=(a,b)=>a+b;
+    const sub=(a,b)=>a-b;
+    const mul=(a,b)=>a*b;
+    const div=(a,b)=>a/b;
+</script>
+</html>

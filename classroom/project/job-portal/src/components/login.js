@@ -3,8 +3,8 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import { setSession } from '../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { postjob } from '../store/reducers/jobSlice';
-import { validateUser } from '../store/reducers/userSlice';
+import { postjob } from '../store/Reducers/jobSlice';
+import { validateUser } from '../store/Reducers/userSlice';
 
 export default function Login(){
 

@@ -1,0 +1,10 @@
+#outer{
+    border: 2px solid black;
+    width:60vw;
+    height:auto;
+}
+.list{
+    list-style: none;
+    display:flex ;
+    justify-content: space-around;
+}

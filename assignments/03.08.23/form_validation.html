@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="form_css.css">
+</head>
+<body>
+    <center><h1>FORM</h1></center>
+    <br>
+    <div class="canvas">
+        <form method="post" onsubmit="return check()">
+            <br>
+            <br>
+            <span>name</span> 
+            <span id="req_1"></span><br>
+            <input type="text" name="name" placeholder="name" id="name">
+            <br>
+            <br>
+            <span>email</span> 
+            <span id="req_2"></span>
+            <br>
+            <input type="email" name="email" placeholder="email" id="email">
+            <br>
+            <br>
+            <span>password</span>
+            <span id="req_3"></span>
+            <br>
+            <input type="password" name="pswd" placeholder="password" id="pswd">
+            <br>
+            <br>
+            <span>confirm password</span> 
+            <span id="req_4"></span>
+            <br>
+            <input type="password" name="cnfrm_pswd" placeholder="re-enter password" id="re_pswd">
+            <br>
+            <br>
+            <span>gender</span>
+            <span id="req_5"></span>
+            <input type="radio" name="gender" id="male" value="male"><label for="male">Male</label>                
+            <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>
+            <br><br>
+            <span>date of birth</span> <br>
+            <span id="req_6.1"></span>
+            <select name="date" id="date">
+                <option disabled selected value="">date</option>
+                <script>
+                    for(let i=1;i<32;i++)
+                    {
+                        document.write("<option value='"+i+"'>"+i+"</option>");
+                    }
+                </script>
+            </select>&emsp;
+            <span id="req_6.2"></span>
+            <select name="month" id="month">
+                <option disabled selected value="">month</option>
+                <script>
+                    for(let i=1;i<13;i++)
+                    {
+                        document.write("<option value='"+i+"'>"+i+"</option>");
+                    }
+                </script>
+            </select>&emsp;
+            <span id="req_6.3"></span>
+            <select name="year" id="year">
+                <option disabled selected value="">year</option>
+                <script>
+                    for(let i=1950;i<2023;i++)
+                    {
+                        document.write("<option value='"+i+"'>"+i+"</option>");
+                    }
+                </script>
+            </select>
+            <br>
+            <br>
+            <input type="checkbox" name="toc" id="term_read"><label for="term_read">The above data is true to the best of my knowledge.</label> 
+            <span id="req_7"></span>
+            <br>
+        
+            <input type="reset" name="button">
+            <input type="submit" name="button">
+        </form>
+    </div>
+    <script>
+        const check = () =>{
+            if(!req_name()){
+                return false;
+            }
+            if(!name()){
+                return false;
+            }
+            if(!req_email()){
+                return false;
+            }
+            if(!req_pswd()){
+                return false;
+            }
+            if(!req_re_pswd()){
+                return false;
+            }
+            if(!same_pswd()){
+                return false;
+            }
+            if(!req_gen()){
+                return false;
+            } 
+            if(!req_toc()){
+                return false;
+            }
+            if(!req_dob()){
+                return false;
+            }
+            console.log(det);
+            return false;
+        }
+        const det = {
+            name:"",
+            email:"",
+            pswd:"",
+            date:0,
+            month:0,
+            year:0,
+            gen:""
+        }
+        const req_name= ()=>{
+            const nameEle=document.getElementById("name");
+            let error= document.getElementById("req_1");
+            if(nameEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            return true;
+        }
+        const req_email= ()=>{
+            const emailEle=document.getElementById("email");
+            let error= document.getElementById("req_2");
+            if(emailEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            det.email=emailEle.value;
+            return true;
+        }
+        const req_pswd= ()=>{
+            const pswdEle=document.getElementById("pswd");
+            let error= document.getElementById("req_3");
+            if(pswdEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            det.pswd=pswdEle.value;
+            return true;
+        }
+        const req_re_pswd= ()=>{
+            const rePswdEle=document.getElementById("re_pswd");
+            let error= document.getElementById("req_4");
+            if(rePswdEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            return true;
+        }
+        const req_gen= ()=>{
+            const gen1Ele=document.getElementById("male");
+            const gen2Ele=document.getElementById("female");
+            let error= document.getElementById("req_5");
+            if(!gen1Ele.checked && !gen2Ele.checked){
+                error.innerHTML="<font color='red'size=2>*required</font><br>";
+                return false;
+            }
+            error.innerHTML="";
+            if(gen1Ele.checked){
+                det.gen= gen1Ele.value;
+            }
+            else{
+                det.gen= gen2Ele.value;
+            }
+            return true;
+        }
+        const req_toc= ()=>{
+            const tocEle=document.getElementById("term_read");
+            let error= document.getElementById("req_7");
+            if(!tocEle.checked){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            return true;
+        }
+        const req_dob= ()=>{
+            if(!req_date()){
+                return false;
+            }
+            if(!req_month()){
+                return false;
+            }
+            if(!req_year()){
+                return false;
+            }
+            return true;
+        }
+        const req_date= ()=>{
+            const dateEle=document.getElementById("date");
+            let error= document.getElementById("req_6.1");
+            if(dateEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            det.date= dateEle.value;
+            return true;
+        }
+        const req_month= ()=>{
+            const monthEle=document.getElementById("month");
+            let error= document.getElementById("req_6.2");
+            if(monthEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            det.month= monthEle.value;
+            return true;
+        }
+        const req_year= ()=>{
+            const yearEle=document.getElementById("year");
+            let error= document.getElementById("req_6.3");
+            if(yearEle.value===""){
+                error.innerHTML="<font color='red' size=2>*required</font>";
+                return false;
+            }
+            error.innerHTML="";
+            det.year= yearEle.value;
+            return true;
+        }
+        const name = () =>{
+            const nameEle = document.getElementById("name");
+            let error= document.getElementById("req_1");
+            for (const a in nameEle.value) {
+                if (!(nameEle.value.charCodeAt(a)>='a'.charCodeAt(0) && nameEle.value.charCodeAt(a)<='z'.charCodeAt(0)) && !(nameEle.value.charCodeAt(a)>='A'.charCodeAt(0) && nameEle.value.charCodeAt(a)<='Z'.charCodeAt(0)) && !(nameEle.value.charCodeAt(a) == ' '.charCodeAt(0))) {
+                    error.innerHTML="<font color='red' size=2>*use letters only</font>";
+                    return false;
+                }
+            }
+            error.innerHTML="";
+            det.name=nameEle.value;
+            return true;
+        }
+        const same_pswd = () =>{
+            const pswdEle = document.getElementById("pswd");
+            const rePswdEle = document.getElementById("re_pswd");
+            let error= document.getElementById("req_4");
+            if (pswdEle.value!=rePswdEle.value) {
+                error.innerHTML="<font color='red' size=2>*password does not match</font>";
+                return false;
+            }
+            error.innerHTML="";
+            return true;
+        }
+    </script>
+</body>
+</html>

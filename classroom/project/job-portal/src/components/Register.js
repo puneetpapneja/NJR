@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import { getSession } from '../utils';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, reset } from '../store/reducers/userSlice';
+import { registerUser, reset } from '../store/Reducers/userSlice';
 import { JOB_RECRUITER, JOB_SEEKER } from '../utils/constants';
 
 

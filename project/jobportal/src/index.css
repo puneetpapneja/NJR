@@ -1,0 +1,21 @@
+/* .text-center{
+  color: black;
+} */
+
+/* .media-container{
+  width: 40% !important;
+} */
+
+/* @media(max-width: 1024px){
+  .media-container{
+    width: 100% !important;
+  }
+  .text-center{
+    color: black;
+  }
+} */
+
+*{
+  margin: 0;
+  padding: 0;
+}

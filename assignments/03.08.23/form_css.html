@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles_survey.css"/ >
+  </head>
+  <body>
+    <h1 id="title"> Survey Form</h1>
+    <p id="description">Thank you for taking the time to help us improve the platform</p>
+    <form action="text.php" id="survey-form">
+    
+      <fieldset>
+        <label for="name" id="name-label" id="gap" >Name: <input id="name" name="name" type="text" required placeholder="Enter your name"/></label>
+        <br/><br/>
+        <label for="email" id="email-label" id="gap1" >Email: <input id="email" name="email" type="email" required placeholder="Enter your Email" /></label>
+        <br/><br/>
+        <label for="age" id="number-label" id="gap1" >Age(optional): <input id="number" name="age" type="number" placeholder="Age" min="18" max="55" /></label>
+        <br/><br/>
+        <label for="role" id="gap1">Which option best describes your current role?
+          <select id="dropdown" name="role">
+            <option value="" selected disabled>select current role</option>
+            <option value="1">Student</option>
+            <option value="2">Full Time Job</option>
+            <option value="3">Full Time Learner</option>
+            <option value="4">Prefer not to say</option>
+            <option value="5">Other</option>
+          </select>
+        </label>
+        <label id="gap1">Would you recommend this to a friend?
+        <label for="defi"><input id="defi" type="radio" name="recommend" value="a"  />Definitely</label>
+         <label for="Mb"><input id="Mb" type="radio" name="recommend" value="b"  />Maybe</label>
+          <label for="ns"><input id="ns" type="radio" name="recommend" value="c" />Not sure</label>
+          </label>
+           <label for="feature" id="gap1">What is your favorite feature of this platform?
+          <select name="feature">
+            <option value="" selected disabled>select an option</option>
+            <option value="1">Challenges</option>
+            <option value="2">Projects</option>
+            <option value="3">Community</option>
+            <option value="4">Open source</option>
+            </select>
+           </label>
+            <label id="gap1">What would you like to see improve?
+          <label><input id="F-e" type="checkbox" name="improve" value="1"/> Front-end Projects 
+        </label>
+        <label><input id="B-e" type="checkbox"  name="improve" value="2"/> Back-end Projects 
+        </label>
+        <label><input id="D-v" type="checkbox"  name="improve" value="3"/> Data Visualization
+        </label>
+        <label><input id="c" type="checkbox" name="improve" value="4"/> Challenges
+        </label>
+        <label><input id="O-S" type="checkbox" name="improve" value="5"/> Open Source Community
+        </label>
+        <label><input id="F-e" type="checkbox"  name="improve" value="6"/> Front-end Projects 
+        </label>
+        <label><input id="G-h-r" type="checkbox" name="improve" value="7"/> Gitter help rooms
+        </label>
+         <label><input id="V" type="checkbox"  name="improve" value="8"/>Videos
+        </label>
+         <label><input id="C-m" type="checkbox"  name="improve" value="9"/> City Meetups
+        </label>
+         <label><input id="W" type="checkbox"  name="improve" value="10"/> Wiki
+        </label> 
+        <label><input id="F" type="checkbox" name="improve" value="11"/> Forum
+        </label>
+         <label><input id="A-c" type="checkbox"  name="improve" value="12"/> Additional courses
+        </label>
+        <label for="com&sugg" id="gap1">Any comments and suggestions?
+          <textarea id="com&sugg" name="com&sugg" rows="5" cols="30" placeholder="Enter your comment here..."></textarea>
+        </label>
+         <input type="submit" value="Submit" id="submit" />
+         <input type="reset"  value="Reset" />
+        </fieldset>
+        </form>
+       

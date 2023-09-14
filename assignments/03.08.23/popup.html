@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College-LOGIN</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="bg">
+    <header>
+        <img src="logo.jpeg" alt="COLLAGE LOGO IS LOADING" id="logo">
+        <h1 id="clgname">KNOWLEDGE CAMPUS</h1>
+        <div id="navbar">
+            <h3 class="navcntnt">Home</h3>
+            <h3 class="navcntnt">Admission</h3>
+            <h3 class="navcntnt">Courses</h3>
+            <h3 class="navcntnt">Examination</h3>
+            <div class="navcntnt sp">
+                <input type="text" placeholder="Search" class="sinp">
+                <button class="sinp">search</button>
+            </div>
+            <button id="Log" onclick="openfunc()">LogIn</button>
+        </div>
+    </header>
+    <script>
+        function openfunc() {
+            document.getElementById("lp").style.display = "block";
+          }
+        
+        function closefunc(){
+            document.getElementById("lp").style.display="none";
+        }
+    </script>
+<div id="ultimate_container">
+
+    
+    <img id="c_img" src="https://www.pacific-university.ac.in/uploads/PageHeaders/14932/_default.jpg" alt="college" id="c_img">
+    <h1 id="h1">PROFILE</h1>
+    <p id="p">Established in 1997, the Pacific University has made a mark on the educational map of India. Over the last 25 years, the Pacific Society has continued to make rapid strides in the field of higher & technical education. It has established more than twenty one institutes and become a multi-disciplinary conglomeration of colleges providing higher education in the diverse fields of Engineering, Management & Commerce, Dentistry, Pharmacy, Education,  Basic & Applied Sciences, and Research Programmes (Ph.D.) in all relevant disciplines.
+        <br><br>
+        Pacific University has a mammoth ultra modern campus sprawling over more than 100 acres of lush greenery, including state of the art classrooms, separate hostels for boys and girls, laboratories, and libraries, internationally benchmarked curricula, innovative pedagogy, experiential learning and affordable quality education, the university is committed  to establish itself as a centre of excellence in research.
+        <br><br>
+        Education at Pacific is holistic, aiming to develop the intellectual & personal strengths of students. Pacific has an excellent track record of launching its student into successful careers which has been proved by our alumni  presently working in 150+ global and Indian super brands.
+        <br><br>
+        The Pacific Dental College has the reputation of being No. 1 in India owing to the fact that it holds highest turn-out in the OPD and maximum practical exposure to its students. The Pacific University has the best placement average in North India and pioneered new programmes that assure a high profile career and pride of practicing the highest rated profession.
+        
+    </p>
+<div id="footer">
+    <div id="part1"><img src="logo.jpeg" alt="" id="clg">
+       </div>
+    
+    <div id="part2"><p><h1>KNOWLEDGE CAMPUS OF HIGHER EDUCATION AND RESEARCH UNIVERSITY
+        UDAIPUR</h1><br> Pratapnagar Extn.,
+        Airport Road, Debari, <b>Udaipur - 313003</b> <
+        Research & PH.D: <b>+91 9672978030, +91 9672978032 <br>be>
+      
+        Landline No.: 02942665000</b> <br>
+        <br>
+        Email: <b>info@pacific-university.ac.in </b><br>
+        Website:<b> www.pacific-university.ac.in</b></p>
+        UG and PG Courses:<b> +91 9672970940, +91 7665017785,
+            +91 7665017787</b> <br><br>
+    </div>
+       
+</div>
+ 
+       
+        </div>
+</div></div>
+
+<div id="lp">
+    <center><h1>LogIn</h1></center>
+    <form class="verify">
+        <label >Id<br><input type="email"></label><br><br>
+        <label >Password<br><input type="password"></label><br><br>
+        <input class="sbtn" type="submit">
+        <span class="Close" onclick="closefunc()">&times;</span>
+    </form>
+
+</div>
+</body>
+</html>

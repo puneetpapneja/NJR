@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframe</title>
+    <script>
+        function change(){
+           document.getElementById("if").src="i1.jpg";
+        }
+    </script>
+</head>
+<body>
+    <iframe src="i2.jpg" frameborder="0" id="if" style="height: 500px; width:500px"></iframe>
+    <button onclick="change()">click</button>
+</body>
+</html>
