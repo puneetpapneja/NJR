@@ -1,12 +1,12 @@
-const express = require('express');
-const app = express();
-const jobRoutes = require('./routes/jobRoutes.js');
-
-app.use(express.json()); // Middleware for parsing JSON
-
-app.use('/api/jobs', jobRoutes);
-
-const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+const express=require("express");
+const {port}=require("./config");
+const jobRoutes = require('./Route/jobRoutes');
+const userRoute=require('./Route/userRoute');
+const db=require('./database');
+const app=express();
+const cors = require('cors');
+app.use(express.json());
+app.use(cors())
+app.use("/job",jobRoutes);
+app.use("/user",userRoute);
+app.listen(port,()=>console.log("service started on port:",port));

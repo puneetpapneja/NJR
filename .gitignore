@@ -1,13 +1,8 @@
-classroom/react/node_modules/
-<<<<<<< HEAD
-classroom/project/service
-
-
-practice/webapp/node_modules
-classroom/service/node_modules/
-=======
+practice/react/webapp/node_modules
+assignments/07.08.23/app/node_modules
+project/jobportal/node_modules
+classroom/react/node_modules
+project/service/node_modules
+classroom/project/service/node_modules/
 practice/webapp/node_modules/
-classroom/service/node_modules/
 
-classroom/project/service/node_modules
->>>>>>> origin/khushi-gahlot
