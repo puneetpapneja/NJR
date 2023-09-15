@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
 });
 
 const userCollection = mongoose.model("user",userSchema);
-
+ 
 module.exports = {
     create:(feilds)=>{
         const user = new userCollection(feilds);
@@ -22,5 +22,5 @@ module.exports = {
     deleteById:(id)=>userCollection.deleteOne({_id:id}),
     update:(id,fields)=>userCollection.updateOne({_id:id},fields),
     getByEmail:(email)=>userCollection.find({emailId:email}),
-    getUser:(email,password)=>userCollection.find({emailId:email,password:password})
+    getUser:(email,password)=>userCollection.find({emailId:email,password:password})    
 }
