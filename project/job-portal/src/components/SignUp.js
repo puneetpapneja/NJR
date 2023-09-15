@@ -143,7 +143,7 @@ function SignUp() {
           </div>
         </Form>
         <p className="mt-3 text-center">
-          Have an account? <Link to="/">Log in</Link>
+          Have an account? <Link to="/login">Log in</Link>
         </p>
       </div>
     </Container>

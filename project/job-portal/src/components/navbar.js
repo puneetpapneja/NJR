@@ -1,19 +1,27 @@
 // import Button from 'react-bootstrap/Button';
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Dropdown from 'react-bootstrap/Dropdown'
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useSelector } from "react-redux";
+import { recruiterMenu, seekerMenu } from "../utils/constants";
 
 function Navigation() {
     const navigate = useNavigate();
+
+    const hasRecruiter = useSelector(state => state?.user?.hasRecruiter)
+    const renderNavItems = () => {
+        const navItems = hasRecruiter ? recruiterMenu : seekerMenu;
+        return navItems?.map(item => <Nav.Link as={Link} to={item.path}>{item.name}</Nav.Link>)
+    }
+
     const handleLogout = () => {
         sessionStorage.removeItem("token");
-        navigate("/");
+        navigate("/login");
     };
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
@@ -26,12 +34,13 @@ function Navigation() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Link to="/dashboard" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link>
-                        <Link to="/jobs" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Jobs</Link>
+                        {/* <Link to="/dashboard" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Home</Link> */}
+                        <Nav.Link as={Link} to="/dashboard" className="me-3">Home</Nav.Link>
+                        {renderNavItems()}
+                        {/* <Link to="/jobs" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Jobs</Link>
                         <Link to="/postjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Post a Job</Link>
                         <Link to="/appliedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Applied Job</Link>
-                        <Link to="/postedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Posted Job</Link>
-                        {/* <Link to="/developers" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Developers</Link> */}
+                        <Link to="/postedjob" className="me-4" style={{ color: 'black', textDecoration: 'none' }}>Posted Job</Link> */}
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control

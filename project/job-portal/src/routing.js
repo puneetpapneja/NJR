@@ -1,19 +1,22 @@
-// import About from "./pages/";
 import PageLayout from "./components/PageLayout";
 import LoginPage from "./pages/loginpage";
 import SignUp from "./components/SignUp";
 import Dashboard from "./pages/dashboard";
 import PostJob from "./pages/post";
 import Apply from "./pages/apply";
-// import Login from "./components/Login";
-// import DeveloperPage from "./pages/candidatepage";
 import ProfilePage from "./pages/profilepage";
 import Posted from "./pages/posted";
 import JobPage from "./pages/jobpage";
-export const routing = [
+
+export const commonRoutes = [
 
   {
-    path: "/",
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+
+  {
+    path: "/login",
     element: <LoginPage />,
   },
 
@@ -22,16 +25,24 @@ export const routing = [
     element: <SignUp />,
   },
 
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
+];
 
+export const recruiterRoutes = [
+  ...commonRoutes,
   {
     path: "/postjob",
     element: <PostJob />,
   },
 
+  {
+    path: "/postedjob",
+    element: <Posted />,
+  },
+
+];
+
+export const seekerRoutes = [
+  ...commonRoutes,
   {
     path: "/appliedjob",
     element: <Apply />,
@@ -42,21 +53,12 @@ export const routing = [
     element: <JobPage />,
   },
 
-  {
-    path: "/postedjob",
-    element: <Posted />,
-  },
-
-  {
-    path: "/profile",
-    element: <ProfilePage />,
-  },
 ];
 
-export const routes = [
+export const getRoutes = (hasRecruiter) => [
   {
     path: "/",
     element: <PageLayout />,
-    children: routing,
+    children: hasRecruiter ? recruiterRoutes : seekerRoutes
   },
 ];

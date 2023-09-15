@@ -10,14 +10,17 @@ const PageLayout = () => {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (!getSession()) {
-      navigate("/");
+    if (!getSession()) 
+    {
+      return (
+        navigate("/login")
+      );
     }
-  }, []);
+  }, [navigate]);
 
   return (
     <React.Fragment>
-      <Container fluid>
+      <Container fluid className="px-0 mx-0">
         <Row>
           <Col>{getSession() ? <Navigation /> : null}</Col>
         </Row>
