@@ -1,65 +1,34 @@
-import { Container, Form, } from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-// import { Link } from 'react-router-dom';
-import React from 'react';
-const appliedjob = () => {
-
-    return (
-        <Container>
-            <Form className="w-100 p-10" >
-                <h1>Applied Job</h1>
-                <Card style={{ width: '79rem' }}>
-                    <Card.Body>
-                        <Card.Title>Senior Developer <div className='float-end'>1 day ago</div></Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">abc@gmail.com</Card.Subtitle>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                            <span className='float-end'>Applied</span>
-                        </Card.Text>
-                    </Card.Body>
-                </Card>
-
-                <Card style={{ width: '79rem' }}>
-                <Card.Body>
-                <Card.Title>Full stack Developer <div className='float-end'>1 day ago</div></Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">abc@gmail.com</Card.Subtitle>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                            <span className='float-end'>Applied</span>
-                        </Card.Text>
-                </Card.Body>
-
-                </Card>
-
-                <Card style={{ width: '79rem' }}>
-                <Card.Body>
-                <Card.Title>Full stack Developer <div className='float-end'>1 day ago</div></Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">abc@gmail.com</Card.Subtitle>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content. Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                            <span className='float-end'>Applied</span>
-                        </Card.Text>
-                </Card.Body>
-
-                </Card>
-
-            </Form>
-        </Container>
-    )
+import React, { useEffect } from "react";
+import { Container, Row } from "react-bootstrap";
+import JobDescStruct from "./JobsDesc";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllJobs, reset } from "../store/reducers/JobSlice";
+export default function Jobs(){
+    const jobs = useSelector(state=>state?.job?.jobs);
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getAllJobs());
+    },[dispatch])
+    useEffect(()=>{
+        return()=>{
+            dispatch(reset())
+        }
+    },[dispatch])
+    const renderJobs=()=>{
+        return jobs.map(job=>{
+            return(
+                <Row className="mt-4">
+                    <JobDescStruct props={job} />
+                </Row>
+            );
+        })
+    }
+    return(
+      <Container className="my-3">
+            <Row className="ms-5">
+                <h1 style={{fontSize:"3em"}}>Jobs</h1>
+            </Row>
+            {renderJobs()}
+      </Container>  
+    );
 }
-export default appliedjob;

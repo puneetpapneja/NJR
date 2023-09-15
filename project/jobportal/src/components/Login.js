@@ -1,79 +1,105 @@
-import { Container, Form, Button} from 'react-bootstrap';
-import { Link , useNavigate} from 'react-router-dom';
-import React ,{useEffect}from 'react';
-import {useDispatch , useSelector} from 'react-redux';
-import { loginValid } from '../store/reducers/userSlice';
-import * as formik from 'formik';
-
-const Login = () => {
-    const { Formik } = formik;
-    const dispatch = useDispatch();
+import {Form,Button,Container,Row, Alert, Col} from 'react-bootstrap';
+import { setSession } from '../utils/utils';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginValidation } from '../store/reducers/userregisterSlice';
+export default function Login(){
+    const [email,setEmail]=useState("Enter your Email");
+    const [password , setPassword] = useState("Enter the password");
+    const [passwordError, setPasswordError] = useState("");
+    const [emailError,setEmailError]=useState("");
+    const [validError,setValidError]=useState("");
+    const status = useSelector(state=>state?.user?.isvalidUser);
+    useEffect(()=>{
+        if(status){
+            setSession("isvaliduser");
+            navigate("/");
+        }
+    },[status])
     const navigate = useNavigate();
-    const valid = useSelector(state=>state?.user?.isvalidUser);
-    useEffect(()=> {
-      if(valid){
-        navigate("/dashboard")
-        
-      }
-    })
-    return (
-      <Container className="d-flex justify-content-sm-center">
-             <div className="w-25 p-1" >
-              <div className="shadow-sm p-3 mb-5 bg-white rounded">
-          <h2 className="mb-10 text-md-center">Login</h2>
-          <Formik
-          initialValues={{ emailId: '', password: '' }}
-          onSubmit={(values, { setSubmitting }) => {
-            dispatch(loginValid({emailId:values.emailId, password:values.password}));
-          }}
-           >
-            {({ handleSubmit, handleChange, handleBlur, values}) => (
-               <Form  noValidate onSubmit={handleSubmit}>
-               <Form.Group controlId="formBasicEmail">
-                 <Form.Label>Email address</Form.Label>
-                 <Form.Control 
-                 type="email"
-                  name="emailId"
-                   placeholder="Enter email"
-                   onChange={handleChange}
-                   onBlur={handleBlur}
-                   value={values.emailId}
-                  />
-               </Form.Group>
-     
-               <Form.Group controlId="formBasicPassword">
-                 <Form.Label>Password</Form.Label>
-                 <Form.Control type="password" name="password" 
-                 placeholder="Password" 
-                
-                   onChange={handleChange}
-                   onBlur={handleBlur}
-                   value={values.password}
-                 />
-                 <Form.Text muted>
-                   Password must be at least 8 characters long.
-                 </Form.Text>
-               </Form.Group>
-               <div className="mt-3 text-center">
-           <Link to="/register"> Don't have an account? Register</Link>
-          </div>
-               <div className=" mx-auto">
-               <Button  variant="dark" type="submit" className="btn btn-dark">
-                 Login
-               </Button>
-               </div>
-             </Form>
-            )}
-  
-  
-           </Formik>
-         
-  
-          
-          </div>
-        </div>
-      </Container>
-    );
-  }
-
-export default Login;
+    const dispatch = useDispatch();
+    const isValidEmail = (email) => {
+    return email.includes('@gmail.com');
+    }
+    const isValidPassword = (password) => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*]/.test(password);
+    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
+  };
+    const Handleclick = (event) =>{
+         if(!email || !isValidEmail(email)){
+            event.preventDefault();
+            setEmailError("*invalid email format");
+            return;
+        }
+         if(!password || !isValidPassword(password)){
+            event.preventDefault();
+            setPasswordError("*Password must contain one capital,one special symbol");
+            return;
+        }
+        dispatch(loginValidation({emailId:email,password:password}))
+        if(!status)
+        {
+            event.preventDefault();
+            setValidError("Invalid user");
+        }
+        else{
+            setValidError("");
+            setSession("logged in");
+            navigate("/");
+        }
+  };
+    return(
+        <Container>
+            <Form as={Col} sm="12" md="5" className='mx-auto'  style={{border:"2px solid",padding:"20px 70px",marginTop:"60px",boxShadow:"3px 4px 4px 0.5px black"}}>
+                <Row>
+                    <h1 className='text-center my-5'>Login</h1>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Email Address</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text' 
+                            value={email}
+                            onChange={(e)=>{
+                                                setEmail(e.target.value);
+                                                setEmailError("");
+                                            }
+                                    }
+                            className='mb-3'
+                        />
+                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className='my-3'>Password</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type='text'
+                            value={password} 
+                            onChange={(e)=>{
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                        }
+                            }
+                        />
+                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Container className='float-start mb-3 mt-3'>
+                    <Button variant='link' as={Link} to="/register">Don't have an account? Register Now</Button>
+                    </Container>
+                </Row>
+                <Row>
+                    {validError && <Alert variant='danger'>{validError}</Alert>}
+                    <Button type='submit' variant='primary' onClick={Handleclick} style={{width:"100px",marginLeft:"20px"}}>Login</Button>
+                </Row>
+            </Form>
+        </Container>
+    )
+}

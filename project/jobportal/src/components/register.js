@@ -1,130 +1,166 @@
-import { Container, Form, Button, Alert} from 'react-bootstrap';
-import Card from 'react-bootstrap/Card';
-import {Link ,useNavigate} from 'react-router-dom';
-import React ,{ useState } from 'react';
- import { useDispatch,useSelector } from 'react-redux';
-import { registerdata } from '../store/reducers/userSlice';
-
-
-const Register = ()=>{
-  const regdata = useSelector(state => state?.users?.error);
-  const dispatch = useDispatch();
-  const [emailError,setEmailError] = useState('');
-  const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const [password,setPassword] =useState('');
-  const [passwordError,setPasswordError]=useState('');
-  const passwordRegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
-  const [role,setRole] = useState(''); 
-  const [roleError,setRoleError]=useState('');
-  const [companyName,setcompanyName] =useState('');
-  const navigate = useNavigate();
-  const [compError,setCompError]=useState('');
-const [email,setEmail]=useState('')
-
-function handelsubmit(event){
-  if(!email || !emailRegExp.test(email))
-  {
-      event.preventDefault();
-      setEmailError("*invalid email format");
-      return;
-  }
-  if(!password || !passwordRegExp.test(password)){
-      event.preventDefault();
-      setPasswordError("*Password must have :-  A capital letter. A small case letter. A number . And minimum length is 8!");
-      return;
-  }
-  if(!role)
-  {
-      event.preventDefault();
-      setRoleError("*select a role");
-      return;
-  }
-  if(role === "Job Recruiter" && !companyName)
-  {
-      event.preventDefault();
-      setCompError("*required");
-      return;
-  }
-  if(role === "Job Seeker" && companyName)
-  {
-      event.preventDefault();
-      setCompError("*not required");
-      return;
-  }
-event.preventDefault()
-  const data = {emailId:email,password:password,type:role,companyName:companyName};
-  console.log(data);
-  dispatch(registerdata(data));
-  if(regdata!==""){
+import { Form,Button,Container,Row, Col,Alert } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../store/reducers/userregisterSlice";
+export default function Register(){
+    const navigate = useNavigate();
+    const err = useSelector(state=>state?.user?.Error);
+    const dispatch = useDispatch();
+    const [email,setEmail]=useState("");
+    const [emailError,setEmailError] = useState("");
+    const [password,setPassword]=useState("");
+    const [passwordError,setPasswordError]=useState("");
+    const [role,setRole]=useState("");
+    const [roleError,setRoleError]=useState("");
+    const [comp,setComp]=useState("d-none");
+    const [compError,setCompError]=useState("");
+    const [company,setCompany]=useState("");
+    const Handelclick= (event) =>{
+        if(!email || !isValidEmail(email))
+        {
+            event.preventDefault();
+            setEmailError("must contain @gmail.com");
+            return;
+        }
+        if(!password || !isValidPassword(password)){
+            event.preventDefault();
+            setPasswordError("*Password must contain one capital,one special symbol");
+            return;
+        }
+        if(!role)
+        {
+            event.preventDefault();
+            setRoleError("*select a role");
+            return;
+        }
+        if(role === "Job Recruiter" && !company)
+        {
+            event.preventDefault();
+            setCompError("*required");
+            return;
+        }
+        const data = {emailId:email,password:password,type:role,companyName:company};
+        console.log(data);
+        dispatch(registerUser(data));
+        if(!err){
             navigate("/login");
         }
     }
-
-  
-  
-
-return (
-<Container className="d-flex justify-content-sm-center">
-<Form onSubmit={(e)=>{handelsubmit(e)}} className="w-25 p-3" >
-<div className="shadow-sm p-3 mb-5 bg-white rounded">
-  <div><h1 className="d-flex justify-content-center">Register</h1></div>
-
-<Form.Group className="mb-3" >
-  <Form.Label>Email Address</Form.Label>
-  <input type='text' onChange={(e)=>{setEmail(e.target.value)}}></input>
-  {emailError && <Alert variant='danger'>{emailError}</Alert>}
-</Form.Group>
-
-<Form.Group className="mb-3" >
-  <Form.Label>Enter Password</Form.Label>
-  <input type='text' onChange={(e)=>{setPassword(e.target.value)}}></input>
-  {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
-</Form.Group>
-
-
-
-  
-
-  <Form.Group>
-  <div className="form-check">
-    <label className="form-check-label" htmlFor="flexRadioDefault1">
-      Job Seeker
-      <input className="form-check-input" type="radio" name="flexRadioDefault" id="Job seeker" value={"Job Seeker"} onChange={(e)=>{setRole(e.target.value)}} />
-    </label>
-  </div>
-  <div className="form-check">
-    <label className="form-check-label" htmlFor="flexRadioDefault2">
-      Job Recruiter
-      <input className="form-check-input" type="radio" name="flexRadioDefault" id="Job recruiter" value={"Job Recruiter"} onChange={(e)=>{setRole(e.target.value)}} />
-    </label>
-  </div>
-  {roleError && <Alert variant="danger">{roleError}</Alert>}
-</Form.Group>
-<Form.Group></Form.Group>
-
-     <Form.Group className="mb-3">
-    <Form.Label>Company Name</Form.Label>
-    <input type='text' onChange={(e)=>{setcompanyName(e.target.value)}} placeholder='Only for Job Recruiters'></input>
-    {compError &&  <Alert variant="danger">{compError}</Alert>}
-  </Form.Group>
-
-  <Form.Group className="mb-3">
-     <Form.Text className="text-muted">
-     <Card.Link as={Link} to="/">Have a account?Login Now</Card.Link>
-     </Form.Text>
-  </Form.Group>
-
-  <div class=" mx-auto">
-  <Button variant="dark" type="submit" class="btn btn-dark">
-    Register
-  </Button>
-  </div> 
-
-
- 
-  </div>
-</Form>
-</Container>
-)
+      const isValidEmail = (email) => {
+    return email.includes('@gmail.com');
+  };
+  const isValidPassword = (password) => {
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecialChar = /[!@#$%^&*]/.test(password);
+    return password.length >= 8 && hasCapitalLetter && hasNumber && hasSpecialChar;
+  };
+    return(
+        <Container>
+            <Form as={Col} md="5" sm="12" className="mx-auto"  style={{border:"2px solid",padding:"20px 70px",marginTop:"60px",boxShadow:"3px 4px 4px 0.5px black"}}>
+                <Row>
+                    <h1 className="text-center my-5">Register</h1>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className="my-3">Email Address</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type="text"
+                            value={email}
+                            onChange={(e)=>{
+                                    setEmail(e.target.value);
+                                    setEmailError("");
+                                }
+                            }
+                        />
+                        {emailError && <Alert variant='danger'>{emailError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                    <Form.Group>
+                        <Form.Label className="my-3 mt">Password</Form.Label>
+                        <br />
+                        <Form.Control 
+                            type="text"
+                            value={password}
+                            onChange={
+                                (e)=>{
+                                    setPassword(e.target.value);
+                                    setPasswordError("");
+                                }
+                            }
+                        />
+                        {passwordError && <Alert variant='danger'>{passwordError}</Alert>}
+                    </Form.Group>
+                </Row>
+                <Row>
+                <br />
+                </Row>
+                <Row>
+                        <Col>
+                            <Form.Check 
+                                type="radio" 
+                                label="Job Seeker" 
+                                name ="role" 
+                                id='Job-Seeker' 
+                                value="Job Seeker" 
+                                checked={role === "Job Seeker"}
+                                onChange={
+                                    (e)=>{
+                                        setRole(e.target.value);
+                                        setRoleError("");
+                                        setComp("d-none")
+                                    }
+                                }
+                            />
+                        </Col>
+                        <Col>
+                            <Form.Check 
+                                type="radio" 
+                                label="Job Recruiter" 
+                                name ="role" 
+                                id='Job-Recruiter' 
+                                value="Job Recruiter" 
+                                checked={role === "Job Recruiter"}
+                                onChange={
+                                    (e)=>{
+                                        setRole(e.target.value);
+                                        setRoleError("");
+                                        setComp("d-block")
+                                    }
+                                }
+                            />
+                        </Col>
+                        {roleError && <Alert variant="danger">{roleError}</Alert>}
+                </Row>
+                <Row className={comp}>
+                    <Form.Group>
+                        <Form.Label className="my-3">Enter the Company Name </Form.Label>
+                        <Form.Control 
+                            type="text"
+                            value={company}
+                            onChange={
+                                (e)=>{
+                                    setCompany(e.target.value);
+                                    setCompError("");
+                                }
+                            }
+                        />
+                    </Form.Group>
+                    {compError &&  <Alert variant="danger">{compError}</Alert>}
+                </Row>
+                <Row>
+                    <Container className="float-start mb-3">
+                        <Button variant="link"as={Link} to="/login">Already have an account? Login Now</Button>
+                    </Container>
+                </Row>
+                <Row>
+                    {err && <Alert variant="danger">{err}</Alert>}
+                    <Button type="Submit" variant="primary" onClick={Handelclick} style={{width:"100px",marginLeft:"20px"}}>Register</Button>
+                </Row>
+            </Form>
+        </Container>
+    );
 }
-export default Register;

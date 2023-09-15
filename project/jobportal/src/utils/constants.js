@@ -1,10 +1,8 @@
 export const API_URL = "http://localhost:5000/";
-export const JOB_SEEKER = "Job Seeker"
-export const JOB_RECURITER = "Job Recruiter"
 
 export const seekerMenu = [
     {
-        path:"/applyjob",
+        path:"/Job",
         name:"Jobs"
     },
     {
@@ -22,4 +20,4 @@ export const recruiterMenu = [
         path:"/postedjob",
         name:"Posted Job"
     }
-    ]
+]
