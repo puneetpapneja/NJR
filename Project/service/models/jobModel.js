@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const jobSchema = mongoose.Schema({
   jobTitle: String,
-  description: String,
+  jobDescription: String,
   maxSalary: String,
   companyName: String,
-  recruiterDetails: {
+  recuriterDtl: {
     name: String,
     emailId: String,
     contactNo: String,
@@ -20,6 +20,6 @@ module.exports = {
     return job.save();
   },
   getAll: () => jobCollection.find(),
-  deleteById: (id) => jobCollection.deleteOne({ _id: id }),
+  deleteById: (jobid) => jobCollection.deleteOne({ _id: jobid }),
   update: (id, fields) => jobCollection.updateOne({ _id: id }, fields),
 };
