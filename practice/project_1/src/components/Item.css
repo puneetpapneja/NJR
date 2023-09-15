@@ -1,8 +1,0 @@
-.column{
-    flex: 33.33%;
-    height: 200px;
-    text-align: center;
-}
-.container{
-    display: flex;
-}
