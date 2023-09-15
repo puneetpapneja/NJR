@@ -2,17 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { API_URL, JOB_RECURITER, JOB_SEEKER } from "../../utils/constants";
 const initialState = {
-  isValidUser: false,
   hasRecuriter: false,
   isLoading: false,
   doneRegister: false,
 };
-
+const initialState1 = {
+  isValidUser: false,
+};
 export const validateUser = createAsyncThunk(
   "user/validateUser",
   async (params, thunkAPI) => {
     try {
       const response = await axios.post(`${API_URL}user/validateUser`, params);
+
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data);
@@ -40,7 +42,9 @@ export const users = createAsyncThunk(
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    resetisvalid: () => initialState1,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(createuser.pending, (state) => {
@@ -69,3 +73,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice.reducer;
+export const { resetisvalid } = userSlice.actions;

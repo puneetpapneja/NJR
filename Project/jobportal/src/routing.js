@@ -10,6 +10,7 @@ import Profile from "./components/profile";
 import Jobs from "./components/jobs";
 
 export const routing = [
+  { path: "/", element: <Register /> },
   { path: "/dashboard", element: <Dashbody /> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },

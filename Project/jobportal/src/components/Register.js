@@ -21,7 +21,7 @@ function Register() {
 
   console.log("userExist", userExist);
   function changepath() {
-    Navigate("/");
+    Navigate("/login");
   }
 
   const { Formik } = formik;
