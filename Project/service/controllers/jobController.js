@@ -38,7 +38,7 @@ module.exports = {
       .then((updatedJob) =>
         res.send({
           status: "ok",
-          msg: "User updated successfully.",
+          msg: "Job updated successfully.",
           updatedJob: updatedJob,
         })
       )

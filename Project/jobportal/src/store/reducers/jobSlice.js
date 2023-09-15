@@ -6,16 +6,16 @@ const initialState = {
   isLoading: false,
 };
 export const users = createAsyncThunk(
-  "users/create",
+  "jobs/create",
   async (params, thunkAPI) => {
-    return axios.post(`${API_URL}user/create`, params);
+    return axios.post(`${API_URL}jobs/create`, params);
   }
 );
 
 export const getAllJobs = createAsyncThunk(
   "jobs/getAll",
   async (params, thunkAPI) => {
-    return axios.get(`${API_URL}job/getAll`);
+    return axios.get(`${API_URL}jobs/getAll`);
     //axios.post("",params);
   }
 );
