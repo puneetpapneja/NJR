@@ -10,13 +10,24 @@ function Home() {
   const itemsPerPage = 10;
 
   useEffect(() => {
-    fetch('http://localhost:5000/getpostdata')
-      .then((res) => res.json())
+    fetch('https://majeback.onrender.com/getpostdata', {
+      mode: 'cors',
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
       .then((data) => {
         console.log(data);
         setPostData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
       });
   }, []);
+  
 
   const handleSearch = (term) => {
     setSearchTerm(term);
@@ -78,8 +89,7 @@ function Home() {
             <Link to={items.link} key={items._id}>
               <div className="col">
                 <div className="card">
-                  <img src={`http://localhost:5000/${items.image}`} className="card-img-top" alt="..." />
-                  <div className="card-body">
+                <img src={items.imageUrl} className="card-img-top" alt="..." />                  <div className="card-body">
                     <h5 className="card-title">Video No: {items.videoNo}</h5>
                     <span><i className="bi bi-eye-fill"></i> {items.views}k</span>
                   </div>

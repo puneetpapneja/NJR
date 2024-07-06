@@ -22,13 +22,16 @@ let storage = multer.diskStorage({
   });
 
 
+  router.get('/',(req,res)=>{
+    res.send("hello arjun")
+  })
 
-router.post("/postdata",upload.single('image'),cAPi.data)
+router.post("/postdata",cAPi.data)
 
 router.get('/getpostdata',cAPi.getpostdata)
 
+router.delete('/deletepost/:id',cAPi.deletepost)
 
-
-
+router.put('/updatepost/:postId', cAPi.updatepost);
 
 module.exports = router

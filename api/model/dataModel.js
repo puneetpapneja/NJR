@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 const mongoSchema=mongoose.Schema({
-    image:String,
+    imageUrl:String,
     videoNo:String,
     views:Number,
     link:String
